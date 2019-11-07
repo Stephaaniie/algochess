@@ -1,7 +1,7 @@
 package fiuba.algo3.AlgoChess;
 
 import java.util.ArrayList;
-
+/*
 public class Sector {
 	ArrayList<Casillero> casilleros = new ArrayList<Casillero>();
 	Jugador jugadorSector;
@@ -13,7 +13,7 @@ public class Sector {
 	public void agregarJugador(Jugador jugador) {
 		this.jugadorSector = jugador;
 	}
-/*
+
 	public void agregarContenidoEnCasillero(Jugador jugador, Object contenido, int fila, int columna) {
 		if(jugador != jugadorSector) throw new ColocaUnidadEnSectorEnemigoExcepcion;
 		int i = 0;
