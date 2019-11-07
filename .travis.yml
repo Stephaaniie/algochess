@@ -5,11 +5,5 @@ jdk:
 script:
     - mvn clean package
 
-notificatios:
-  email:
-    recipients:
-      - afraccaro@fi.uba.ar
-      on_failure: always
-
 after_success:
   - bash <(curl -s https://codecov.io/bash)
