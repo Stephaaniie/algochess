@@ -5,18 +5,18 @@ import java.util.List;
 
 public class Sector {
 	List<Casillero> casilleros = new ArrayList<Casillero>();
-	Jugador jugadorSector;
 
 	public void agregarCasillero(Casillero casillero) {
 		casilleros.add(casillero);
 	}
-
+	/*
 	public void agregarJugador(Jugador jugador) {
-		this.jugadorSector = jugador;
+		this.jugador = jugador;
+
 	}
-/*
+
 	public void agregarContenidoEnCasillero(Jugador jugador, Object contenido, int fila, int columna) {
-		if(jugador != jugadorSector) throw new ColocaUnidadEnSectorEnemigoExcepcion;
+		if(this.jugador != jugador) throw new ColocaUnidadEnSectorEnemigoExcepcion;
 		int i = 0;
 		boolean encontrado = false;
 		Casillero casillero = null;
@@ -30,7 +30,7 @@ public class Sector {
 			casillero.agregarContenido(contenido);
 		}
 		
-		
-	}*/
+		*/
+	
 
 }

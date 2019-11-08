@@ -1,9 +1,7 @@
 package fiuba.algo3.AlgoChess;
-
-import org.junit.Assert;
 import org.junit.Test;
-
-
+import static org.junit.Assert.*;
+import fiuba.algo3.AlgoChess.*;
 public class TableroTest {
 
 	@Test
@@ -13,7 +11,7 @@ public class TableroTest {
 
 		Tablero nuevoTablero = new Tablero(jugador1, jugador2);
 
-		Assert.assertEquals(0, nuevoTablero.getCantidadEntidades());
+		assertEquals(0, nuevoTablero.getCantidadEntidades());
 	}
 /*
 	@Test

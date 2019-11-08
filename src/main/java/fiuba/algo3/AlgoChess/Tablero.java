@@ -3,7 +3,7 @@ package fiuba.algo3.AlgoChess;
 import java.util.ArrayList;
 
 public class Tablero {
-
+/*
 	private int cantidadEntidades = 0;
 	private int cantidadFilas = 20;
 	private int cantidadColumas = 20;
@@ -29,6 +29,7 @@ public class Tablero {
 	public int getCantidadEntidades() {
 		return cantidadEntidades;
 	}
+	*/
 /*
 	public void agregarContenidoEnCasillero(Jugador jugador, Object contenido, int fila, int columna) {
 		if (fila < cantidadFilas / 2) {

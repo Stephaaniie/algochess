@@ -2,7 +2,7 @@ package fiuba.algo3.AlgoChess;
 
 import fiuba.algo3.AlgoChess.excepciones.*;
 
-public class Curandero implements EntidadCuradora {
+public class Curandero {
 
 	private Casillero posicion;
 
@@ -31,8 +31,8 @@ public class Curandero implements EntidadCuradora {
 		return this.costo;
 	}
 
-	@Override
-	public void curarEntidad(EntidadMovil entidadACurar) throws CuranderoCuraHastaLaMaximaVidaExcepcion {
+	public void curarEntidad(EntidadMovil entidadACurar) 
+			throws CuranderoCuraHastaLaMaximaVidaExcepcion {
 
 		entidadACurar.reponerVida(curacion);
 	}
@@ -42,7 +42,8 @@ public class Curandero implements EntidadCuradora {
 		this.vida -= tipoDeDanio;
 	}
 
-	public void reponerVida(int curacion) throws CuranderoCuraHastaLaMaximaVidaExcepcion{
+	public void reponerVida(int curacion) 
+			throws CuranderoCuraHastaLaMaximaVidaExcepcion{
 
 		if ((this.vida += curacion) > VIDAINICIAL){
 
