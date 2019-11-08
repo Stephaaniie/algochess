@@ -10,7 +10,6 @@ public class Jinete implements EntidadMovil {
 	private int danioADistancia = 15;
 	private int vida = VIDAINICIAL;
 	private int costo = 3;
-	private Distancia calculadorDistancia = new Distancia();
 
 	public Jinete(String bando, Casillero casillero) {
 		this.bando = bando;

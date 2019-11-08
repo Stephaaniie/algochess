@@ -8,7 +8,10 @@ public class TableroTest {
 	
 	@Test
 	public void seCreaTableroVacio() {
+<<<<<<< HEAD
 		
+=======
+>>>>>>> ramaEnLaQueTrabajareLoDeDistancia,Ataque,Catapulta
 	}
 	/*
 	@Test
