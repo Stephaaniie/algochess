@@ -4,8 +4,6 @@ import static org.junit.Assert.assertNotEquals;
 
 import org.junit.Test;
 
-import fiuba.algo3.AlgoChess.excepciones.NoPuedeExistirLaMismaPosicion;
-
 public class PosicionTest {
 	
 	@Test 
