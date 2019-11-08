@@ -1,6 +1,8 @@
 package fiuba.algo3.AlgoChess;
-import org.junit.Assert;
+
 import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
 
@@ -12,8 +14,8 @@ public class CuranderoTest {
 		Casillero casillero = new Casillero(5, 2);
 
 		Curandero curandero = new Curandero("aliado", casillero);
-
-		Assert.assertNotEquals(null, curandero);
+		
+		assertNotEquals(null, curandero);
 	}
 
 	@Test
@@ -31,7 +33,7 @@ public class CuranderoTest {
 
 		curandero.curarEntidad(soldado);
 
-		Assert.assertEquals(95, soldado.getVida());
+		assertEquals(95, soldado.getVida());
 	}
 	
 	@Test
@@ -49,7 +51,7 @@ public class CuranderoTest {
 
 		curandero.curarEntidad(jinete);
 
-		Assert.assertEquals(85, jinete.getVida());
+		assertEquals(85, jinete.getVida());
 	}
 	
 	@Test
@@ -63,7 +65,7 @@ public class CuranderoTest {
 		
 		curandero.reponerVida(curandero.curacion);
 
-		Assert.assertEquals(65, curandero.getVida());
+		assertEquals(65, curandero.getVida());
 	}
 
 }

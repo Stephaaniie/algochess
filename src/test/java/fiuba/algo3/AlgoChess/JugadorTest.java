@@ -1,7 +1,8 @@
 package fiuba.algo3.AlgoChess;
 
-import org.junit.Assert;
 import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 public class JugadorTest {
 
@@ -10,7 +11,7 @@ public class JugadorTest {
 
 		Jugador nuevoJugador = new Jugador("pedro");
 
-		Assert.assertEquals(false, nuevoJugador.tieneEntidades());
+		assertEquals(false, nuevoJugador.tieneEntidades());
 	}
 
 	@Test
@@ -18,7 +19,7 @@ public class JugadorTest {
 
 		Jugador nuevoJugador = new Jugador("pedro");
 
-		Assert.assertEquals(20, nuevoJugador.cantidadDePuntosActual());
+		assertEquals(20, nuevoJugador.cantidadDePuntosActual());
 	}
 
 	@Test
@@ -32,7 +33,7 @@ public class JugadorTest {
 
 		nuevoJugador.descontarPuntos(soldado.getCosto());
 
-		Assert.assertEquals(19, nuevoJugador.cantidadDePuntosActual());
+		assertEquals(19, nuevoJugador.cantidadDePuntosActual());
 	}
 
 	@Test
@@ -46,7 +47,7 @@ public class JugadorTest {
 
 		nuevoJuego.descontarPuntos(jinete.getCosto());
 
-		Assert.assertEquals(17, nuevoJuego.cantidadDePuntosActual());
+		assertEquals(17, nuevoJuego.cantidadDePuntosActual());
 	}
 
 	@Test
@@ -59,7 +60,7 @@ public class JugadorTest {
 
 		nuevoJugador.descontarPuntos(curandero.getCosto());
 
-		Assert.assertEquals(18, nuevoJugador.cantidadDePuntosActual());
+		assertEquals(18, nuevoJugador.cantidadDePuntosActual());
 	}
 
 	@Test
@@ -72,7 +73,7 @@ public class JugadorTest {
 
 		nuevoJugador.descontarPuntos(catapulta.getCosto());
 
-		Assert.assertEquals(15, nuevoJugador.cantidadDePuntosActual());
+		assertEquals(15, nuevoJugador.cantidadDePuntosActual());
 	}
 
 	@Test
@@ -86,14 +87,14 @@ public class JugadorTest {
 
 		nuevoJugador.descontarPuntos(catapulta.getCosto());
 
-		Assert.assertEquals(true, nuevoJugador.tieneEntidades());
+		assertEquals(true, nuevoJugador.tieneEntidades());
 	}
 
 	@Test
 	public void jugadorSinEntidadesEsPerdedor() {
 		Jugador nuevoJugador = new Jugador("pedro");
 
-		Assert.assertEquals(true, nuevoJugador.esPerdedor());
+		assertEquals(true, nuevoJugador.esPerdedor());
 	}
 
 	@Test
@@ -117,6 +118,6 @@ public class JugadorTest {
 
 		nuevoJugador.descontarPuntos(soldado.getCosto());
 
-		Assert.assertEquals(false, nuevoJugador.puedeCargarMasEntidades());
+		assertEquals(false, nuevoJugador.puedeCargarMasEntidades());
 	}
 }

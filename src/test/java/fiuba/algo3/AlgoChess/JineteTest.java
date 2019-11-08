@@ -1,7 +1,8 @@
 package fiuba.algo3.AlgoChess;
 
-import org.junit.Assert;
 import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
 
@@ -13,7 +14,7 @@ public class JineteTest {
 		Jinete jinete = new Jinete("aliado", casillero);
 		jinete.reponerVida(15);
 
-		Assert.assertEquals(100, jinete.getVida());
+		assertEquals(100, jinete.getVida());
 	}
 
 	@Test
@@ -22,7 +23,7 @@ public class JineteTest {
 		Jinete jinete = new Jinete("aliado", casillero);
 		jinete.restarVida(20);
 
-		Assert.assertEquals(80, jinete.getVida());
+		assertEquals(80, jinete.getVida());
 	}
 
 	@Test
@@ -30,6 +31,6 @@ public class JineteTest {
 		Casillero casillero = new Casillero(8, 1);
 		Jinete jinete = new Jinete("aliado", casillero);
 
-		Assert.assertEquals(false, jinete.enemigosCerca());
+		assertEquals(false, jinete.enemigosCerca());
 	}
 }

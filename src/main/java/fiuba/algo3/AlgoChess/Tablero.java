@@ -1,8 +1,10 @@
 package fiuba.algo3.AlgoChess;
 
-import java.util.ArrayList;
-
 public class Tablero {
+
+	public Object getCantidadEntidades() {
+		return null;
+	}
 /*
 	private int cantidadEntidades = 0;
 	private int cantidadFilas = 20;
