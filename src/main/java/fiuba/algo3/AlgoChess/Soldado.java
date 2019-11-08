@@ -12,7 +12,6 @@ public class Soldado implements EntidadMovil {
 	private int danioADistancia = 0;
 	private int vida = VIDAINICIAL;
 	private int costo = 1;
-	private Distancia calculadorDistancia = new Distancia();
 
 	public Soldado(String bando, Casillero casillero) {
 		this.bando = bando;

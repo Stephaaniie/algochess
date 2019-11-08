@@ -17,7 +17,8 @@ public class CuranderoTest {
 	}
 
 	@Test
-	public void seCuraUnSoldadoAlDecrementarLaVida() throws CuranderoCuraHastaLaMaximaVidaExcepcion{
+	public void seCuraUnSoldadoAlDecrementarLaVida() 
+			throws CuranderoCuraHastaLaMaximaVidaExcepcion{
 
 		Casillero casillero = new Casillero(5, 2);
 
@@ -35,7 +36,8 @@ public class CuranderoTest {
 	}
 	
 	@Test
-	public void seCuraAUnJineteCuandoSeLeDecrementaLaVida()throws CuranderoCuraHastaLaMaximaVidaExcepcion{
+	public void seCuraAUnJineteCuandoSeLeDecrementaLaVida()
+		throws CuranderoCuraHastaLaMaximaVidaExcepcion{
 
 		Casillero casillero = new Casillero(5, 2);
 
@@ -53,7 +55,8 @@ public class CuranderoTest {
 	}
 	
 	@Test
-	public void seCuraUnCuranderoASiMismo() throws CuranderoCuraHastaLaMaximaVidaExcepcion {
+	public void seCuraUnCuranderoASiMismo() 
+		throws CuranderoCuraHastaLaMaximaVidaExcepcion {
 
 		Casillero casillero = new Casillero(5, 2);
 
