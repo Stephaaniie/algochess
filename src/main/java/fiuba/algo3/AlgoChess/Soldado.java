@@ -2,13 +2,15 @@ package fiuba.algo3.AlgoChess;
 
 import java.util.ArrayList;
 
-public class Soldado implements EntidadMovil {
+import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
 
+public class Soldado implements EntidadMovil {
+	private final int VIDAINICIAL = 100;
 	private String bando = new String();
 	private Casillero posicion;
 	private int danioACuerpo = 10;
 	private int danioADistancia = 0;
-	private int vida = 100;
+	private int vida = VIDAINICIAL;
 	private int costo = 1;
 	private Distancia calculadorDistancia = new Distancia();
 
@@ -52,8 +54,14 @@ public class Soldado implements EntidadMovil {
 	}
 
 	@Override
-	public void reponerVida(int curacion) {
-		this.vida += curacion;
-	}
+	public void reponerVida(int curacion) throws CuranderoCuraHastaLaMaximaVidaExcepcion{
 
+		if ((this.vida += curacion) > VIDAINICIAL){
+
+			this.vida = VIDAINICIAL;
+
+			new CuranderoCuraHastaLaMaximaVidaExcepcion("El curandero ya tiene el valor maximo de vida");
+
+		}
+	}
 }

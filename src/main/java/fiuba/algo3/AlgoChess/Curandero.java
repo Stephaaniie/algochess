@@ -32,11 +32,11 @@ public class Curandero implements EntidadCuradora {
 	}
 
 	@Override
-	public void curarEntidad(EntidadMovil entidadACurar) {
+	public void curarEntidad(EntidadMovil entidadACurar) throws CuranderoCuraHastaLaMaximaVidaExcepcion {
 
 		entidadACurar.reponerVida(curacion);
 	}
-
+	
 	public void recibirDanio(int tipoDeDanio) {
 
 		this.vida -= tipoDeDanio;

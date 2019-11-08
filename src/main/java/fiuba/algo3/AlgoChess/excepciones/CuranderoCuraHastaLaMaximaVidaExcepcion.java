@@ -5,6 +5,6 @@ public class CuranderoCuraHastaLaMaximaVidaExcepcion extends Exception {
 	public CuranderoCuraHastaLaMaximaVidaExcepcion() {}
 	
 	public CuranderoCuraHastaLaMaximaVidaExcepcion(String mensaje) {
-		super(mensaje);
+		super();
 	}
 }

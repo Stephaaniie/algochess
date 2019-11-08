@@ -3,15 +3,17 @@ package fiuba.algo3.AlgoChess;
 import org.junit.Assert;
 import org.junit.Test;
 
+import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
+
 public class SoldadoTest {
 
 	@Test
-	public void soldadoRecuperadoSeLeSumaVidaTest() {
+	public void soldadoRecuperadoSeLeSumaVidaTest() throws CuranderoCuraHastaLaMaximaVidaExcepcion {
 		Casillero casillero = new Casillero(1, 2);
 		Soldado soldado = new Soldado("aliado", casillero);
 		soldado.reponerVida(15);
 
-		Assert.assertEquals(115, soldado.getVida());
+		Assert.assertEquals(100, soldado.getVida());
 	}
 
 	@Test

@@ -1,7 +1,5 @@
 package fiuba.algo3.AlgoChess;
 
-import java.util.ArrayList;
-
 public class Catapulta implements EntidadFija {
 
 	private Casillero posicion;
@@ -27,7 +25,7 @@ public class Catapulta implements EntidadFija {
 	}
 
 	public int getCosto() {
-		// TODO Auto-generated method stub
+		
 		return this.costo;
 	}
 

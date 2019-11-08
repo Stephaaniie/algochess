@@ -2,8 +2,6 @@ package fiuba.algo3.AlgoChess;
 
 import org.junit.Test;
 
-import fiuba.algo3.AlgoChess.excepciones.*;
-
 import static org.junit.Assert.*;
 
 public class CasilleroTest {

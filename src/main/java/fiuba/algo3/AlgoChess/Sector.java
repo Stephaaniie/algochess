@@ -1,9 +1,10 @@
 package fiuba.algo3.AlgoChess;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Sector {
-	ArrayList<Casillero> casilleros = new ArrayList<Casillero>();
+	List<Casillero> casilleros = new ArrayList<Casillero>();
 	Jugador jugadorSector;
 
 	public void agregarCasillero(Casillero casillero) {
