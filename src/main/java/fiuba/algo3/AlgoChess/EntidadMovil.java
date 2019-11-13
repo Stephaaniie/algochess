@@ -2,7 +2,7 @@ package fiuba.algo3.AlgoChess;
 
 import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
 
-public interface EntidadMovil extends Ataque {
+public interface EntidadMovil extends Ataque, Entidad {
 
 	public boolean aliadosCerca();
 
@@ -12,5 +12,5 @@ public interface EntidadMovil extends Ataque {
 
 	public void restarVida(int danio);
 
-	void atacarEnemigo();
+	public void atacarEnemigo();
 }
