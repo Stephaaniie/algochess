@@ -15,7 +15,7 @@ public class Catapulta implements EntidadFija {
 
 	@Override
 	public void atacarEnemigo() {
-
+		
 	}
 
 	@Override
@@ -31,4 +31,11 @@ public class Catapulta implements EntidadFija {
 	public int getVida() {
 		return this.vida;
 	}
+
+	@Override
+	public void atacarEnemigo(Posicion posicion) {
+		// TODO Auto-generated method stub
+		
+	}
+	
 }

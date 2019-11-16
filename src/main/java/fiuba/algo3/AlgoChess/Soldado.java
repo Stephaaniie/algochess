@@ -1,7 +1,5 @@
 package fiuba.algo3.AlgoChess;
 
-import java.util.ArrayList;
-
 import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
 
 public class Soldado implements EntidadMovil {
@@ -62,5 +60,11 @@ public class Soldado implements EntidadMovil {
 			new CuranderoCuraHastaLaMaximaVidaExcepcion("El curandero ya tiene el valor maximo de vida");
 
 		}
+	}
+
+	@Override
+	public void atacarEnemigo(Posicion posicion) {
+		// TODO Auto-generated method stub
+		
 	}
 }
