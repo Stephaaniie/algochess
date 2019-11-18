@@ -38,7 +38,7 @@ public class Soldado implements EntidadMovil {
 	}
 
 	@Override
-	public void reibirDanio(int danio) {
+	public void recibirDanio(int danio) {
 		this.vida -= danio;
 	}
 

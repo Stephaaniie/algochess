@@ -2,7 +2,7 @@ package fiuba.algo3.AlgoChess;
 
 import fiuba.algo3.AlgoChess.excepciones.*;
 
-public class Curandero extends Entidad {
+public class Curandero implements Entidad {
 
 //	private String bando = new String();
 

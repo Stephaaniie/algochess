@@ -6,7 +6,6 @@ public interface EntidadMovil extends Ataque, Entidad {
 
 	public boolean enemigosCerca();
 
-
 	public void recibirDanio(int danio);
 
 
