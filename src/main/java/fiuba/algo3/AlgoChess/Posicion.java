@@ -48,4 +48,5 @@ public class Posicion {
 
 		return distancia;
 	}
+
 }

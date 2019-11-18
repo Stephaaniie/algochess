@@ -1,8 +1,9 @@
 package fiuba.algo3.AlgoChess;
 
+import org.junit.Assert;
 import org.junit.Test;
 
-import org.junit.Assert;
+import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
 
 
 public class CasilleroTest {
@@ -11,11 +12,12 @@ public class CasilleroTest {
 	public void noSePuedeAgregarContenidoEnCasilleroOcupado() {
 		boolean errorAtrapado = false;
 		try {
-			Casillero casillero = new Casillero(4,5);
+			Posicion posicion = new Posicion(4,5);
+			Casillero casillero = new Casillero(posicion);
 			casillero.agregarContenido(40);
 			casillero.agregarContenido(50);
-		}catch(CasilleroOcupadoExcepcion excepcion) {
 			errorAtrapado = true;
+		}catch(CasilleroOcupadoExcepcion excepcion) {
 		}
 		
 		Assert.assertTrue(errorAtrapado);
