@@ -1,21 +1,18 @@
 package fiuba.algo3.AlgoChess;
 
-import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
 
 public class Soldado implements EntidadMovil {
 	private final int VIDAINICIAL = 100;
 	private String bando = new String();
-	private Casillero posicion;
 	private int danioACuerpo = 10;
 	private int danioADistancia = 0;
 	private int vida = VIDAINICIAL;
 	private int costo = 1;
-
+/*
 	public Soldado(String bando, Casillero casillero) {
 		this.bando = bando;
-		this.posicion = casillero;
 	}
-
+*/
 	public int getVida() {
 		return this.vida;
 	}
@@ -49,7 +46,7 @@ public class Soldado implements EntidadMovil {
 		
 		return this.costo;
 	}
-
+/*
 	@Override
 	public void reponerVida(int curacion) throws CuranderoCuraHastaLaMaximaVidaExcepcion{
 
@@ -62,5 +59,17 @@ public class Soldado implements EntidadMovil {
 		}
 	}
 
+*/
 
+
+/*	@Override
+	public void atacarEnemigo() {
+		
+	}*/
+/*
+	@Override
+	public void reponerVida(int curacion) throws CuranderoCuraHastaLaMaximaVidaExcepcion {
+		// TODO Auto-generated method stub
+		
+	}*/
 }
