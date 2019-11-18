@@ -10,7 +10,7 @@ public interface EntidadMovil extends Ataque, Entidad {
 
 	public void reponerVida(int curacion) throws CuranderoCuraHastaLaMaximaVidaExcepcion;
 
-	public void restarVida(int danio);
+	public void recibirDanio(int danio);
 
 	public void atacarEnemigo();
 }

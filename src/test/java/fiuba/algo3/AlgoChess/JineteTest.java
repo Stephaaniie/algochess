@@ -19,7 +19,7 @@ public class JineteTest {
 	public void jineteAtacadoPierdeVidaTest() {
 		Casillero casillero = new Casillero(6,8);
 		Jinete jinete = new Jinete("aliado", casillero);
-		jinete.restarVida(20);
+		jinete.recibirDanio(20);
 		
 		assertEquals(80, jinete.getVida());
 	}

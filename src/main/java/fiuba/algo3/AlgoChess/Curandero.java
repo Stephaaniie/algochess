@@ -2,7 +2,7 @@ package fiuba.algo3.AlgoChess;
 
 import fiuba.algo3.AlgoChess.excepciones.*;
 
-public class Curandero {
+public class Curandero extends Entidad {
 
 	private Casillero posicion;
 
@@ -37,9 +37,9 @@ public class Curandero {
 		entidadACurar.reponerVida(curacion);
 	}
 	
-	public void recibirDanio(int tipoDeDanio) {
+	public void recibirDanio(int danio) {
 
-		this.vida -= tipoDeDanio;
+		this.vida -= danio;
 	}
 
 	public void reponerVida(int curacion) 

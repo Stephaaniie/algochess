@@ -19,7 +19,7 @@ public class Catapulta implements EntidadFija {
 	}
 
 	@Override
-	public void restarVida(int danio) {
+	public void recibirDanio(int danio) {
 		this.vida -= danio;
 	}
 

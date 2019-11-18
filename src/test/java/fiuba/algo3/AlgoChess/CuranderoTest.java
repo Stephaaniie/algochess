@@ -29,7 +29,7 @@ public class CuranderoTest {
 		
 		Soldado soldado = new Soldado("oponente", casilleroConjunto);
 		
-		soldado.restarVida(20);
+		soldado.recibirDanio(20);
 		
 		curandero.curarEntidad(soldado);
 		
