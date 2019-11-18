@@ -7,16 +7,6 @@ import org.junit.Assert;
 
 public class CasilleroTest {
 	
-	/*
-	@Test
-	public void casilleroSeCreaConFilaYColumnaCorrectas() {
-		Casillero casillero = new Casillero(1,20);
-		
-		assertEquals(1, casillero.fila());
-		assertEquals(20, casillero.columna());
-	}
-
-	
 	@Test
 	public void noSePuedeAgregarContenidoEnCasilleroOcupado() {
 		boolean errorAtrapado = false;
@@ -30,5 +20,4 @@ public class CasilleroTest {
 		
 		Assert.assertTrue(errorAtrapado);
 	}
-	*/
 }
