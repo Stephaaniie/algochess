@@ -18,7 +18,7 @@ public class Soldado implements EntidadMovil {
 	}
 
 	@Override
-	public void atacarEnemigo(EntidadMovil ofensivo) {
+	public void atacarEnemigo(Entidad entidadAtacada) {
 		// ArrayList<Object> enemigos = new ArrayList<Object>();
 		// enemigos = calculadorDistancia.distanciaCercana(posicion);
 

@@ -13,7 +13,7 @@ public class Catapulta implements EntidadFija {
 	}
 
 */	@Override
-	public void atacarEnemigo() {
+	public void atacarEnemigo(Entidad entidadAtacada) {
 		
 	}
 

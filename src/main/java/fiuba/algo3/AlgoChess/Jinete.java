@@ -39,7 +39,7 @@ public class Jinete implements EntidadMovil {
 	}
 
 	@Override
-	public void atacarEnemigo(EntidadMovil ofensivo) {
+	public void atacarEnemigo(Entidad entidadAtacada) {
 		
 	}
 
