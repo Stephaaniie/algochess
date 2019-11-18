@@ -57,15 +57,15 @@ public class Direccion {
     }
     public Posicion siguiente(Posicion posicion) {
     	
-        int siguienteX = posicion.getX() + 1;
-        int siguienteY = posicion.getY() + 1;
+        int siguienteX = posicion.getFila() + 1;
+        int siguienteY = posicion.getColumna() + 1;
 
         return new Posicion(siguienteX, siguienteY);
     }
     public Posicion anterior(Posicion posicion) {
     	
-        int siguienteX = posicion.getX() - 1;
-        int siguienteY = posicion.getY() - 1;
+        int siguienteX = posicion.getFila() - 1;
+        int siguienteY = posicion.getColumna() - 1;
 
         return new Posicion(siguienteX, siguienteY);
     }

@@ -1,10 +1,9 @@
 package fiuba.algo3.AlgoChess;
 
-public class Tablero {
+import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
+import fiuba.algo3.AlgoChess.excepciones.ColocarUnidadEnSectorEnemigoExcepcion;
 
-	public Object getCantidadEntidades() {
-		return null;
-	}
+public class Tablero {
 
 	private int cantidadEntidades = 0;
 	private int cantidadFilas = 20;
@@ -33,7 +32,7 @@ public class Tablero {
 	}
 
 
-	public void agregarContenidoEnCasillero(Jugador jugador, Object contenido, int fila, int columna) {
+	public void agregarContenidoEnCasillero(Jugador jugador, Object contenido, int fila, int columna) throws CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
 		Posicion posicion = new Posicion(fila, columna);
 		if (fila < cantidadFilas / 2) {
 			sectorAliado.agregarContenidoEnCasillero(jugador, contenido, posicion);
