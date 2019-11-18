@@ -1,16 +1,18 @@
 package fiuba.algo3.AlgoChess;
 
+import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
+
 public interface EntidadMovil extends Ataque, Entidad {
 
-	public boolean aliadosCerca();
+	public boolean aliadosCerca() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 
-	public boolean enemigosCerca();
+	public boolean enemigosCerca() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 
-	public void recibirDanio(int danio);
+	public void recibirDanio(int danio) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 
-	public void atacarEnemigo(Entidad entidadAtacada);
+	public void atacarEnemigo(Entidad entidadAtacada) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 
-	public void reponerVida(int curacion);
+	public void reponerVida(int curacion) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 
 
 }

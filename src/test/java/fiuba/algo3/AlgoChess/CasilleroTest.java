@@ -12,12 +12,14 @@ public class CasilleroTest {
 	public void noSePuedeAgregarContenidoEnCasilleroOcupado() {
 		boolean errorAtrapado = false;
 		try {
-			Posicion posicion = new Posicion(4,5);
+			Posicion posicion = new Posicion(1,2);
 			Casillero casillero = new Casillero(posicion);
-			casillero.agregarContenido(40);
-			casillero.agregarContenido(50);
-			errorAtrapado = true;
+			Entidad jinete1 = new Jinete();
+			Entidad jinete2 = new Jinete();
+			casillero.agregarContenido(jinete1);
+			casillero.agregarContenido(jinete2);
 		}catch(CasilleroOcupadoExcepcion excepcion) {
+			errorAtrapado = true;
 		}
 		
 		Assert.assertTrue(errorAtrapado);

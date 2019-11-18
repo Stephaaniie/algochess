@@ -20,7 +20,7 @@ public class Sector {
 
 	}
 
-	public void agregarContenidoEnCasillero(Jugador jugador, Object contenido, Posicion posicion) throws CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
+	public void agregarContenidoEnCasillero(Jugador jugador, Entidad contenido, Posicion posicion) throws CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
 		if(this.jugador != jugador) throw new ColocarUnidadEnSectorEnemigoExcepcion();
 		Casillero casillero = casilleros.get(posicion);
 		casillero.agregarContenido(contenido);
