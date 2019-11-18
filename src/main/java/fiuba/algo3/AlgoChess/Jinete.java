@@ -54,14 +54,7 @@ public class Jinete implements EntidadMovil {
 	}
 
 	@Override
-	public void atacarEnemigo(Posicion posicion) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void atacarEnemigo() {
-		// TODO Auto-generated method stub
+	public void atacarEnemigo(EntidadMovil ofensivo) {
 		
 	}
 

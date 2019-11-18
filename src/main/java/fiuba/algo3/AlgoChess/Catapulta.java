@@ -33,8 +33,7 @@ public class Catapulta implements EntidadFija {
 	}
 
 	@Override
-	public void atacarEnemigo(Posicion posicion) {
-		// TODO Auto-generated method stub
+	public void atacarEnemigo(EntidadMovil ofensivo) {
 		
 	}
 	

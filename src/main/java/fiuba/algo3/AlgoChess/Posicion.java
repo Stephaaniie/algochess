@@ -1,8 +1,6 @@
 package fiuba.algo3.AlgoChess;
 
-import static java.lang.Math.abs;
-
-import static java.lang.Math.sqrt;
+import fiuba.algo3.AlgoChess.teclado.Direccion;
 
 public class Posicion {
 	

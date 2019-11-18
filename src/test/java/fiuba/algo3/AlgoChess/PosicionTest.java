@@ -50,4 +50,6 @@ public class PosicionTest {
 		assertEquals(2,posicion.distanciaEntrePosiciones(posicion1));
 	}
 	
+	
+	
 }

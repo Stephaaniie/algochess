@@ -12,5 +12,5 @@ public interface EntidadMovil extends Ataque {
 
 	public void restarVida(int danio);
 
-	void atacarEnemigo();
+	
 }

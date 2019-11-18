@@ -21,7 +21,7 @@ public class Soldado implements EntidadMovil {
 	}
 
 	@Override
-	public void atacarEnemigo() {
+	public void atacarEnemigo(EntidadMovil ofensivo) {
 		// ArrayList<Object> enemigos = new ArrayList<Object>();
 		// enemigos = calculadorDistancia.distanciaCercana(posicion);
 
@@ -62,9 +62,5 @@ public class Soldado implements EntidadMovil {
 		}
 	}
 
-	@Override
-	public void atacarEnemigo(Posicion posicion) {
-		// TODO Auto-generated method stub
-		
-	}
+
 }
