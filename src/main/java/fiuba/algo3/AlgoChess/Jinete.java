@@ -17,11 +17,6 @@ public class Jinete implements EntidadMovil {
 	}
 
 	@Override
-	public void atacarEnemigo() {
-
-	}
-
-	@Override
 	public boolean aliadosCerca() {
 		return false;
 	}
@@ -56,6 +51,11 @@ public class Jinete implements EntidadMovil {
 			new CuranderoCuraHastaLaMaximaVidaExcepcion("El curandero ya tiene el valor maximo de vida");
 
 		}
+	}
+
+	@Override
+	public void atacarEnemigo(EntidadMovil ofensivo) {
+		
 	}
 
 }

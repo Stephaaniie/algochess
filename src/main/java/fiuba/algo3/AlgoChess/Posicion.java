@@ -1,8 +1,6 @@
 package fiuba.algo3.AlgoChess;
 
-import static java.lang.Math.abs;
-
-import static java.lang.Math.sqrt;
+import fiuba.algo3.AlgoChess.teclado.Direccion;
 
 public class Posicion {
 	
@@ -40,20 +38,13 @@ public class Posicion {
 		this.y = y;
 	}
 	
-	public boolean adyacente(Posicion posicion) {
-		int distanciaEnX = abs(this.x - posicion.getX());
-		int distanciaEnY = abs(this.y - posicion.getY());
-		return distanciaEnX <= 1 && distanciaEnY <= 1;
-	}
-
-
 	public int distanciaEntrePosiciones(Posicion posicion) {
 		
 		int distanciaEnX = this.x - posicion.getX();
 		
 		int distanciaEnY = this.y - posicion.getY();
 		
-		int distancia = (int)sqrt((distanciaEnX * distanciaEnX) + (distanciaEnY * distanciaEnY));
+		int distancia = (int) Math.sqrt(Math.pow(distanciaEnX, 2) + Math.pow(distanciaEnY, 2));
 
 		return distancia;
 	}
