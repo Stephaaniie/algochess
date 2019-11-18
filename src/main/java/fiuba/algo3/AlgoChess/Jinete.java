@@ -24,7 +24,7 @@ public class Jinete implements EntidadMovil {
 	}
 
 	@Override
-	public void restarVida(int danio) {
+	public void recibirDanio(int danio) {
 		this.vida -= danio;
 	}
 
@@ -39,7 +39,7 @@ public class Jinete implements EntidadMovil {
 	}
 
 	@Override
-	public void atacarEnemigo(EntidadMovil ofensivo) {
+	public void atacarEnemigo(Entidad entidadAtacada) {
 		
 	}
 

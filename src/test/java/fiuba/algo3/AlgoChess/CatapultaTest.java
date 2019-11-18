@@ -10,7 +10,7 @@ public class CatapultaTest {
 		
 		Catapulta catapulta = new Catapulta("aliado", casillero);
 		
-		catapulta.restarVida(10);
+		catapulta.recibirDanio(10);
 		
 		Assert.assertEquals(40, catapulta.getVida());
 	}

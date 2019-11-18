@@ -18,7 +18,7 @@ public class SoldadoTest {
 		Casillero casillero = new Casillero(1,2);
 		Soldado soldado = new Soldado("aliado", casillero);
 		
-		soldado.restarVida(50);
+		soldado.recibirDanio(50);
 
 		Assert.assertEquals(50, soldado.getVida());
 	}

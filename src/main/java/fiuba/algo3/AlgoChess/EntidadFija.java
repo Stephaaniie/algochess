@@ -4,6 +4,6 @@ public interface EntidadFija extends Ataque, Entidad {
 
 	public void atacarEnemigo();
 
-	public void restarVida(int danio);
+	public void recibirDanio(int danio);
 
 }

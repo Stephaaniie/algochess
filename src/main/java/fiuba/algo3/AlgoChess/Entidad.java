@@ -4,6 +4,6 @@ import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionE
 
 public interface Entidad {
 
-    public void restarVida(int danio) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
+	public void recibirDanio(int danio) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 
 }

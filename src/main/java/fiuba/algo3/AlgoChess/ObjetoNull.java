@@ -9,7 +9,8 @@ public class ObjetoNull implements Entidad {
 		objetoNull = null;	
 	}
 	
-	public void restarVida(int danio)throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+	@Override
+	public void recibirDanio(int danio)throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
 		
 		new ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion("La entidad no existe y no puede recibir dicho daño");
 		

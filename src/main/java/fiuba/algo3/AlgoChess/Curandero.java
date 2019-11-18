@@ -1,6 +1,8 @@
 package fiuba.algo3.AlgoChess;
 
-public class Curandero {
+import fiuba.algo3.AlgoChess.excepciones.*;
+
+public class Curandero implements Entidad {
 
 //	private String bando = new String();
 
@@ -32,10 +34,10 @@ public class Curandero {
 
 		entidadACurar.reponerVida(curacion);
 	}
-	*/
-	public void recibirDanio(int tipoDeDanio) {
+	
+*/	public void recibirDanio(int danio) {
 
-		this.vida -= tipoDeDanio;
+		this.vida -= danio;
 	}
 
 /*	public void reponerVida(int curacion) 

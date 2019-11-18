@@ -1,5 +1,6 @@
 package fiuba.algo3.AlgoChess;
 import org.junit.Test;
+import org.junit.Assert;
 
 public class JineteTest {
 
@@ -15,11 +16,11 @@ public class JineteTest {
 	
 	@Test
 	public void jineteAtacadoPierdeVidaTest() {
-		//Casillero casillero = new Casillero(6,8);
-		//Jinete jinete = new Jinete("aliado", casillero);
-		//jinete.restarVida(20);
-		
-		//assertEquals(80, jinete.getVida());
+		Posicion posicion = new Posicion(6,8);
+		Casillero casillero = new Casillero(posicion);
+		Jinete jinete = new Jinete();
+		jinete.recibirDanio(20);
+		Assert.assertEquals(80, jinete.getVida());
 	}
 	
 	@Test

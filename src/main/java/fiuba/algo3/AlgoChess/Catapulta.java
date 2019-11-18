@@ -13,12 +13,12 @@ public class Catapulta implements EntidadFija {
 	}
 
 */	@Override
-	public void atacarEnemigo() {
+	public void atacarEnemigo(Entidad entidadAtacada) {
 		
 	}
 
 	@Override
-	public void restarVida(int danio) {
+	public void recibirDanio(int danio) {
 		this.vida -= danio;
 	}
 
@@ -33,6 +33,12 @@ public class Catapulta implements EntidadFija {
 
 	@Override
 	public void atacarEnemigo(EntidadMovil ofensivo) {
+		
+	}
+
+	@Override
+	public void atacarEnemigo() {
+		// TODO Auto-generated method stub
 		
 	}
 	
