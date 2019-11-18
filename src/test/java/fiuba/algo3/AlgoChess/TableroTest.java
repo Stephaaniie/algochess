@@ -1,6 +1,5 @@
 package fiuba.algo3.AlgoChess;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 public class TableroTest {

@@ -8,9 +8,7 @@ public class Jugador {
 	private int cantidadEntidades = 0;
 	private String bando;
 	private String nombre;
-	
-	public Jugador() {}
-	
+		
 	public Jugador(String nombre) {
 		this.nombre = nombre;
 	}

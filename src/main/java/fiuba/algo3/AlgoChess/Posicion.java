@@ -1,20 +1,18 @@
 package fiuba.algo3.AlgoChess;
 
-import static java.lang.Math.abs;
+import fiuba.algo3.AlgoChess.teclado.Direccion;
 
-import static java.lang.Math.sqrt;
-
-public class Posicion {
+public class Posicion{
 	
-	public int x;
+	public int fila;
 
-	public int y;
+	public int columna;
 	
-	public Posicion(int x, int y) {
+	public Posicion(int fila, int columna) {
 		
-		this.x = x;
+		this.fila = fila;
 		
-		this.y = y;
+		this.columna = columna;
 	}
 
 	public Posicion siguiente(Direccion direccion) {
@@ -22,41 +20,45 @@ public class Posicion {
 		return direccion.siguiente(this);
 	}
 
-	public int getX() {
+	public int getFila() {
 		
-		return this.x;
+		return this.fila;
 	}
 
-	public int getY() {
+	public int getColumna() {
 		
-		return this.y;
+		return this.columna;
 	}
 	
-	public void setX(int x) {
-		this.x = x; 
+	public void setFila(int Fila) {
+		this.fila = fila; 
 	}
 	
-	public void setY(int y) {
-		this.y = y;
+	public void setColumna(int columna) {
+		this.columna = columna;
 	}
 	
-	public boolean adyacente(Posicion posicion) {
-		int distanciaEnX = abs(this.x - posicion.getX());
-		int distanciaEnY = abs(this.y - posicion.getY());
-		return distanciaEnX <= 1 && distanciaEnY <= 1;
-	}
-
-
 	public int distanciaEntrePosiciones(Posicion posicion) {
 		
-		int distanciaEnX = this.x - posicion.getX();
+		int distanciaDeFila = this.fila - posicion.getFila();
 		
-		int distanciaEnY = this.y - posicion.getY();
+		int distanciaDeColumna = this.columna - posicion.getColumna();
 		
-		int distancia = (int)sqrt((distanciaEnX * distanciaEnX) + (distanciaEnY * distanciaEnY));
+		int distancia = (int) Math.sqrt(Math.pow(distanciaDeFila, 2) + Math.pow(distanciaDeColumna, 2));
 
 		return distancia;
 	}
 	
-	
+	   @Override
+	    public boolean equals(Object obj) {
+	        if (!(obj instanceof Posicion)) {
+	            return false;
+	        }
+	        if (obj == this) {
+	            return true;
+	        }
+	        Posicion otro = (Posicion) obj;
+
+	        return (this.getFila() == otro.getFila() && this.getColumna() == otro.getColumna());
+	   }
 }

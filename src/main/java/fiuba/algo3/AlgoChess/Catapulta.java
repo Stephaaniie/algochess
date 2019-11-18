@@ -2,20 +2,19 @@ package fiuba.algo3.AlgoChess;
 
 public class Catapulta implements EntidadFija {
 
-	private Casillero posicion;
 	private String bando = new String();
 	private int vida = 50;
 	private int costo = 5;
 	private int danioADistancia = 20;
-
+/*
 	public Catapulta(String bando, Casillero casillero) {
 		this.bando = bando;
 		this.posicion = casillero;
 	}
 
-	@Override
+*/	@Override
 	public void atacarEnemigo() {
-
+		
 	}
 
 	@Override
@@ -31,4 +30,10 @@ public class Catapulta implements EntidadFija {
 	public int getVida() {
 		return this.vida;
 	}
+
+	@Override
+	public void atacarEnemigo(EntidadMovil ofensivo) {
+		
+	}
+	
 }

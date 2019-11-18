@@ -1,11 +1,10 @@
 package fiuba.algo3.AlgoChess;
 
+import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
+import fiuba.algo3.AlgoChess.excepciones.ColocarUnidadEnSectorEnemigoExcepcion;
+
 public class Tablero {
 
-	public Object getCantidadEntidades() {
-		return null;
-	}
-/*
 	private int cantidadEntidades = 0;
 	private int cantidadFilas = 20;
 	private int cantidadColumas = 20;
@@ -16,11 +15,11 @@ public class Tablero {
 	public Tablero(Jugador jugador1, Jugador jugador2) {
 		for (int i = 0; i < this.cantidadFilas; i++) {
 			for (int j = 0; j < this.cantidadColumas; j++) {
-				Casillero casillero = new Casillero(i, j);
+				Posicion posicion = new Posicion(i,j);
 				if (i < cantidadFilas / 2) {
-					sectorAliado.agregarCasillero(casillero);
+					sectorAliado.agregarCasillero(posicion);
 				} else
-					sectorEnemigo.agregarCasillero(casillero);
+					sectorEnemigo.agregarCasillero(posicion);
 			}
 		}
 
@@ -31,16 +30,17 @@ public class Tablero {
 	public int getCantidadEntidades() {
 		return cantidadEntidades;
 	}
-	*/
-/*
-	public void agregarContenidoEnCasillero(Jugador jugador, Object contenido, int fila, int columna) {
+
+
+	public void agregarContenidoEnCasillero(Jugador jugador, Object contenido, int fila, int columna) throws CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
+		Posicion posicion = new Posicion(fila, columna);
 		if (fila < cantidadFilas / 2) {
-			sectorAliado.agregarContenidoEnCasillero(jugador, contenido, fila, columna);
+			sectorAliado.agregarContenidoEnCasillero(jugador, contenido, posicion);
 		} else {
-			sectorEnemigo.agregarContenidoEnCasillero(jugador, contenido, fila, columna);
+			sectorEnemigo.agregarContenidoEnCasillero(jugador, contenido, posicion);
 		}
 
 		this.cantidadEntidades++;
 	}
-	*/
+
 }

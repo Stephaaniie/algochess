@@ -1,36 +1,29 @@
 package fiuba.algo3.AlgoChess;
+import java.util.HashMap;
+import java.util.Map;
 
-import java.util.ArrayList;
-import java.util.List;
+import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
+import fiuba.algo3.AlgoChess.excepciones.ColocarUnidadEnSectorEnemigoExcepcion;
 
 public class Sector {
-	List<Casillero> casilleros = new ArrayList<Casillero>();
+	Map<Posicion, Casillero> casilleros = new HashMap<Posicion, Casillero>();
+	
+	public Jugador jugador;
 
-	public void agregarCasillero(Casillero casillero) {
-		casilleros.add(casillero);
+	public void agregarCasillero(Posicion posicion) {
+		Casillero casillero = new Casillero(posicion);
+		casilleros.put(posicion, casillero);
 	}
-	/*
+
 	public void agregarJugador(Jugador jugador) {
 		this.jugador = jugador;
 
 	}
 
-	public void agregarContenidoEnCasillero(Jugador jugador, Object contenido, int fila, int columna) {
-		if(this.jugador != jugador) throw new ColocaUnidadEnSectorEnemigoExcepcion;
-		int i = 0;
-		boolean encontrado = false;
-		Casillero casillero = null;
-		while (i < casilleros.size() && !encontrado) {
-			casillero = casilleros.get(i);
-			if (casillero.fila() == fila && casillero.columna() == columna) {
-				encontrado = true;
-			}
-		}
-		if (encontrado == true) {
-			casillero.agregarContenido(contenido);
-		}
-		
-		*/
-	
+	public void agregarContenidoEnCasillero(Jugador jugador, Object contenido, Posicion posicion) throws CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
+		if(this.jugador != jugador) throw new ColocarUnidadEnSectorEnemigoExcepcion();
+		Casillero casillero = casilleros.get(posicion);
+		casillero.agregarContenido(contenido);
+	}
 
 }

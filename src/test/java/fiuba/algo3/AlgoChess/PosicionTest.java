@@ -7,19 +7,19 @@ import org.junit.Test;
 public class PosicionTest {
 	
 	@Test 
-	public void seLeAsignaCorrectamenteLaPosiconX() {
+	public void seLeAsignaCorrectamenteLaFila() {
 		
 		Posicion posicion = new Posicion(1,8);
 		
-		assertEquals(1,posicion.getX());
+		assertEquals(1,posicion.getFila());
 	}
 	
 	@Test
-	public void seLeAsignaCorrectamenteLPosicionY() {
+	public void seLeAsignaCorrectamenteLaColumna() {
 		
 		Posicion posicion = new Posicion(1,8);
 		
-		assertEquals(8,posicion.getY());
+		assertEquals(8,posicion.getColumna());
 	}
 	
 	@Test
@@ -49,4 +49,5 @@ public class PosicionTest {
 	
 		assertEquals(2,posicion.distanciaEntrePosiciones(posicion1));
 	}
+	
 }

@@ -1,25 +1,17 @@
 package fiuba.algo3.AlgoChess;
 
-import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
-
 public class Jinete implements EntidadMovil {
 	private final int VIDAINICIAL = 100;
 	private String bando = new String();
-	private Casillero posicion;
 	private int danioACuerpo = 5;
 	private int danioADistancia = 15;
 	private int vida = VIDAINICIAL;
 	private int costo = 3;
 
-	public Jinete(String bando, Casillero casillero) {
+	/*public Jinete(String bando, Casillero casillero) {
 		this.bando = bando;
 		this.posicion = casillero;
-	}
-
-	@Override
-	public void atacarEnemigo() {
-
-	}
+	}*/
 
 	@Override
 	public boolean aliadosCerca() {
@@ -47,7 +39,11 @@ public class Jinete implements EntidadMovil {
 	}
 
 	@Override
-	public void reponerVida(int curacion) throws CuranderoCuraHastaLaMaximaVidaExcepcion{
+	public void atacarEnemigo(EntidadMovil ofensivo) {
+		
+	}
+
+	/*public void reponerVida(int curacion) throws CuranderoCuraHastaLaMaximaVidaExcepcion{
 
 		if ((this.vida += curacion) > VIDAINICIAL){
 
@@ -57,5 +53,15 @@ public class Jinete implements EntidadMovil {
 
 		}
 	}
+
+	@Override
+	public void atacarEnemigo(Posicion posicion) {
+		
+	}
+
+	@Override
+	public void atacarEnemigo() {
+		
+	}*/
 
 }

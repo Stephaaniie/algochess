@@ -1,17 +1,16 @@
 package fiuba.algo3.AlgoChess;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 public class JugadorTest {
 		
-//		@Test
-//		public void SeCreaJugadorSinEntidadesTest() {
+/*		@Test
+		public void SeCreaJugadorSinEntidadesTest() {
 				
-//		Jugador nuevoJugador = new Jugador("pedro");
+		Jugador nuevoJugador = new Jugador("pedro");
 				
-//		Assert.assertEquals(false, nuevoJugador.tieneEntidades());
-//		}
+		Assert.assertEquals(false, nuevoJugador.tieneEntidades());
+		}
 			
 		@Test
 		public void PuntosIncialesCorrectosTest() {
@@ -75,48 +74,48 @@ public class JugadorTest {
 			Assert.assertEquals(15,nuevoJugador.cantidadDePuntosActual());
 		}
 
-//		@Test 
-//		public void SeCreaJugadorYAdquiereEntidadYDevuelveTrueTest() {
+		@Test 
+		public void SeCreaJugadorYAdquiereEntidadYDevuelveTrueTest() {
 				
-//			Casillero casillero = new Casillero(3,2);
+			Casillero casillero = new Casillero(3,2);
 			
-//			Catapulta catapulta = new Catapulta("aliado", casillero);
+			Catapulta catapulta = new Catapulta("aliado", casillero);
 								
-//			Jugador nuevoJugador = new Jugador("pedro");
+			Jugador nuevoJugador = new Jugador("pedro");
 				
-//			nuevoJugador.descontarPuntos(catapulta.getCosto());
+			nuevoJugador.descontarPuntos(catapulta.getCosto());
 			
-//			Assert.assertEquals(true,nuevoJugador.tieneEntidades());		
-//		}
+			Assert.assertEquals(true,nuevoJugador.tieneEntidades());	*/	
+		}
 		
-//		@Test
-//		public void jugadorSinEntidadesEsPerdedor() {
-//			Jugador nuevoJugador = new Jugador("pedro");
+		@Test
+		public void jugadorSinEntidadesEsPerdedor() {
+		/*	Jugador nuevoJugador = new Jugador("pedro");
 			
-//			Assert.assertEquals(true, nuevoJugador.esPerdedor());
-//		}
+			Assert.assertEquals(true, nuevoJugador.esPerdedor());*/
+		}
 		
-//		@Test
-//		public void jugadorSinPuntosNoPuedeCrearMasEntidadesTest() {
+		@Test
+		public void jugadorSinPuntosNoPuedeCrearMasEntidadesTest() {
+
+		/*	Casillero casillero = new Casillero(1,2);
 			
-//			Casillero casillero = new Casillero(1,2);
-			
-//			Soldado soldado = new Soldado("aliado", casillero);
+			Soldado soldado = new Soldado("aliado", casillero);
 												
-//			Catapulta catapulta = new Catapulta("aliado", casillero);
+			Catapulta catapulta = new Catapulta("aliado", casillero);
 								
-//			Jugador nuevoJugador = new Jugador("pedro");
+			Jugador nuevoJugador = new Jugador("pedro");
 				
-//			nuevoJugador.descontarPuntos(catapulta.getCosto());
+			nuevoJugador.descontarPuntos(catapulta.getCosto());
 			
-//			nuevoJugador.descontarPuntos(catapulta.getCosto());
+			nuevoJugador.descontarPuntos(catapulta.getCosto());
 			
-//			nuevoJugador.descontarPuntos(catapulta.getCosto());
+			nuevoJugador.descontarPuntos(catapulta.getCosto());
 			
-//			nuevoJugador.descontarPuntos(catapulta.getCosto());
+			nuevoJugador.descontarPuntos(catapulta.getCosto());
 			
-//			nuevoJugador.descontarPuntos(soldado.getCosto());
+			nuevoJugador.descontarPuntos(soldado.getCosto());
 			
-//			Assert.assertEquals(false, nuevoJugador.puedeCargarMasEntidades());
-//		}
+			Assert.assertEquals(false, nuevoJugador.puedeCargarMasEntidades());*/
+		}
 }
