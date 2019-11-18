@@ -43,6 +43,11 @@ public class Jinete implements EntidadMovil {
 		
 	}
 
+	@Override
+	public void reponerVida(int curacion){
+
+	}
+
 	/*public void reponerVida(int curacion) throws CuranderoCuraHastaLaMaximaVidaExcepcion{
 
 		if ((this.vida += curacion) > VIDAINICIAL){
@@ -53,15 +58,6 @@ public class Jinete implements EntidadMovil {
 
 		}
 	}
-
-	@Override
-	public void atacarEnemigo(Posicion posicion) {
-		
-	}
-
-	@Override
-	public void atacarEnemigo() {
-		
-	}*/
+}*/
 
 }

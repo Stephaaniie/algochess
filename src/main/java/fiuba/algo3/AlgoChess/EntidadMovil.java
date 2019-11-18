@@ -8,5 +8,9 @@ public interface EntidadMovil extends Ataque, Entidad {
 
 	public void recibirDanio(int danio);
 
+	public void atacarEnemigo(Entidad entidadAtacada);
+
+	public void reponerVida(int curacion);
+
 
 }
