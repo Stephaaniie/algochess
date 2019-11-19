@@ -2,9 +2,11 @@ package fiuba.algo3.AlgoChess;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
+import fiuba.algo3.AlgoChess.excepciones.MovimientoInvalidoExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 
 public class CuranderoTest {
@@ -101,7 +103,7 @@ public class CuranderoTest {
 	}
 
 	@Test
-	public void curanderoSeMueveEnDireccionArriba() {
+	public void curanderoSeMueveEnDireccionArriba() throws MovimientoInvalidoExcepcion {
 		
 		Posicion posicionNueva = new Posicion(4,5);
 		
@@ -113,7 +115,7 @@ public class CuranderoTest {
 	}
 	
 	@Test
-	public void curanderoSeMueveEnDireccionAbajo() {
+	public void curanderoSeMueveEnDireccionAbajo() throws MovimientoInvalidoExcepcion {
 		
 		Posicion posicionNueva = new Posicion(6,5);
 		
@@ -125,7 +127,7 @@ public class CuranderoTest {
 	}
 	
 	@Test
-	public void curanderoSeMueveEnDireccionDerecha() {
+	public void curanderoSeMueveEnDireccionDerecha() throws MovimientoInvalidoExcepcion {
 		
 		Posicion posicionNueva = new Posicion(5,6);
 		
@@ -137,7 +139,7 @@ public class CuranderoTest {
 	}
 	
 	@Test
-	public void curanderoSeMueveEnDireccionIzquierda() {
+	public void curanderoSeMueveEnDireccionIzquierda() throws MovimientoInvalidoExcepcion {
 		
 		Posicion posicionNueva = new Posicion(5,4);
 		
@@ -146,6 +148,21 @@ public class CuranderoTest {
 		curandero.mover("izquierda");
 		
 		assertEquals(curandero.posicion,posicionNueva);
+	}
+	
+	@Test
+	public void curanderoNoSeMueveEnDireccionInvalida(){
+		
+		Curandero curandero = new Curandero("aliado", 1, 1);
+		
+		boolean errorAtrapado = false;
+
+		try{
+			curandero.mover("diagonal");
+		}catch(MovimientoInvalidoExcepcion e){
+			errorAtrapado = true;
+		}
+		Assert.assertTrue(errorAtrapado);
 	}
 	
 }

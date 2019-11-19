@@ -1,5 +1,6 @@
 package fiuba.algo3.AlgoChess;
 import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
+import fiuba.algo3.AlgoChess.excepciones.MovimientoInvalidoExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 import fiuba.algo3.AlgoChess.teclado.Direccion;
 
@@ -82,7 +83,7 @@ public class Curandero implements Entidad {
 			}
 	}
 	
-	public void mover(String direccion) {
+	public void mover(String direccion) throws MovimientoInvalidoExcepcion {
 		
 		switch(direccion){
 			case ARRIBA :
@@ -105,6 +106,9 @@ public class Curandero implements Entidad {
 				this.posicion = this.direccion.izquierda(this.posicion);
 				
 				break;
+			default:
+				
+				throw new MovimientoInvalidoExcepcion();
 		}
 	}
 	
