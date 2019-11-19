@@ -1,4 +1,5 @@
 package fiuba.algo3.AlgoChess;
+import fiuba.algo3.AlgoChess.excepciones.MovimientoInvalidoExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 import org.junit.Assert;
 import org.junit.Test;
@@ -49,7 +50,7 @@ public class SoldadoTest {
 	}
 
 	@Test
-	public void soldadoSeMueveParaArriba(){
+	public void soldadoSeMueveParaArriba() throws MovimientoInvalidoExcepcion {
 		Soldado soldado = new Soldado("enemigo", 6, 7);
 		Posicion posicion = new Posicion(5, 7);
 		soldado.mover("arriba");
@@ -58,7 +59,7 @@ public class SoldadoTest {
 	}
 
 	@Test
-	public void soldadoSeMueveParaAbajo(){
+	public void soldadoSeMueveParaAbajo() throws MovimientoInvalidoExcepcion {
 		Soldado soldado = new Soldado("enemigo", 6, 7);
 		Posicion posicion = new Posicion(7, 7);
 		soldado.mover("abajo");
@@ -67,7 +68,7 @@ public class SoldadoTest {
 	}
 
 	@Test
-	public void soldadoSeMueveParaLaIzquierda(){
+	public void soldadoSeMueveParaLaIzquierda() throws MovimientoInvalidoExcepcion {
 		Soldado soldado = new Soldado("enemigo", 6, 7);
 		Posicion posicion = new Posicion(6, 6);
 		soldado.mover("izquierda");
@@ -76,7 +77,7 @@ public class SoldadoTest {
 	}
 
 	@Test
-	public void soldadoSeMueveParaLaDerecha(){
+	public void soldadoSeMueveParaLaDerecha() throws MovimientoInvalidoExcepcion {
 		Soldado soldado = new Soldado("enemigo", 6, 7);
 		Posicion posicion = new Posicion(6, 8);
 		soldado.mover("derecha");
