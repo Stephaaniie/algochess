@@ -48,6 +48,12 @@ public class Jinete implements EntidadMovil {
 
 	}
 
+	@Override
+	public void atacarEnemigo(EntidadMovil ofensivo) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	/*public void reponerVida(int curacion) throws CuranderoCuraHastaLaMaximaVidaExcepcion{
 
 		if ((this.vida += curacion) > VIDAINICIAL){

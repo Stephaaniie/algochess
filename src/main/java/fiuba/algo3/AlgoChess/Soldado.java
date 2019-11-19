@@ -71,4 +71,10 @@ public class Soldado implements EntidadMovil {
 		// TODO Auto-generated method stub
 		
 	}*/
+
+	@Override
+	public void atacarEnemigo(EntidadMovil ofensivo) {
+		// TODO Auto-generated method stub
+		
+	}
 }
