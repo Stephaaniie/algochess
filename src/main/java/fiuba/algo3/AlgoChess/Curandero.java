@@ -15,7 +15,6 @@ public class Curandero implements Entidad {
 
 	private int costo = 2;
 
-<<<<<<< HEAD
 	public int curacion = 15;
 	
 	private Posicion posicion;
@@ -26,19 +25,13 @@ public class Curandero implements Entidad {
 		this.posicion = new Posicion(fila, columna);
 
 	}*/
-
-=======
-	public Curandero(String bando) {
-		
-		this.bando = bando;
-	}
 	
 	public String getBando() {
 		
 		return this.bando;
 	}
 	
->>>>>>> 0bbbcc4f1b9d2b1a13a939e499fad4257733596b
+	
 	public int getVida() {
 		
 		return this.vida;
