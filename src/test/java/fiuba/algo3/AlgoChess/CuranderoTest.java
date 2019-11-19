@@ -27,7 +27,7 @@ public class CuranderoTest {
 		
 		Curandero curandero = new Curandero("aliado", 5, 5);
 		
-		Soldado soldado = new Soldado("oponente",6,7);
+		Soldado soldado = new Soldado("aliado",6,7);
 		
 		soldado.recibirDanio(20);
 		
@@ -42,7 +42,7 @@ public class CuranderoTest {
 		
 		Curandero curandero = new Curandero("aliado", 5, 5);
 		
-		Jinete jinete = new Jinete("oponente",6,7);
+		Jinete jinete = new Jinete("aliado",6,7);
 		
 		jinete.recibirDanio(20);
 		
@@ -56,7 +56,7 @@ public class CuranderoTest {
 			
 		Curandero curandero = new Curandero("aliado", 5, 5);
 		
-		Catapulta catapulta = new Catapulta("oponente",6,7);		
+		Catapulta catapulta = new Catapulta("aliado",6,7);		
 		
 		catapulta.recibirDanio(20);
 		
@@ -68,7 +68,7 @@ public class CuranderoTest {
         	assertEquals(30,catapulta.getVida());
         }
 	}
-	/*
+	
 	@Test 
 	public void curanderoSeLeDecrementaLaVidaYSeAutoCura() {
 		
@@ -83,7 +83,7 @@ public class CuranderoTest {
 		} catch (ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion e) {
 			e.printStackTrace();
 		}
-    	assertEquals(55,curandero.getVida());
-	}*/
+    	assertEquals(75,curandero.getVida());
+	}
 
 }
