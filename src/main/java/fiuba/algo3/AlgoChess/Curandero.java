@@ -1,11 +1,20 @@
 package fiuba.algo3.AlgoChess;
 import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
+import fiuba.algo3.AlgoChess.teclado.Direccion;
 
 public class Curandero implements Entidad {
 
 	private String bando = new String();
 
+	private final String ARRIBA    = "arriba";
+	
+	private final String ABAJO     = "abajo";
+	
+	private final String DERECHO   = "derecho";
+	
+	private final String IZQUIERDA = "izquierda";
+	
 	private final int VIDAINICIAL = 75;
 
 	private final int CURACION = 15;
@@ -17,6 +26,8 @@ public class Curandero implements Entidad {
 	public int curacion = 15;
 	
 	public Posicion posicion;
+	
+	public Direccion direccion = new Direccion();
 
 	public Curandero(String bando, int fila, int columna) {
 
@@ -70,10 +81,20 @@ public class Curandero implements Entidad {
 
 			}
 	}
+	/*
+	public void mover(String direccion) {
+		
+		swich(direccion){
+			
+			case ARRIBA :
+			{
+				this.posicion = this.direccion.arriba()
+			}
+			
+			
+		}*/
+		
 	
-	public void mover(Posicion nuevaPosicion) {
-	
-		this.posicion = nuevaPosicion;
 	}
 	
 	public Posicion getPosicion() {
