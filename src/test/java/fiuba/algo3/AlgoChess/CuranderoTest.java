@@ -9,14 +9,28 @@ import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionE
 
 public class CuranderoTest {
 
+	@Test 
+	public void CuranderoSeCreaConElCostoCorrecto() {
+		
+		Curandero curandero = new Curandero("aliado", 0, 1);
+		
+		assertEquals(2,curandero.getCosto());
+
+	}
+	
+	@Test 
+	public void CuranderoSeCreaConLaVidaCorrecta() {
+		
+		Curandero curandero = new Curandero("aliado", 0, 1);
+		
+		assertEquals(75,curandero.getVida());
+
+	}
+
 	@Test
 	public void seCreaCuranderoConTodosSusAtributosCargados() {
 		
-		int fila = 0;
-		
-		int columna = 1;
-		
-		Curandero curandero = new Curandero("aliado", fila, columna);
+		Curandero curandero = new Curandero("aliado", 0, 1);
 		
 		assertNotEquals(null, curandero);	
 	}
@@ -86,4 +100,52 @@ public class CuranderoTest {
     	assertEquals(75,curandero.getVida());
 	}
 
+	@Test
+	public void curanderoSeMueveEnDireccionArriba() {
+		
+		Posicion posicionNueva = new Posicion(4,5);
+		
+		Curandero curandero = new Curandero("aliado", 5, 5);
+		
+		curandero.mover(posicionNueva);
+		
+		assertEquals(curandero.posicion,posicionNueva);
+	}
+	
+	@Test
+	public void curanderoSeMueveEnDireccionAbajo() {
+		
+		Posicion posicionNueva = new Posicion(6,5);
+		
+		Curandero curandero = new Curandero("aliado", 5, 5);
+		
+		curandero.mover(posicionNueva);
+		
+		assertEquals(curandero.posicion,posicionNueva);
+	}
+	
+	@Test
+	public void curanderoSeMueveEnDireccionDerecha() {
+		
+		Posicion posicionNueva = new Posicion(5,6);
+		
+		Curandero curandero = new Curandero("aliado", 5, 5);
+		
+		curandero.mover(posicionNueva);
+		
+		assertEquals(curandero.posicion,posicionNueva);
+	}
+	
+	@Test
+	public void curanderoSeMueveEnDireccionIzquierda() {
+		
+		Posicion posicionNueva = new Posicion(5,4);
+		
+		Curandero curandero = new Curandero("aliado", 5, 5);
+		
+		curandero.mover(posicionNueva);
+		
+		assertEquals(curandero.posicion,posicionNueva);
+	}
+	
 }
