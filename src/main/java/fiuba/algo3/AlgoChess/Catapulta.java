@@ -1,5 +1,6 @@
 package fiuba.algo3.AlgoChess;
 
+import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 
 public class Catapulta implements EntidadFija {
@@ -9,15 +10,15 @@ public class Catapulta implements EntidadFija {
 	private int costo = 5;
 	private int danioADistancia = 20;
 	private Posicion posicion;
-/*
+
 	public Catapulta(String bando, int fila, int columna) {
 		this.bando = bando;
 		this.posicion = new Posicion(fila, columna);
 	}
 
 	@Override
-	public void atacarEnemigo(Entidad entidadAtacada) {
-
+	public void atacarEnemigo(Entidad entidadAtacada) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+	    entidadAtacada.recibirDanio(this.danioADistancia);
 	}
 
 	@Override
@@ -26,7 +27,6 @@ public class Catapulta implements EntidadFija {
 	}
 
 	public int getCosto() {
-		
 		return this.costo;
 	}
 
@@ -34,21 +34,10 @@ public class Catapulta implements EntidadFija {
 		return this.vida;
 	}
 
-	
-	public void atacarEnemigo1(Entidad entidadAtacada) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion{
-		
-		
-	}
-*/
 	@Override
-	public void atacarEnemigo(Entidad entidadAtacada) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
-		// TODO Auto-generated method stub
-		
+	public void reponerVida(int curacion) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion, CuranderoCuraHastaLaMaximaVidaExcepcion {
+        if ((this.vida += curacion) > 50) {
+            this.vida = 50;
+        }
 	}
-	@Override
-	public void recibirDanio(int danio) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

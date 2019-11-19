@@ -10,6 +10,11 @@ public class Jinete implements EntidadMovil {
 	private int vida = VIDAINICIAL;
 	private int costo = 3;
 	private Posicion posicion;
+
+	public Jinete(String bando, int fila, int columna) {
+		this.bando = bando;
+		this.posicion = new Posicion(fila, columna);
+	}
 	@Override
 	public boolean aliadosCerca() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
 		// TODO Auto-generated method stub
@@ -22,7 +27,7 @@ public class Jinete implements EntidadMovil {
 	}
 	@Override
 	public void recibirDanio(int danio) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
-		// TODO Auto-generated method stub
+		this.vida -= danio;
 		
 	}
 	@Override
@@ -30,31 +35,12 @@ public class Jinete implements EntidadMovil {
 		// TODO Auto-generated method stub
 		
 	}
+
 	@Override
 	public void reponerVida(int curacion) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
-		// TODO Auto-generated method stub
-		
-	}
-
-/*	public Jinete(String bando, int fila, int columna) {
-		this.bando = bando;
-		this.posicion = new Posicion(fila, columna);
-	}
-
-	@Override
-	public boolean aliadosCerca() {
-		return false;
-	}
-
-	@Override
-	public boolean enemigosCerca() {
-		return false;
-	}
-
-	@Override
-	public void recibirDanio(int danio) {
-		
-		this.vida -= danio;
+		if ((this.vida += curacion) > VIDAINICIAL) {
+			this.vida = VIDAINICIAL;
+		}
 	}
 
 	public int getVida() {
@@ -66,36 +52,5 @@ public class Jinete implements EntidadMovil {
 		
 		return this.costo;
 	}
-
-	@Override
-	public void atacarEnemigo(Entidad entidadAtacada) {
-		
-	}
-
-	@Override
-	public void reponerVida(int curacion){
-		
-		if ((this.vida += curacion) > VIDAINICIAL){
-
-			this.vida = VIDAINICIAL;
-		}
-	}
-
-	public void atacarEnemigo1(Entidad entidadAtacada) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion{
-		// TODO Auto-generated method stub
-		
-	}
-
-	/*public void reponerVida(int curacion) throws CuranderoCuraHastaLaMaximaVidaExcepcion{
-
-		if ((this.vida += curacion) > VIDAINICIAL){
-
-			this.vida = VIDAINICIAL;
-
-			new CuranderoCuraHastaLaMaximaVidaExcepcion("El curandero ya tiene el valor maximo de vida");
-
-		}
-	}
-}*/
 
 }

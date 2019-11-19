@@ -1,5 +1,6 @@
 package fiuba.algo3.AlgoChess;
 
+import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 
 public class Soldado implements EntidadMovil {
@@ -12,14 +13,17 @@ public class Soldado implements EntidadMovil {
 	private Posicion posicion;
 
 	public Soldado(String bando, int fila, int columna) {
+		
 		this.bando = bando;
+		
 		this.posicion = new Posicion(fila, columna);
 	}
 
 	public int getVida() {
+		
 		return this.vida;
 	}
-
+	
 	@Override
 	public boolean aliadosCerca() {
 
@@ -43,12 +47,12 @@ public class Soldado implements EntidadMovil {
 	}
 
 	@Override
-	public void reponerVida(int curacion){
-		
+
+	public void reponerVida(int curacion) throws CuranderoCuraHastaLaMaximaVidaExcepcion{
+
 		if ((this.vida += curacion) > VIDAINICIAL){
 
 			this.vida = VIDAINICIAL;
-
 		}
 	}
 
