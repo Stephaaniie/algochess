@@ -1,6 +1,7 @@
 package fiuba.algo3.AlgoChess;
 
 import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
+import fiuba.algo3.AlgoChess.teclado.Direccion;
 
 public class Jinete implements EntidadMovil {
 	private final int VIDAINICIAL = 100;
@@ -10,11 +11,13 @@ public class Jinete implements EntidadMovil {
 	private int vida = VIDAINICIAL;
 	private int costo = 3;
 	private Posicion posicion;
+	private Direccion direccion = new Direccion();
 
 	public Jinete(String bando, int fila, int columna) {
 		this.bando = bando;
 		this.posicion = new Posicion(fila, columna);
 	}
+
 	@Override
 	public boolean aliadosCerca() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
 		return false;
@@ -58,7 +61,7 @@ public class Jinete implements EntidadMovil {
 	}
 
 	@Override
-	public void mover(Posicion nuevaPosicion) {
+	public void mover(String direccion) {
 		this.posicion = nuevaPosicion;
 	}
 

@@ -29,6 +29,6 @@ public class Direccion {
     	
         int columnaAnterior = posicion.getColumna() - 1;
 
-        return new Posicion(posicion.getFila(), siguienteColumna);
+        return new Posicion(posicion.getFila(), columnaAnterior);
     }
 }
