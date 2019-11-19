@@ -54,25 +54,11 @@ public class Jinete implements EntidadMovil {
 	}
 
 	@Override
-	public void atacarEnemigo(Entidad entidadAtacada) {
-		
-	}
-
-	@Override
-	public void reponerVida(int curacion){
-		
-		if ((this.vida += curacion) > VIDAINICIAL){
-
-			this.vida = VIDAINICIAL;
-		}
-	}
-
-	@Override
 	public void mover(Posicion nuevaPosicion) {
 		this.posicion = nuevaPosicion;
 	}
 	
-	public int getPosicion() {
+	public Posicion getPosicion() {
 		return this.posicion;
 	}
 

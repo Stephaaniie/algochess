@@ -68,7 +68,7 @@ public class Soldado implements EntidadMovil {
 		this.posicion = nuevaPosicion;
 	}
 	
-	public int getPosicion() {
+	public Posicion getPosicion() {
 		return this.posicion;
 	}
 

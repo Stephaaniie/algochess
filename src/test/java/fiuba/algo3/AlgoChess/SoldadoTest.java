@@ -1,7 +1,8 @@
 package fiuba.algo3.AlgoChess;
-import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
 import org.junit.Assert;
 import org.junit.Test;
+
+import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
 
 public class SoldadoTest {
 
@@ -32,8 +33,8 @@ public class SoldadoTest {
 
 	@Test
 	public void soldadoNoTieneAliadosCercaTest() {
-		Casillero casillero = new Casillero(6,7);
-		Soldado soldado = new Soldado("enemigo", casillero);
+
+		Soldado soldado = new Soldado("enemigo", 6,7);
 		
 		Assert.assertEquals(false, soldado.aliadosCerca());
 	}
