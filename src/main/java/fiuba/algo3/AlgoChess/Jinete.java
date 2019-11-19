@@ -1,5 +1,7 @@
 package fiuba.algo3.AlgoChess;
 
+import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
+
 public class Jinete implements EntidadMovil {
 	private final int VIDAINICIAL = 100;
 	private String bando = new String();
@@ -48,8 +50,7 @@ public class Jinete implements EntidadMovil {
 
 	}
 
-	@Override
-	public void atacarEnemigo(EntidadMovil ofensivo) {
+	public void atacarEnemigo1(Entidad entidadAtacada) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion{
 		// TODO Auto-generated method stub
 		
 	}

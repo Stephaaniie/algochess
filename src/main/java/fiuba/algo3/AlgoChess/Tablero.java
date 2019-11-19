@@ -32,7 +32,7 @@ public class Tablero {
 	}
 
 
-	public void agregarContenidoEnCasillero(Jugador jugador, Object contenido, int fila, int columna) throws CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
+	public void agregarContenidoEnCasillero(Jugador jugador, Entidad contenido, int fila, int columna) throws CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
 		Posicion posicion = new Posicion(fila, columna);
 		if (fila < cantidadFilas / 2) {
 			sectorAliado.agregarContenidoEnCasillero(jugador, contenido, posicion);
@@ -42,5 +42,4 @@ public class Tablero {
 
 		this.cantidadEntidades++;
 	}
-
 }

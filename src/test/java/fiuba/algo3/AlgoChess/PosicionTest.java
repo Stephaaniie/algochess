@@ -49,5 +49,12 @@ public class PosicionTest {
 	
 		assertEquals(2,posicion.distanciaEntrePosiciones(posicion1));
 	}
-	
+
+	@Test
+	public void dosPosicionesConMismaFilaYColumnaSonIguales(){
+		Posicion posicion1 = new Posicion(1,2);
+		Posicion posicion2 = new Posicion(1,2);
+
+		assertEquals(posicion1, posicion2);
+	}
 }

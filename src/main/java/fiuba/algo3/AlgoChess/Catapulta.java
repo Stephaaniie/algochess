@@ -1,5 +1,7 @@
 package fiuba.algo3.AlgoChess;
 
+import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
+
 public class Catapulta implements EntidadFija {
 
 	private String bando = new String();
@@ -31,11 +33,10 @@ public class Catapulta implements EntidadFija {
 		return this.vida;
 	}
 
-	@Override
-	public void atacarEnemigo(EntidadMovil ofensivo) {
-		// TODO Auto-generated method stub
+	
+	public void atacarEnemigo1(Entidad entidadAtacada) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion{
+		
 		
 	}
 
-	
 }
