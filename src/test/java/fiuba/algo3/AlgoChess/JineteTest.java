@@ -28,13 +28,60 @@ public class JineteTest {
 		
 		Assert.assertEquals(false, jinete.enemigosCerca());
 	}
+
+	@Test
+	public void jineteAtacaAEntidadEnDistanciaCorta() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+		Jinete jinete = new Jinete("aliado", 1, 2);
+		Soldado soldado = new Soldado("enemigo", 2, 2);
+
+		jinete.atacarEnemigo(soldado);
+
+		Assert.assertEquals(95, soldado.getVida());
+	}
+
+	@Test
+	public void jineteAtacaAEntidadEnDistanciaMedia() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+		Jinete jinete = new Jinete("aliado", 1, 2);
+		Soldado soldado = new Soldado("enemigo", 4, 2);
+
+		jinete.atacarEnemigo(soldado);
+
+		Assert.assertEquals(85, soldado.getVida());
+	}
 	
 	@Test
-	public void jineteSeMueveAOtraPosicion(){
+	public void jineteSeMueveParaAbajo(){
 		Posicion posicionNueva = new Posicion(4,2);
 		Jinete jinete = new Jinete("aliado", 3, 2);
 		jinete.mover(posicionNueva);
 		
+		Assert.assertEquals(posicionNueva, jinete.getPosicion());
+	}
+
+	@Test
+	public void jineteSeMueveParaArriba(){
+		Posicion posicionNueva = new Posicion(1, 1);
+		Jinete jinete = new Jinete("aliado", 2, 1);
+		jinete.mover(posicionNueva);
+
+		Assert.assertEquals(posicionNueva, jinete.getPosicion());
+	}
+
+	@Test
+	public void jineteSeMueveParaLaDerecha(){
+		Posicion posicionNueva = new Posicion(2,2);
+		Jinete jinete = new Jinete("aliado", 2, 1);
+		jinete.mover(posicionNueva);
+
+		Assert.assertEquals(posicionNueva, jinete.getPosicion());
+	}
+
+	@Test
+	public void jineteSeMueveParaLaIzquierda(){
+		Posicion posicionNueva = new Posicion(2, 1);
+		Jinete jinete = new Jinete("aliado", 2, 2);
+		jinete.mover(posicionNueva);
+
 		Assert.assertEquals(posicionNueva, jinete.getPosicion());
 	}
 }
