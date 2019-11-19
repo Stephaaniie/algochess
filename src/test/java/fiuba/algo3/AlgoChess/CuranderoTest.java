@@ -1,5 +1,11 @@
 package fiuba.algo3.AlgoChess;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+
 import org.junit.Test;
+
+import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
+import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 
 //import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
 
@@ -8,30 +14,26 @@ public class CuranderoTest {
 	@Test
 	public void seCreaCuranderoConTodosSusAtributosCargados() {
 		
-		//Casillero casillero = new Casillero(5,2);
+		Curandero curandero = new Curandero("aliado");
 		
-		//Curandero curandero = new Curandero("aliado", casillero);
-		
-		//assertNotEquals(null, curandero);	
+		assertNotEquals(null, curandero);	
 	}
 	
 	@Test
-	public void seCuraUnSoldadoAlDecrementarLaVida() {
-	// throws CuranderoCuraHastaLaMaximaVidaExcepcion {
+	public void seCuraUnSoldadoAlDecrementarLaVida() 
+		throws CuranderoCuraHastaLaMaximaVidaExcepcion, ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion { 
+				
+		Curandero curandero = new Curandero("aliado");
 		
-	//	Casillero casillero = new Casillero(5,2);
+		Soldado soldado = new Soldado("oponente");
 		
-		//Casillero casilleroConjunto = new Casillero(5,3);
+		soldado.recibirDanio(20);
 		
-		//Curandero curandero = new Curandero("aliado", casillero);
+		curandero.curarEntidad(soldado);
 		
-		//Soldado soldado = new Soldado("oponente", casilleroConjunto);
-		
-		//soldado.recibirDanio(20);
-		
-		//curandero.curarEntidad(soldado);
-		
-	//	assertEquals(95,soldado.getVida());
+		assertEquals(95,soldado.getVida());
 	}
-
+	
+	
+	
 }

@@ -10,10 +10,11 @@ public class Jinete implements EntidadMovil {
 	private int vida = VIDAINICIAL;
 	private int costo = 3;
 
-	/*public Jinete(String bando, Casillero casillero) {
+	public Jinete(String bando) {
+		
 		this.bando = bando;
-		this.posicion = casillero;
-	}*/
+		
+	}
 
 	@Override
 	public boolean aliadosCerca() {
@@ -27,6 +28,7 @@ public class Jinete implements EntidadMovil {
 
 	@Override
 	public void recibirDanio(int danio) {
+		
 		this.vida -= danio;
 	}
 
@@ -47,7 +49,11 @@ public class Jinete implements EntidadMovil {
 
 	@Override
 	public void reponerVida(int curacion){
+		
+		if ((this.vida += curacion) > VIDAINICIAL){
 
+			this.vida = VIDAINICIAL;
+		}
 	}
 
 	public void atacarEnemigo1(Entidad entidadAtacada) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion{

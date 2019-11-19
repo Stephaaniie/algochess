@@ -14,8 +14,8 @@ public class CasilleroTest {
 		try {
 			Posicion posicion = new Posicion(1,2);
 			Casillero casillero = new Casillero(posicion);
-			Entidad jinete1 = new Jinete();
-			Entidad jinete2 = new Jinete();
+			Entidad jinete1 = new Jinete(null);
+			Entidad jinete2 = new Jinete(null);
 			casillero.agregarContenido(jinete1);
 			casillero.agregarContenido(jinete2);
 		}catch(CasilleroOcupadoExcepcion excepcion) {

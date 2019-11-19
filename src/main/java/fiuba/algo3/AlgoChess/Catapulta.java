@@ -8,13 +8,13 @@ public class Catapulta implements EntidadFija {
 	private int vida = 50;
 	private int costo = 5;
 	private int danioADistancia = 20;
-/*
-	public Catapulta(String bando, Casillero casillero) {
+
+	public Catapulta(String bando) {
+		
 		this.bando = bando;
-		this.posicion = casillero;
 	}
 
-*/	@Override
+	@Override
 	public void atacarEnemigo(Entidad entidadAtacada) {
 
 	}
