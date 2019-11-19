@@ -1,4 +1,5 @@
 package fiuba.algo3.AlgoChess;
+import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -39,11 +40,47 @@ public class SoldadoTest {
 	}
 
 	@Test
-	public void soldadoAtacaACuranderoYLeRestaVida(){
+	public void soldadoAtacaACuranderoYLeRestaVida() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
 		Soldado soldado = new Soldado("enemigo", 6, 7);
 		Curandero curandero = new Curandero("aliado", 4, 9);
-		//soldado.atacarEnemigo(curandero);
+		soldado.atacarEnemigo(curandero);
 
-		//Assert.assertEquals()
+		Assert.assertEquals(65, curandero.getVida());
+	}
+
+	@Test
+	public void soldadoSeMueveParaArriba(){
+		Soldado soldado = new Soldado("enemigo", 6, 7);
+		Posicion posicion = new Posicion(5, 7);
+		soldado.mover(posicion);
+
+		Assert.assertEquals(posicion, soldado.getPosicion());
+	}
+
+	@Test
+	public void soldadoSeMueveParaAbajo(){
+		Soldado soldado = new Soldado("enemigo", 6, 7);
+		Posicion posicion = new Posicion(7, 7);
+		soldado.mover(posicion);
+
+		Assert.assertEquals(posicion, soldado.getPosicion());
+	}
+
+	@Test
+	public void soldadoSeMueveParaLaIzquierda(){
+		Soldado soldado = new Soldado("enemigo", 6, 7);
+		Posicion posicion = new Posicion(6, 6);
+		soldado.mover(posicion);
+
+		Assert.assertEquals(posicion, soldado.getPosicion());
+	}
+
+	@Test
+	public void soldadoSeMueveParaLaDerecha(){
+		Soldado soldado = new Soldado("enemigo", 6, 7);
+		Posicion posicion = new Posicion(6, 8);
+		soldado.mover(posicion);
+
+		Assert.assertEquals(posicion, soldado.getPosicion());
 	}
 }

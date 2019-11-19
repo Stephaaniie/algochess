@@ -28,9 +28,16 @@ public class Jinete implements EntidadMovil {
 		this.vida -= danio;
 		
 	}
+
 	@Override
 	public void atacarEnemigo(Entidad entidadAtacada) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
-		
+		Posicion posicionEnemigo = entidadAtacada.getPosicion();
+		int distancia = this.posicion.distanciaEntrePosiciones(posicionEnemigo);
+		if(distancia == 1 || distancia == 2){
+			entidadAtacada.recibirDanio(this.danioACuerpo);
+		}else if(distancia == 3 || distancia == 4 || distancia == 5){
+			entidadAtacada.recibirDanio(this.danioADistancia);
+		}
 	}
 
 	@Override
@@ -54,7 +61,8 @@ public class Jinete implements EntidadMovil {
 	public void mover(Posicion nuevaPosicion) {
 		this.posicion = nuevaPosicion;
 	}
-	
+
+
 	public Posicion getPosicion() {
 		return this.posicion;
 	}

@@ -21,7 +21,12 @@ public class Catapulta implements EntidadFija {
 	    entidadAtacada.recibirDanio(this.danioADistancia);
 	}
 
-	@Override
+    @Override
+    public Posicion getPosicion() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+        return this.posicion;
+    }
+
+    @Override
 	public void recibirDanio(int danio) {
 		this.vida -= danio;
 	}

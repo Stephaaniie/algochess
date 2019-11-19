@@ -3,10 +3,9 @@ package fiuba.algo3.AlgoChess.teclado;
 import fiuba.algo3.AlgoChess.Posicion;
 
 public class Direccion {
-		
-	private Direccion inversa;
-	private int x;
-	private int y;
+
+	private int fila;
+	private int columna;
 
     private static Direccion arriba;
     private static Direccion abajo;
@@ -18,33 +17,21 @@ public class Direccion {
         abajo     = new Direccion(0,-1);
         derecha   = new Direccion(1,0);
         izquierda = new Direccion(-1,0);
-
-        arriba.setDireccionInversa(abajo);
-        abajo.setDireccionInversa(arriba);
-        derecha.setDireccionInversa(izquierda);
-        izquierda.setDireccionInversa(derecha);
     }
     
-    Direccion(int x, int y) {
+    Direccion(int fila, int columna) {
     	
-    	this.x = x;
-    	
-    	this.y = y;
+    	this.fila = fila;
+    	this.columna = columna;
     }
-    
-    public Direccion inversa() {
-        return this.inversa;
-    }
-    private void setDireccionInversa(Direccion inversa) {
-		
-    	this.inversa = inversa;
-	}
 
 	public static Direccion abajo() {
+
         return abajo();
     }
 
     public static Direccion arriba() {
+
         return arriba();
     }
 
@@ -57,16 +44,17 @@ public class Direccion {
     }
     public Posicion siguiente(Posicion posicion) {
     	
-        int siguienteX = posicion.getFila() + 1;
-        int siguienteY = posicion.getColumna() + 1;
+        int siguienteFila = posicion.getFila() + 1;
+        int siguienteColumna = posicion.getColumna() + 1;
 
-        return new Posicion(siguienteX, siguienteY);
+        return new Posicion(siguienteFila, siguienteColumna);
     }
+
     public Posicion anterior(Posicion posicion) {
     	
-        int siguienteX = posicion.getFila() - 1;
-        int siguienteY = posicion.getColumna() - 1;
+        int siguienteFila = posicion.getFila() - 1;
+        int siguienteColumna = posicion.getColumna() - 1;
 
-        return new Posicion(siguienteX, siguienteY);
+        return new Posicion(siguienteFila, siguienteColumna);
     }
 }
