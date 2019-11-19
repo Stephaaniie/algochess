@@ -55,7 +55,7 @@ public class Jinete implements EntidadMovil {
 		this.posicion = nuevaPosicion;
 	}
 	
-	public posicion getPosicion() {
+	public Posicion getPosicion() {
 		return this.posicion;
 	}
 

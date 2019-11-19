@@ -32,17 +32,17 @@ public class SoldadoTest {
 
 	@Test
 	public void soldadoNoTieneAliadosCercaTest() {
-		Casillero casillero = new Casillero(6,7);
-		Soldado soldado = new Soldado("enemigo", casillero);
+		Soldado soldado = new Soldado("enemigo", 6, 7);
 		
-		Assert.assertEquals(false, soldado.aliadosCerca());
+		Assert.assertFalse(soldado.aliadosCerca());
 	}
-
 
 	@Test
 	public void soldadoAtacaACuranderoYLeRestaVida(){
 		Soldado soldado = new Soldado("enemigo", 6, 7);
-		//Curandero curandero = new Curandero("enemigo", );
-		//soldado.atacarEnemigo();
+		Curandero curandero = new Curandero("aliado", 4, 9);
+		//soldado.atacarEnemigo(curandero);
+
+		//Assert.assertEquals()
 	}
 }

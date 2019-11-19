@@ -47,7 +47,6 @@ public class Soldado implements EntidadMovil {
 	}
 
 	@Override
-
 	public void reponerVida(int curacion) throws CuranderoCuraHastaLaMaximaVidaExcepcion{
 
 		if ((this.vida += curacion) > VIDAINICIAL){
@@ -60,15 +59,13 @@ public class Soldado implements EntidadMovil {
 	public void atacarEnemigo(Entidad entidadAtacada) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
 		entidadAtacada.recibirDanio(this.danioACuerpo);
 	}
-		
 
-		
 	@Override
 	public void mover(Posicion nuevaPosicion) {
 		this.posicion = nuevaPosicion;
 	}
 	
-	public int getPosicion() {
+	public Posicion getPosicion() {
 		return this.posicion;
 	}
 
