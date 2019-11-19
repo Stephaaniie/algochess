@@ -16,12 +16,22 @@ public class CatapultaTest {
 	}
 
 	@Test
-    public void catapultaAtacaASoldadoYLeRestaVida() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+    public void catapultaAtacaAJineteYLeRestaVida() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
 	    Catapulta catapulta = new Catapulta("aliado",2,2);
 	    Jinete jinete = new Jinete("enemigo", 10, 11);
 
 	    catapulta.atacarEnemigo(jinete);
 
 	    Assert.assertEquals(80, jinete.getVida());
+    }
+
+    @Test
+    public void catapultaAtacaASoldadoYLeRestaVida() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+	    Catapulta catapulta = new Catapulta("aliado", 2, 2);
+	    Soldado soldado = new Soldado("enemigo", 10,10);
+
+	    catapulta.atacarEnemigo(soldado);
+
+	    Assert.assertEquals(80, soldado.getVida());
     }
 }
