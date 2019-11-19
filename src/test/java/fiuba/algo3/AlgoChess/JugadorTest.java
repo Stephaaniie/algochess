@@ -5,14 +5,6 @@ import org.junit.Test;
 public class JugadorTest {
 		
 /*		@Test
-		public void SeCreaJugadorSinEntidadesTest() {
-				
-		Jugador nuevoJugador = new Jugador("pedro");
-				
-		Assert.assertEquals(false, nuevoJugador.tieneEntidades());
-		}
-			
-		@Test
 		public void PuntosIncialesCorrectosTest() {
 				
 			Jugador nuevoJugador = new Jugador("pedro");
@@ -74,48 +66,6 @@ public class JugadorTest {
 			Assert.assertEquals(15,nuevoJugador.cantidadDePuntosActual());
 		}
 
-		@Test 
-		public void SeCreaJugadorYAdquiereEntidadYDevuelveTrueTest() {
-				
-			Casillero casillero = new Casillero(3,2);
-			
-			Catapulta catapulta = new Catapulta("aliado", casillero);
-								
-			Jugador nuevoJugador = new Jugador("pedro");
-				
-			nuevoJugador.descontarPuntos(catapulta.getCosto());
-			
-			Assert.assertEquals(true,nuevoJugador.tieneEntidades());	*/	
-		//}
-		
-		//@Test
-		//public void jugadorSinEntidadesEsPerdedor() {
-		/*	Jugador nuevoJugador = new Jugador("pedro");
-			
-			Assert.assertEquals(true, nuevoJugador.esPerdedor());*/
-		//}
-		
-		//@Test
-		//public void jugadorSinPuntosNoPuedeCrearMasEntidadesTest() {
 
-		/*	Casillero casillero = new Casillero(1,2);
-			
-			Soldado soldado = new Soldado("aliado", casillero);
-												
-			Catapulta catapulta = new Catapulta("aliado", casillero);
-								
-			Jugador nuevoJugador = new Jugador("pedro");
-				
-			nuevoJugador.descontarPuntos(catapulta.getCosto());
-			
-			nuevoJugador.descontarPuntos(catapulta.getCosto());
-			
-			nuevoJugador.descontarPuntos(catapulta.getCosto());
-			
-			nuevoJugador.descontarPuntos(catapulta.getCosto());
-			
-			nuevoJugador.descontarPuntos(soldado.getCosto());
-			
-			Assert.assertEquals(false, nuevoJugador.puedeCargarMasEntidades());*/
-		//}
+	
 }
