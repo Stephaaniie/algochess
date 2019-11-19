@@ -1,17 +1,21 @@
 package fiuba.algo3.AlgoChess;
 
-import fiuba.algo3.AlgoChess.excepciones.*;
+import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
+import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 
 public class Curandero implements Entidad {
 
-//	private String bando = new String();
+	private String bando = new String();
 
-	final int VIDAINICIAL = 75;
+	private final int VIDAINICIAL = 75;
 
+	private final int CURACION = 15;
+	
 	private int vida = VIDAINICIAL;
 
 	private int costo = 2;
 
+<<<<<<< HEAD
 	public int curacion = 15;
 	
 	private Posicion posicion;
@@ -23,35 +27,59 @@ public class Curandero implements Entidad {
 
 	}*/
 
+=======
+	public Curandero(String bando) {
+		
+		this.bando = bando;
+	}
+	
+	public String getBando() {
+		
+		return this.bando;
+	}
+	
+>>>>>>> 0bbbcc4f1b9d2b1a13a939e499fad4257733596b
 	public int getVida() {
+		
 		return this.vida;
 	}
 
+	
 	public int getCosto() {
+		
 		return this.costo;
 	}
-/*
-	public void curarEntidad(EntidadMovil entidadACurar) 
-			throws CuranderoCuraHastaLaMaximaVidaExcepcion {
-
-		entidadACurar.reponerVida(curacion);
-	}
 	
-*/	public void recibirDanio(int danio) {
+	public void recibirDanio(int danio) {
 
 		this.vida -= danio;
 	}
-
-/*	public void reponerVida(int curacion) 
+	
+	public void curarEntidad(EntidadMovil entidadACurar) 
+			throws CuranderoCuraHastaLaMaximaVidaExcepcion {
+		
+		try {
+			entidadACurar.reponerVida(CURACION);
+		} catch (ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion e) {
+		
+			//e.printStackTrace();
+		}
+		
+		if(entidadACurar == this) {
+			
+			autoReponerVida();
+		}
+		
+	}
+	
+	public void autoReponerVida()
 			throws CuranderoCuraHastaLaMaximaVidaExcepcion{
 
-		if ((this.vida += curacion) > VIDAINICIAL){
+		if ((this.vida += CURACION) > VIDAINICIAL){
 
 			this.vida = VIDAINICIAL;
 
-			new CuranderoCuraHastaLaMaximaVidaExcepcion("El curandero ya tiene el valor maximo de vida");
-
 		}
 	}
-*/
+
 }

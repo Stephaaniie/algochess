@@ -9,13 +9,18 @@ public class Soldado implements EntidadMovil {
 	private int danioADistancia = 0;
 	private int vida = VIDAINICIAL;
 	private int costo = 1;
+<<<<<<< HEAD
 	private Posicion posicion;
 /*
 	public Soldado(String bando, int fila, int columna) {
+=======
+
+	public Soldado(String bando) {
+>>>>>>> 0bbbcc4f1b9d2b1a13a939e499fad4257733596b
 		this.bando = bando;
 		this.posicion = new Posicion(fila, columna);
 	}
-*/
+
 	public int getVida() {
 		return this.vida;
 	}
@@ -42,9 +47,10 @@ public class Soldado implements EntidadMovil {
 
 	@Override
 	public void recibirDanio(int danio) {
+
 		this.vida -= danio;
 	}
-
+	
 	public int getCosto() {
 		
 		return this.costo;
@@ -52,7 +58,12 @@ public class Soldado implements EntidadMovil {
 
 	@Override
 	public void reponerVida(int curacion){
+		
+		if ((this.vida += curacion) > VIDAINICIAL){
 
+			this.vida = VIDAINICIAL;
+
+		}
 	}
 /*
 	@Override

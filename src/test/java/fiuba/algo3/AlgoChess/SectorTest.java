@@ -1,9 +1,10 @@
 package fiuba.algo3.AlgoChess;
 
-import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
-import fiuba.algo3.AlgoChess.excepciones.ColocarUnidadEnSectorEnemigoExcepcion;
 import org.junit.Assert;
 import org.junit.Test;
+
+import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
+import fiuba.algo3.AlgoChess.excepciones.ColocarUnidadEnSectorEnemigoExcepcion;
 
 public class SectorTest {
 
@@ -16,7 +17,7 @@ public class SectorTest {
 
         enemigo.agregarJugador(jugador1);
         try{
-            Entidad entidad = new Catapulta();
+            Entidad entidad = new Catapulta(null);
             Posicion posicion = new Posicion(1,2);
             enemigo.agregarContenidoEnCasillero(jugador2, entidad, posicion);
         }catch(ColocarUnidadEnSectorEnemigoExcepcion | CasilleroOcupadoExcepcion e){
