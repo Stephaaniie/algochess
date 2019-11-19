@@ -1,7 +1,5 @@
 package fiuba.algo3.AlgoChess;
 
-import org.junit.Test;
-
 public class JugadorTest {
 		
 /*		@Test
@@ -66,6 +64,6 @@ public class JugadorTest {
 			Assert.assertEquals(15,nuevoJugador.cantidadDePuntosActual());
 		}
 
-
+*/
 	
 }
