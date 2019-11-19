@@ -13,18 +13,6 @@ public class Jugador {
 		this.nombre = nombre;
 	}
 
-//	public boolean esPerdedor() {
-//		if (cantidadEntidades == 0) {
-//			return true;
-//		}
-//		return false;
-//	}
-
-//	public boolean tieneEntidades() {
-
-//		return (hayEntidad);
-//	}
-
 	public void descontarPuntos(int numero) {
 
 		if (puntosActuales <= 0) {
@@ -37,12 +25,4 @@ public class Jugador {
 		puntosActuales -= numero;
 	}
 
-//	public boolean puedeCargarMasEntidades() {
-//		return (this.puedeAdquirirEntidad);
-//	}
-
-	public int cantidadDePuntosActual() {
-
-		return puntosActuales;
-	}
 }

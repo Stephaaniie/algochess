@@ -52,7 +52,7 @@ public class SoldadoTest {
 	public void soldadoSeMueveParaArriba(){
 		Soldado soldado = new Soldado("enemigo", 6, 7);
 		Posicion posicion = new Posicion(5, 7);
-		soldado.mover(posicion);
+		soldado.mover("arriba");
 
 		Assert.assertEquals(posicion, soldado.getPosicion());
 	}
@@ -61,7 +61,7 @@ public class SoldadoTest {
 	public void soldadoSeMueveParaAbajo(){
 		Soldado soldado = new Soldado("enemigo", 6, 7);
 		Posicion posicion = new Posicion(7, 7);
-		soldado.mover(posicion);
+		soldado.mover("abajo");
 
 		Assert.assertEquals(posicion, soldado.getPosicion());
 	}
@@ -70,7 +70,7 @@ public class SoldadoTest {
 	public void soldadoSeMueveParaLaIzquierda(){
 		Soldado soldado = new Soldado("enemigo", 6, 7);
 		Posicion posicion = new Posicion(6, 6);
-		soldado.mover(posicion);
+		soldado.mover("izquierda");
 
 		Assert.assertEquals(posicion, soldado.getPosicion());
 	}
@@ -79,7 +79,7 @@ public class SoldadoTest {
 	public void soldadoSeMueveParaLaDerecha(){
 		Soldado soldado = new Soldado("enemigo", 6, 7);
 		Posicion posicion = new Posicion(6, 8);
-		soldado.mover(posicion);
+		soldado.mover("derecha");
 
 		Assert.assertEquals(posicion, soldado.getPosicion());
 	}
