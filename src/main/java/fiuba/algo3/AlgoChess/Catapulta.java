@@ -30,5 +30,5 @@ public class Catapulta implements EntidadFija {
 	public int getVida() {
 		return this.vida;
 	}
-	
+
 }
