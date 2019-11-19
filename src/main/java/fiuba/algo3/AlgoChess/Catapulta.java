@@ -39,5 +39,6 @@ public class Catapulta implements EntidadFija {
 		
 		
 	}
+*/
 
 }
