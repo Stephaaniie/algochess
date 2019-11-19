@@ -1,5 +1,6 @@
 package fiuba.algo3.AlgoChess;
 import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
+import fiuba.algo3.AlgoChess.excepciones.MovimientoInvalidoExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 import org.junit.Assert;
 import org.junit.Test;
@@ -50,38 +51,51 @@ public class JineteTest {
 	}
 	
 	@Test
-	public void jineteSeMueveParaAbajo(){
-		Posicion posicionNueva = new Posicion(4,2);
+	public void jineteSeMueveParaAbajo() throws MovimientoInvalidoExcepcion {
 		Jinete jinete = new Jinete("aliado", 3, 2);
+		Posicion posicionNueva = new Posicion(4,2);
 		jinete.mover("abajo");
 		
 		Assert.assertEquals(posicionNueva, jinete.getPosicion());
 	}
 
 	@Test
-	public void jineteSeMueveParaArriba(){
-		Posicion posicionNueva = new Posicion(1, 1);
+	public void jineteSeMueveParaArriba() throws MovimientoInvalidoExcepcion {
 		Jinete jinete = new Jinete("aliado", 2, 1);
+		Posicion posicionNueva = new Posicion(1, 1);
 		jinete.mover("arriba");
 
 		Assert.assertEquals(posicionNueva, jinete.getPosicion());
 	}
 
 	@Test
-	public void jineteSeMueveParaLaDerecha(){
-		Posicion posicionNueva = new Posicion(2,2);
+	public void jineteSeMueveParaLaDerecha() throws MovimientoInvalidoExcepcion {
 		Jinete jinete = new Jinete("aliado", 2, 1);
+		Posicion posicionNueva = new Posicion(2,2);
 		jinete.mover("derecha");
 
 		Assert.assertEquals(posicionNueva, jinete.getPosicion());
 	}
 
 	@Test
-	public void jineteSeMueveParaLaIzquierda(){
-		Posicion posicionNueva = new Posicion(2, 1);
+	public void jineteSeMueveParaLaIzquierda() throws MovimientoInvalidoExcepcion {
 		Jinete jinete = new Jinete("aliado", 2, 2);
+		Posicion posicionNueva = new Posicion(2, 1);
 		jinete.mover("izquierda");
 
 		Assert.assertEquals(posicionNueva, jinete.getPosicion());
+	}
+
+	@Test
+	public void jineteNoSeMueveEnDireccionInvalida(){
+		Jinete jinete = new Jinete("aliado", 1, 1);
+		boolean errorAtrapado = false;
+
+		try{
+			jinete.mover("diagonal");
+		}catch(MovimientoInvalidoExcepcion e){
+			errorAtrapado = true;
+		}
+		Assert.assertTrue(errorAtrapado);
 	}
 }
