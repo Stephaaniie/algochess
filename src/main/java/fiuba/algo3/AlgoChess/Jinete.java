@@ -10,6 +10,7 @@ public class Jinete implements EntidadMovil {
 	private int vida = VIDAINICIAL;
 	private int costo = 3;
 	private Posicion posicion;
+
 	@Override
 	public boolean aliadosCerca() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
 		// TODO Auto-generated method stub
@@ -22,7 +23,7 @@ public class Jinete implements EntidadMovil {
 	}
 	@Override
 	public void recibirDanio(int danio) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
-		// TODO Auto-generated method stub
+		this.vida -= danio;
 		
 	}
 	@Override
@@ -32,15 +33,15 @@ public class Jinete implements EntidadMovil {
 	}
 	@Override
 	public void reponerVida(int curacion) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
-		// TODO Auto-generated method stub
+		this.vida += curacion;x
 		
 	}
 
-/*	public Jinete(String bando, int fila, int columna) {
+	public Jinete(String bando, int fila, int columna) {
 		this.bando = bando;
 		this.posicion = new Posicion(fila, columna);
 	}
-
+/*
 	@Override
 	public boolean aliadosCerca() {
 		return false;
@@ -56,7 +57,7 @@ public class Jinete implements EntidadMovil {
 		
 		this.vida -= danio;
 	}
-
+*/
 	public int getVida() {
 		
 		return this.vida;
@@ -66,7 +67,7 @@ public class Jinete implements EntidadMovil {
 		
 		return this.costo;
 	}
-
+/*
 	@Override
 	public void atacarEnemigo(Entidad entidadAtacada) {
 		
@@ -80,22 +81,4 @@ public class Jinete implements EntidadMovil {
 			this.vida = VIDAINICIAL;
 		}
 	}
-
-	public void atacarEnemigo1(Entidad entidadAtacada) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion{
-		// TODO Auto-generated method stub
-		
-	}
-
-	/*public void reponerVida(int curacion) throws CuranderoCuraHastaLaMaximaVidaExcepcion{
-
-		if ((this.vida += curacion) > VIDAINICIAL){
-
-			this.vida = VIDAINICIAL;
-
-			new CuranderoCuraHastaLaMaximaVidaExcepcion("El curandero ya tiene el valor maximo de vida");
-
-		}
-	}
-}*/
-
 }
