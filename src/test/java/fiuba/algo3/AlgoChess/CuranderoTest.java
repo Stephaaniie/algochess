@@ -107,7 +107,7 @@ public class CuranderoTest {
 		
 		Curandero curandero = new Curandero("aliado", 5, 5);
 		
-		curandero.mover(posicionNueva);
+		curandero.mover("arriba");
 		
 		assertEquals(curandero.posicion,posicionNueva);
 	}
@@ -119,7 +119,7 @@ public class CuranderoTest {
 		
 		Curandero curandero = new Curandero("aliado", 5, 5);
 		
-		curandero.mover(posicionNueva);
+		curandero.mover("abajo");
 		
 		assertEquals(curandero.posicion,posicionNueva);
 	}
@@ -131,7 +131,7 @@ public class CuranderoTest {
 		
 		Curandero curandero = new Curandero("aliado", 5, 5);
 		
-		curandero.mover(posicionNueva);
+		curandero.mover("derecha");
 		
 		assertEquals(curandero.posicion,posicionNueva);
 	}
@@ -143,7 +143,7 @@ public class CuranderoTest {
 		
 		Curandero curandero = new Curandero("aliado", 5, 5);
 		
-		curandero.mover(posicionNueva);
+		curandero.mover("izquierda");
 		
 		assertEquals(curandero.posicion,posicionNueva);
 	}

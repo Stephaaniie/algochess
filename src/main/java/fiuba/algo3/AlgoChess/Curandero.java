@@ -11,7 +11,7 @@ public class Curandero implements Entidad {
 	
 	private final String ABAJO     = "abajo";
 	
-	private final String DERECHO   = "derecho";
+	private final String DERECHA   = "derecha";
 	
 	private final String IZQUIERDA = "izquierda";
 	
@@ -81,20 +81,31 @@ public class Curandero implements Entidad {
 
 			}
 	}
-	/*
+	
 	public void mover(String direccion) {
 		
-		swich(direccion){
-			
+		switch(direccion){
 			case ARRIBA :
-			{
-				this.posicion = this.direccion.arriba()
-			}
 			
+				this.posicion = this.direccion.arriba(this.posicion);
+				break;
 			
-		}*/
-		
-	
+			case ABAJO :
+				
+				this.posicion = this.direccion.abajo(this.posicion);
+				break;
+				
+			case DERECHA :
+			
+				this.posicion = this.direccion.derecha(this.posicion);
+				break;
+				
+			case IZQUIERDA :
+				
+				this.posicion = this.direccion.izquierda(this.posicion);
+				
+				break;
+		}
 	}
 	
 	public Posicion getPosicion() {
