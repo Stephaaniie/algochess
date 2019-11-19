@@ -31,4 +31,10 @@ public class ObjetoNull implements Entidad , EntidadMovil, EntidadFija{
 		throw new ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion("La entidad no existe y no puede recibir dicho daño");
 	}
 
+	@Override
+	public void mover(Posicion nuevaPosicion) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
