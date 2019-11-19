@@ -17,7 +17,7 @@ public class SectorTest {
 
         enemigo.agregarJugador(jugador1);
         try{
-            Entidad entidad = new Catapulta(null);
+            Entidad entidad = new Catapulta();
             Posicion posicion = new Posicion(1,2);
             enemigo.agregarContenidoEnCasillero(jugador2, entidad, posicion);
         }catch(ColocarUnidadEnSectorEnemigoExcepcion | CasilleroOcupadoExcepcion e){

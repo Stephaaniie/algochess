@@ -40,5 +40,15 @@ public class Catapulta implements EntidadFija {
 		
 	}
 */
+	@Override
+	public void atacarEnemigo(Entidad entidadAtacada) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void recibirDanio(int danio) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

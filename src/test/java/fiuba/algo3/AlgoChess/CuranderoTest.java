@@ -1,7 +1,4 @@
 package fiuba.algo3.AlgoChess;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-
 import org.junit.Test;
 
 import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
@@ -12,7 +9,7 @@ import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionE
 public class CuranderoTest {
 
 	@Test
-//	public void seCreaCuranderoConTodosSusAtributosCargados() {
+	public void seCreaCuranderoConTodosSusAtributosCargados() {
 		
 //		Curandero curandero = new Curandero("aliado");
 		

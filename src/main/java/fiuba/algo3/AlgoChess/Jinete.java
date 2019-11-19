@@ -10,6 +10,31 @@ public class Jinete implements EntidadMovil {
 	private int vida = VIDAINICIAL;
 	private int costo = 3;
 	private Posicion posicion;
+	@Override
+	public boolean aliadosCerca() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	@Override
+	public boolean enemigosCerca() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	@Override
+	public void recibirDanio(int danio) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void atacarEnemigo(Entidad entidadAtacada) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void reponerVida(int curacion) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+		// TODO Auto-generated method stub
+		
+	}
 
 /*	public Jinete(String bando, int fila, int columna) {
 		this.bando = bando;

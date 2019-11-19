@@ -83,6 +83,36 @@ public class Soldado implements EntidadMovil {
 
 	public void atacarEnemigo1(Entidad entidadAtacada) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
 	}
+
+	@Override
+	public boolean aliadosCerca() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean enemigosCerca() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void recibirDanio(int danio) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void atacarEnemigo(Entidad entidadAtacada) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void reponerVida(int curacion) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+		// TODO Auto-generated method stub
+		
+	}
 		
 		
 	
