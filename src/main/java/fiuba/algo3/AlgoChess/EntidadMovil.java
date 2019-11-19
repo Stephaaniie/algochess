@@ -14,5 +14,6 @@ public interface EntidadMovil extends Ataque, Entidad {
 
 	public void reponerVida(int curacion) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 
+	public void mover(Posicion nuevaPosicion); //debería fijarse que esa posición no esté ocupada -> CASILLERO
 
 }

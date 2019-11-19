@@ -74,5 +74,14 @@ public class Curandero implements Entidad {
 
 		}
 	}
+	
+	
+	public void mover(Posicion nuevaPosicion) {
+		this.posicion = nuevaPosicion;
+	}
+	
+	public int getPosicion() {
+		return this.posicion;
+	}
 
 }

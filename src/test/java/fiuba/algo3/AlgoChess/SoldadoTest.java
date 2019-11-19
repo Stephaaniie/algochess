@@ -37,10 +37,19 @@ public class SoldadoTest {
 		Soldado soldado = new Soldado("enemigo", casillero);
 		
 		Assert.assertEquals(false, soldado.aliadosCerca());
-		*/
+		
 	}
 	
-	
-	
+	@Test
+	public void soldadoSeMueveAOtraPosicion(){
+		Posicion posicion = new Posicion(15,5);
+		Posicion posicionNueva = new Posicion(14,5);
+		Soldado soldado = new Soldado("enemigo", posicion);
+		
+		soldado.mover(posicionNueva);
+		
+		Assert.assertEquals(posicionNueva, soldado.getPosicion);
+	}
+	*/	
 
 }

@@ -31,6 +31,15 @@ public class CuranderoTest {
 //		assertEquals(95,soldado.getVida());
 	}
 	
-	
+	@Test
+	public void curanderoSeMueveAOtraPosicion(){
+//		Posicion posicion = new Posicion(2,10);
+//		Posicion posicionNueva = new Posicion(2,11);
+//		Curandero curandero = new Curandero("aliado", posicion);
+//		
+//		curandero.mover(posicionNueva);
+		
+//		Assert.assertEquals(posicionNueva, curandero.getPosicion);
+	}	
 	
 }

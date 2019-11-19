@@ -30,4 +30,15 @@ public class JineteTest {
 		
 		//assertEquals(false, jinete.enemigosCerca());
 	}
+	
+	@Test
+	public void jineteSeMueveAOtraPosicion(){
+//		Posicion posicion = new Posicion(3,2);
+//		Posicion posicionNueva = new Posicion(4,2);
+//		Jinete jinete = new Jinete("aliado", posicion);
+//		
+//		jinete.mover(posicionNueva);
+		
+//		Assert.assertEquals(posicionNueva, jinete.getPosicion);
+	}
 }
