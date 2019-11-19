@@ -1,13 +1,7 @@
 package fiuba.algo3.AlgoChess;
 
-import org.junit.Assert;
-import org.junit.Test;
-
-import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
-
-
 public class CasilleroTest {
-	
+	/*
 	@Test
 	public void noSePuedeAgregarContenidoEnCasilleroOcupado() {
 		boolean errorAtrapado = false;
@@ -23,5 +17,5 @@ public class CasilleroTest {
 		}
 		
 		Assert.assertTrue(errorAtrapado);
-	}
+	}*/
 }

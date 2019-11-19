@@ -1,5 +1,6 @@
 package fiuba.algo3.AlgoChess;
 
+import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 
 public class Catapulta implements EntidadFija {
@@ -33,4 +34,10 @@ public class Catapulta implements EntidadFija {
 		return this.vida;
 	}
 
+	@Override
+	public void reponerVida(int curacion) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion, CuranderoCuraHastaLaMaximaVidaExcepcion {
+        if ((this.vida += curacion) > 50) {
+            this.vida = 50;
+        }
+	}
 }
