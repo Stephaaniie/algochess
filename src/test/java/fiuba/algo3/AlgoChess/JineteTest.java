@@ -6,39 +6,38 @@ public class JineteTest {
 
 	@Test
 	public void jineteRecuperaVidaTest()  {
-		//throws CuranderoCuraHastaLaMaximaVidaExcepcion
-		//Casillero casillero = new Casillero(3,1);
-		//Jinete jinete = new Jinete("aliado", casillero);
-		//jinete.reponerVida(10);
+		throws CuranderoCuraHastaLaMaximaVidaExcepcion
+		Posicion posicion = new Posicion(6,9);
+		Jinete jinete = new Jinete("aliado", posicion);
+		jinete.reponerVida(10);
 		
-		//assertEquals(100, jinete.getVida());
+		assertEquals(100, jinete.getVida());
 	}
 	
 	@Test
 	public void jineteAtacadoPierdeVidaTest() {
-//		Posicion posicion = new Posicion(6,8);
-//		Casillero casillero = new Casillero(posicion);
-//		Jinete jinete = new Jinete(null);
-//		jinete.recibirDanio(20);
-//		Assert.assertEquals(80, jinete.getVida());
+		Posicion posicion = new Posicion(6,8);
+		Jinete jinete = new Jinete("enemigo", posicion);
+		jinete.recibirDanio(20);
+		
+		Assert.assertEquals(80, jinete.getVida());
 	}
 	
 	@Test
 	public void jineteNoTieneEnemigosCercaTest() {
-		//Casillero casillero = new Casillero(8,1);
-		//Jinete jinete = new Jinete("aliado", casillero);
+		Posicion posicion = new Posicion(8,1);
+		Jinete jinete = new Jinete("aliado", posicion);
 		
-		//assertEquals(false, jinete.enemigosCerca());
+		assertEquals(false, jinete.enemigosCerca());
 	}
 	
 	@Test
 	public void jineteSeMueveAOtraPosicion(){
-//		Posicion posicion = new Posicion(3,2);
-//		Posicion posicionNueva = new Posicion(4,2);
-//		Jinete jinete = new Jinete("aliado", posicion);
-//		
-//		jinete.mover(posicionNueva);
+		Posicion posicion = new Posicion(3,2);
+		Posicion posicionNueva = new Posicion(4,2);
+		Jinete jinete = new Jinete("aliado", posicion);
+		jinete.mover(posicionNueva);
 		
-//		Assert.assertEquals(posicionNueva, jinete.getPosicion);
+		Assert.assertEquals(posicionNueva, jinete.getPosicion);
 	}
 }

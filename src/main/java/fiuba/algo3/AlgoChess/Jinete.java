@@ -17,12 +17,10 @@ public class Jinete implements EntidadMovil {
 	}
 	@Override
 	public boolean aliadosCerca() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
-		// TODO Auto-generated method stub
 		return false;
 	}
 	@Override
 	public boolean enemigosCerca() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
-		// TODO Auto-generated method stub
 		return false;
 	}
 	@Override
@@ -32,7 +30,6 @@ public class Jinete implements EntidadMovil {
 	}
 	@Override
 	public void atacarEnemigo(Entidad entidadAtacada) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -54,25 +51,11 @@ public class Jinete implements EntidadMovil {
 	}
 
 	@Override
-	public void atacarEnemigo(Entidad entidadAtacada) {
-		
-	}
-
-	@Override
-	public void reponerVida(int curacion){
-		
-		if ((this.vida += curacion) > VIDAINICIAL){
-
-			this.vida = VIDAINICIAL;
-		}
-	}
-
-	@Override
 	public void mover(Posicion nuevaPosicion) {
 		this.posicion = nuevaPosicion;
 	}
 	
-	public int getPosicion() {
+	public posicion getPosicion() {
 		return this.posicion;
 	}
 
