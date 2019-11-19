@@ -9,10 +9,11 @@ public class Jinete implements EntidadMovil {
 	private int danioADistancia = 15;
 	private int vida = VIDAINICIAL;
 	private int costo = 3;
+	private Posicion posicion;
 
-	/*public Jinete(String bando, Casillero casillero) {
+	/*public Jinete(String bando, int fila, int columna) {
 		this.bando = bando;
-		this.posicion = casillero;
+		this.posicion = new Posicion(fila, columna);
 	}*/
 
 	@Override

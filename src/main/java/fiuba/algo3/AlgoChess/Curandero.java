@@ -13,11 +13,13 @@ public class Curandero implements Entidad {
 	private int costo = 2;
 
 	public int curacion = 15;
+	
+	private Posicion posicion;
 /*
-	public Curandero(String bando, Casillero casillero) {
+	public Curandero(String bando, int fila, int columna) {
 
 		this.bando = bando;
-		this.posicion = casillero;
+		this.posicion = new Posicion(fila, columna);
 
 	}*/
 

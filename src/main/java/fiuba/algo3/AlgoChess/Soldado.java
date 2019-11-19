@@ -9,9 +9,11 @@ public class Soldado implements EntidadMovil {
 	private int danioADistancia = 0;
 	private int vida = VIDAINICIAL;
 	private int costo = 1;
+	private Posicion posicion;
 /*
-	public Soldado(String bando, Casillero casillero) {
+	public Soldado(String bando, int fila, int columna) {
 		this.bando = bando;
+		this.posicion = new Posicion(fila, columna);
 	}
 */
 	public int getVida() {

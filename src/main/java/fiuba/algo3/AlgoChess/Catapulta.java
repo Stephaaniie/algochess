@@ -8,10 +8,11 @@ public class Catapulta implements EntidadFija {
 	private int vida = 50;
 	private int costo = 5;
 	private int danioADistancia = 20;
+	private Posicion posicion;
 /*
-	public Catapulta(String bando, Casillero casillero) {
+	public Catapulta(String bando, int fila, int columna) {
 		this.bando = bando;
-		this.posicion = casillero;
+		this.posicion = new Posicion(fila, columna);
 	}
 
 */	@Override
