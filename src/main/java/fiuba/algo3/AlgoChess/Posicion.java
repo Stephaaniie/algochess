@@ -15,11 +15,6 @@ public class Posicion{
 		this.columna = columna;
 	}
 
-	public Posicion siguiente(Direccion direccion) {
-		
-		return direccion.siguiente(this);
-	}
-
 	public int getFila() {
 		
 		return this.fila;

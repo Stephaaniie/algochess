@@ -53,7 +53,7 @@ public class JineteTest {
 	public void jineteSeMueveParaAbajo(){
 		Posicion posicionNueva = new Posicion(4,2);
 		Jinete jinete = new Jinete("aliado", 3, 2);
-		jinete.mover(posicionNueva);
+		jinete.mover("abajo");
 		
 		Assert.assertEquals(posicionNueva, jinete.getPosicion());
 	}
@@ -62,7 +62,7 @@ public class JineteTest {
 	public void jineteSeMueveParaArriba(){
 		Posicion posicionNueva = new Posicion(1, 1);
 		Jinete jinete = new Jinete("aliado", 2, 1);
-		jinete.mover(posicionNueva);
+		jinete.mover("arriba");
 
 		Assert.assertEquals(posicionNueva, jinete.getPosicion());
 	}
@@ -71,7 +71,7 @@ public class JineteTest {
 	public void jineteSeMueveParaLaDerecha(){
 		Posicion posicionNueva = new Posicion(2,2);
 		Jinete jinete = new Jinete("aliado", 2, 1);
-		jinete.mover(posicionNueva);
+		jinete.mover("derecha");
 
 		Assert.assertEquals(posicionNueva, jinete.getPosicion());
 	}
@@ -80,7 +80,7 @@ public class JineteTest {
 	public void jineteSeMueveParaLaIzquierda(){
 		Posicion posicionNueva = new Posicion(2, 1);
 		Jinete jinete = new Jinete("aliado", 2, 2);
-		jinete.mover(posicionNueva);
+		jinete.mover("izquierda");
 
 		Assert.assertEquals(posicionNueva, jinete.getPosicion());
 	}

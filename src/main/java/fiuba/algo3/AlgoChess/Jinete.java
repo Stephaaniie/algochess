@@ -1,5 +1,6 @@
 package fiuba.algo3.AlgoChess;
 
+import fiuba.algo3.AlgoChess.excepciones.MovimientoInvalidoExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 import fiuba.algo3.AlgoChess.teclado.Direccion;
 
@@ -61,8 +62,23 @@ public class Jinete implements EntidadMovil {
 	}
 
 	@Override
-	public void mover(String direccion) {
-		this.posicion = nuevaPosicion;
+	public void mover(String direccion) throws MovimientoInvalidoExcepcion {
+		switch (direccion){
+			case "arriba":
+				this.posicion = this.direccion.arriba(this.posicion);
+				break;
+			case "abajo":
+				this.posicion = this.direccion.abajo(this.posicion);
+				break;
+			case "derecha":
+				this.posicion = this.direccion.derecha(this.posicion);
+				break;
+			case "izquierda":
+				this.posicion = this.direccion.izquierda(this.posicion);
+				break;
+			default:
+				throw new MovimientoInvalidoExcepcion();
+		}
 	}
 
 
