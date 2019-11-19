@@ -1,5 +1,6 @@
 package fiuba.algo3.AlgoChess;
 
+import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 
 public interface EntidadMovil extends Ataque, Entidad {
@@ -12,7 +13,7 @@ public interface EntidadMovil extends Ataque, Entidad {
 
 	public void atacarEnemigo(Entidad entidadAtacada) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 
-	public void reponerVida(int curacion) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
+	public void reponerVida(int curacion) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion, CuranderoCuraHastaLaMaximaVidaExcepcion;
 
 	public void mover(Posicion nuevaPosicion); //debería fijarse que esa posición no esté ocupada -> CASILLERO
 
