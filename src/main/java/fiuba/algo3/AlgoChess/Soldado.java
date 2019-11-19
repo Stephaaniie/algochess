@@ -46,6 +46,11 @@ public class Soldado implements EntidadMovil {
 		
 		return this.costo;
 	}
+
+	@Override
+	public void reponerVida(int curacion){
+
+	}
 /*
 	@Override
 	public void reponerVida(int curacion) throws CuranderoCuraHastaLaMaximaVidaExcepcion{
@@ -60,12 +65,6 @@ public class Soldado implements EntidadMovil {
 	}
 
 */
-
-
-/*	@Override
-	public void atacarEnemigo() {
-		
-	}*/
 /*
 	@Override
 	public void reponerVida(int curacion) throws CuranderoCuraHastaLaMaximaVidaExcepcion {
