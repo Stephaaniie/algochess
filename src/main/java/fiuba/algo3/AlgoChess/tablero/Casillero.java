@@ -30,4 +30,8 @@ public class Casillero {
 		
 		return this.contenido;
 	}
+
+    public void quitarEntidad() {
+		this.contenido = new ObjetoNull();
+    }
 }

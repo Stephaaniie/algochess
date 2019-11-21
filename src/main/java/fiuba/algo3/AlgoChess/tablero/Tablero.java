@@ -41,6 +41,13 @@ public class Tablero {
 		return cantidadEntidades;
 	}
 
+	public void quitarEntidadDePosicion(Posicion posicion){
+		if(posicion.getFila() < cantidadFilas / 2){
+			sectorAliado.quitarEntidadDePosicion(posicion);
+		}else{
+			sectorEnemigo.quitarEntidadDePosicion(posicion);
+		}
+	}
 
 	public void agregarContenidoEnCasillero(Jugador jugador, Entidad contenido, int fila, int columna) throws CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
 		Posicion posicion = new Posicion(fila, columna);
@@ -60,5 +67,9 @@ public class Tablero {
 	public int getCantidadDeColumnas() {
 		
 		return this.cantidadColumas;
+	}
+
+	public int getCantidadCasilleros(){
+		return this.cantidadCasilleros;
 	}
 }

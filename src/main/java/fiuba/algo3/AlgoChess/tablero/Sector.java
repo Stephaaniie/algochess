@@ -40,4 +40,9 @@ public class Sector {
 		casillero.agregarContenido(contenido);
 	}
 
+	public void quitarEntidadDePosicion(Posicion posicion) {
+		Casillero casillero = casilleros.get(posicion);
+		casillero.quitarEntidad();
+
+	}
 }
