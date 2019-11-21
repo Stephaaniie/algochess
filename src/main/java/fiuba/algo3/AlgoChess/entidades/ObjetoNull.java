@@ -14,18 +14,18 @@ public class ObjetoNull implements Entidad {
 	@Override
 	public void recibirDanio(int danio)throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
 		
-		throw new ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion("La entidad no existe");
+		throw new ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion("La entidad no existe y no puede recibir dicho daño");
 		
 	}
 
 	@Override
 	public void atacarEnemigo(Entidad entidadAtacada) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
-		throw new ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion("La entidad no existe");
+		throw new ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion("La entidad no existe y no puede recibir dicho daño");
 	}
 
 	@Override
 	public void reponerVida(int curacion) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
-		throw new ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion("La entidad no existe");
+		throw new ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion("La entidad no existe y no puede recibir dicho daño");
 	}
 
 	@Override
