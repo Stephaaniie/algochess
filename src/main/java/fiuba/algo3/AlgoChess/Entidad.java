@@ -12,7 +12,7 @@ public interface Entidad extends Ataque {
 
 	public void atacarEnemigo(Entidad entidadAtacada) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 
-	public void mover(String direccion) throws MovimientoInvalidoExcepcion, CatapultaNoSeMueveExcepcion, ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
+	public void mover(Direccion direccion) throws CatapultaNoSeMueveExcepcion, ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 
 	public Entidad agregar(Entidad otraEntidad) throws CasilleroOcupadoExcepcion;
 }

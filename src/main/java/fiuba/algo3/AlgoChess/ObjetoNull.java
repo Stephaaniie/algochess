@@ -28,7 +28,7 @@ public class ObjetoNull implements Entidad{
 	}
 
 	@Override
-	public void mover(String direccion) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+	public void mover(Direccion direccion) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
 		throw new ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion("La entidad no existe");
 	}
 
@@ -36,6 +36,4 @@ public class ObjetoNull implements Entidad{
     public Entidad agregar(Entidad otraEntidad) throws CasilleroOcupadoExcepcion {
         return otraEntidad;
     }
-
-
 }

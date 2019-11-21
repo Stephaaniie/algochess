@@ -21,7 +21,7 @@ public class Catapulta implements Entidad {
 	}
 
     @Override
-    public void mover(String direccion) throws MovimientoInvalidoExcepcion, CatapultaNoSeMueveExcepcion {
+    public void mover(Direccion direccion) throws CatapultaNoSeMueveExcepcion {
         throw new CatapultaNoSeMueveExcepcion();
     }
 

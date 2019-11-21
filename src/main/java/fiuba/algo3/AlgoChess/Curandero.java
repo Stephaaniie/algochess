@@ -3,7 +3,6 @@ import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.MovimientoInvalidoExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
-import fiuba.algo3.AlgoChess.teclado.Direccion;
 
 public class Curandero implements Entidad {
 
@@ -28,8 +27,7 @@ public class Curandero implements Entidad {
 	public int curacion = 15;
 	
 	public Posicion posicion;
-	
-	public Direccion direccion = new Direccion();
+
 
 	public Curandero(String bando, int fila, int columna) {
 
@@ -89,33 +87,8 @@ public class Curandero implements Entidad {
 
 	}
 
-	public void mover(String direccion) throws MovimientoInvalidoExcepcion {
-		
-		switch(direccion){
-			case ARRIBA :
-			
-				this.posicion = this.direccion.arriba(this.posicion);
-				break;
-			
-			case ABAJO :
-				
-				this.posicion = this.direccion.abajo(this.posicion);
-				break;
-				
-			case DERECHA :
-			
-				this.posicion = this.direccion.derecha(this.posicion);
-				break;
-				
-			case IZQUIERDA :
-				
-				this.posicion = this.direccion.izquierda(this.posicion);
-				
-				break;
-			default:
-				
-				throw new MovimientoInvalidoExcepcion();
-		}
+	public void mover(Direccion direccion) {
+		this.posicion = direccion.avanzar(this.posicion);
 	}
 
 	@Override

@@ -4,7 +4,6 @@ import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.MovimientoInvalidoExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
-import fiuba.algo3.AlgoChess.teclado.Direccion;
 
 public class Soldado implements Entidad {
 	private final int VIDAINICIAL = 100;
@@ -14,13 +13,10 @@ public class Soldado implements Entidad {
 	private int vida = VIDAINICIAL;
 	private int costo = 1;
 	private Posicion posicion;
-	private Direccion direccion;
 
 	public Soldado(String bando, int fila, int columna) {
 		this.bando = bando;
 		this.posicion = new Posicion(fila, columna);
-		this.direccion = new Direccion();
-
 	}
 
 	public int getVida() {
@@ -54,23 +50,8 @@ public class Soldado implements Entidad {
 	}
 
 	@Override
-	public void mover(String direccion) throws MovimientoInvalidoExcepcion {
-		switch(direccion){
-			case "arriba":
-				this.posicion = this.direccion.arriba(this.posicion);
-				break;
-			case "abajo":
-				this.posicion = this.direccion.abajo(this.posicion);
-				break;
-			case "izquierda":
-				this.posicion = this.direccion.izquierda(this.posicion);
-				break;
-			case "derecha":
-				this.posicion = this.direccion.derecha(this.posicion);
-				break;
-			default:
-				throw new MovimientoInvalidoExcepcion();
-		}
+	public void mover(Direccion direccion) {
+		this.posicion = direccion.avanzar(this.posicion);
 	}
 
     @Override
