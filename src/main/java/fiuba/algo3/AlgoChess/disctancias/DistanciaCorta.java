@@ -2,8 +2,8 @@ package fiuba.algo3.AlgoChess.disctancias;
 import java.util.ArrayList;
 
 import fiuba.algo3.AlgoChess.entidades.Entidad;
-import fiuba.algo3.AlgoChess.tablero.Posicion;
 import fiuba.algo3.AlgoChess.tablero.Casillero;
+import fiuba.algo3.AlgoChess.tablero.Posicion;
 import fiuba.algo3.AlgoChess.tablero.Tablero;
 
 public class DistanciaCorta {
@@ -27,7 +27,7 @@ public class DistanciaCorta {
 		
 		for(int i = 0; i < tablero.getCantidadDeFila(); i++) {
 			
-			for(int j = 0; j > tablero.getCantidadDeColumnas(); j++) {
+			for(int j = 0; j < tablero.getCantidadDeColumnas(); j++) {
 				
 				casillero_aux = tablero.sectorGlobal.getCasilleroDelSector(posicion);
 				
