@@ -1,4 +1,5 @@
 package fiuba.algo3.AlgoChess.disctancias;
+
 import java.util.ArrayList;
 
 import fiuba.algo3.AlgoChess.entidades.Entidad;
@@ -6,15 +7,18 @@ import fiuba.algo3.AlgoChess.entidades.Posicion;
 import fiuba.algo3.AlgoChess.tablero.Casillero;
 import fiuba.algo3.AlgoChess.tablero.Tablero;
 
-public class DistanciaCorta {
+public class DistanciaMedia {
 	
-	private final int DIS_MIN = 6;
-		
+	
+	private final int DIS_MIN = 3;
+	
+	private final int DIS_MAX = 5;
+	
 	private ArrayList<Entidad> EntidadesACiertaDistancia = new ArrayList<Entidad>();
 	
 	private Posicion posicion;
 	
-	public DistanciaCorta(Posicion posicion){
+	public DistanciaMedia(Posicion posicion){
 		
 		this.posicion = posicion;
 	}
@@ -32,8 +36,7 @@ public class DistanciaCorta {
 				casillero_aux = tablero.sectorGlobal.getCasilleroDelSector(posicion);
 				
 				if( casillero_aux.getPosicionDeCasillero().distanciaEntrePosiciones(posicion) >= DIS_MIN ||
-						casillero_aux.getPosicionDeCasillero().distanciaEntrePosiciones(posicion) <= 
-						tablero.getCantidadEntidades()){
+						casillero_aux.getPosicionDeCasillero().distanciaEntrePosiciones(posicion) <= DIS_MAX) {
 				
 					EntidadesACiertaDistancia.add(casillero_aux.getContenido());
 				}
