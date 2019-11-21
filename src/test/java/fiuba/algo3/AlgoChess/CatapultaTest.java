@@ -1,6 +1,9 @@
 package fiuba.algo3.AlgoChess;
 
 
+import fiuba.algo3.AlgoChess.entidades.Catapulta;
+import fiuba.algo3.AlgoChess.entidades.Jinete;
+import fiuba.algo3.AlgoChess.entidades.Soldado;
 import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 import org.junit.Assert;
 import org.junit.Test;

@@ -1,4 +1,8 @@
 package fiuba.algo3.AlgoChess;
+import fiuba.algo3.AlgoChess.direccion.*;
+import fiuba.algo3.AlgoChess.entidades.Curandero;
+import fiuba.algo3.AlgoChess.entidades.Posicion;
+import fiuba.algo3.AlgoChess.entidades.Soldado;
 import fiuba.algo3.AlgoChess.excepciones.MovimientoInvalidoExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 import org.junit.Assert;

@@ -1,5 +1,6 @@
-package fiuba.algo3.AlgoChess;
+package fiuba.algo3.AlgoChess.entidades;
 
+import fiuba.algo3.AlgoChess.direccion.Direccion;
 import fiuba.algo3.AlgoChess.excepciones.*;
 
 public class Catapulta implements Entidad {

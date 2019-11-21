@@ -1,5 +1,7 @@
-package fiuba.algo3.AlgoChess;
+package fiuba.algo3.AlgoChess.entidades;
 
+import fiuba.algo3.AlgoChess.Ataque;
+import fiuba.algo3.AlgoChess.direccion.Direccion;
 import fiuba.algo3.AlgoChess.excepciones.*;
 
 public interface Entidad extends Ataque {
