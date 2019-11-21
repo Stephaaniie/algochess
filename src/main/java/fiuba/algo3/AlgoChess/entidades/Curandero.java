@@ -7,14 +7,6 @@ import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionE
 public class Curandero implements Entidad {
 
 	private String bando = new String();
-
-	private final String ARRIBA    = "arriba";
-	
-	private final String ABAJO     = "abajo";
-	
-	private final String DERECHA   = "derecha";
-	
-	private final String IZQUIERDA = "izquierda";
 	
 	private final int VIDAINICIAL = 75;
 
