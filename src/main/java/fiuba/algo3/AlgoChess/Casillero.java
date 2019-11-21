@@ -3,9 +3,7 @@ package fiuba.algo3.AlgoChess;
 import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
 
 public class Casillero {
-	
 	private Posicion posicion;
-	
 	private Entidad contenido = new ObjetoNull();
 
 	public Casillero(Posicion posicion){
@@ -20,4 +18,5 @@ public class Casillero {
 			
 		}else throw new CasilleroOcupadoExcepcion();
 	}
+
 }

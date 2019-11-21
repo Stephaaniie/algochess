@@ -73,7 +73,6 @@ public class Curandero implements Entidad {
 		
 	}
 
-	@Override
 	public void reponerVida(int curacion) {
 		
 			if ((this.vida += CURACION) > VIDAINICIAL){
