@@ -2,18 +2,21 @@ package fiuba.algo3.AlgoChess.entidades;
 
 import fiuba.algo3.AlgoChess.direccion.Direccion;
 import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
+import fiuba.algo3.AlgoChess.excepciones.ColocarUnidadEnSectorEnemigoExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
+import fiuba.algo3.AlgoChess.tablero.Posicion;
+import fiuba.algo3.AlgoChess.tablero.Tablero;
 
 public class Jinete implements Entidad {
 	private final int VIDAINICIAL = 100;
-	private String bando = new String();
+	private Bando bando;
 	private int danioACuerpo = 5;
 	private int danioADistancia = 15;
 	private int vida = VIDAINICIAL;
 	private int costo = 3;
 	private Posicion posicion;
 
-	public Jinete(String bando, int fila, int columna) {
+	public Jinete(Bando bando, int fila, int columna) {
 		this.bando = bando;
 		this.posicion = new Posicion(fila, columna);
 	}
@@ -53,8 +56,11 @@ public class Jinete implements Entidad {
 	}
 
 	@Override
-	public void mover(Direccion direccion) {
+	public void mover(Direccion direccion) throws CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
+		Tablero tablero = Tablero.getInstanciaTablero();
+		tablero.quitarEntidadDePosicion(this.posicion);
 		this.posicion = direccion.avanzar(this.posicion);
+		tablero.agregarContenidoEnCasillero(this, this.posicion.getFila(), this.posicion.getColumna());
 	}
 
     @Override

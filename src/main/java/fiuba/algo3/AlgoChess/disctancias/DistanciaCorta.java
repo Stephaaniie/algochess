@@ -2,7 +2,7 @@ package fiuba.algo3.AlgoChess.disctancias;
 import java.util.ArrayList;
 
 import fiuba.algo3.AlgoChess.entidades.Entidad;
-import fiuba.algo3.AlgoChess.entidades.Posicion;
+import fiuba.algo3.AlgoChess.tablero.Posicion;
 import fiuba.algo3.AlgoChess.tablero.Casillero;
 import fiuba.algo3.AlgoChess.tablero.Tablero;
 

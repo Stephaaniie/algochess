@@ -4,12 +4,11 @@ import java.util.Map;
 
 import fiuba.algo3.AlgoChess.Jugador;
 import fiuba.algo3.AlgoChess.entidades.Entidad;
-import fiuba.algo3.AlgoChess.entidades.Posicion;
 import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.ColocarUnidadEnSectorEnemigoExcepcion;
 
 public class Sector {
-	Map<Posicion, Casillero> casilleros = new HashMap<Posicion, Casillero>();
+	private Map<Posicion, Casillero> casilleros = new HashMap<Posicion, Casillero>();
 	
 	public Jugador jugador;
 
@@ -34,9 +33,9 @@ public class Sector {
 
 	}
 
-	public void agregarContenidoEnCasillero(Jugador jugador, Entidad contenido, Posicion posicion) throws CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
-		if(this.jugador != jugador) throw new ColocarUnidadEnSectorEnemigoExcepcion();
+	public void agregarContenidoEnCasillero(Entidad contenido, Posicion posicion) throws CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
 		Casillero casillero = casilleros.get(posicion);
+		//if(casillero == null) throw new ColocarUnidadEnSectorEnemigoExcepcion();
 		casillero.agregarContenido(contenido);
 	}
 
@@ -44,5 +43,11 @@ public class Sector {
 		Casillero casillero = casilleros.get(posicion);
 		casillero.quitarEntidad();
 
+	}
+
+	public Entidad getEntidadEnPosicion(Posicion posicion) {
+		Casillero casillero = casilleros.get(posicion);
+
+		return casillero.getContenido();
 	}
 }
