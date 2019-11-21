@@ -5,19 +5,21 @@ import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.CatapultaNoSeMueveExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
+import fiuba.algo3.AlgoChess.tablero.Posicion;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class Batallon implements Entidad{
     private List<Soldado> soldadosDelBatallon = new ArrayList<Soldado>();
     private int danio = 10;
+    //private Bando bando;
+    private Posicion posicionCentral;
 
 
     @Override
     public Posicion getPosicion() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
-        return null;
+        return posicionCentral;
     }
 
     @Override

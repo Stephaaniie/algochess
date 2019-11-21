@@ -1,12 +1,15 @@
 package fiuba.algo3.AlgoChess.entidades;
 import fiuba.algo3.AlgoChess.direccion.Direccion;
 import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
+import fiuba.algo3.AlgoChess.excepciones.ColocarUnidadEnSectorEnemigoExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
+import fiuba.algo3.AlgoChess.tablero.Posicion;
+import fiuba.algo3.AlgoChess.tablero.Tablero;
 
 public class Curandero implements Entidad {
 
-	private String bando = new String();
+	private Bando bando;
 	
 	private final int VIDAINICIAL = 75;
 
@@ -18,23 +21,16 @@ public class Curandero implements Entidad {
 
 	public int curacion = 15;
 	
-	public Posicion posicion;
+	private Posicion posicion;
 
 
-	public Curandero(String bando, int fila, int columna) {
+	public Curandero(Bando bando, int fila, int columna) {
 
 		this.bando = bando;
 		this.posicion = new Posicion(fila, columna);
 
 	}
 
-
-	public String getBando() {
-		
-		return this.bando;
-	}
-	
-	
 	public int getVida() {
 		
 		return this.vida;
@@ -78,8 +74,11 @@ public class Curandero implements Entidad {
 
 	}
 
-	public void mover(Direccion direccion) {
+	public void mover(Direccion direccion) throws CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
+		Tablero tablero = Tablero.getInstanciaTablero();
+		tablero.quitarEntidadDePosicion(this.posicion);
 		this.posicion = direccion.avanzar(this.posicion);
+		tablero.agregarContenidoEnCasillero(this, this.posicion.getFila(), this.posicion.getColumna());
 	}
 
 	@Override

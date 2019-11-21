@@ -3,6 +3,7 @@ package fiuba.algo3.AlgoChess.entidades;
 import fiuba.algo3.AlgoChess.direccion.Direccion;
 import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
+import fiuba.algo3.AlgoChess.tablero.Posicion;
 
 public class ObjetoNull implements Entidad {
 

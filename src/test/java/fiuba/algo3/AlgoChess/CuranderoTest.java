@@ -4,6 +4,10 @@ import static org.junit.Assert.assertNotEquals;
 
 import fiuba.algo3.AlgoChess.direccion.*;
 import fiuba.algo3.AlgoChess.entidades.*;
+import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
+import fiuba.algo3.AlgoChess.excepciones.ColocarUnidadEnSectorEnemigoExcepcion;
+import fiuba.algo3.AlgoChess.tablero.Posicion;
+import fiuba.algo3.AlgoChess.tablero.Tablero;
 import org.junit.Test;
 
 import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
@@ -13,8 +17,8 @@ public class CuranderoTest {
 
 	@Test
 	public void CuranderoSeCreaConElCostoCorrecto() {
-
-		Curandero curandero = new Curandero("aliado", 0, 1);
+		Bando bando = new Aliado();
+		Curandero curandero = new Curandero(bando, 0, 1);
 
 		assertEquals(2, curandero.getCosto());
 
@@ -22,8 +26,8 @@ public class CuranderoTest {
 
 	@Test
 	public void CuranderoSeCreaConLaVidaCorrecta() {
-
-		Curandero curandero = new Curandero("aliado", 0, 1);
+		Bando bando = new Aliado();
+		Curandero curandero = new Curandero(bando, 0, 1);
 
 		assertEquals(75, curandero.getVida());
 
@@ -31,8 +35,8 @@ public class CuranderoTest {
 
 	@Test
 	public void seCreaCuranderoConTodosSusAtributosCargados() {
-
-		Curandero curandero = new Curandero("aliado", 0, 1);
+		Bando bando = new Aliado();
+		Curandero curandero = new Curandero(bando, 0, 1);
 
 		assertNotEquals(null, curandero);
 	}
@@ -40,10 +44,11 @@ public class CuranderoTest {
 	@Test
 	public void curanderoCuraUnSoldadoAlDecrementarLaVida()
 			throws CuranderoCuraHastaLaMaximaVidaExcepcion, ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+		Bando bando1 = new Aliado();
+		Bando bando2 = new Aliado();
+		Curandero curandero = new Curandero(bando1, 5, 5);
 
-		Curandero curandero = new Curandero("aliado", 5, 5);
-
-		Soldado soldado = new Soldado("aliado", 6, 7);
+		Soldado soldado = new Soldado(bando2, 6, 7);
 
 		soldado.recibirDanio(20);
 
@@ -55,10 +60,11 @@ public class CuranderoTest {
 	@Test
 	public void curanderoCuraUnJineteDecrementarLaVida()
 			throws CuranderoCuraHastaLaMaximaVidaExcepcion, ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+		Bando bando1 = new Aliado();
+		Bando bando2 = new Aliado();
+		Curandero curandero = new Curandero(bando1, 5, 5);
 
-		Curandero curandero = new Curandero("aliado", 5, 5);
-
-		Jinete jinete = new Jinete("aliado", 6, 7);
+		Jinete jinete = new Jinete(bando2, 6, 7);
 
 		jinete.recibirDanio(20);
 
@@ -69,10 +75,11 @@ public class CuranderoTest {
 
 	@Test
 	public void curanderoIntentaCurarUnaCatapulta() {
+		Bando bando1 = new Aliado();
+		Bando bando2 = new Aliado();
+		Curandero curandero = new Curandero(bando1, 5, 5);
 
-		Curandero curandero = new Curandero("aliado", 5, 5);
-
-		Catapulta catapulta = new Catapulta("aliado", 6, 7);
+		Catapulta catapulta = new Catapulta(bando2, 6, 7);
 
 		catapulta.recibirDanio(20);
 
@@ -87,8 +94,8 @@ public class CuranderoTest {
 
 	@Test
 	public void curanderoSeLeDecrementaLaVidaYSeAutoCura() {
-
-		Curandero curandero = new Curandero("aliado", 5, 5);
+		Bando bando = new Aliado();
+		Curandero curandero = new Curandero(bando, 5, 5);
 
 		curandero.recibirDanio(20);
 
@@ -103,58 +110,73 @@ public class CuranderoTest {
 	}
 
 	@Test
-	public void curanderoSeMueveEnDireccionArriba(){
-
+	public void curanderoSeMueveEnDireccionArriba() throws CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
+		Bando bando = new Aliado();
 		Posicion posicionNueva = new Posicion(4, 5);
 
-		Curandero curandero = new Curandero("aliado", 5, 5);
+		Curandero curandero = new Curandero(bando, 5, 5);
+		Tablero tablero = Tablero.getInstanciaTablero();
+		tablero.agregarContenidoEnCasillero(curandero,5, 5);
 
 		Direccion direccion = new Arriba();
 
 		curandero.mover(direccion);
 
-		assertEquals(curandero.posicion, posicionNueva);
+		assertEquals(curandero.getPosicion(), posicionNueva);
+		assertEquals(curandero, tablero.getEntidadEnPosicion(posicionNueva));
 	}
 
 	@Test
-	public void curanderoSeMueveEnDireccionAbajo() {
-
+	public void curanderoSeMueveEnDireccionAbajo() throws CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
+		Bando bando = new Aliado();
 		Posicion posicionNueva = new Posicion(6, 5);
 
-		Curandero curandero = new Curandero("aliado", 5, 5);
+		Curandero curandero = new Curandero(bando, 5, 5);
+
+		Tablero tablero = Tablero.getInstanciaTablero();
+		tablero.agregarContenidoEnCasillero(curandero,5, 5);
 
 		Direccion direccion = new Abajo();
 
 		curandero.mover(direccion);
 
-		assertEquals(curandero.posicion, posicionNueva);
+		assertEquals(curandero.getPosicion(), posicionNueva);
+		assertEquals(curandero, tablero.getEntidadEnPosicion(posicionNueva));
 	}
 
 	@Test
-	public void curanderoSeMueveEnDireccionDerecha() {
-
+	public void curanderoSeMueveEnDireccionDerecha() throws CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
+		Bando bando = new Aliado();
 		Posicion posicionNueva = new Posicion(5, 6);
 
-		Curandero curandero = new Curandero("aliado", 5, 5);
+		Curandero curandero = new Curandero(bando, 5, 5);
+
+		Tablero tablero = Tablero.getInstanciaTablero();
+		tablero.agregarContenidoEnCasillero(curandero,5, 5);
 
 		Direccion direccion = new Derecha();
 
 		curandero.mover(direccion);
 
-		assertEquals(curandero.posicion, posicionNueva);
+		assertEquals(curandero.getPosicion(), posicionNueva);
+		assertEquals(curandero, tablero.getEntidadEnPosicion(posicionNueva));
 	}
 
 	@Test
-	public void curanderoSeMueveEnDireccionIzquierda() {
-
+	public void curanderoSeMueveEnDireccionIzquierda() throws CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
+		Bando bando = new Aliado();
 		Posicion posicionNueva = new Posicion(5, 4);
 
-		Curandero curandero = new Curandero("aliado", 5, 5);
+		Curandero curandero = new Curandero(bando, 5, 5);
+
+		Tablero tablero = Tablero.getInstanciaTablero();
+		tablero.agregarContenidoEnCasillero(curandero,5, 5);
 
 		Direccion direccion = new Izquierda();
 
 		curandero.mover(direccion);
 
-		assertEquals(curandero.posicion, posicionNueva);
+		assertEquals(curandero.getPosicion(), posicionNueva);
+		assertEquals(curandero, tablero.getEntidadEnPosicion(posicionNueva));
 	}
 }

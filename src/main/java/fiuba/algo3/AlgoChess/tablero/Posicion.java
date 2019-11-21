@@ -1,4 +1,4 @@
-package fiuba.algo3.AlgoChess.entidades;
+package fiuba.algo3.AlgoChess.tablero;
 
 public class Posicion{
 	
@@ -54,4 +54,12 @@ public class Posicion{
 
 	        return (this.getFila() == otro.getFila() && this.getColumna() == otro.getColumna());
 	   }
+
+	@Override
+	public int hashCode() {
+		final int numero = 31;
+		int resultado = 1;
+		resultado = numero * resultado;
+		return resultado;
+	}
 }

@@ -2,20 +2,22 @@ package fiuba.algo3.AlgoChess.entidades;
 
 import fiuba.algo3.AlgoChess.direccion.Direccion;
 import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
+import fiuba.algo3.AlgoChess.excepciones.ColocarUnidadEnSectorEnemigoExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
+import fiuba.algo3.AlgoChess.tablero.Posicion;
 import fiuba.algo3.AlgoChess.tablero.Tablero;
 
 public class Soldado implements Entidad {
 	private final int VIDAINICIAL = 100;
-	private String bando = new String();
+	private Bando bando;
 	private int danioACuerpo = 10;
 	private int danioADistancia = 0;
 	private int vida = VIDAINICIAL;
 	private int costo = 1;
 	private Posicion posicion;
 
-	public Soldado(String bando, int fila, int columna) {
+	public Soldado(Bando bando, int fila, int columna) {
 		this.bando = bando;
 		this.posicion = new Posicion(fila, columna);
 	}
@@ -51,7 +53,7 @@ public class Soldado implements Entidad {
 	}
 
 	@Override
-	public void mover(Direccion direccion) {
+	public void mover(Direccion direccion) throws CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
 		Tablero tablero = Tablero.getInstanciaTablero();
 		tablero.quitarEntidadDePosicion(this.posicion);
 		this.posicion = direccion.avanzar(this.posicion);

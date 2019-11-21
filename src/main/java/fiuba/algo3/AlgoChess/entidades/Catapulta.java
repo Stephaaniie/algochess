@@ -2,16 +2,17 @@ package fiuba.algo3.AlgoChess.entidades;
 
 import fiuba.algo3.AlgoChess.direccion.Direccion;
 import fiuba.algo3.AlgoChess.excepciones.*;
+import fiuba.algo3.AlgoChess.tablero.Posicion;
 
 public class Catapulta implements Entidad {
 
-	private String bando = new String();
+	private Bando bando;
 	private int vida = 50;
 	private int costo = 5;
 	private int danioADistancia = 20;
 	private Posicion posicion;
 
-	public Catapulta(String bando, int fila, int columna) {
+	public Catapulta(Bando bando, int fila, int columna) {
 		this.bando = bando;
 		this.posicion = new Posicion(fila, columna);
 	}

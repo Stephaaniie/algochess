@@ -1,19 +1,20 @@
 package fiuba.algo3.AlgoChess;
 import fiuba.algo3.AlgoChess.direccion.*;
-import fiuba.algo3.AlgoChess.entidades.Jinete;
-import fiuba.algo3.AlgoChess.entidades.Posicion;
-import fiuba.algo3.AlgoChess.entidades.Soldado;
-import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
-import fiuba.algo3.AlgoChess.excepciones.MovimientoInvalidoExcepcion;
-import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
+import fiuba.algo3.AlgoChess.entidades.*;
+import fiuba.algo3.AlgoChess.tablero.Posicion;
+import fiuba.algo3.AlgoChess.excepciones.*;
+import fiuba.algo3.AlgoChess.tablero.Tablero;
 import org.junit.Assert;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class JineteTest {
 
 	@Test
 	public void jineteRecuperaVidaTest() throws CuranderoCuraHastaLaMaximaVidaExcepcion, ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
-		Jinete jinete = new Jinete("aliado", 1, 2);
+		Bando bando = new Aliado();
+		Jinete jinete = new Jinete(bando, 1, 2);
 		jinete.reponerVida(10);
 		
 		Assert.assertEquals(100, jinete.getVida());
@@ -21,7 +22,8 @@ public class JineteTest {
 	
 	@Test
 	public void jineteAtacadoPierdeVidaTest() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
-		Jinete jinete = new Jinete("enemigo", 6, 8);
+		Bando bando = new Enemigo();
+		Jinete jinete = new Jinete(bando, 6, 8);
 		jinete.recibirDanio(20);
 		
 		Assert.assertEquals(80, jinete.getVida());
@@ -30,8 +32,10 @@ public class JineteTest {
 
 	@Test
 	public void jineteAtacaAEntidadEnDistanciaCorta() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
-		Jinete jinete = new Jinete("aliado", 1, 2);
-		Soldado soldado = new Soldado("enemigo", 2, 2);
+		Bando bando1 = new Aliado();
+		Bando bando2 = new Enemigo();
+		Jinete jinete = new Jinete(bando1, 1, 2);
+		Soldado soldado = new Soldado(bando2, 2, 2);
 
 		jinete.atacarEnemigo(soldado);
 
@@ -40,8 +44,10 @@ public class JineteTest {
 
 	@Test
 	public void jineteAtacaAEntidadEnDistanciaMedia() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
-		Jinete jinete = new Jinete("aliado", 1, 2);
-		Soldado soldado = new Soldado("enemigo", 4, 2);
+		Bando bando1 = new Aliado();
+		Bando bando2 = new Enemigo();
+		Jinete jinete = new Jinete(bando1, 1, 2);
+		Soldado soldado = new Soldado(bando2, 4, 2);
 
 		jinete.atacarEnemigo(soldado);
 
@@ -49,42 +55,70 @@ public class JineteTest {
 	}
 	
 	@Test
-	public void jineteSeMueveParaAbajo() {
-		Jinete jinete = new Jinete("aliado", 3, 2);
+	public void jineteSeMueveParaAbajo() throws CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
+		Bando bando = new Aliado();
+		Jinete jinete = new Jinete(bando, 3, 2);
 		Posicion posicionNueva = new Posicion(4,2);
+
 		Direccion direccion = new Abajo();
+
+		Tablero tablero = Tablero.getInstanciaTablero();
+		tablero.agregarContenidoEnCasillero(jinete,3, 2);
+
 		jinete.mover(direccion);
-		
-		Assert.assertEquals(posicionNueva, jinete.getPosicion());
+
+		assertEquals(jinete.getPosicion(), posicionNueva);
+		assertEquals(jinete, tablero.getEntidadEnPosicion(posicionNueva));
 	}
 
 	@Test
-	public void jineteSeMueveParaArriba() {
-		Jinete jinete = new Jinete("aliado", 2, 1);
+	public void jineteSeMueveParaArriba() throws CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
+		Bando bando = new Aliado();
 		Posicion posicionNueva = new Posicion(1, 1);
+		Jinete jinete = new Jinete(bando, 2, 1);
+
 		Direccion direccion = new Arriba();
+
+		Tablero tablero = Tablero.getInstanciaTablero();
+		tablero.agregarContenidoEnCasillero(jinete,2, 1);
+
 		jinete.mover(direccion);
 
-		Assert.assertEquals(posicionNueva, jinete.getPosicion());
+		assertEquals(jinete.getPosicion(), posicionNueva);
+		assertEquals(jinete, tablero.getEntidadEnPosicion(posicionNueva));
 	}
 
 	@Test
-	public void jineteSeMueveParaLaDerecha() throws MovimientoInvalidoExcepcion {
-		Jinete jinete = new Jinete("aliado", 2, 1);
+	public void jineteSeMueveParaLaDerecha() throws MovimientoInvalidoExcepcion, CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
+		Bando bando = new Aliado();
 		Posicion posicionNueva = new Posicion(2,2);
+		Jinete jinete = new Jinete(bando, 2, 1);
+
 		Direccion direccion = new Derecha();
+
+		Tablero tablero = Tablero.getInstanciaTablero();
+		tablero.agregarContenidoEnCasillero(jinete,2, 1);
+
 		jinete.mover(direccion);
 
-		Assert.assertEquals(posicionNueva, jinete.getPosicion());
+		assertEquals(jinete.getPosicion(), posicionNueva);
+		assertEquals(jinete, tablero.getEntidadEnPosicion(posicionNueva));
 	}
 
 	@Test
-	public void jineteSeMueveParaLaIzquierda() throws MovimientoInvalidoExcepcion {
-		Jinete jinete = new Jinete("aliado", 2, 2);
-		Posicion posicionNueva = new Posicion(2, 1);
+	public void jineteSeMueveParaLaIzquierda() throws CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
+		Bando bando = new Aliado();
+		Posicion posicionNueva = new Posicion(3, 1);
+		Jinete jinete = new Jinete(bando, 3, 2);
+
 		Direccion direccion = new Izquierda();
+
+		Tablero tablero = Tablero.getInstanciaTablero();
+		tablero.agregarContenidoEnCasillero(jinete,3, 2);
+
 		jinete.mover(direccion);
 
-		Assert.assertEquals(posicionNueva, jinete.getPosicion());
+		assertEquals(jinete.getPosicion(), posicionNueva);
+		assertEquals(jinete, tablero.getEntidadEnPosicion(posicionNueva));
 	}
 }

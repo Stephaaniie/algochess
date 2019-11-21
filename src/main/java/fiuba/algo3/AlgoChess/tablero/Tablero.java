@@ -1,8 +1,6 @@
 package fiuba.algo3.AlgoChess.tablero;
 
-import fiuba.algo3.AlgoChess.Jugador;
 import fiuba.algo3.AlgoChess.entidades.Entidad;
-import fiuba.algo3.AlgoChess.entidades.Posicion;
 import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.ColocarUnidadEnSectorEnemigoExcepcion;
 
@@ -49,12 +47,12 @@ public class Tablero {
 		}
 	}
 
-	public void agregarContenidoEnCasillero(Jugador jugador, Entidad contenido, int fila, int columna) throws CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
+	public void agregarContenidoEnCasillero(Entidad contenido, int fila, int columna) throws CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
 		Posicion posicion = new Posicion(fila, columna);
-		if (fila < cantidadFilas / 2) {
-			sectorAliado.agregarContenidoEnCasillero(jugador, contenido, posicion);
+		if (fila < (cantidadFilas / 2)) {
+			sectorAliado.agregarContenidoEnCasillero(contenido, posicion);
 		} else {
-			sectorEnemigo.agregarContenidoEnCasillero(jugador, contenido, posicion);
+			sectorEnemigo.agregarContenidoEnCasillero(contenido, posicion);
 		}
 		this.cantidadEntidades++;
 	}
@@ -71,5 +69,17 @@ public class Tablero {
 
 	public int getCantidadCasilleros(){
 		return this.cantidadCasilleros;
+	}
+
+	public Entidad getEntidadEnPosicion(Posicion posicion){
+		Entidad entidad;
+
+		if(posicion.getFila() < cantidadFilas/2){
+			entidad = sectorAliado.getEntidadEnPosicion(posicion);
+		}else{
+			entidad = sectorEnemigo.getEntidadEnPosicion(posicion);
+		}
+
+		return entidad;
 	}
 }
