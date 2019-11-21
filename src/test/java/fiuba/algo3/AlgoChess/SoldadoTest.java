@@ -27,20 +27,6 @@ public class SoldadoTest {
 	}
 
 	@Test
-	public void soldadoNoTieneEnemigosCercaTest() {
-		Soldado soldado = new Soldado("aliado", 3, 5);
-
-		Assert.assertFalse(soldado.enemigosCerca());
-	}
-
-	@Test
-	public void soldadoNoTieneAliadosCercaTest() {
-		Soldado soldado = new Soldado("enemigo", 6, 7);
-
-		Assert.assertFalse(soldado.aliadosCerca());
-	}
-
-	@Test
 	public void soldadoAtacaACuranderoYLeRestaVida() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
 		Soldado soldado = new Soldado("enemigo", 6, 7);
 		Curandero curandero = new Curandero("aliado", 4, 9);
@@ -53,34 +39,38 @@ public class SoldadoTest {
 	public void soldadoSeMueveParaArriba() throws MovimientoInvalidoExcepcion {
 		Soldado soldado = new Soldado("enemigo", 6, 7);
 		Posicion posicion = new Posicion(5, 7);
-		soldado.mover("arriba");
+		Direccion direccion = new Arriba();
+		soldado.mover(direccion);
 
 		Assert.assertEquals(posicion, soldado.getPosicion());
 	}
 
 	@Test
-	public void soldadoSeMueveParaAbajo() throws MovimientoInvalidoExcepcion {
+	public void soldadoSeMueveParaAbajo() {
 		Soldado soldado = new Soldado("enemigo", 6, 7);
 		Posicion posicion = new Posicion(7, 7);
-		soldado.mover("abajo");
+		Direccion direccion = new Abajo();
+		soldado.mover(direccion);
 
 		Assert.assertEquals(posicion, soldado.getPosicion());
 	}
 
 	@Test
-	public void soldadoSeMueveParaLaIzquierda() throws MovimientoInvalidoExcepcion {
+	public void soldadoSeMueveParaLaIzquierda() {
 		Soldado soldado = new Soldado("enemigo", 6, 7);
 		Posicion posicion = new Posicion(6, 6);
-		soldado.mover("izquierda");
+		Direccion direccion = new Izquierda();
+		soldado.mover(direccion);
 
 		Assert.assertEquals(posicion, soldado.getPosicion());
 	}
 
 	@Test
-	public void soldadoSeMueveParaLaDerecha() throws MovimientoInvalidoExcepcion {
+	public void soldadoSeMueveParaLaDerecha() {
 		Soldado soldado = new Soldado("enemigo", 6, 7);
 		Posicion posicion = new Posicion(6, 8);
-		soldado.mover("derecha");
+		Direccion direccion = new Derecha();
+		soldado.mover(direccion);
 
 		Assert.assertEquals(posicion, soldado.getPosicion());
 	}

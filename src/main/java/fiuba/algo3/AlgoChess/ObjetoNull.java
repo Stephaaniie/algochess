@@ -1,18 +1,13 @@
 package fiuba.algo3.AlgoChess;
 
-import fiuba.algo3.AlgoChess.excepciones.MovimientoInvalidoExcepcion;
+import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 
-public class ObjetoNull implements EntidadMovil, EntidadFija{
+public class ObjetoNull implements Entidad{
 
 	@Override
-	public boolean aliadosCerca() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
-		throw new ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion("La entidad no existe y no puede recibir dicho daño");
-	}
-
-	@Override
-	public boolean enemigosCerca() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
-		throw new ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion("La entidad no existe y no puede recibir dicho daño");
+	public Posicion getPosicion() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+		throw new ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion("La entidad");
 	}
 
 	@Override
@@ -33,14 +28,12 @@ public class ObjetoNull implements EntidadMovil, EntidadFija{
 	}
 
 	@Override
-	public Posicion getPosicion() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
-		return null;
+	public void mover(Direccion direccion) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+		throw new ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion("La entidad no existe");
 	}
 
-	@Override
-	public void mover(String direccion)
-			throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion, MovimientoInvalidoExcepcion {
-		
-	}
-
+    @Override
+    public Entidad agregar(Entidad otraEntidad) throws CasilleroOcupadoExcepcion {
+        return otraEntidad;
+    }
 }

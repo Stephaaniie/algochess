@@ -22,13 +22,7 @@ public class JineteTest {
 		
 		Assert.assertEquals(80, jinete.getVida());
 	}
-	
-	@Test
-	public void jineteNoTieneEnemigosCercaTest() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
-		Jinete jinete = new Jinete("aliado", 1, 8);
-		
-		Assert.assertEquals(false, jinete.enemigosCerca());
-	}
+
 
 	@Test
 	public void jineteAtacaAEntidadEnDistanciaCorta() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
@@ -51,19 +45,21 @@ public class JineteTest {
 	}
 	
 	@Test
-	public void jineteSeMueveParaAbajo() throws MovimientoInvalidoExcepcion {
+	public void jineteSeMueveParaAbajo() {
 		Jinete jinete = new Jinete("aliado", 3, 2);
 		Posicion posicionNueva = new Posicion(4,2);
-		jinete.mover("abajo");
+		Direccion direccion = new Abajo();
+		jinete.mover(direccion);
 		
 		Assert.assertEquals(posicionNueva, jinete.getPosicion());
 	}
 
 	@Test
-	public void jineteSeMueveParaArriba() throws MovimientoInvalidoExcepcion {
+	public void jineteSeMueveParaArriba() {
 		Jinete jinete = new Jinete("aliado", 2, 1);
 		Posicion posicionNueva = new Posicion(1, 1);
-		jinete.mover("arriba");
+		Direccion direccion = new Arriba();
+		jinete.mover(direccion);
 
 		Assert.assertEquals(posicionNueva, jinete.getPosicion());
 	}
@@ -72,7 +68,8 @@ public class JineteTest {
 	public void jineteSeMueveParaLaDerecha() throws MovimientoInvalidoExcepcion {
 		Jinete jinete = new Jinete("aliado", 2, 1);
 		Posicion posicionNueva = new Posicion(2,2);
-		jinete.mover("derecha");
+		Direccion direccion = new Derecha();
+		jinete.mover(direccion);
 
 		Assert.assertEquals(posicionNueva, jinete.getPosicion());
 	}
@@ -81,21 +78,9 @@ public class JineteTest {
 	public void jineteSeMueveParaLaIzquierda() throws MovimientoInvalidoExcepcion {
 		Jinete jinete = new Jinete("aliado", 2, 2);
 		Posicion posicionNueva = new Posicion(2, 1);
-		jinete.mover("izquierda");
+		Direccion direccion = new Izquierda();
+		jinete.mover(direccion);
 
 		Assert.assertEquals(posicionNueva, jinete.getPosicion());
-	}
-
-	@Test
-	public void jineteNoSeMueveEnDireccionInvalida(){
-		Jinete jinete = new Jinete("aliado", 1, 1);
-		boolean errorAtrapado = false;
-
-		try{
-			jinete.mover("diagonal");
-		}catch(MovimientoInvalidoExcepcion e){
-			errorAtrapado = true;
-		}
-		Assert.assertTrue(errorAtrapado);
 	}
 }

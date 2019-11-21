@@ -1,7 +1,5 @@
 package fiuba.algo3.AlgoChess;
 
-import fiuba.algo3.AlgoChess.teclado.Direccion;
-
 public class Posicion{
 	
 	public int fila;

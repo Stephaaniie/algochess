@@ -1,10 +1,10 @@
 package fiuba.algo3.AlgoChess;
 
+import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.MovimientoInvalidoExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
-import fiuba.algo3.AlgoChess.teclado.Direccion;
 
-public class Jinete implements EntidadMovil {
+public class Jinete implements Entidad {
 	private final int VIDAINICIAL = 100;
 	private String bando = new String();
 	private int danioACuerpo = 5;
@@ -12,21 +12,12 @@ public class Jinete implements EntidadMovil {
 	private int vida = VIDAINICIAL;
 	private int costo = 3;
 	private Posicion posicion;
-	private Direccion direccion = new Direccion();
 
 	public Jinete(String bando, int fila, int columna) {
 		this.bando = bando;
 		this.posicion = new Posicion(fila, columna);
 	}
 
-	@Override
-	public boolean aliadosCerca() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
-		return false;
-	}
-	@Override
-	public boolean enemigosCerca() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
-		return false;
-	}
 	@Override
 	public void recibirDanio(int danio) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
 		this.vida -= danio;
@@ -62,27 +53,17 @@ public class Jinete implements EntidadMovil {
 	}
 
 	@Override
-	public void mover(String direccion) throws MovimientoInvalidoExcepcion {
-		switch (direccion){
-			case "arriba":
-				this.posicion = this.direccion.arriba(this.posicion);
-				break;
-			case "abajo":
-				this.posicion = this.direccion.abajo(this.posicion);
-				break;
-			case "derecha":
-				this.posicion = this.direccion.derecha(this.posicion);
-				break;
-			case "izquierda":
-				this.posicion = this.direccion.izquierda(this.posicion);
-				break;
-			default:
-				throw new MovimientoInvalidoExcepcion();
-		}
+	public void mover(Direccion direccion) {
+		this.posicion = direccion.avanzar(this.posicion);
 	}
 
+    @Override
+    public Entidad agregar(Entidad otraEntidad) throws CasilleroOcupadoExcepcion {
+        throw new CasilleroOcupadoExcepcion();
+    }
 
-	public Posicion getPosicion() {
+
+    public Posicion getPosicion() {
 		return this.posicion;
 	}
 

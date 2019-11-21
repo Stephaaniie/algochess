@@ -1,9 +1,8 @@
 package fiuba.algo3.AlgoChess;
 
-import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
-import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
+import fiuba.algo3.AlgoChess.excepciones.*;
 
-public interface Entidad {
+public interface Entidad extends Ataque {
 
 	public Posicion getPosicion() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 
@@ -11,4 +10,9 @@ public interface Entidad {
 
 	public void reponerVida(int curacion) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion, CuranderoCuraHastaLaMaximaVidaExcepcion;
 
+	public void atacarEnemigo(Entidad entidadAtacada) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
+
+	public void mover(Direccion direccion) throws CatapultaNoSeMueveExcepcion, ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
+
+	public Entidad agregar(Entidad otraEntidad) throws CasilleroOcupadoExcepcion;
 }

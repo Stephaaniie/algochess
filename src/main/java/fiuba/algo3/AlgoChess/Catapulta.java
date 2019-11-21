@@ -1,9 +1,8 @@
 package fiuba.algo3.AlgoChess;
 
-import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
-import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
+import fiuba.algo3.AlgoChess.excepciones.*;
 
-public class Catapulta implements EntidadFija {
+public class Catapulta implements Entidad {
 
 	private String bando = new String();
 	private int vida = 50;
@@ -20,6 +19,16 @@ public class Catapulta implements EntidadFija {
 	public void atacarEnemigo(Entidad entidadAtacada) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
 	    entidadAtacada.recibirDanio(this.danioADistancia);
 	}
+
+    @Override
+    public void mover(Direccion direccion) throws CatapultaNoSeMueveExcepcion {
+        throw new CatapultaNoSeMueveExcepcion();
+    }
+
+    @Override
+    public Entidad agregar(Entidad otraEntidad) throws CasilleroOcupadoExcepcion {
+        throw new CasilleroOcupadoExcepcion();
+    }
 
     @Override
     public Posicion getPosicion() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {

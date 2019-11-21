@@ -11,12 +11,7 @@ public class Casillero {
 	}
 
 	public void agregarContenido(Entidad contenido) throws CasilleroOcupadoExcepcion {
-
-		if(this.contenido instanceof ObjetoNull) {
-			
-			this.contenido = contenido;
-			
-		}else throw new CasilleroOcupadoExcepcion();
+		this.contenido = this.contenido.agregar(contenido);
 	}
 
 }
