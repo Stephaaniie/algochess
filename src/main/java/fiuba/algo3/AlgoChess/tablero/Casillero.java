@@ -16,5 +16,18 @@ public class Casillero {
 	public void agregarContenido(Entidad contenido) throws CasilleroOcupadoExcepcion {
 		this.contenido = this.contenido.agregar(contenido);
 	}
-
+	
+	public Casillero getCasillero() {
+		
+		return this;
+	}
+	
+	public Posicion getPosicionDeCasillero() {
+		
+		return this.getCasillero().posicion;
+	}
+	public Entidad getContenido() {
+		
+		return this.contenido;
+	}
 }
