@@ -27,20 +27,6 @@ public class SoldadoTest {
 	}
 
 	@Test
-	public void soldadoNoTieneEnemigosCercaTest() {
-		Soldado soldado = new Soldado("aliado", 3, 5);
-
-		Assert.assertFalse(soldado.enemigosCerca());
-	}
-
-	@Test
-	public void soldadoNoTieneAliadosCercaTest() {
-		Soldado soldado = new Soldado("enemigo", 6, 7);
-
-		Assert.assertFalse(soldado.aliadosCerca());
-	}
-
-	@Test
 	public void soldadoAtacaACuranderoYLeRestaVida() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
 		Soldado soldado = new Soldado("enemigo", 6, 7);
 		Curandero curandero = new Curandero("aliado", 4, 9);

@@ -1,4 +1,5 @@
 package fiuba.algo3.AlgoChess;
+import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.MovimientoInvalidoExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
@@ -82,7 +83,12 @@ public class Curandero implements Entidad {
 
 			}
 	}
-	
+
+	@Override
+	public void atacarEnemigo(Entidad entidadAtacada) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+
+	}
+
 	public void mover(String direccion) throws MovimientoInvalidoExcepcion {
 		
 		switch(direccion){
@@ -111,7 +117,12 @@ public class Curandero implements Entidad {
 				throw new MovimientoInvalidoExcepcion();
 		}
 	}
-	
+
+	@Override
+	public Entidad agregar(Entidad otraEntidad) throws CasilleroOcupadoExcepcion {
+		throw new CasilleroOcupadoExcepcion();
+	}
+
 	public Posicion getPosicion() {
 		
 		return this.posicion;

@@ -22,13 +22,7 @@ public class JineteTest {
 		
 		Assert.assertEquals(80, jinete.getVida());
 	}
-	
-	@Test
-	public void jineteNoTieneEnemigosCercaTest() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
-		Jinete jinete = new Jinete("aliado", 1, 8);
-		
-		Assert.assertEquals(false, jinete.enemigosCerca());
-	}
+
 
 	@Test
 	public void jineteAtacaAEntidadEnDistanciaCorta() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {

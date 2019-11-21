@@ -1,11 +1,12 @@
 package fiuba.algo3.AlgoChess;
 
+import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.MovimientoInvalidoExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 import fiuba.algo3.AlgoChess.teclado.Direccion;
 
-public class Soldado implements EntidadMovil {
+public class Soldado implements Entidad {
 	private final int VIDAINICIAL = 100;
 	private String bando = new String();
 	private int danioACuerpo = 10;
@@ -25,17 +26,6 @@ public class Soldado implements EntidadMovil {
 	public int getVida() {
 		
 		return this.vida;
-	}
-	
-	@Override
-	public boolean aliadosCerca() {
-
-		return false;
-	}
-
-	@Override
-	public boolean enemigosCerca() {
-		return false;
 	}
 
 	@Override
@@ -82,8 +72,13 @@ public class Soldado implements EntidadMovil {
 				throw new MovimientoInvalidoExcepcion();
 		}
 	}
-	
-	public Posicion getPosicion() {
+
+    @Override
+    public Entidad agregar(Entidad otraEntidad) throws CasilleroOcupadoExcepcion {
+        throw new CasilleroOcupadoExcepcion();
+    }
+
+    public Posicion getPosicion() {
 		return this.posicion;
 	}
 
