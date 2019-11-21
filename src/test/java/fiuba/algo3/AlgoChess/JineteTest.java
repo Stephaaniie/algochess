@@ -121,4 +121,27 @@ public class JineteTest {
 		assertEquals(jinete.getPosicion(), posicionNueva);
 		assertEquals(jinete, tablero.getEntidadEnPosicion(posicionNueva));
 	}
+
+	@Test
+	public void jineteNoPuedeMoverseACasilleroOcupado() throws CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
+		boolean errorAtrapado = false;
+		Posicion posicionEsperada = new Posicion(5, 5);
+		Bando bando1 = new Aliado();
+		Bando bando2 = new Aliado();
+		Jinete jinete = new Jinete(bando1, 5,5);
+		Catapulta catapulta = new Catapulta(bando2, 5,4);
+		Tablero tablero = Tablero.getInstanciaTablero();
+		Direccion direccion = new Izquierda();
+
+		try{
+			tablero.agregarContenidoEnCasillero(jinete, 5, 5);
+			tablero.agregarContenidoEnCasillero(catapulta,5,4);
+			jinete.mover(direccion);
+		}catch(CasilleroOcupadoExcepcion e){
+			errorAtrapado = true;
+		}
+
+		Assert.assertTrue(errorAtrapado);
+		Assert.assertEquals(posicionEsperada, jinete.getPosicion());
+	}
 }

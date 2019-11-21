@@ -107,4 +107,27 @@ public class SoldadoTest {
 		assertEquals(soldado.getPosicion(), posicionNueva);
 		assertEquals(soldado, tablero.getEntidadEnPosicion(posicionNueva));
 	}
+
+	@Test
+	public void soldadoNoPuedeMoverseACasilleroOcupado() throws CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
+		boolean errorAtrapado = false;
+		Posicion posicionEsperada = new Posicion(5, 5);
+		Bando bando1 = new Aliado();
+		Bando bando2 = new Aliado();
+		Soldado soldado = new Soldado(bando1, 5,5);
+		Catapulta catapulta = new Catapulta(bando2, 5,4);
+		Tablero tablero = Tablero.getInstanciaTablero();
+		Direccion direccion = new Izquierda();
+
+		try{
+			tablero.agregarContenidoEnCasillero(soldado, 5, 5);
+			tablero.agregarContenidoEnCasillero(catapulta,5,4);
+			soldado.mover(direccion);
+		}catch(CasilleroOcupadoExcepcion e){
+			errorAtrapado = true;
+		}
+
+		Assert.assertTrue(errorAtrapado);
+		Assert.assertEquals(posicionEsperada, soldado.getPosicion());
+	}
 }
