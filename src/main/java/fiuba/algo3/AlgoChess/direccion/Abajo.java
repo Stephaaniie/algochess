@@ -1,6 +1,8 @@
-package fiuba.algo3.AlgoChess;
+package fiuba.algo3.AlgoChess.direccion;
 
-public class Abajo implements Direccion{
+import fiuba.algo3.AlgoChess.entidades.Posicion;
+
+public class Abajo implements Direccion {
     @Override
     public Posicion avanzar(Posicion posicion){
         int filaAbajo = posicion.getFila() + 1;

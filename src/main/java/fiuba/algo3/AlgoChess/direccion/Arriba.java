@@ -1,4 +1,6 @@
-package fiuba.algo3.AlgoChess;
+package fiuba.algo3.AlgoChess.direccion;
+
+import fiuba.algo3.AlgoChess.entidades.Posicion;
 
 public class Arriba implements Direccion {
     @Override

@@ -1,9 +1,10 @@
-package fiuba.algo3.AlgoChess;
+package fiuba.algo3.AlgoChess.entidades;
 
+import fiuba.algo3.AlgoChess.direccion.Direccion;
 import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 
-public class ObjetoNull implements Entidad{
+public class ObjetoNull implements Entidad {
 
 	@Override
 	public Posicion getPosicion() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {

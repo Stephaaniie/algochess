@@ -2,6 +2,7 @@ package fiuba.algo3.AlgoChess;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
+import fiuba.algo3.AlgoChess.entidades.Posicion;
 import org.junit.Test;
 
 public class PosicionTest {

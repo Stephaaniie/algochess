@@ -1,7 +1,10 @@
-package fiuba.algo3.AlgoChess;
+package fiuba.algo3.AlgoChess.tablero;
 import java.util.HashMap;
 import java.util.Map;
 
+import fiuba.algo3.AlgoChess.entidades.Entidad;
+import fiuba.algo3.AlgoChess.Jugador;
+import fiuba.algo3.AlgoChess.entidades.Posicion;
 import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.ColocarUnidadEnSectorEnemigoExcepcion;
 

@@ -1,5 +1,8 @@
-package fiuba.algo3.AlgoChess;
+package fiuba.algo3.AlgoChess.tablero;
 
+import fiuba.algo3.AlgoChess.entidades.Entidad;
+import fiuba.algo3.AlgoChess.entidades.ObjetoNull;
+import fiuba.algo3.AlgoChess.entidades.Posicion;
 import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
 
 public class Casillero {
