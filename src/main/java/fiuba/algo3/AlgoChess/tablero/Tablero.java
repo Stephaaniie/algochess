@@ -57,9 +57,9 @@ public class Tablero {
 		try{
 			agregarContenidoEnCasillero(entidad, posicionNueva.getFila(), posicionNueva.getColumna());
 		}catch(CasilleroOcupadoExcepcion e){
-			throw new CasilleroOcupadoExcepcion();
+			throw new CasilleroOcupadoExcepcion("El casillero esta ocupado");
 		} catch (ColocarUnidadEnSectorEnemigoExcepcion n) {
-			throw new ColocarUnidadEnSectorEnemigoExcepcion();
+			throw new ColocarUnidadEnSectorEnemigoExcepcion("El sector es el del enemigo");
 		}
 
 		quitarEntidadDePosicion(posicionAnterior);

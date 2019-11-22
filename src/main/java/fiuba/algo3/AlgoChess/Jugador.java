@@ -32,9 +32,9 @@ public class Jugador {
 			tablero.agregarContenidoEnCasillero(entidad, fila, columna);
 			entidades.add(entidad);
 		} catch (CasilleroOcupadoExcepcion e) {
-			throw new CasilleroOcupadoExcepcion();
+			throw new CasilleroOcupadoExcepcion("El casillero esta ocupado");
 		} catch (ColocarUnidadEnSectorEnemigoExcepcion e) {
-			throw new ColocarUnidadEnSectorEnemigoExcepcion();
+			throw new ColocarUnidadEnSectorEnemigoExcepcion("El sector es el del enemigo");
 		}catch(CantidadDePuntosInsuficientesExcepcion e){
 			throw new CantidadDePuntosInsuficientesExcepcion();
 		}
