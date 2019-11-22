@@ -2,6 +2,7 @@ package fiuba.algo3.AlgoChess.distancia;
 import java.util.ArrayList;
 
 import fiuba.algo3.AlgoChess.entidades.Entidad;
+import fiuba.algo3.AlgoChess.excepciones.NoHayCeldasAlrededorDeUnaDistanciaCortaExcepcion;
 import fiuba.algo3.AlgoChess.tablero.Casillero;
 import fiuba.algo3.AlgoChess.tablero.Posicion;
 import fiuba.algo3.AlgoChess.tablero.Tablero;
@@ -21,7 +22,8 @@ public class DistanciaCorta {
 		this.posicion = posicion;
 	}
 	
-	public ArrayList <Entidad> calcularDistanciaCorta() {
+	public ArrayList <Entidad> calcularDistanciaCorta()
+			throws NoHayCeldasAlrededorDeUnaDistanciaCortaExcepcion {
 		
 		Tablero tablero = Tablero.getInstanciaTablero();
 		
@@ -39,6 +41,9 @@ public class DistanciaCorta {
 					EntidadesACiertaDistancia.add(casillero_aux.getContenido());
 				}
 			}
+		}
+		if (EntidadesACiertaDistancia.size() == 0) {
+			throw new  NoHayCeldasAlrededorDeUnaDistanciaCortaExcepcion("No se puede realiza dicha accion");
 		}
 		return EntidadesACiertaDistancia;
 	}
