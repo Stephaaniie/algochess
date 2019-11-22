@@ -65,7 +65,7 @@ public class Jinete implements Entidad {
 
     @Override
     public Entidad agregar(Entidad otraEntidad) throws CasilleroOcupadoExcepcion {
-        throw new CasilleroOcupadoExcepcion();
+        throw new CasilleroOcupadoExcepcion("No se puede realizar dicha acción");
     }
 
 

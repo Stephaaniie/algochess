@@ -1,14 +1,14 @@
 package fiuba.algo3.AlgoChess.entidades;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import fiuba.algo3.AlgoChess.direccion.Direccion;
 import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.CatapultaNoSeMueveExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 import fiuba.algo3.AlgoChess.tablero.Posicion;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Batallon implements Entidad{
     private List<Soldado> soldadosDelBatallon = new ArrayList<Soldado>();
@@ -48,6 +48,6 @@ public class Batallon implements Entidad{
 
     @Override
     public Entidad agregar(Entidad otraEntidad) throws CasilleroOcupadoExcepcion {
-        throw new CasilleroOcupadoExcepcion();
+        throw new CasilleroOcupadoExcepcion("No se puede realizar dicha accion");
     }
 }
