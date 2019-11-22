@@ -38,4 +38,9 @@ public class ObjetoNull implements Entidad {
     public Entidad agregar(Entidad otraEntidad) throws CasilleroOcupadoExcepcion {
         return otraEntidad;
     }
+
+	@Override
+	public int getCosto() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+		throw new ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion("La entidad no existe");
+	}
 }

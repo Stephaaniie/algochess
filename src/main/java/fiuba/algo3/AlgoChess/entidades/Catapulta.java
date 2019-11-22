@@ -45,6 +45,7 @@ public class Catapulta implements Entidad {
 		this.vida -= danio;
 	}
 
+	@Override
 	public int getCosto() {
 		return this.costo;
 	}

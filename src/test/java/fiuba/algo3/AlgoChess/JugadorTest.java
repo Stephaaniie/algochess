@@ -1,69 +1,68 @@
 package fiuba.algo3.AlgoChess;
 
+import fiuba.algo3.AlgoChess.entidades.*;
+import fiuba.algo3.AlgoChess.excepciones.*;
+import fiuba.algo3.AlgoChess.tablero.Casillero;
+import fiuba.algo3.AlgoChess.tablero.Posicion;
+import fiuba.algo3.AlgoChess.tablero.Tablero;
+import org.junit.Assert;
+import org.junit.Test;
+
 public class JugadorTest {
 		
-/*		@Test
-		public void PuntosIncialesCorrectosTest() {
-				
-			Jugador nuevoJugador = new Jugador("pedro");
+		@Test
+		public void puntosIncialesCorrectosTest() {
+		    Bando bando = new Aliado();
+			Jugador nuevoJugador = new Jugador("pedro", bando);
 			
-			Assert.assertEquals(20,nuevoJugador.cantidadDePuntosActual());
+			Assert.assertEquals(20,nuevoJugador.cantidadPuntos());
 		}
 			
 		@Test
-		public void DescontarUnPuntoPorAdquirirSoldadoTest() {
-				
-			Casillero casillero = new Casillero(1,2);
-			
-			Soldado soldado = new Soldado("aliado", casillero);
-			
-			Jugador nuevoJugador = new Jugador("pedro");
-						
-			nuevoJugador.descontarPuntos(soldado.getCosto());
-				
-			Assert.assertEquals(19,nuevoJugador.cantidadDePuntosActual());
+		public void descontarUnPuntoPorAdquirirSoldado() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion, CantidadDePuntosInsuficientesExcepcion {
+            Bando bando = new Aliado();
+            Entidad soldado = new Soldado(bando, 3,2);
+
+            Jugador nuevoJugador = new Jugador("pedro", bando);
+
+            nuevoJugador.descontarPuntos(soldado.getCosto());
+
+            Assert.assertEquals(19,nuevoJugador.cantidadPuntos());
 		}
 			
 		@Test
-		public void DescontarTresPuntoPorAdquirirJineteTest() {
-			
-			Casillero casillero = new Casillero(9,9);
-			
-			Jinete jinete = new Jinete("aliado", casillero);
-				
-			Jugador nuevoJuego = new Jugador("pedro");
-						
-			nuevoJuego.descontarPuntos(jinete.getCosto());
-				
-			Assert.assertEquals(17,nuevoJuego.cantidadDePuntosActual());
+		public void descontarTresPuntoPorAdquirirJinete() throws CantidadDePuntosInsuficientesExcepcion, ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+            Bando bando = new Aliado();
+            Entidad jinete = new Jinete(bando, 3,2);
+
+            Jugador nuevoJugador = new Jugador("pedro", bando);
+
+            nuevoJugador.descontarPuntos(jinete.getCosto());
+
+            Assert.assertEquals(17,nuevoJugador.cantidadPuntos());
 		}
 		
 		@Test
-		public void DescontarDosPuntosPorAdquirirCuranderoTest() {
-			Casillero casillero = new Casillero(5,2);
-			
-			Curandero curandero = new Curandero("aliado", casillero);
-			
-			Jugador nuevoJugador = new Jugador("pedro");
-			
-			nuevoJugador.descontarPuntos(curandero.getCosto());	
-				
-			Assert.assertEquals(18,nuevoJugador.cantidadDePuntosActual());
+		public void descontarDosPuntosPorAdquirirCurandero() throws CantidadDePuntosInsuficientesExcepcion, ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+            Bando bando = new Aliado();
+            Entidad curandero = new Curandero(bando, 3,2);
+
+            Jugador nuevoJugador = new Jugador("pedro", bando);
+
+            nuevoJugador.descontarPuntos(curandero.getCosto());
+
+            Assert.assertEquals(18,nuevoJugador.cantidadPuntos());
 		}
 			
 		@Test 
-		public void DescontarCincoPuntosPorAdquirirCatapultaTest() {
-			Casillero casillero = new Casillero(3,2);
-			
-			Catapulta catapulta = new Catapulta("aliado", casillero);
+		public void descontarCincoPuntosPorAdquirirCatapulta() throws CantidadDePuntosInsuficientesExcepcion, ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+			Bando bando = new Aliado();
+			Entidad catapulta = new Catapulta(bando, 3,2);
 								
-			Jugador nuevoJugador = new Jugador("pedro");
+			Jugador nuevoJugador = new Jugador("pedro", bando);
 				
 			nuevoJugador.descontarPuntos(catapulta.getCosto());
 				
-			Assert.assertEquals(15,nuevoJugador.cantidadDePuntosActual());
+			Assert.assertEquals(15,nuevoJugador.cantidadPuntos());
 		}
-
-*/
-	
 }

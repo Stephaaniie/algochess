@@ -18,4 +18,6 @@ public interface Entidad extends Ataque {
 	public void mover(Direccion direccion) throws CatapultaNoSeMueveExcepcion, ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion, CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion;
 
 	public Entidad agregar(Entidad otraEntidad) throws CasilleroOcupadoExcepcion;
+
+	public int getCosto() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 }
