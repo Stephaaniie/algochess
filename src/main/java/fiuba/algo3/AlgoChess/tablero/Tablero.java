@@ -53,6 +53,19 @@ public class Tablero {
 		}
 	}
 
+	public int mover(Entidad entidad, Posicion posicionAnterior, Posicion posicionNueva) throws CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
+		try{
+			agregarContenidoEnCasillero(entidad, posicionNueva.getFila(), posicionNueva.getColumna());
+		}catch(CasilleroOcupadoExcepcion e){
+			throw new CasilleroOcupadoExcepcion();
+		} catch (ColocarUnidadEnSectorEnemigoExcepcion n) {
+			throw new ColocarUnidadEnSectorEnemigoExcepcion();
+		}
+
+		quitarEntidadDePosicion(posicionAnterior);
+		return 0;
+	}
+
 	public void agregarContenidoEnCasillero(Entidad contenido, int fila, int columna) throws CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
 		Posicion posicion = new Posicion(fila, columna);
 		if (fila < (cantidadFilas / 2)) {

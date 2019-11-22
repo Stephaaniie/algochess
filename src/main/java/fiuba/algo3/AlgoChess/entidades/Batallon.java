@@ -50,4 +50,9 @@ public class Batallon implements Entidad{
     public Entidad agregar(Entidad otraEntidad) throws CasilleroOcupadoExcepcion {
         throw new CasilleroOcupadoExcepcion();
     }
+
+    @Override
+    public int getCosto() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+        return 0;
+    }
 }

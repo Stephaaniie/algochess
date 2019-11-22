@@ -50,17 +50,17 @@ public class Jinete implements Entidad {
 		return this.vida;
 	}
 
+	@Override
 	public int getCosto() {
-		
 		return this.costo;
 	}
 
 	@Override
 	public void mover(Direccion direccion) throws CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
 		Tablero tablero = Tablero.getInstanciaTablero();
-		tablero.quitarEntidadDePosicion(this.posicion);
-		this.posicion = direccion.avanzar(this.posicion);
-		tablero.agregarContenidoEnCasillero(this, this.posicion.getFila(), this.posicion.getColumna());
+		if(tablero.mover(this, this.posicion, direccion.avanzar(this.posicion)) == 0){
+			this.posicion = direccion.avanzar(this.posicion);
+		}
 	}
 
     @Override
