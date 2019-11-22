@@ -1,4 +1,4 @@
-package fiuba.algo3.AlgoChess.disctancias;
+package fiuba.algo3.AlgoChess.distancia;
 
 import java.util.ArrayList;
 
@@ -25,7 +25,7 @@ public class DistanciaMedia {
 	
 	public ArrayList <Entidad> calcularDistanciaCorta() {
 		
-		Tablero tablero = null ;
+		Tablero tablero = Tablero.getInstanciaTablero();
 		
 		Casillero casillero_aux = new Casillero(posicion);
 		

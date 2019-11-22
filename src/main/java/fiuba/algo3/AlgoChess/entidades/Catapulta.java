@@ -1,7 +1,10 @@
 package fiuba.algo3.AlgoChess.entidades;
 
 import fiuba.algo3.AlgoChess.direccion.Direccion;
-import fiuba.algo3.AlgoChess.excepciones.*;
+import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
+import fiuba.algo3.AlgoChess.excepciones.CatapultaNoSeMueveExcepcion;
+import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
+import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 import fiuba.algo3.AlgoChess.tablero.Posicion;
 
 public class Catapulta implements Entidad {
@@ -24,12 +27,12 @@ public class Catapulta implements Entidad {
 
     @Override
     public void mover(Direccion direccion) throws CatapultaNoSeMueveExcepcion {
-        throw new CatapultaNoSeMueveExcepcion();
+        throw new CatapultaNoSeMueveExcepcion("No se puede realizar dicha accion");
     }
 
     @Override
     public Entidad agregar(Entidad otraEntidad) throws CasilleroOcupadoExcepcion {
-        throw new CasilleroOcupadoExcepcion();
+        throw new CasilleroOcupadoExcepcion("No se puede realizar dicha accion");
     }
 
     @Override
