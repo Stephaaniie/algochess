@@ -12,7 +12,7 @@ public class Tablero {
 	private Sector sectorAliado  = new Sector();
 	private Sector sectorEnemigo = new Sector();
 	public Sector sectorGlobal  = new Sector();
-	private static Tablero instanciaTablero = new Tablero();
+	private static Tablero instanciaTablero = null;
 
 	private Tablero() {
 		for (int i = 0; i < this.cantidadFilas; i++) {
@@ -32,7 +32,13 @@ public class Tablero {
 	}
 
 	public static Tablero getInstanciaTablero(){
+		if(instanciaTablero == null) instanciaTablero = new Tablero();
+
 		return instanciaTablero;
+	}
+
+	public void reset(){
+		instanciaTablero = null;
 	}
 
 	public int getCantidadEntidades() {
