@@ -1,14 +1,19 @@
 package fiuba.algo3.AlgoChess.entidades;
 
+import java.util.ArrayList;
+
+import fiuba.algo3.AlgoChess.Ataques.ArmaParaDistanciaLarga;
 import fiuba.algo3.AlgoChess.direccion.Direccion;
+import fiuba.algo3.AlgoChess.distancia.EntidadesACiertaDistancia;
 import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.CatapultaNoSeMueveExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 import fiuba.algo3.AlgoChess.tablero.Posicion;
 
-public class Catapulta implements Entidad {
-
+public class Catapulta implements Entidad, ArmaParaDistanciaLarga {
+	private final static int ENEMIGOS = 2;
+	private final int DISTANCIADEATAQUE = 6;
 	private Bando bando;
 	private int vida = 50;
 	private int costo = 5;
@@ -59,5 +64,13 @@ public class Catapulta implements Entidad {
         if ((this.vida += curacion) > 50) {
             this.vida = 50;
         }
+	}
+
+	@Override
+	public void objetosASerLanzados() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+		ArrayList<Entidad> listaAux = EntidadesACiertaDistancia.entidadesCerca(ENEMIGOS,this,DISTANCIADEATAQUE);
+		for(Entidad entidadAux : listaAux) {
+			atacarEnemigo(entidadAux);
+		}
 	}
 }

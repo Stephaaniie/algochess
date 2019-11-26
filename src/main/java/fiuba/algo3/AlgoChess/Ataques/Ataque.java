@@ -7,6 +7,5 @@ public interface Ataque {
 
 	public void atacarEnemigo(Entidad entidadAtacada) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 	
-	
 
 }

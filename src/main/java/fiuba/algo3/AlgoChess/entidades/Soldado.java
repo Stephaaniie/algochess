@@ -13,6 +13,8 @@ import fiuba.algo3.AlgoChess.tablero.Posicion;
 import fiuba.algo3.AlgoChess.tablero.Tablero;
 
 public class Soldado implements Entidad, ArmaParaCuerpoACuerpo {
+	private final static int ALIADOS  = 1;
+	private final static int ENEMIGOS = 2;
 	private final int DISTANCIADEATAQUE = 2;
 	private final int VIDAINICIAL = 100;
 	private Bando bando;
@@ -71,7 +73,7 @@ public class Soldado implements Entidad, ArmaParaCuerpoACuerpo {
 
 	@Override
 	public void espada() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion{		
-		ArrayList<Entidad> listaAux = EntidadesACiertaDistancia.calcularDistancia(this,DISTANCIADEATAQUE);
+		ArrayList<Entidad> listaAux = EntidadesACiertaDistancia.entidadesCerca(ENEMIGOS,this,DISTANCIADEATAQUE);
 		for(Entidad entidadAux : listaAux) {
 			atacarEnemigo(entidadAux);
 		}

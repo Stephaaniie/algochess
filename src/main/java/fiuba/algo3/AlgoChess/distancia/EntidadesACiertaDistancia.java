@@ -43,7 +43,7 @@ public static ArrayList<Entidad> calcularDistancia(Entidad entidad, int distanci
 	public static  ArrayList <Entidad> entidadesCerca(int tipoDeLista,Entidad entidad, int distanciaDeseada) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion{
 		
 		ArrayList<Entidad> listaAux = calcularDistancia(entidad, distanciaDeseada);
-		
+		//aca se deberia comparar con bandos.
 		for(Entidad entidadAux : listaAux){
 			if(tipoDeLista == ALIADOS) {
 				EntidadesACiertaDistancia.add(entidadAux);
