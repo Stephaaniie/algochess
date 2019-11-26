@@ -12,22 +12,20 @@ public class EntidadesACiertaDistancia {
 	private final static int ALIADOS  = 1;
 	
 	private final static int ENEMIGOS = 2;
-		
-	private final static int DIS_MIN = 0;
-		
+			
 	private static Tablero tablero = Tablero.getInstanciaTablero();
 	
 	private static ArrayList<Entidad> EntidadesACiertaDistancia = new ArrayList<Entidad>();
 	
-public static ArrayList<Entidad> calcularDistancia(Entidad entidad, int distanciaDeseada) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {		
+public static ArrayList<Entidad> calcularDistancia(Entidad entidad, int distanciaDeseada, int distanciaMin) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {		
 		
 		Posicion posicionMax = new Posicion(entidad.getPosicion().fila + distanciaDeseada,entidad.getPosicion().columna + distanciaDeseada);
 		Posicion posicionMin = new Posicion(entidad.getPosicion().fila - distanciaDeseada,entidad.getPosicion().columna - distanciaDeseada);
 
 		for(int i = posicionMax.fila; i <= posicionMin.fila; i--) {
-			if(i > tablero.getCantidadDeFila() | i < DIS_MIN) continue;
+			if(i > tablero.getCantidadDeFila() | i < distanciaMin) continue;
 			for(int j = posicionMin.columna; j <= posicionMax.columna; j++) {
-				if((i > tablero.getCantidadDeColumnas() | i < DIS_MIN) | 
+				if((i > tablero.getCantidadDeColumnas() | i < distanciaMin) | 
 					(entidad.getPosicion().fila == i & entidad.getPosicion().columna == j)) continue;
 				
 				Posicion posicionAux = new Posicion(i,j);
@@ -40,9 +38,9 @@ public static ArrayList<Entidad> calcularDistancia(Entidad entidad, int distanci
 		return EntidadesACiertaDistancia;
 	}
 	
-	public static  ArrayList <Entidad> entidadesCerca(int tipoDeLista,Entidad entidad, int distanciaDeseada) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion{
+	public static  ArrayList <Entidad> entidadesCerca(int tipoDeLista,Entidad entidad, int distanciaDeseada,int distanciaMin) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion{
 		
-		ArrayList<Entidad> listaAux = calcularDistancia(entidad, distanciaDeseada);
+		ArrayList<Entidad> listaAux = calcularDistancia(entidad, distanciaDeseada, distanciaMin);
 		//aca se deberia comparar con bandos.
 		for(Entidad entidadAux : listaAux){
 			if(tipoDeLista == ALIADOS) {

@@ -16,6 +16,7 @@ public class Soldado implements Entidad, ArmaParaCuerpoACuerpo {
 	private final static int ALIADOS  = 1;
 	private final static int ENEMIGOS = 2;
 	private final int DISTANCIADEATAQUE = 2;
+	private final int DISTANCIAMINATAQUE = 0;
 	private final int VIDAINICIAL = 100;
 	private Bando bando;
 	private int danioACuerpo = 10;
@@ -73,7 +74,7 @@ public class Soldado implements Entidad, ArmaParaCuerpoACuerpo {
 
 	@Override
 	public void espada() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion{		
-		ArrayList<Entidad> listaAux = EntidadesACiertaDistancia.entidadesCerca(ENEMIGOS,this,DISTANCIADEATAQUE);
+		ArrayList<Entidad> listaAux = EntidadesACiertaDistancia.entidadesCerca(ENEMIGOS,this,DISTANCIADEATAQUE,DISTANCIAMINATAQUE);
 		for(Entidad entidadAux : listaAux) {
 			atacarEnemigo(entidadAux);
 		}

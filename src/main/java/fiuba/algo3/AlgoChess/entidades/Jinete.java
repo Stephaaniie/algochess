@@ -18,6 +18,8 @@ public class Jinete implements Entidad, ArmaParaCuerpoACuerpo, ArmaParaDistancia
 	private final int VIDAINICIAL = 100;
 	private final int ATAQUECONALIADO = 5;
 	private final int ATAQUESINALIADO = 2;
+	private final int DISTANCIAMINCONALIADO = 3;
+	private final int DISTANCIAMINSINALIADO = 0;
 	private Bando bando;
 	private int danioACuerpo = 5;
 	private int danioADistancia = 15;
@@ -84,7 +86,7 @@ public class Jinete implements Entidad, ArmaParaCuerpoACuerpo, ArmaParaDistancia
 
 	@Override
 	public void arcoYFlecha() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
-		ArrayList<Entidad> listaAux = EntidadesACiertaDistancia.entidadesCerca(ENEMIGOS,this,ATAQUECONALIADO);
+		ArrayList<Entidad> listaAux = EntidadesACiertaDistancia.entidadesCerca(ENEMIGOS,this,ATAQUECONALIADO,DISTANCIAMINCONALIADO);
 		for(Entidad entidadAux : listaAux) {
 			atacarEnemigo(entidadAux);
 		}
@@ -93,7 +95,7 @@ public class Jinete implements Entidad, ArmaParaCuerpoACuerpo, ArmaParaDistancia
 
 	@Override
 	public void espada() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
-		ArrayList<Entidad> listaAux = EntidadesACiertaDistancia.entidadesCerca(ENEMIGOS,this,ATAQUESINALIADO);
+		ArrayList<Entidad> listaAux = EntidadesACiertaDistancia.entidadesCerca(ENEMIGOS,this,ATAQUESINALIADO,DISTANCIAMINSINALIADO);
 		for(Entidad entidadAux : listaAux) {
 			atacarEnemigo(entidadAux);
 		}

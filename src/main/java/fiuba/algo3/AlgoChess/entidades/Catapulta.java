@@ -13,7 +13,8 @@ import fiuba.algo3.AlgoChess.tablero.Posicion;
 
 public class Catapulta implements Entidad, ArmaParaDistanciaLarga {
 	private final static int ENEMIGOS = 2;
-	private final int DISTANCIADEATAQUE = 6;
+	private final int DISTANCIADEATAQUE = 20;
+	private final int DISTANCIAMINATAQUE = 6;
 	private Bando bando;
 	private int vida = 50;
 	private int costo = 5;
@@ -68,7 +69,7 @@ public class Catapulta implements Entidad, ArmaParaDistanciaLarga {
 
 	@Override
 	public void objetosASerLanzados() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
-		ArrayList<Entidad> listaAux = EntidadesACiertaDistancia.entidadesCerca(ENEMIGOS,this,DISTANCIADEATAQUE);
+		ArrayList<Entidad> listaAux = EntidadesACiertaDistancia.entidadesCerca(ENEMIGOS,this,DISTANCIADEATAQUE,DISTANCIAMINATAQUE);
 		for(Entidad entidadAux : listaAux) {
 			atacarEnemigo(entidadAux);
 		}

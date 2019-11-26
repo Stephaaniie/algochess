@@ -27,7 +27,7 @@ public class DistanciaTest {
 				
 				Entidad soldado1 = new Soldado(bandoO,6,6);
 																				
-				ArrayList<Entidad> listaAux = EntidadesACiertaDistancia.entidadesCerca(1, soldado1,2);
+				ArrayList<Entidad> listaAux = EntidadesACiertaDistancia.entidadesCerca(1, soldado1,2, 0);
 
 				 assertEquals(0, listaAux.size());
 		}
