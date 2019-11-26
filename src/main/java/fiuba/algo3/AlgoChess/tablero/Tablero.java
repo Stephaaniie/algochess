@@ -11,7 +11,6 @@ public class Tablero {
 	private int cantidadCasilleros = 400;
 	private Sector sectorAliado  = new Sector();
 	private Sector sectorEnemigo = new Sector();
-	public Sector sectorGlobal  = new Sector();
 	private static Tablero instanciaTablero = null;
 
 	private Tablero() {
@@ -23,7 +22,6 @@ public class Tablero {
 				} else {
 					sectorEnemigo.agregarCasillero(posicion);
 				}
-				this.sectorGlobal.agregarCasillero(posicion);
 			}
 		}
 

@@ -23,7 +23,7 @@ public class Posicion{
 		return this.columna;
 	}
 	
-	public void setFila(int Fila) {
+	public void setFila(int fila) {
 		this.fila = fila; 
 	}
 	

@@ -16,8 +16,9 @@ public class Soldado implements Entidad {
 	private int vida = VIDAINICIAL;
 	private int costo = 1;
 	private Posicion posicion;
-
+	
 	public Soldado(Bando bando, int fila, int columna) {
+		
 		this.bando = bando;
 		this.posicion = new Posicion(fila, columna);
 	}
