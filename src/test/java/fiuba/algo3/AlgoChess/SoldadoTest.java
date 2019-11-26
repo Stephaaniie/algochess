@@ -56,6 +56,7 @@ public class SoldadoTest {
 
 		assertEquals(soldado.getPosicion(), posicionNueva);
 		assertEquals(soldado, tablero.getEntidadEnPosicion(posicionNueva));
+		tablero.reset();
 	}
 
 	@Test
@@ -72,6 +73,7 @@ public class SoldadoTest {
 
 		assertEquals(soldado.getPosicion(), posicionNueva);
 		assertEquals(soldado, tablero.getEntidadEnPosicion(posicionNueva));
+		tablero.reset();
 	}
 
 	@Test
@@ -89,6 +91,7 @@ public class SoldadoTest {
 
 		assertEquals(soldado.getPosicion(), posicionNueva);
 		assertEquals(soldado, tablero.getEntidadEnPosicion(posicionNueva));
+		tablero.reset();
 	}
 
 	@Test
@@ -106,9 +109,10 @@ public class SoldadoTest {
 
 		assertEquals(soldado.getPosicion(), posicionNueva);
 		assertEquals(soldado, tablero.getEntidadEnPosicion(posicionNueva));
+		tablero.reset();
 	}
 
-	/*@Test
+	@Test
 	public void soldadoNoPuedeMoverseACasilleroOcupado() throws CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
 		boolean errorAtrapado = false;
 		Posicion posicionEsperada = new Posicion(5, 5);
@@ -129,5 +133,6 @@ public class SoldadoTest {
 
 		Assert.assertTrue(errorAtrapado);
 		Assert.assertEquals(posicionEsperada, soldado.getPosicion());
-	}*/ //la comento porque no pasa travis
+		tablero.reset();
+	}
 }

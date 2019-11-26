@@ -69,6 +69,7 @@ public class JineteTest {
 
 		assertEquals(jinete.getPosicion(), posicionNueva);
 		assertEquals(jinete, tablero.getEntidadEnPosicion(posicionNueva));
+		tablero.reset();
 	}
 
 	@Test
@@ -86,6 +87,7 @@ public class JineteTest {
 
 		assertEquals(jinete.getPosicion(), posicionNueva);
 		assertEquals(jinete, tablero.getEntidadEnPosicion(posicionNueva));
+		tablero.reset();
 	}
 
 	@Test
@@ -103,6 +105,7 @@ public class JineteTest {
 
 		assertEquals(jinete.getPosicion(), posicionNueva);
 		assertEquals(jinete, tablero.getEntidadEnPosicion(posicionNueva));
+		tablero.reset();
 	}
 
 	@Test
@@ -120,9 +123,10 @@ public class JineteTest {
 
 		assertEquals(jinete.getPosicion(), posicionNueva);
 		assertEquals(jinete, tablero.getEntidadEnPosicion(posicionNueva));
+		tablero.reset();
 	}
 
-	/*@Test
+	@Test
 	public void jineteNoPuedeMoverseACasilleroOcupado() throws CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
 		boolean errorAtrapado = false;
 		Posicion posicionEsperada = new Posicion(5, 5);
@@ -143,5 +147,6 @@ public class JineteTest {
 
 		Assert.assertTrue(errorAtrapado);
 		Assert.assertEquals(posicionEsperada, jinete.getPosicion());
-	}*/ //lo comento porque travis me odia
+		tablero.reset();
+	}
 }

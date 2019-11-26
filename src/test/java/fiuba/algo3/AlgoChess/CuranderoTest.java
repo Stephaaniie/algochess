@@ -125,6 +125,7 @@ public class CuranderoTest {
 
 		assertEquals(curandero.getPosicion(), posicionNueva);
 		assertEquals(curandero, tablero.getEntidadEnPosicion(posicionNueva));
+		tablero.reset();
 	}
 
 	@Test
@@ -143,6 +144,7 @@ public class CuranderoTest {
 
 		assertEquals(curandero.getPosicion(), posicionNueva);
 		assertEquals(curandero, tablero.getEntidadEnPosicion(posicionNueva));
+		tablero.reset();
 	}
 
 	@Test
@@ -161,6 +163,7 @@ public class CuranderoTest {
 
 		assertEquals(curandero.getPosicion(), posicionNueva);
 		assertEquals(curandero, tablero.getEntidadEnPosicion(posicionNueva));
+		tablero.reset();
 	}
 
 	@Test
@@ -179,10 +182,11 @@ public class CuranderoTest {
 
 		assertEquals(curandero.getPosicion(), posicionNueva);
 		assertEquals(curandero, tablero.getEntidadEnPosicion(posicionNueva));
+		tablero.reset();
 	}
 
-	/*@Test
-	public void jineteNoPuedeMoverseACasilleroOcupado() throws CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
+	@Test
+	public void curanderoNoPuedeMoverseACasilleroOcupado() throws CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
 		boolean errorAtrapado = false;
 		Posicion posicionEsperada = new Posicion(6, 6);
 		Bando bando1 = new Aliado();
@@ -193,8 +197,8 @@ public class CuranderoTest {
 		Direccion direccion = new Izquierda();
 
 		try{
-			tablero.agregarContenidoEnCasillero(curandero, 5, 5);
-			tablero.agregarContenidoEnCasillero(catapulta,5,4);
+			tablero.agregarContenidoEnCasillero(curandero, 6, 6);
+			tablero.agregarContenidoEnCasillero(catapulta,6,5);
 			curandero.mover(direccion);
 		}catch(CasilleroOcupadoExcepcion e){
 			errorAtrapado = true;
@@ -202,5 +206,6 @@ public class CuranderoTest {
 
 		Assert.assertTrue(errorAtrapado);
 		Assert.assertEquals(posicionEsperada, curandero.getPosicion());
-	}*/ //la comento xq no pasa travis, despues la reviso
+		tablero.reset();
+	}
 }
