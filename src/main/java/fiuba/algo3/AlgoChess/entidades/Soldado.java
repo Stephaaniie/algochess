@@ -1,6 +1,10 @@
 package fiuba.algo3.AlgoChess.entidades;
 
+import java.util.ArrayList;
+
+import fiuba.algo3.AlgoChess.Ataques.ArmaParaCuerpoACuerpo;
 import fiuba.algo3.AlgoChess.direccion.Direccion;
+import fiuba.algo3.AlgoChess.distancia.EntidadesACiertaDistancia;
 import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.ColocarUnidadEnSectorEnemigoExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
@@ -8,29 +12,26 @@ import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionE
 import fiuba.algo3.AlgoChess.tablero.Posicion;
 import fiuba.algo3.AlgoChess.tablero.Tablero;
 
-public class Soldado implements Entidad {
+public class Soldado implements Entidad, ArmaParaCuerpoACuerpo {
+	private final int DISTANCIADEATAQUE = 2;
 	private final int VIDAINICIAL = 100;
 	private Bando bando;
 	private int danioACuerpo = 10;
-	private int danioADistancia = 0;
 	private int vida = VIDAINICIAL;
 	private int costo = 1;
 	private Posicion posicion;
 	
 	public Soldado(Bando bando, int fila, int columna) {
-		
 		this.bando = bando;
 		this.posicion = new Posicion(fila, columna);
 	}
 
 	public int getVida() {
-		
 		return this.vida;
 	}
 
 	@Override
 	public void recibirDanio(int danio) {
-
 		this.vida -= danio;
 	}
 
@@ -41,9 +42,7 @@ public class Soldado implements Entidad {
 
 	@Override
 	public void reponerVida(int curacion) throws CuranderoCuraHastaLaMaximaVidaExcepcion{
-
 		if ((this.vida += curacion) > VIDAINICIAL){
-
 			this.vida = VIDAINICIAL;
 		}
 	}
@@ -70,4 +69,11 @@ public class Soldado implements Entidad {
 		return this.posicion;
 	}
 
+	@Override
+	public void espada() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion{		
+		ArrayList<Entidad> listaAux = EntidadesACiertaDistancia.calcularDistancia(this,DISTANCIADEATAQUE);
+		for(Entidad entidadAux : listaAux) {
+			atacarEnemigo(entidadAux);
+		}
+	}
 }
