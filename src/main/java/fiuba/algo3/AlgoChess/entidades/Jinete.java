@@ -1,14 +1,23 @@
 package fiuba.algo3.AlgoChess.entidades;
 
+import java.util.ArrayList;
+
+import fiuba.algo3.AlgoChess.Ataques.ArmaParaCuerpoACuerpo;
+import fiuba.algo3.AlgoChess.Ataques.ArmaParaDistanciaMedia;
 import fiuba.algo3.AlgoChess.direccion.Direccion;
+import fiuba.algo3.AlgoChess.distancia.EntidadesACiertaDistancia;
 import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.ColocarUnidadEnSectorEnemigoExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 import fiuba.algo3.AlgoChess.tablero.Posicion;
 import fiuba.algo3.AlgoChess.tablero.Tablero;
 
-public class Jinete implements Entidad {
+public class Jinete implements Entidad, ArmaParaCuerpoACuerpo, ArmaParaDistanciaMedia {
+	private final static int ALIADOS  = 1;
+	private final static int ENEMIGOS = 2;
 	private final int VIDAINICIAL = 100;
+	private final int ATAQUECONALIADO = 5;
+	private final int ATAQUESINALIADO = 2;
 	private Bando bando;
 	private int danioACuerpo = 5;
 	private int danioADistancia = 15;
@@ -71,6 +80,35 @@ public class Jinete implements Entidad {
 
     public Posicion getPosicion() {
 		return this.posicion;
+	}
+
+	@Override
+	public void arcoYFlecha() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+		ArrayList<Entidad> listaAux = EntidadesACiertaDistancia.entidadesCerca(ENEMIGOS,this,ATAQUECONALIADO);
+		for(Entidad entidadAux : listaAux) {
+			atacarEnemigo(entidadAux);
+		}
+		
+	}
+
+	@Override
+	public void espada() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+		ArrayList<Entidad> listaAux = EntidadesACiertaDistancia.entidadesCerca(ENEMIGOS,this,ATAQUESINALIADO);
+		for(Entidad entidadAux : listaAux) {
+			atacarEnemigo(entidadAux);
+		}
+		
+	}
+	
+	public void modoDeAtaque() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+		
+		ArrayList<Entidad> listaAux = EntidadesACiertaDistancia.entidadesADistanciaContigua(this);
+
+		if(listaAux.size() != 0) {
+			arcoYFlecha();
+		}else {
+			espada();
+		}
 	}
 
 }
