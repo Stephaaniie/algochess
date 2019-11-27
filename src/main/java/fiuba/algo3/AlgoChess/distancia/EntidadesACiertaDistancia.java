@@ -1,10 +1,10 @@
 package fiuba.algo3.AlgoChess.distancia;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import fiuba.algo3.AlgoChess.entidades.Entidad;
 import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
-import fiuba.algo3.AlgoChess.tablero.Posicion;
 import fiuba.algo3.AlgoChess.tablero.Tablero;
 
 public class EntidadesACiertaDistancia {
@@ -15,10 +15,12 @@ public class EntidadesACiertaDistancia {
 			
 	private static Tablero tablero = Tablero.getInstanciaTablero();
 	
-	private static ArrayList<Entidad> EntidadesACiertaDistancia = new ArrayList<Entidad>();
+	private static List<Entidad> EntidadesACiertaDistancia = new ArrayList<Entidad>();
 	
-public static ArrayList<Entidad> calcularDistancia(Entidad entidad, int distanciaDeseada, int distanciaMin) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {		
-		
+public static List<Entidad> calcularDistancia(Entidad entidad, int distanciaDeseada, int distanciaMin) 
+		throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+			return EntidadesACiertaDistancia;		
+		/*
 		Posicion posicionMax = new Posicion(entidad.getPosicion().fila + distanciaDeseada,entidad.getPosicion().columna + distanciaDeseada);
 		Posicion posicionMin = new Posicion(entidad.getPosicion().fila - distanciaDeseada,entidad.getPosicion().columna - distanciaDeseada);
 
@@ -35,12 +37,12 @@ public static ArrayList<Entidad> calcularDistancia(Entidad entidad, int distanci
 				}
 			}
 		}
-		return EntidadesACiertaDistancia;
+		return EntidadesACiertaDistancia;*/
 	}
 	
-	public static  ArrayList <Entidad> entidadesCerca(int tipoDeLista,Entidad entidad, int distanciaDeseada,int distanciaMin) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion{
-		
-		ArrayList<Entidad> listaAux = calcularDistancia(entidad, distanciaDeseada, distanciaMin);
+	public static List <Entidad> entidadesCerca(int tipoDeLista,Entidad entidad, int distanciaDeseada,int distanciaMin) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion{
+		/*
+		List<Entidad> listaAux = calcularDistancia(entidad, distanciaDeseada, distanciaMin);
 		//aca se deberia comparar con bandos.
 		for(Entidad entidadAux : listaAux){
 			if(tipoDeLista == ALIADOS) {
@@ -48,15 +50,23 @@ public static ArrayList<Entidad> calcularDistancia(Entidad entidad, int distanci
 			}else if(tipoDeLista == ENEMIGOS){
 				EntidadesACiertaDistancia.add(entidadAux);
 			}
-		}
+		}*/
 		return EntidadesACiertaDistancia;
 	}
 	
-	public static ArrayList <Entidad> entidadesADistanciaContigua(Entidad entidad) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+	public static List <Entidad> buscarEnemigos(Entidad entidad){
+		return EntidadesACiertaDistancia;
 		
-		 ArrayList<Entidad> listaAux = new ArrayList<Entidad>();
+		//List<Entidad> listaAux = calcularDistancia(entidad, distanciaDeseada, distanciaMin);
+
+	}
+	
+	public static List <Entidad> entidadesADistanciaContigua(Entidad entidad) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+		return EntidadesACiertaDistancia;
+		
+		 //ArrayList<Entidad> listaAux = new ArrayList<Entidad>();
 		 
 		
-		return EntidadesACiertaDistancia;		
+		//return EntidadesACiertaDistancia;		
 	}
 }

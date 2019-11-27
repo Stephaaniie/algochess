@@ -1,25 +1,20 @@
 package fiuba.algo3.AlgoChess.tablero;
 
 public class Posicion{
-	
-	public int fila;
+	private int fila;
 
-	public int columna;
+	private int columna;
 	
 	public Posicion(int fila, int columna) {
-		
 		this.fila = fila;
-		
 		this.columna = columna;
 	}
 
 	public int getFila() {
-		
 		return this.fila;
 	}
 
 	public int getColumna() {
-		
 		return this.columna;
 	}
 	
@@ -32,34 +27,21 @@ public class Posicion{
 	}
 	
 	public int distanciaEntrePosiciones(Posicion posicion) {
+		return posicion.calcularDistanciaCon(this.fila,this.columna);
 		
-		int distanciaDeFila = this.fila - posicion.getFila();
-		
-		int distanciaDeColumna = this.columna - posicion.getColumna();
-		
-		int distancia = (int) Math.sqrt(Math.pow(distanciaDeFila, 2) + Math.pow(distanciaDeColumna, 2));
-
-		return distancia;
 	}
 	
-	   @Override
-	    public boolean equals(Object obj) {
-	        if (!(obj instanceof Posicion)) {
-	            return false;
-	        }
-	        if (obj == this) {
-	            return true;
-	        }
-	        Posicion otro = (Posicion) obj;
-
-	        return (this.getFila() == otro.getFila() && this.getColumna() == otro.getColumna());
-	   }
-
-	@Override
-	public int hashCode() {
-		final int numero = 31;
-		int resultado = 1;
-		resultado = numero * resultado;
-		return resultado;
+	public int distanciaFila(int filaOriginal, int filaResta) {
+		return filaOriginal - filaResta;
 	}
+	
+	public int distanciaColumna(int colOriginal, int colResta) {
+		return colOriginal - colResta;
+	}
+	
+	public int calcularDistanciaCon(int fila, int columna) {
+		return (int) Math.sqrt(Math.pow(distanciaFila(fila,this.fila), 2) + Math.pow(distanciaColumna(columna,this.columna), 2));
+
+	}
+
 }

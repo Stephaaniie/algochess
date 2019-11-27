@@ -1,6 +1,6 @@
 package fiuba.algo3.AlgoChess.entidades;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import fiuba.algo3.AlgoChess.Ataques.ArmaParaCuerpoACuerpo;
 import fiuba.algo3.AlgoChess.Ataques.ArmaParaDistanciaMedia;
@@ -86,7 +86,7 @@ public class Jinete implements Entidad, ArmaParaCuerpoACuerpo, ArmaParaDistancia
 
 	@Override
 	public void arcoYFlecha() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
-		ArrayList<Entidad> listaAux = EntidadesACiertaDistancia.entidadesCerca(ENEMIGOS,this,ATAQUECONALIADO,DISTANCIAMINCONALIADO);
+		List<Entidad> listaAux = EntidadesACiertaDistancia.entidadesCerca(ENEMIGOS,this,ATAQUECONALIADO,DISTANCIAMINCONALIADO);
 		for(Entidad entidadAux : listaAux) {
 			atacarEnemigo(entidadAux);
 		}
@@ -95,7 +95,7 @@ public class Jinete implements Entidad, ArmaParaCuerpoACuerpo, ArmaParaDistancia
 
 	@Override
 	public void espada() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
-		ArrayList<Entidad> listaAux = EntidadesACiertaDistancia.entidadesCerca(ENEMIGOS,this,ATAQUESINALIADO,DISTANCIAMINSINALIADO);
+		List<Entidad> listaAux = EntidadesACiertaDistancia.entidadesCerca(ENEMIGOS,this,ATAQUESINALIADO,DISTANCIAMINSINALIADO);
 		for(Entidad entidadAux : listaAux) {
 			atacarEnemigo(entidadAux);
 		}
@@ -104,7 +104,7 @@ public class Jinete implements Entidad, ArmaParaCuerpoACuerpo, ArmaParaDistancia
 	
 	public void modoDeAtaque() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
 		
-		ArrayList<Entidad> listaAux = EntidadesACiertaDistancia.entidadesADistanciaContigua(this);
+		List<Entidad> listaAux = EntidadesACiertaDistancia.entidadesADistanciaContigua(this);
 
 		if(listaAux.size() != 0) {
 			arcoYFlecha();

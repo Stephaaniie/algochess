@@ -1,6 +1,6 @@
 package fiuba.algo3.AlgoChess.entidades;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import fiuba.algo3.AlgoChess.Ataques.ArmaParaCuerpoACuerpo;
 import fiuba.algo3.AlgoChess.direccion.Direccion;
@@ -74,7 +74,7 @@ public class Soldado implements Entidad, ArmaParaCuerpoACuerpo {
 
 	@Override
 	public void espada() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion{		
-		ArrayList<Entidad> listaAux = EntidadesACiertaDistancia.entidadesCerca(ENEMIGOS,this,DISTANCIADEATAQUE,DISTANCIAMINATAQUE);
+		List<Entidad> listaAux = EntidadesACiertaDistancia.entidadesCerca(ENEMIGOS,this,DISTANCIADEATAQUE,DISTANCIAMINATAQUE);
 		for(Entidad entidadAux : listaAux) {
 			atacarEnemigo(entidadAux);
 		}

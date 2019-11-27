@@ -1,6 +1,6 @@
 package fiuba.algo3.AlgoChess.entidades;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import fiuba.algo3.AlgoChess.Ataques.ArmaParaDistanciaLarga;
 import fiuba.algo3.AlgoChess.direccion.Direccion;
@@ -69,7 +69,7 @@ public class Catapulta implements Entidad, ArmaParaDistanciaLarga {
 
 	@Override
 	public void objetosASerLanzados() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
-		ArrayList<Entidad> listaAux = EntidadesACiertaDistancia.entidadesCerca(ENEMIGOS,this,DISTANCIADEATAQUE,DISTANCIAMINATAQUE);
+		List<Entidad> listaAux = EntidadesACiertaDistancia.entidadesCerca(ENEMIGOS,this,DISTANCIADEATAQUE,DISTANCIAMINATAQUE);
 		for(Entidad entidadAux : listaAux) {
 			atacarEnemigo(entidadAux);
 		}

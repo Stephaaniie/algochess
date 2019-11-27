@@ -17,16 +17,13 @@ public class Casillero {
 	}
 	
 	public Casillero getCasillero() {
-		
 		return this;
 	}
 	
 	public Posicion getPosicionDeCasillero() {
-		
 		return this.getCasillero().posicion;
 	}
 	public Entidad getContenido() {
-		
 		return this.contenido;
 	}
 
