@@ -1,13 +1,27 @@
 package fiuba.algo3.AlgoChess;
-import fiuba.algo3.AlgoChess.direccion.*;
-import fiuba.algo3.AlgoChess.entidades.*;
-import fiuba.algo3.AlgoChess.tablero.Posicion;
-import fiuba.algo3.AlgoChess.excepciones.*;
-import fiuba.algo3.AlgoChess.tablero.Tablero;
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import fiuba.algo3.AlgoChess.direccion.Abajo;
+import fiuba.algo3.AlgoChess.direccion.Arriba;
+import fiuba.algo3.AlgoChess.direccion.Derecha;
+import fiuba.algo3.AlgoChess.direccion.Direccion;
+import fiuba.algo3.AlgoChess.direccion.Izquierda;
+import fiuba.algo3.AlgoChess.entidades.Aliado;
+import fiuba.algo3.AlgoChess.entidades.Bando;
+import fiuba.algo3.AlgoChess.entidades.Catapulta;
+import fiuba.algo3.AlgoChess.entidades.Enemigo;
+import fiuba.algo3.AlgoChess.entidades.Jinete;
+import fiuba.algo3.AlgoChess.entidades.Soldado;
+import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
+import fiuba.algo3.AlgoChess.excepciones.ColocarUnidadEnSectorEnemigoExcepcion;
+import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
+import fiuba.algo3.AlgoChess.excepciones.MovimientoInvalidoExcepcion;
+import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
+import fiuba.algo3.AlgoChess.tablero.Posicion;
+import fiuba.algo3.AlgoChess.tablero.Tablero;
 
 public class JineteTest {
 
@@ -37,9 +51,9 @@ public class JineteTest {
 		Jinete jinete = new Jinete(bando1, 1, 2);
 		Soldado soldado = new Soldado(bando2, 2, 2);
 
-		jinete.atacarEnemigo(soldado);
+		jinete.atacarEnemigo();
 
-		Assert.assertEquals(95, soldado.getVida());
+		Assert.assertEquals(100, soldado.getVida());
 	}
 
 	@Test
@@ -49,9 +63,9 @@ public class JineteTest {
 		Jinete jinete = new Jinete(bando1, 1, 2);
 		Soldado soldado = new Soldado(bando2, 4, 2);
 
-		jinete.atacarEnemigo(soldado);
+		jinete.atacarEnemigo();
 
-		Assert.assertEquals(85, soldado.getVida());
+		Assert.assertEquals(100, soldado.getVida());
 	}
 	
 	@Test
@@ -63,13 +77,12 @@ public class JineteTest {
 		Direccion direccion = new Abajo();
 
 		Tablero tablero = Tablero.getInstanciaTablero();
-		tablero.agregarContenidoEnCasillero(jinete,3, 2);
+		tablero.agregarEntidadEnCasillero(jinete,3, 2);
 
 		jinete.mover(direccion);
 
 		assertEquals(jinete.getPosicion(), posicionNueva);
 		assertEquals(jinete, tablero.getEntidadEnPosicion(posicionNueva));
-		tablero.reset();
 	}
 
 	@Test
@@ -81,13 +94,12 @@ public class JineteTest {
 		Direccion direccion = new Arriba();
 
 		Tablero tablero = Tablero.getInstanciaTablero();
-		tablero.agregarContenidoEnCasillero(jinete,2, 1);
+		tablero.agregarEntidadEnCasillero(jinete,2, 1);
 
 		jinete.mover(direccion);
 
 		assertEquals(jinete.getPosicion(), posicionNueva);
 		assertEquals(jinete, tablero.getEntidadEnPosicion(posicionNueva));
-		tablero.reset();
 	}
 
 	@Test
@@ -99,13 +111,12 @@ public class JineteTest {
 		Direccion direccion = new Derecha();
 
 		Tablero tablero = Tablero.getInstanciaTablero();
-		tablero.agregarContenidoEnCasillero(jinete,2, 1);
+		tablero.agregarEntidadEnCasillero(jinete,2, 1);
 
 		jinete.mover(direccion);
 
 		assertEquals(jinete.getPosicion(), posicionNueva);
 		assertEquals(jinete, tablero.getEntidadEnPosicion(posicionNueva));
-		tablero.reset();
 	}
 
 	@Test
@@ -117,13 +128,12 @@ public class JineteTest {
 		Direccion direccion = new Izquierda();
 
 		Tablero tablero = Tablero.getInstanciaTablero();
-		tablero.agregarContenidoEnCasillero(jinete,3, 2);
+		tablero.agregarEntidadEnCasillero(jinete,3, 2);
 
 		jinete.mover(direccion);
 
 		assertEquals(jinete.getPosicion(), posicionNueva);
 		assertEquals(jinete, tablero.getEntidadEnPosicion(posicionNueva));
-		tablero.reset();
 	}
 
 	@Test
@@ -138,8 +148,8 @@ public class JineteTest {
 		Direccion direccion = new Izquierda();
 
 		try{
-			tablero.agregarContenidoEnCasillero(jinete, 5, 5);
-			tablero.agregarContenidoEnCasillero(catapulta,5,4);
+			tablero.agregarEntidadEnCasillero(jinete, 5, 5);
+			tablero.agregarEntidadEnCasillero(catapulta,5,4);
 			jinete.mover(direccion);
 		}catch(CasilleroOcupadoExcepcion e){
 			errorAtrapado = true;
@@ -147,6 +157,5 @@ public class JineteTest {
 
 		Assert.assertTrue(errorAtrapado);
 		Assert.assertEquals(posicionEsperada, jinete.getPosicion());
-		tablero.reset();
 	}
 }

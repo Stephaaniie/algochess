@@ -1,15 +1,15 @@
 package fiuba.algo3.AlgoChess;
 
+import org.junit.Assert;
+import org.junit.Test;
+
 import fiuba.algo3.AlgoChess.entidades.Aliado;
 import fiuba.algo3.AlgoChess.entidades.Bando;
 import fiuba.algo3.AlgoChess.entidades.Entidad;
 import fiuba.algo3.AlgoChess.entidades.Jinete;
-import fiuba.algo3.AlgoChess.tablero.Posicion;
-import fiuba.algo3.AlgoChess.tablero.Casillero;
-import org.junit.Assert;
-import org.junit.Test;
-
 import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
+import fiuba.algo3.AlgoChess.tablero.Casillero;
+import fiuba.algo3.AlgoChess.tablero.Posicion;
 
 public class CasilleroTest {
 	
@@ -23,8 +23,8 @@ public class CasilleroTest {
 			Bando bando2 = new Aliado();
 			Entidad jinete1 = new Jinete(bando1, 2 ,1);
 			Entidad jinete2 = new Jinete(bando2, 1 , 2);
-			casillero.agregarContenido(jinete1);
-			casillero.agregarContenido(jinete2);
+			casillero.agregarEntidad(jinete1);
+			casillero.agregarEntidad(jinete2);
 		}catch(CasilleroOcupadoExcepcion excepcion) {
 			errorAtrapado = true;
 		}

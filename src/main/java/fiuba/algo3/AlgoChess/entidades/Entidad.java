@@ -2,26 +2,25 @@ package fiuba.algo3.AlgoChess.entidades;
 
 import fiuba.algo3.AlgoChess.Ataques.Ataque;
 import fiuba.algo3.AlgoChess.direccion.Direccion;
-import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
-import fiuba.algo3.AlgoChess.excepciones.CatapultaNoSeMueveExcepcion;
-import fiuba.algo3.AlgoChess.excepciones.ColocarUnidadEnSectorEnemigoExcepcion;
-import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
-import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 import fiuba.algo3.AlgoChess.tablero.Posicion;
 
 public interface Entidad extends Ataque {
 
-	public Posicion getPosicion() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
+	public Posicion getPosicion();
+	
+	public Bando getBando();
 
-	public void recibirDanio(int danio) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
+	public void recibirDanio(int danio);
 
-	public void reponerVida(int curacion) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion, CuranderoCuraHastaLaMaximaVidaExcepcion;
+	public void reponerVida(int curacion);
 
-	public void atacarEnemigo(Entidad entidadAtacada) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
+	public void atacarEnemigo();
 
-	public void mover(Direccion direccion) throws CatapultaNoSeMueveExcepcion, ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion, CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion;
+	public void mover(Direccion direccion);
 
-	public Entidad agregar(Entidad otraEntidad) throws CasilleroOcupadoExcepcion;
+	public Entidad agregar(Entidad otraEntidad);
 
-	public int getCosto() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
+	public int getCosto();
+
+	public int getVida();
 }

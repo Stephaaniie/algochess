@@ -1,29 +1,36 @@
 package fiuba.algo3.AlgoChess.entidades;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import fiuba.algo3.AlgoChess.Ataques.ArmaParaCuerpoACuerpo;
 import fiuba.algo3.AlgoChess.direccion.Direccion;
-import fiuba.algo3.AlgoChess.distancia.EntidadesACiertaDistancia;
+import fiuba.algo3.AlgoChess.distancia.BuscadorDeEntidades;
 import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
-import fiuba.algo3.AlgoChess.excepciones.ColocarUnidadEnSectorEnemigoExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
-import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 import fiuba.algo3.AlgoChess.tablero.Posicion;
 import fiuba.algo3.AlgoChess.tablero.Tablero;
 
 public class Soldado implements Entidad, ArmaParaCuerpoACuerpo {
-	private final static int ALIADOS  = 1;
-	private final static int ENEMIGOS = 2;
-	private final int DISTANCIADEATAQUE = 2;
-	private final int DISTANCIAMINATAQUE = 0;
+
+	private final int DISTANCIA_MAX_ATAQUE  = 2;
+	private final int DISTANCIA_MIN_ATAQUE = 1;
+	private final int DANIO_CUERPO   = 10;
+	
 	private final int VIDAINICIAL = 100;
+	
 	private Bando bando;
-	private int danioACuerpo = 10;
+	
 	private int vida = VIDAINICIAL;
+	
 	private int costo = 1;
+	
 	private Posicion posicion;
 	
+	Tablero tablero = Tablero.getInstanciaTablero();
+	
+	private BuscadorDeEntidades buscador = new BuscadorDeEntidades(tablero.getMap());
+
 	public Soldado(Bando bando, int fila, int columna) {
 		this.bando = bando;
 		this.posicion = new Posicion(fila, columna);
@@ -31,6 +38,22 @@ public class Soldado implements Entidad, ArmaParaCuerpoACuerpo {
 
 	public int getVida() {
 		return this.vida;
+	}
+	
+	public boolean estaEnRango(Entidad entidad) {
+		RadarDeEntidades distancia = new RadarDeEntidades(DISTANCIA_MIN_ATAQUE,DISTANCIA_MAX_ATAQUE);
+		return (distancia.estaEnElRadar(this.getPosicion().calcularDistanciaCon(entidad.getPosicion().getFila(),entidad.getPosicion().getColumna())));
+		
+	}
+	
+	public List<Entidad> filtrarAtacables(List<Entidad> enemigos){
+		List<Entidad> filtrados = new ArrayList<Entidad>();
+		for(Entidad entidad : enemigos) {
+			if(estaEnRango(entidad)) {
+				filtrados.add(entidad);
+			}
+		}
+		return filtrados;
 	}
 
 	@Override
@@ -51,20 +74,13 @@ public class Soldado implements Entidad, ArmaParaCuerpoACuerpo {
 	}
 
 	@Override
-	public void atacarEnemigo(Entidad entidadAtacada) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
-		entidadAtacada.recibirDanio(this.danioACuerpo);
-	}
-
-	@Override
-	public void mover(Direccion direccion) throws CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
-		Tablero tablero = Tablero.getInstanciaTablero();
-		if(tablero.mover(this, this.posicion, direccion.avanzar(this.posicion)) == 0){
-			this.posicion = direccion.avanzar(this.posicion);
-		}
+	public void mover(Direccion direccion) {
+		tablero.mover(this, this.posicion, direccion.avanzar(this.posicion));
+		this.posicion = direccion.avanzar(this.posicion);
 	}
 
     @Override
-    public Entidad agregar(Entidad otraEntidad) throws CasilleroOcupadoExcepcion {
+    public Entidad agregar(Entidad otraEntidad) {
         throw new CasilleroOcupadoExcepcion("NO se pude realizar dicha acción");
     }
 
@@ -73,10 +89,21 @@ public class Soldado implements Entidad, ArmaParaCuerpoACuerpo {
 	}
 
 	@Override
-	public void espada() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion{		
-		List<Entidad> listaAux = EntidadesACiertaDistancia.entidadesCerca(ENEMIGOS,this,DISTANCIADEATAQUE,DISTANCIAMINATAQUE);
-		for(Entidad entidadAux : listaAux) {
-			atacarEnemigo(entidadAux);
+	public void espada(List<Entidad> entidad, int danio) {
+		for(Entidad entidadAux : entidad) {
+			entidadAux.recibirDanio(danio);
 		}
 	}
+
+	@Override
+	public Bando getBando() {
+		return this.bando;
+	}
+
+	@Override
+	public void atacarEnemigo() {
+		List<Entidad> enemigos = buscador.buscarEnemigos(this.bando);
+		espada(filtrarAtacables(enemigos),DANIO_CUERPO);
+	}
+
 }

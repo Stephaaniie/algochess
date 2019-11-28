@@ -1,102 +1,113 @@
 package fiuba.algo3.AlgoChess.tablero;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import fiuba.algo3.AlgoChess.entidades.Entidad;
+import fiuba.algo3.AlgoChess.entidades.ObjetoNull;
+import fiuba.algo3.AlgoChess.entidades.RadarDeEntidades;
 import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.ColocarUnidadEnSectorEnemigoExcepcion;
 
 public class Tablero {
-	private int cantidadEntidades = 0;
-	private int cantidadFilas = 20;
-	private int cantidadColumas = 20;
-	private int cantidadCasilleros = 400;
-	private Sector sectorAliado  = new Sector();
-	private Sector sectorEnemigo = new Sector();
+	
+	private final static int TAMANIO_TABLERO = 20;
+	
 	private static Tablero instanciaTablero = null;
+	
+	private RadarDeEntidades esSectorAliado;
+	
+	private RadarDeEntidades esSectorEnemigo;
+			
+	private List <Entidad> entidadesEnTablero;
 
-	private Tablero() {
-		for (int i = 0; i < this.cantidadFilas; i++) {
-			for (int j = 0; j < this.cantidadColumas; j++) {
-				Posicion posicion = new Posicion(i,j);
-				if (i < cantidadFilas / 2) {
-					sectorAliado.agregarCasillero(posicion);
-				} else {
-					sectorEnemigo.agregarCasillero(posicion);
-				}
-			}
-		}
-
-		//sectorAliado.agregarJugador(jugador1);
-		//sectorEnemigo.agregarJugador(jugador2);
+	private List <Casillero> sectorAliado;
+	
+	private List <Casillero> sectorEnemigo;
+		
+	private Map<Posicion,Casillero> tablero;
+	
+	private Tablero(int tamanio) {
+		this.esSectorAliado  = new RadarDeEntidades(0,(tamanio -1)/2);
+		this.esSectorEnemigo = new RadarDeEntidades(tamanio/2, tamanio-1);
+		this.tablero  = new HashMap<Posicion,Casillero>();
+		this.entidadesEnTablero = new ArrayList<Entidad>();
+		this.sectorAliado = new ArrayList<Casillero>();
+		this.sectorEnemigo = new ArrayList<Casillero>();
 	}
 
 	public static Tablero getInstanciaTablero(){
-		if(instanciaTablero == null) instanciaTablero = new Tablero();
-
+		if(instanciaTablero == null) {
+			instanciaTablero = new Tablero(TAMANIO_TABLERO);
+		}
 		return instanciaTablero;
 	}
 
-	public void reset(){
-		instanciaTablero = null;
-	}
-
-	public int getCantidadEntidades() {
-		return cantidadEntidades;
-	}
-
-	public void quitarEntidadDePosicion(Posicion posicion){
-		if(posicion.getFila() < cantidadFilas / 2){
-			sectorAliado.quitarEntidadDePosicion(posicion);
-		}else{
-			sectorEnemigo.quitarEntidadDePosicion(posicion);
-		}
-	}
-
-	public int mover(Entidad entidad, Posicion posicionAnterior, Posicion posicionNueva) throws CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
+	public void mover(Entidad entidad, Posicion posicionAnterior, Posicion posicionNueva){
 		try{
-			agregarContenidoEnCasillero(entidad, posicionNueva.getFila(), posicionNueva.getColumna());
+			agregarEntidadEnCasillero(entidad, posicionNueva.getFila(), posicionNueva.getColumna());
 		}catch(CasilleroOcupadoExcepcion e){
 			throw new CasilleroOcupadoExcepcion("El casillero esta ocupado");
 		} catch (ColocarUnidadEnSectorEnemigoExcepcion n) {
 			throw new ColocarUnidadEnSectorEnemigoExcepcion("El sector es el del enemigo");
 		}
-
-		quitarEntidadDePosicion(posicionAnterior);
-		return 0;
+		quitarEntidadDeCasillero(posicionAnterior);
 	}
 
-	public void agregarContenidoEnCasillero(Entidad contenido, int fila, int columna) throws CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
-		Posicion posicion = new Posicion(fila, columna);
-		if (fila < (cantidadFilas / 2)) {
-			sectorAliado.agregarContenidoEnCasillero(contenido, posicion);
-		} else {
-			sectorEnemigo.agregarContenidoEnCasillero(contenido, posicion);
-		}
-		this.cantidadEntidades++;
+	public Posicion crearPosicion(int fila, int columna) {
+		return new Posicion(fila,columna);
 	}
 	
-	public int getCantidadDeFila() {
-		
-		return this.cantidadFilas;
+	public void agregarEntidadSectorAliado(int fila, int columna, Entidad entidad){
+		if(this.esSectorAliado.estaEnElRadar(fila,columna)) {
+			this.tablero.put(crearPosicion(fila,columna), agregarEntidadEnCasillero(entidad,fila,columna));
+			sectorAliado.add(agregarEntidadEnCasillero(entidad,fila,columna));
+		}
 	}
 	
-	public int getCantidadDeColumnas() {
-		
-		return this.cantidadColumas;
-	}
-
-	public int getCantidadCasilleros(){
-		return this.cantidadCasilleros;
-	}
-
-	public Entidad getEntidadEnPosicion(Posicion posicion){
-		Entidad entidad;
-
-		if(posicion.getFila() < cantidadFilas/2){
-			entidad = sectorAliado.getEntidadEnPosicion(posicion);
-		}else{
-			entidad = sectorEnemigo.getEntidadEnPosicion(posicion);
+	public void agregarEntidadSectorEnemigo(int fila, int columna, Entidad entidad){
+		if(this.esSectorEnemigo.estaEnElRadar(fila, columna)) {
+			this.tablero.put(crearPosicion(fila,columna),agregarEntidadEnCasillero(entidad,fila,columna));
+			sectorEnemigo.add(agregarEntidadEnCasillero(entidad,fila,columna));
 		}
+	}
+	
+	public Casillero agregarEntidadEnCasillero(Entidad entidad, int fila, int columna) {
+		entidadesEnTablero.add(entidad);
+		Casillero casillero = new Casillero(crearPosicion(fila,columna));
+		casillero.agregarEntidad(entidad);
+		return casillero;
+	}
+	
+	public void quitarEntidadDeCasillero(Posicion posicionAnterior) {
+		this.tablero.get(posicionAnterior).quitarEntidad();
+	}
+	
+	public Map<Posicion,Casillero> getMap(){
+		return this.tablero;
+	}
+	
+	public List <Casillero> getSectorEnemigo(){
+		return this.sectorEnemigo;
+	}
 
-		return entidad;
+	public List <Casillero> getSectorAliado(){
+		return this.sectorAliado;
+	}
+	
+	public List<Entidad> getEntidadesEnTablero(){
+		return this.entidadesEnTablero;
+	}
+
+	public Entidad getEntidadEnPosicion(Posicion posicionNueva) {
+		Entidad entidadEncontrada = new ObjetoNull();
+		for(Entidad entidadBuscada : this.entidadesEnTablero) {
+			if(entidadBuscada.getPosicion() == posicionNueva) {
+				entidadEncontrada = entidadBuscada;
+			}
+		}
+		return entidadEncontrada;
 	}
 }

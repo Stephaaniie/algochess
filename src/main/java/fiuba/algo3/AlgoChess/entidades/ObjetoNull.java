@@ -1,31 +1,30 @@
 package fiuba.algo3.AlgoChess.entidades;
 
 import fiuba.algo3.AlgoChess.direccion.Direccion;
-import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 import fiuba.algo3.AlgoChess.tablero.Posicion;
 
 public class ObjetoNull implements Entidad {
 
 	@Override
-	public Posicion getPosicion() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+	public Posicion getPosicion() {
 		throw new ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion("La entidad");
 	}
 
 	@Override
-	public void recibirDanio(int danio)throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+	public void recibirDanio(int danio) {
 		
 		throw new ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion("La entidad no existe y no puede recibir dicho daño");
 		
 	}
 
 	@Override
-	public void atacarEnemigo(Entidad entidadAtacada) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+	public void atacarEnemigo(){
 		throw new ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion("La entidad no existe y no puede recibir dicho daño");
 	}
 
 	@Override
-	public void reponerVida(int curacion) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+	public void reponerVida(int curacion){
 		throw new ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion("La entidad no existe y no puede recibir dicho daño");
 	}
 
@@ -35,12 +34,22 @@ public class ObjetoNull implements Entidad {
 	}
 
     @Override
-    public Entidad agregar(Entidad otraEntidad) throws CasilleroOcupadoExcepcion {
+    public Entidad agregar(Entidad otraEntidad) {
         return otraEntidad;
     }
 
 	@Override
-	public int getCosto() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+	public int getCosto() {
 		throw new ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion("La entidad no existe");
+	}
+
+	@Override
+	public Bando getBando() {
+		return null;
+	}
+
+	@Override
+	public int getVida() {
+		return 0;
 	}
 }

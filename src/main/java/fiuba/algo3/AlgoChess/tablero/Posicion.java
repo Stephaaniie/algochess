@@ -31,16 +31,12 @@ public class Posicion{
 		
 	}
 	
-	public int distanciaFila(int filaOriginal, int filaResta) {
-		return filaOriginal - filaResta;
-	}
-	
-	public int distanciaColumna(int colOriginal, int colResta) {
-		return colOriginal - colResta;
+	public int diferencia(int argumento1, int argumento2) {
+		return argumento1 - argumento2;
 	}
 	
 	public int calcularDistanciaCon(int fila, int columna) {
-		return (int) Math.sqrt(Math.pow(distanciaFila(fila,this.fila), 2) + Math.pow(distanciaColumna(columna,this.columna), 2));
+		return (int) Math.sqrt(Math.pow(diferencia(fila,this.fila), 2) + Math.pow(diferencia(columna,this.columna), 2));
 
 	}
 

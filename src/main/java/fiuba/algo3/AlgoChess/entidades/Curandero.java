@@ -1,9 +1,9 @@
 package fiuba.algo3.AlgoChess.entidades;
 import fiuba.algo3.AlgoChess.direccion.Direccion;
+import fiuba.algo3.AlgoChess.distancia.BuscadorDeEntidades;
 import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
-import fiuba.algo3.AlgoChess.excepciones.ColocarUnidadEnSectorEnemigoExcepcion;
-import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
-import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
+import fiuba.algo3.AlgoChess.excepciones.CuranderoNoPuedeAtacar;
+import fiuba.algo3.AlgoChess.excepciones.CuranderoNoPuedeRealizarCuracionExcepcion;
 import fiuba.algo3.AlgoChess.tablero.Posicion;
 import fiuba.algo3.AlgoChess.tablero.Tablero;
 
@@ -22,10 +22,13 @@ public class Curandero implements Entidad {
 	public int curacion = 15;
 	
 	private Posicion posicion;
+	
+	Tablero tablero = Tablero.getInstanciaTablero();
+	
+	private BuscadorDeEntidades buscador = new BuscadorDeEntidades(tablero.getMap());
 
 
 	public Curandero(Bando bando, int fila, int columna) {
-
 		this.bando = bando;
 		this.posicion = new Posicion(fila, columna);
 
@@ -35,50 +38,35 @@ public class Curandero implements Entidad {
 		
 		return this.vida;
 	}
-
-	@Override
-	public int getCosto() {
-		
-		return this.costo;
+	
+	public boolean puedoCurar(Entidad entidad) {
+		return ((this.posicion.distanciaEntrePosiciones(entidad.getPosicion()) == 1) & (this.bando == entidad.getBando()));
 	}
 	
 	public void recibirDanio(int danio) {
-
 		this.vida -= danio;
 	}
-	
-	public void curarEntidad(Entidad entidadACurar) 
-			throws CuranderoCuraHastaLaMaximaVidaExcepcion, 
-			ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion{
-		
-		entidadACurar.reponerVida(CURACION);
-		
-		if(entidadACurar == this) {
-			
-			reponerVida(CURACION);
+	public void curarEntidad(Curandero curandero) {
+		reponerVida(CURACION);
+	}
+	public void curarEntidad(Entidad entidadACurar) {
+		if(puedoCurar(entidadACurar)) {
+			entidadACurar.reponerVida(CURACION);
+		}else {
+			new CuranderoNoPuedeRealizarCuracionExcepcion("Curandero no puede realizar curacion");
 		}
-		
 	}
 
 	public void reponerVida(int curacion) {
-		
-			if ((this.vida += CURACION) > VIDAINICIAL){
-
-				this.vida = VIDAINICIAL;
-
-			}
-	}
-
-	@Override
-	public void atacarEnemigo(Entidad entidadAtacada) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
-
-	}
-
-	public void mover(Direccion direccion) throws CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
-		Tablero tablero = Tablero.getInstanciaTablero();
-		if(tablero.mover(this, this.posicion, direccion.avanzar(this.posicion)) == 0){
-			this.posicion = direccion.avanzar(this.posicion);
+		if ((this.vida += CURACION) > VIDAINICIAL){
+			this.vida = VIDAINICIAL;
 		}
+	}
+
+
+	public void mover(Direccion direccion) {
+		tablero.mover(this, this.posicion, direccion.avanzar(this.posicion));
+		this.posicion = direccion.avanzar(this.posicion);
 	}
 
 	@Override
@@ -86,8 +74,23 @@ public class Curandero implements Entidad {
 		throw new CasilleroOcupadoExcepcion("No se puede realizar dicha acción");
 	}
 
+	@Override
+	public Bando getBando() {
+		return this.bando;
+	}
+
+	@Override
+	public void atacarEnemigo() {
+		new CuranderoNoPuedeAtacar("Curandero no puede atacar solo realiza curaciones");
+	}
+
+	@Override
 	public Posicion getPosicion() {
-		
 		return this.posicion;
+	}
+	
+	@Override
+	public int getCosto() {
+		return this.costo;
 	}
 }

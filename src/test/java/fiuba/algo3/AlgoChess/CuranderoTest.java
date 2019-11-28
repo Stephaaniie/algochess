@@ -2,17 +2,25 @@ package fiuba.algo3.AlgoChess;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
-import fiuba.algo3.AlgoChess.direccion.*;
-import fiuba.algo3.AlgoChess.entidades.*;
-import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
-import fiuba.algo3.AlgoChess.excepciones.ColocarUnidadEnSectorEnemigoExcepcion;
-import fiuba.algo3.AlgoChess.tablero.Posicion;
-import fiuba.algo3.AlgoChess.tablero.Tablero;
 import org.junit.Assert;
 import org.junit.Test;
 
+import fiuba.algo3.AlgoChess.direccion.Abajo;
+import fiuba.algo3.AlgoChess.direccion.Arriba;
+import fiuba.algo3.AlgoChess.direccion.Derecha;
+import fiuba.algo3.AlgoChess.direccion.Direccion;
+import fiuba.algo3.AlgoChess.direccion.Izquierda;
+import fiuba.algo3.AlgoChess.entidades.Aliado;
+import fiuba.algo3.AlgoChess.entidades.Bando;
+import fiuba.algo3.AlgoChess.entidades.Catapulta;
+import fiuba.algo3.AlgoChess.entidades.Curandero;
+import fiuba.algo3.AlgoChess.entidades.Jinete;
+import fiuba.algo3.AlgoChess.entidades.Soldado;
+import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
+import fiuba.algo3.AlgoChess.tablero.Posicion;
+import fiuba.algo3.AlgoChess.tablero.Tablero;
 
 public class CuranderoTest {
 
@@ -43,8 +51,7 @@ public class CuranderoTest {
 	}
 
 	@Test
-	public void curanderoCuraUnSoldadoAlDecrementarLaVida()
-			throws CuranderoCuraHastaLaMaximaVidaExcepcion, ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+	public void curanderoCuraUnSoldadoAlDecrementarLaVida() {
 		Bando bando1 = new Aliado();
 		Bando bando2 = new Aliado();
 		Curandero curandero = new Curandero(bando1, 5, 5);
@@ -59,8 +66,7 @@ public class CuranderoTest {
 	}
 
 	@Test
-	public void curanderoCuraUnJineteDecrementarLaVida()
-			throws CuranderoCuraHastaLaMaximaVidaExcepcion, ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+	public void curanderoCuraUnJineteDecrementarLaVida() {
 		Bando bando1 = new Aliado();
 		Bando bando2 = new Aliado();
 		Curandero curandero = new Curandero(bando1, 5, 5);
@@ -111,13 +117,13 @@ public class CuranderoTest {
 	}
 
 	@Test
-	public void curanderoSeMueveEnDireccionArriba() throws CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
+	public void curanderoSeMueveEnDireccionArriba() {
 		Bando bando = new Aliado();
 		Posicion posicionNueva = new Posicion(7, 8);
 
 		Curandero curandero = new Curandero(bando, 8, 8);
 		Tablero tablero = Tablero.getInstanciaTablero();
-		tablero.agregarContenidoEnCasillero(curandero,8, 8);
+		tablero.agregarEntidadEnCasillero(curandero,8, 8);
 
 		Direccion direccion = new Arriba();
 
@@ -125,18 +131,17 @@ public class CuranderoTest {
 
 		assertEquals(curandero.getPosicion(), posicionNueva);
 		assertEquals(curandero, tablero.getEntidadEnPosicion(posicionNueva));
-		tablero.reset();
 	}
 
 	@Test
-	public void curanderoSeMueveEnDireccionAbajo() throws CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
+	public void curanderoSeMueveEnDireccionAbajo() {
 		Bando bando = new Aliado();
 		Posicion posicionNueva = new Posicion(6, 5);
 
 		Curandero curandero = new Curandero(bando, 5, 5);
 
 		Tablero tablero = Tablero.getInstanciaTablero();
-		tablero.agregarContenidoEnCasillero(curandero,5, 5);
+		tablero.agregarEntidadEnCasillero(curandero,5, 5);
 
 		Direccion direccion = new Abajo();
 
@@ -144,18 +149,17 @@ public class CuranderoTest {
 
 		assertEquals(curandero.getPosicion(), posicionNueva);
 		assertEquals(curandero, tablero.getEntidadEnPosicion(posicionNueva));
-		tablero.reset();
 	}
 
 	@Test
-	public void curanderoSeMueveEnDireccionDerecha() throws CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
+	public void curanderoSeMueveEnDireccionDerecha() {
 		Bando bando = new Aliado();
 		Posicion posicionNueva = new Posicion(5, 6);
 
 		Curandero curandero = new Curandero(bando, 5, 5);
 
 		Tablero tablero = Tablero.getInstanciaTablero();
-		tablero.agregarContenidoEnCasillero(curandero,5, 5);
+		tablero.agregarEntidadEnCasillero(curandero,5, 5);
 
 		Direccion direccion = new Derecha();
 
@@ -163,18 +167,17 @@ public class CuranderoTest {
 
 		assertEquals(curandero.getPosicion(), posicionNueva);
 		assertEquals(curandero, tablero.getEntidadEnPosicion(posicionNueva));
-		tablero.reset();
 	}
 
 	@Test
-	public void curanderoSeMueveEnDireccionIzquierda() throws CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
+	public void curanderoSeMueveEnDireccionIzquierda() {
 		Bando bando = new Aliado();
 		Posicion posicionNueva = new Posicion(10, 9);
 
 		Curandero curandero = new Curandero(bando, 10, 10);
 
 		Tablero tablero = Tablero.getInstanciaTablero();
-		tablero.agregarContenidoEnCasillero(curandero,10, 10);
+		tablero.agregarEntidadEnCasillero(curandero,10, 10);
 
 		Direccion direccion = new Izquierda();
 
@@ -182,11 +185,10 @@ public class CuranderoTest {
 
 		assertEquals(curandero.getPosicion(), posicionNueva);
 		assertEquals(curandero, tablero.getEntidadEnPosicion(posicionNueva));
-		tablero.reset();
 	}
 
 	@Test
-	public void curanderoNoPuedeMoverseACasilleroOcupado() throws CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
+	public void curanderoNoPuedeMoverseACasilleroOcupado() {
 		boolean errorAtrapado = false;
 		Posicion posicionEsperada = new Posicion(6, 6);
 		Bando bando1 = new Aliado();
@@ -197,8 +199,8 @@ public class CuranderoTest {
 		Direccion direccion = new Izquierda();
 
 		try{
-			tablero.agregarContenidoEnCasillero(curandero, 6, 6);
-			tablero.agregarContenidoEnCasillero(catapulta,6,5);
+			tablero.agregarEntidadEnCasillero(curandero, 6, 6);
+			tablero.agregarEntidadEnCasillero(catapulta,6,5);
 			curandero.mover(direccion);
 		}catch(CasilleroOcupadoExcepcion e){
 			errorAtrapado = true;
@@ -206,6 +208,5 @@ public class CuranderoTest {
 
 		Assert.assertTrue(errorAtrapado);
 		Assert.assertEquals(posicionEsperada, curandero.getPosicion());
-		tablero.reset();
 	}
 }

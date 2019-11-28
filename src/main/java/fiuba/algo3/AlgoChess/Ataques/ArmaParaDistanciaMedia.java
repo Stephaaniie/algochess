@@ -1,9 +1,10 @@
 package fiuba.algo3.AlgoChess.Ataques;
 
-import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
+import java.util.List;
+
+import fiuba.algo3.AlgoChess.entidades.Entidad;
 
 public interface ArmaParaDistanciaMedia {
-
 	
-	public void arcoYFlecha() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
+	public void arcoYFlecha(List<Entidad> entidad, int danio);
 }

@@ -1,6 +1,6 @@
 package fiuba.algo3.AlgoChess.excepciones;
 
-public class NoPuedeExistirLaMismaPosicion extends Exception {
+public class NoPuedeExistirLaMismaPosicion extends RuntimeException {
 
 	private static final long serialVersionUID = 1L;
 

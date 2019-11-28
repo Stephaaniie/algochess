@@ -1,6 +1,6 @@
 package fiuba.algo3.AlgoChess.excepciones;
 
-public class NoHayCeldasAlrededorDeUnaDistanciaCortaExcepcion extends Exception {
+public class NoHayCeldasAlrededorDeUnaDistanciaCortaExcepcion extends RuntimeException {
 
 	private static final long serialVersionUID = 1L;
 

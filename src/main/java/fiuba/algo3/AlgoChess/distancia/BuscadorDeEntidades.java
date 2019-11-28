@@ -1,0 +1,53 @@
+package fiuba.algo3.AlgoChess.distancia;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import fiuba.algo3.AlgoChess.entidades.Bando;
+import fiuba.algo3.AlgoChess.entidades.Entidad;
+import fiuba.algo3.AlgoChess.tablero.Casillero;
+import fiuba.algo3.AlgoChess.tablero.Posicion;
+
+public class BuscadorDeEntidades {
+
+	private  Map<Posicion,Casillero> tablero;
+	
+	public BuscadorDeEntidades(Map<Posicion,Casillero> tablero) {
+		this.tablero = tablero;
+	}
+	public List<Posicion> buscadorDePosiciones(){
+	 	List<Posicion> posiciones = new ArrayList<Posicion>();
+		tablero.entrySet().stream().forEach(x -> posiciones.add(x.getKey()));
+		return posiciones;
+	}
+	
+	public List <Entidad> buscadorDeEntidades(){
+		List<Entidad> entidades = new ArrayList<Entidad>();
+		tablero.entrySet().stream().forEach(x -> entidades.add(x.getValue().getEntidad()));
+		return entidades;
+	}
+	
+	public List <Entidad> buscarEnemigos(Bando bandoOpuesto){
+		List<Entidad> entidades = buscadorDeEntidades();
+		List<Entidad> enemigo = new ArrayList<Entidad>();
+		//List<Entidad> enemigos = entidades.stream().filter(x -> x.getBando() == bandoOpuesto).forEach(x -> enemigos.add(x.agregar(x)));
+		for(Entidad entidad : entidades) {
+			if(entidad.getBando() != bandoOpuesto) {
+				enemigo.add(entidad);
+			}
+		}
+		return enemigo;
+	}
+	
+	public List <Entidad> buscarAliados(Bando bansoAliado){
+		List<Entidad> entidades = buscadorDeEntidades();
+		List<Entidad> aliados = new ArrayList<Entidad>();
+		for(Entidad entidad : entidades) {
+			if(entidad.getBando() == bansoAliado) {
+				aliados.add(entidad);
+			}
+		}
+		return aliados;	
+	}
+}

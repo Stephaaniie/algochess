@@ -2,18 +2,17 @@ package fiuba.algo3.AlgoChess.tablero;
 
 import fiuba.algo3.AlgoChess.entidades.Entidad;
 import fiuba.algo3.AlgoChess.entidades.ObjetoNull;
-import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
 
 public class Casillero {
 	private Posicion posicion;
-	private Entidad contenido = new ObjetoNull();
+	private Entidad entidad = new ObjetoNull();
 
 	public Casillero(Posicion posicion){
 		this.posicion = posicion;
 	}
 
-	public void agregarContenido(Entidad contenido) throws CasilleroOcupadoExcepcion {
-		this.contenido = this.contenido.agregar(contenido);
+	public void agregarEntidad(Entidad entidad) {
+		this.entidad.agregar(entidad);
 	}
 	
 	public Casillero getCasillero() {
@@ -23,11 +22,13 @@ public class Casillero {
 	public Posicion getPosicionDeCasillero() {
 		return this.getCasillero().posicion;
 	}
-	public Entidad getContenido() {
-		return this.contenido;
+	
+	public Entidad getEntidad() {
+		return this.entidad;
 	}
 
     public void quitarEntidad() {
-		this.contenido = new ObjetoNull();
+		this.entidad = new ObjetoNull();
     }
+
 }

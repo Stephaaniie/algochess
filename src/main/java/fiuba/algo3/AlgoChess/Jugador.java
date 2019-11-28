@@ -1,14 +1,17 @@
 package fiuba.algo3.AlgoChess;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import fiuba.algo3.AlgoChess.entidades.Bando;
 import fiuba.algo3.AlgoChess.entidades.Entidad;
 import fiuba.algo3.AlgoChess.entidades.FabricaEntidades;
-import fiuba.algo3.AlgoChess.excepciones.*;
-import fiuba.algo3.AlgoChess.tablero.Casillero;
+import fiuba.algo3.AlgoChess.excepciones.CantidadDePuntosInsuficientesExcepcion;
+import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
+import fiuba.algo3.AlgoChess.excepciones.ColocarUnidadEnSectorEnemigoExcepcion;
+import fiuba.algo3.AlgoChess.excepciones.EntidadInvalidaExcepcion;
+import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 import fiuba.algo3.AlgoChess.tablero.Tablero;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Jugador {
 
@@ -16,7 +19,7 @@ public class Jugador {
 	private int cantidadEntidades = 0;
 	private String nombre;
 	private FabricaEntidades fabrica = new FabricaEntidades();
-	private List entidades = new ArrayList<Entidad>();
+	private List<Entidad> entidades = new ArrayList<Entidad>();
 	private Bando bandoJugador;
 
 	public Jugador(String nombre, Bando bando) {
@@ -29,7 +32,7 @@ public class Jugador {
 		try {
 			descontarPuntos(entidad.getCosto());
 			Tablero tablero = Tablero.getInstanciaTablero();
-			tablero.agregarContenidoEnCasillero(entidad, fila, columna);
+			tablero.agregarEntidadEnCasillero(entidad, fila, columna);
 			entidades.add(entidad);
 		} catch (CasilleroOcupadoExcepcion e) {
 			throw new CasilleroOcupadoExcepcion("El casillero esta ocupado");
@@ -40,7 +43,7 @@ public class Jugador {
 		}
 	}
 
-	public void descontarPuntos(int numero) throws CantidadDePuntosInsuficientesExcepcion {
+	public void descontarPuntos(int numero) {
 		if (puntosActuales <= 0) {
 			throw new CantidadDePuntosInsuficientesExcepcion();
 		}
@@ -50,4 +53,18 @@ public class Jugador {
 	public int cantidadPuntos(){
 		return puntosActuales;
 	}
+	
+	public int getPuntos() {
+		return this.puntosActuales;
+	}
+	
+	public int getCantidadDeEntidades() {
+		return this.cantidadEntidades;
+	}
+	
+	public String getNombre() {
+		return this.nombre;
+	}
+	
+	
 }

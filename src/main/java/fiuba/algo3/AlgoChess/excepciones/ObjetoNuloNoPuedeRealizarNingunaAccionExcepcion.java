@@ -1,6 +1,6 @@
 package fiuba.algo3.AlgoChess.excepciones;
 
-public class ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion extends Exception{
+public class ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion extends RuntimeException{
 
 	private static final long serialVersionUID = 1L;
 	

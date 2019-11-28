@@ -2,38 +2,29 @@ package fiuba.algo3.AlgoChess;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Test;
 
-import fiuba.algo3.AlgoChess.distancia.EntidadesACiertaDistancia;
-import fiuba.algo3.AlgoChess.entidades.Bando;
-import fiuba.algo3.AlgoChess.entidades.Enemigo;
+import fiuba.algo3.AlgoChess.distancia.BuscadorDeEntidades;
 import fiuba.algo3.AlgoChess.entidades.Entidad;
-import fiuba.algo3.AlgoChess.entidades.Soldado;
-import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
-import fiuba.algo3.AlgoChess.excepciones.ColocarUnidadEnSectorEnemigoExcepcion;
-import fiuba.algo3.AlgoChess.excepciones.EntidadInvalidaExcepcion;
-import fiuba.algo3.AlgoChess.excepciones.NoHayCeldasAlrededorDeUnaDistanciaCortaExcepcion;
-import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
+import fiuba.algo3.AlgoChess.tablero.Tablero;
 
 public class DistanciaTest {
 	
 		@Test
-		public void probarSiLaListaDeEntidadesEsIgualACeroPorQueNoHayEntidadesEnTablero() 
-				throws NoHayCeldasAlrededorDeUnaDistanciaCortaExcepcion, ColocarUnidadEnSectorEnemigoExcepcion, ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion, CasilleroOcupadoExcepcion {
-															
-				Bando bandoO = new Enemigo();
-				
-				Entidad soldado1 = new Soldado(bandoO,6,6);
-																				
-				ArrayList<Entidad> listaAux = EntidadesACiertaDistancia.entidadesCerca(1, soldado1,2, 0);
+		public void probarSiLaListaDeEntidadesEsIgualACeroPorQueNoHayEntidadesEnTablero() {						
+				Tablero tablero = Tablero.getInstanciaTablero();
+			
+				BuscadorDeEntidades buscador = new BuscadorDeEntidades(tablero.getMap());
+																															
+				List<Entidad> listaAux = buscador.buscadorDeEntidades();
 
 				 assertEquals(0, listaAux.size());
 		}
 		
 		@Test
-		public void seAgreganEntidadesEnTableroYEltamanioDeLaListaCoinsideConLaDeLasEntidadesAgregadas() throws EntidadInvalidaExcepcion, CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion, ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+		public void seAgreganEntidadesEnTableroYEltamanioDeLaListaCoinsideConLaDeLasEntidadesAgregadas() {
 		/*	
 				Bando bandoO = new Enemigo();
 				Bando bandoA = new Aliado();
