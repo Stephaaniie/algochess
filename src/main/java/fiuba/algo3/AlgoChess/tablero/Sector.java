@@ -5,9 +5,7 @@ public class Sector {
 	Posicion posicion;
 	
 	public Sector(int fila, int columna) {
-		
-		this.posicion.setFila(fila);
-		this.posicion.setColumna(columna);
+		this.posicion = new Posicion(fila,columna);
 	}
 	
 	public Sector getSector() {	

@@ -5,8 +5,8 @@ import java.util.List;
 
 import fiuba.algo3.AlgoChess.Ataques.ArmaParaCuerpoACuerpo;
 import fiuba.algo3.AlgoChess.Ataques.ArmaParaDistanciaMedia;
+import fiuba.algo3.AlgoChess.Buscador.BuscadorDeEntidades;
 import fiuba.algo3.AlgoChess.direccion.Direccion;
-import fiuba.algo3.AlgoChess.distancia.BuscadorDeEntidades;
 import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
 import fiuba.algo3.AlgoChess.tablero.Posicion;
 import fiuba.algo3.AlgoChess.tablero.Tablero;

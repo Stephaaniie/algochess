@@ -1,5 +1,10 @@
 package fiuba.algo3.AlgoChess;
 
-public class TableroTest {
+import org.junit.Test;
 
+public class TableroTest {
+	@Test
+	public void seCreaTableroSinProblema() {
+		
+	}
 }

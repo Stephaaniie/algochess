@@ -25,6 +25,12 @@ import fiuba.algo3.AlgoChess.tablero.Tablero;
 
 public class JineteTest {
 	@Before
+	@Test 
+	public void jineteconBando() {
+		Bando bando = new Aliado();
+		Jinete jinete = new Jinete(bando, 1, 2);
+		assertEquals(bando,jinete.getBando());
+	}
 	@Test
 	public void jineteRecuperaVidaTest() {
 		Bando bando = new Aliado();
@@ -42,8 +48,35 @@ public class JineteTest {
 		
 		assertEquals(80, jinete.getVida());
 	}
-
-
+	
+	@Test 
+	public void tengoUnAliadoCerca() {
+		Bando bando = new Enemigo();
+		Jinete jinete   = new Jinete(bando, 6, 8);
+		Soldado soldado = new Soldado(bando, 6, 9);
+		
+		Tablero tablero = Tablero.getInstanciaTablero();
+		tablero.agregarEntidadEnCasillero(jinete,6, 8);
+		tablero.agregarEntidadEnCasillero(soldado, 6, 9);
+		
+		assertFalse(jinete.tengoAliados());
+	}
+	
+	@Test
+	public void noSePuedeAgregarEntidadYLanzaExcepcion() {
+		Bando bando = new Enemigo();
+		boolean entroEnExcepcion = false;
+		Jinete jinete = new Jinete(bando, 1, 2);
+		Jinete jinete1 = new Jinete(bando, 6, 8);
+		try {
+			jinete.agregar(jinete1);
+		}catch(Exception e){
+			entroEnExcepcion =true;
+		}
+		
+		assertTrue(entroEnExcepcion);
+	}
+	
 	@Test
 	public void jineteAtacaAEntidadEnDistanciaCorta() {
 		Bando bando1 = new Aliado();
@@ -215,4 +248,5 @@ public class JineteTest {
 
 		assertFalse(jinete.getPosicion().mismaPosicion(posicionEsperada, jinete.getPosicion()));
 	}
+	
 }

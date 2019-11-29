@@ -1,7 +1,8 @@
 package fiuba.algo3.AlgoChess.entidades;
+import fiuba.algo3.AlgoChess.Buscador.BuscadorDeEntidades;
 import fiuba.algo3.AlgoChess.direccion.Direccion;
-import fiuba.algo3.AlgoChess.distancia.BuscadorDeEntidades;
 import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
+import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.CuranderoNoPuedeAtacarExepcion;
 import fiuba.algo3.AlgoChess.tablero.Posicion;
 import fiuba.algo3.AlgoChess.tablero.Tablero;
@@ -55,6 +56,8 @@ public class Curandero implements Entidad {
 	public void reponerVida(int curacion) {
 		if ((this.vida += CURACION) > VIDAINICIAL){
 			this.vida = VIDAINICIAL;
+		}else {
+			throw new CuranderoCuraHastaLaMaximaVidaExcepcion("Maxima Vida");
 		}
 	}
 
@@ -65,7 +68,7 @@ public class Curandero implements Entidad {
 	}
 
 	@Override
-	public Entidad agregar(Entidad otraEntidad) throws CasilleroOcupadoExcepcion {
+	public Entidad agregar(Entidad otraEntidad) {
 		throw new CasilleroOcupadoExcepcion("No se puede realizar dicha acción");
 	}
 

@@ -1,12 +1,15 @@
 package fiuba.algo3.AlgoChess;
 
-import fiuba.algo3.AlgoChess.entidades.*;
-import fiuba.algo3.AlgoChess.excepciones.*;
-import fiuba.algo3.AlgoChess.tablero.Casillero;
-import fiuba.algo3.AlgoChess.tablero.Posicion;
-import fiuba.algo3.AlgoChess.tablero.Tablero;
 import org.junit.Assert;
 import org.junit.Test;
+
+import fiuba.algo3.AlgoChess.entidades.Aliado;
+import fiuba.algo3.AlgoChess.entidades.Bando;
+import fiuba.algo3.AlgoChess.entidades.Catapulta;
+import fiuba.algo3.AlgoChess.entidades.Curandero;
+import fiuba.algo3.AlgoChess.entidades.Entidad;
+import fiuba.algo3.AlgoChess.entidades.Jinete;
+import fiuba.algo3.AlgoChess.entidades.Soldado;
 
 public class JugadorTest {
 		
@@ -19,7 +22,7 @@ public class JugadorTest {
 		}
 			
 		@Test
-		public void descontarUnPuntoPorAdquirirSoldado() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion, CantidadDePuntosInsuficientesExcepcion {
+		public void descontarUnPuntoPorAdquirirSoldado() {
             Bando bando = new Aliado();
             Entidad soldado = new Soldado(bando, 3,2);
 
@@ -31,7 +34,7 @@ public class JugadorTest {
 		}
 			
 		@Test
-		public void descontarTresPuntoPorAdquirirJinete() throws CantidadDePuntosInsuficientesExcepcion, ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+		public void descontarTresPuntoPorAdquirirJinete() {
             Bando bando = new Aliado();
             Entidad jinete = new Jinete(bando, 3,2);
 
@@ -43,7 +46,7 @@ public class JugadorTest {
 		}
 		
 		@Test
-		public void descontarDosPuntosPorAdquirirCurandero() throws CantidadDePuntosInsuficientesExcepcion, ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+		public void descontarDosPuntosPorAdquirirCurandero() {
             Bando bando = new Aliado();
             Entidad curandero = new Curandero(bando, 3,2);
 
@@ -55,7 +58,7 @@ public class JugadorTest {
 		}
 			
 		@Test 
-		public void descontarCincoPuntosPorAdquirirCatapulta() throws CantidadDePuntosInsuficientesExcepcion, ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+		public void descontarCincoPuntosPorAdquirirCatapulta() {
 			Bando bando = new Aliado();
 			Entidad catapulta = new Catapulta(bando, 3,2);
 								

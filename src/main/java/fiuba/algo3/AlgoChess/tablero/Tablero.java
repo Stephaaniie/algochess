@@ -46,6 +46,7 @@ public class Tablero {
 	}
 
 	public void mover(Entidad entidad, Posicion posicionAnterior, Posicion posicionNueva){
+		
 		try{
 			agregarEntidadEnCasillero(entidad, posicionNueva.getFila(), posicionNueva.getColumna());
 		}catch(CasilleroOcupadoExcepcion e){
@@ -74,6 +75,7 @@ public class Tablero {
 		}
 	}
 	
+	
 	public Casillero agregarEntidadEnCasillero(Entidad entidad, int fila, int columna) {
 		entidadesEnTablero.add(entidad);
 		Casillero casillero = new Casillero(crearPosicion(fila,columna));
@@ -83,7 +85,7 @@ public class Tablero {
 	
 	public void quitarEntidadDeCasillero(Posicion posicionAnterior,Entidad entidad) {
 		getEntidadesEnTablero().remove(entidad);
-		this.tablero.entrySet().stream().filter(x -> x.getKey() == posicionAnterior).forEach(x -> this.tablero.remove(x));
+		this.tablero.entrySet().stream().filter(x -> x.getKey() == posicionAnterior).forEach(x -> this.tablero.remove(x.getKey()));
 	}
 	
 	public Map<Posicion,Casillero> getMap(){

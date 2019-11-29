@@ -252,9 +252,7 @@ public class CuranderoTest {
 	}
 
 	@Test
-	public void curanderoNoPuedeMoverseACasilleroOcupado() {
-		Posicion posicionEsperada = new Posicion(6, 6);
-		
+	public void curanderoNoPuedeMoverseACasilleroOcupado() {		
 		Bando bando1 = new Aliado();
 		Bando bando2 = new Aliado();
 		
