@@ -2,7 +2,6 @@ package fiuba.algo3.AlgoChess.tablero;
 
 public class Posicion{
 	private int fila;
-
 	private int columna;
 	
 	public Posicion(int fila, int columna) {
@@ -37,7 +36,13 @@ public class Posicion{
 	
 	public int calcularDistanciaCon(int fila, int columna) {
 		return (int) Math.sqrt(Math.pow(diferencia(fila,this.fila), 2) + Math.pow(diferencia(columna,this.columna), 2));
-
+	}
+	
+	public Posicion getPosicion() {
+		return new Posicion(this.getFila(),this.getColumna());
+	}
+	public boolean mismaPosicion(Posicion posicion1, Posicion posicion2) {
+		return posicion1.getFila() == posicion2.getFila() & posicion1.getColumna() == posicion2.getColumna();
 	}
 
 }

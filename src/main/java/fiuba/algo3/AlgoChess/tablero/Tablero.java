@@ -53,7 +53,7 @@ public class Tablero {
 		} catch (ColocarUnidadEnSectorEnemigoExcepcion n) {
 			throw new ColocarUnidadEnSectorEnemigoExcepcion("El sector es el del enemigo");
 		}
-		quitarEntidadDeCasillero(posicionAnterior);
+		quitarEntidadDeCasillero(posicionAnterior,entidad);
 	}
 
 	public Posicion crearPosicion(int fila, int columna) {
@@ -81,8 +81,9 @@ public class Tablero {
 		return casillero;
 	}
 	
-	public void quitarEntidadDeCasillero(Posicion posicionAnterior) {
-		this.tablero.get(posicionAnterior).quitarEntidad();
+	public void quitarEntidadDeCasillero(Posicion posicionAnterior,Entidad entidad) {
+		getEntidadesEnTablero().remove(entidad);
+		this.tablero.entrySet().stream().filter(x -> x.getKey() == posicionAnterior).forEach(x -> this.tablero.remove(x));
 	}
 	
 	public Map<Posicion,Casillero> getMap(){
@@ -103,11 +104,7 @@ public class Tablero {
 
 	public Entidad getEntidadEnPosicion(Posicion posicionNueva) {
 		Entidad entidadEncontrada = new ObjetoNull();
-		for(Entidad entidadBuscada : this.entidadesEnTablero) {
-			if(entidadBuscada.getPosicion() == posicionNueva) {
-				entidadEncontrada = entidadBuscada;
-			}
-		}
+		this.entidadesEnTablero.stream().filter(x -> x.getPosicion() == posicionNueva).forEach(x -> entidadEncontrada.agregar(x));
 		return entidadEncontrada;
 	}
 }

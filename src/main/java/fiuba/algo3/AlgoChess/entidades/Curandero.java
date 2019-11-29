@@ -3,7 +3,6 @@ import fiuba.algo3.AlgoChess.direccion.Direccion;
 import fiuba.algo3.AlgoChess.distancia.BuscadorDeEntidades;
 import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.CuranderoNoPuedeAtacar;
-import fiuba.algo3.AlgoChess.excepciones.CuranderoNoPuedeRealizarCuracionExcepcion;
 import fiuba.algo3.AlgoChess.tablero.Posicion;
 import fiuba.algo3.AlgoChess.tablero.Tablero;
 
@@ -40,7 +39,7 @@ public class Curandero implements Entidad {
 	}
 	
 	public boolean puedoCurar(Entidad entidad) {
-		return ((this.posicion.distanciaEntrePosiciones(entidad.getPosicion()) == 1) & (this.bando == entidad.getBando()));
+		return  (this.bando == entidad.getBando());
 	}
 	
 	public void recibirDanio(int danio) {
@@ -50,11 +49,7 @@ public class Curandero implements Entidad {
 		reponerVida(CURACION);
 	}
 	public void curarEntidad(Entidad entidadACurar) {
-		if(puedoCurar(entidadACurar)) {
-			entidadACurar.reponerVida(CURACION);
-		}else {
-			new CuranderoNoPuedeRealizarCuracionExcepcion("Curandero no puede realizar curacion");
-		}
+		entidadACurar.reponerVida(CURACION);		
 	}
 
 	public void reponerVida(int curacion) {

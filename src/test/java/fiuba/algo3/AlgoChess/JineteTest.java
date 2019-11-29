@@ -1,7 +1,9 @@
 package fiuba.algo3.AlgoChess;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
-import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import fiuba.algo3.AlgoChess.direccion.Abajo;
@@ -11,41 +13,35 @@ import fiuba.algo3.AlgoChess.direccion.Direccion;
 import fiuba.algo3.AlgoChess.direccion.Izquierda;
 import fiuba.algo3.AlgoChess.entidades.Aliado;
 import fiuba.algo3.AlgoChess.entidades.Bando;
-import fiuba.algo3.AlgoChess.entidades.Catapulta;
 import fiuba.algo3.AlgoChess.entidades.Enemigo;
 import fiuba.algo3.AlgoChess.entidades.Jinete;
 import fiuba.algo3.AlgoChess.entidades.Soldado;
-import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
-import fiuba.algo3.AlgoChess.excepciones.ColocarUnidadEnSectorEnemigoExcepcion;
-import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
-import fiuba.algo3.AlgoChess.excepciones.MovimientoInvalidoExcepcion;
-import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 import fiuba.algo3.AlgoChess.tablero.Posicion;
 import fiuba.algo3.AlgoChess.tablero.Tablero;
 
 public class JineteTest {
-
+	@Before
 	@Test
-	public void jineteRecuperaVidaTest() throws CuranderoCuraHastaLaMaximaVidaExcepcion, ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+	public void jineteRecuperaVidaTest() {
 		Bando bando = new Aliado();
 		Jinete jinete = new Jinete(bando, 1, 2);
 		jinete.reponerVida(10);
 		
-		Assert.assertEquals(100, jinete.getVida());
+		assertEquals(100, jinete.getVida());
 	}
 	
 	@Test
-	public void jineteAtacadoPierdeVidaTest() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+	public void jineteAtacadoPierdeVidaTest() {
 		Bando bando = new Enemigo();
 		Jinete jinete = new Jinete(bando, 6, 8);
 		jinete.recibirDanio(20);
 		
-		Assert.assertEquals(80, jinete.getVida());
+		assertEquals(80, jinete.getVida());
 	}
 
 
 	@Test
-	public void jineteAtacaAEntidadEnDistanciaCorta() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+	public void jineteAtacaAEntidadEnDistanciaCorta() {
 		Bando bando1 = new Aliado();
 		Bando bando2 = new Enemigo();
 		Jinete jinete = new Jinete(bando1, 1, 2);
@@ -53,11 +49,11 @@ public class JineteTest {
 
 		jinete.atacarEnemigo();
 
-		Assert.assertEquals(100, soldado.getVida());
+		assertEquals(100, soldado.getVida());
 	}
 
 	@Test
-	public void jineteAtacaAEntidadEnDistanciaMedia() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+	public void jineteAtacaAEntidadEnDistanciaMedia() {
 		Bando bando1 = new Aliado();
 		Bando bando2 = new Enemigo();
 		Jinete jinete = new Jinete(bando1, 1, 2);
@@ -65,11 +61,11 @@ public class JineteTest {
 
 		jinete.atacarEnemigo();
 
-		Assert.assertEquals(100, soldado.getVida());
+		assertEquals(100, soldado.getVida());
 	}
 	
 	@Test
-	public void jineteSeMueveParaAbajo() throws CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
+	public void jineteSeMueveParaAbajo() {
 		Bando bando = new Aliado();
 		Jinete jinete = new Jinete(bando, 3, 2);
 		Posicion posicionNueva = new Posicion(4,2);
@@ -81,12 +77,11 @@ public class JineteTest {
 
 		jinete.mover(direccion);
 
-		assertEquals(jinete.getPosicion(), posicionNueva);
-		assertEquals(jinete, tablero.getEntidadEnPosicion(posicionNueva));
+		assertTrue(posicionNueva.mismaPosicion(posicionNueva, jinete.getPosicion()));
 	}
 
 	@Test
-	public void jineteSeMueveParaArriba() throws CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
+	public void jineteSeMueveParaArriba() {
 		Bando bando = new Aliado();
 		Posicion posicionNueva = new Posicion(1, 1);
 		Jinete jinete = new Jinete(bando, 2, 1);
@@ -98,12 +93,12 @@ public class JineteTest {
 
 		jinete.mover(direccion);
 
-		assertEquals(jinete.getPosicion(), posicionNueva);
-		assertEquals(jinete, tablero.getEntidadEnPosicion(posicionNueva));
+		assertTrue(posicionNueva.mismaPosicion(posicionNueva, jinete.getPosicion()));
+
 	}
 
 	@Test
-	public void jineteSeMueveParaLaDerecha() throws MovimientoInvalidoExcepcion, CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
+	public void jineteSeMueveParaLaDerecha() {
 		Bando bando = new Aliado();
 		Posicion posicionNueva = new Posicion(2,2);
 		Jinete jinete = new Jinete(bando, 2, 1);
@@ -115,12 +110,12 @@ public class JineteTest {
 
 		jinete.mover(direccion);
 
-		assertEquals(jinete.getPosicion(), posicionNueva);
-		assertEquals(jinete, tablero.getEntidadEnPosicion(posicionNueva));
+		assertTrue(posicionNueva.mismaPosicion(posicionNueva, jinete.getPosicion()));
+
 	}
 
 	@Test
-	public void jineteSeMueveParaLaIzquierda() throws CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
+	public void jineteSeMueveParaLaIzquierda() {
 		Bando bando = new Aliado();
 		Posicion posicionNueva = new Posicion(3, 1);
 		Jinete jinete = new Jinete(bando, 3, 2);
@@ -132,30 +127,25 @@ public class JineteTest {
 
 		jinete.mover(direccion);
 
-		assertEquals(jinete.getPosicion(), posicionNueva);
-		assertEquals(jinete, tablero.getEntidadEnPosicion(posicionNueva));
+		assertTrue(posicionNueva.mismaPosicion(posicionNueva, jinete.getPosicion()));
 	}
 
 	@Test
-	public void jineteNoPuedeMoverseACasilleroOcupado() throws CasilleroOcupadoExcepcion, ColocarUnidadEnSectorEnemigoExcepcion {
-		boolean errorAtrapado = false;
+	public void jineteNoPuedeMoverseACasilleroOcupado() {
 		Posicion posicionEsperada = new Posicion(5, 5);
+		
 		Bando bando1 = new Aliado();
-		Bando bando2 = new Aliado();
+		
 		Jinete jinete = new Jinete(bando1, 5,5);
-		Catapulta catapulta = new Catapulta(bando2, 5,4);
+		
 		Tablero tablero = Tablero.getInstanciaTablero();
+		
 		Direccion direccion = new Izquierda();
+		
+		tablero.agregarEntidadEnCasillero(jinete, 5, 5);
+		
+		jinete.mover(direccion);
 
-		try{
-			tablero.agregarEntidadEnCasillero(jinete, 5, 5);
-			tablero.agregarEntidadEnCasillero(catapulta,5,4);
-			jinete.mover(direccion);
-		}catch(CasilleroOcupadoExcepcion e){
-			errorAtrapado = true;
-		}
-
-		Assert.assertTrue(errorAtrapado);
-		Assert.assertEquals(posicionEsperada, jinete.getPosicion());
+		assertFalse(jinete.getPosicion().mismaPosicion(posicionEsperada, jinete.getPosicion()));
 	}
 }

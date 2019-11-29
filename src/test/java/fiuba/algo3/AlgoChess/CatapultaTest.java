@@ -1,7 +1,7 @@
 package fiuba.algo3.AlgoChess;
 
-
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import fiuba.algo3.AlgoChess.entidades.Aliado;
@@ -13,7 +13,7 @@ import fiuba.algo3.AlgoChess.entidades.Soldado;
 import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 
 public class CatapultaTest {
-
+	@Before
 	@Test
 	public void catapultaAtacadaPierdeVida() {
 		Bando bando = new Aliado();

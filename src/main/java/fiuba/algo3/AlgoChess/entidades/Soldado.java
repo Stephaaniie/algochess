@@ -27,7 +27,7 @@ public class Soldado implements Entidad, ArmaParaCuerpoACuerpo {
 	
 	private Posicion posicion;
 	
-	Tablero tablero = Tablero.getInstanciaTablero();
+	public Tablero tablero = Tablero.getInstanciaTablero();
 	
 	private BuscadorDeEntidades buscador = new BuscadorDeEntidades(tablero.getMap());
 
@@ -75,7 +75,7 @@ public class Soldado implements Entidad, ArmaParaCuerpoACuerpo {
 
 	@Override
 	public void mover(Direccion direccion) {
-		tablero.mover(this, this.posicion, direccion.avanzar(this.posicion));
+		this.tablero.mover(this, this.posicion, direccion.avanzar(this.posicion));
 		this.posicion = direccion.avanzar(this.posicion);
 	}
 
