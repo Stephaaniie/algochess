@@ -9,31 +9,33 @@ import fiuba.algo3.AlgoChess.entidades.FabricaEntidades;
 import fiuba.algo3.AlgoChess.excepciones.CantidadDePuntosInsuficientesExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.ColocarUnidadEnSectorEnemigoExcepcion;
-import fiuba.algo3.AlgoChess.excepciones.EntidadInvalidaExcepcion;
-import fiuba.algo3.AlgoChess.excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 import fiuba.algo3.AlgoChess.tablero.Tablero;
 
 public class Jugador {
 
 	private int puntosActuales = 20;
-	private int cantidadEntidades = 0;
+	
 	private String nombre;
+	
 	private FabricaEntidades fabrica = new FabricaEntidades();
-	private List<Entidad> entidades = new ArrayList<Entidad>();
+	
+	private List<Entidad> entidades;
+	
 	private Bando bandoJugador;
-
+	
 	public Jugador(String nombre, Bando bando) {
 		this.nombre = nombre;
 		this.bandoJugador = bando;
+		this.entidades  = new ArrayList<Entidad>();
 	}
 
-	public void agregarEntidad(String tipoEntidad, int fila, int columna) throws EntidadInvalidaExcepcion, ColocarUnidadEnSectorEnemigoExcepcion, CasilleroOcupadoExcepcion, CantidadDePuntosInsuficientesExcepcion, ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
+	public void agregarEntidad(String tipoEntidad, int fila, int columna) {
 		Entidad entidad = fabrica.crearEntidad(tipoEntidad, fila, columna, bandoJugador);
 		try {
 			descontarPuntos(entidad.getCosto());
 			Tablero tablero = Tablero.getInstanciaTablero();
 			tablero.agregarEntidadEnCasillero(entidad, fila, columna);
-			entidades.add(entidad);
+			this.entidades.add(entidad);
 		} catch (CasilleroOcupadoExcepcion e) {
 			throw new CasilleroOcupadoExcepcion("El casillero esta ocupado");
 		} catch (ColocarUnidadEnSectorEnemigoExcepcion e) {
@@ -58,13 +60,19 @@ public class Jugador {
 		return this.puntosActuales;
 	}
 	
-	public int getCantidadDeEntidades() {
-		return this.cantidadEntidades;
-	}
-	
 	public String getNombre() {
 		return this.nombre;
 	}
 	
+	public List<Entidad> getEntidades(){
+		return this.entidades;
+	}
 	
+	public int getCantidadDeEntidades() {
+		return this.getEntidades().size();
+	}
+	
+	public void eliminarEntidad(Entidad entidad) {
+		this.entidades.remove(entidad);
+	}
 }

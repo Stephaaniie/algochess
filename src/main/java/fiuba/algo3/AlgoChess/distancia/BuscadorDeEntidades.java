@@ -41,4 +41,5 @@ public class BuscadorDeEntidades {
 		entidades.stream().filter(x -> x.getBando() == bansoAliado).forEach(x -> aliados.add(x.agregar(x)));
 		return aliados;	
 	}
+	
 }

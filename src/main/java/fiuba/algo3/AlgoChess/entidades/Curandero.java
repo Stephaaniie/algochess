@@ -2,7 +2,7 @@ package fiuba.algo3.AlgoChess.entidades;
 import fiuba.algo3.AlgoChess.direccion.Direccion;
 import fiuba.algo3.AlgoChess.distancia.BuscadorDeEntidades;
 import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
-import fiuba.algo3.AlgoChess.excepciones.CuranderoNoPuedeAtacar;
+import fiuba.algo3.AlgoChess.excepciones.CuranderoNoPuedeAtacarExepcion;
 import fiuba.algo3.AlgoChess.tablero.Posicion;
 import fiuba.algo3.AlgoChess.tablero.Tablero;
 
@@ -76,7 +76,7 @@ public class Curandero implements Entidad {
 
 	@Override
 	public void atacarEnemigo() {
-		new CuranderoNoPuedeAtacar("Curandero no puede atacar solo realiza curaciones");
+		new CuranderoNoPuedeAtacarExepcion("Curandero no puede atacar solo realiza curaciones");
 	}
 
 	@Override

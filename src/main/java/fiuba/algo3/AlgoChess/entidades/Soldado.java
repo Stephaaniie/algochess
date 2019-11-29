@@ -7,15 +7,18 @@ import fiuba.algo3.AlgoChess.Ataques.ArmaParaCuerpoACuerpo;
 import fiuba.algo3.AlgoChess.direccion.Direccion;
 import fiuba.algo3.AlgoChess.distancia.BuscadorDeEntidades;
 import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
-import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
 import fiuba.algo3.AlgoChess.tablero.Posicion;
 import fiuba.algo3.AlgoChess.tablero.Tablero;
 
 public class Soldado implements Entidad, ArmaParaCuerpoACuerpo {
 
 	private final int DISTANCIA_MAX_ATAQUE  = 2;
+	
 	private final int DISTANCIA_MIN_ATAQUE = 1;
+	
 	private final int DANIO_CUERPO   = 10;
+	
+	private final int MAX_CANT_BATALLON = 3;
 	
 	private final int VIDAINICIAL = 100;
 	
@@ -31,6 +34,8 @@ public class Soldado implements Entidad, ArmaParaCuerpoACuerpo {
 	
 	private BuscadorDeEntidades buscador = new BuscadorDeEntidades(tablero.getMap());
 
+	private List<Soldado> soldadosParaBatallon = new ArrayList<Soldado>();
+			
 	public Soldado(Bando bando, int fila, int columna) {
 		this.bando = bando;
 		this.posicion = new Posicion(fila, columna);
@@ -48,14 +53,14 @@ public class Soldado implements Entidad, ArmaParaCuerpoACuerpo {
 	
 	public List<Entidad> filtrarAtacables(List<Entidad> enemigos){
 		List<Entidad> filtrados = new ArrayList<Entidad>();
-		for(Entidad entidad : enemigos) {
-			if(estaEnRango(entidad)) {
-				filtrados.add(entidad);
-			}
-		}
+		enemigos.stream().filter(x -> estaEnRango(x) == true).forEach(x -> filtrados.add(x));
 		return filtrados;
 	}
-
+	
+	public void enlistarSoldadoParaBatallon(List<Soldado> soldados) {
+		soldados.stream().filter(x -> x.getPosicion().esPosicionAdyacente(getPosicion(), this.getPosicion())== true).forEach(x -> soldadosParaBatallon.add(x));			
+	}
+	
 	@Override
 	public void recibirDanio(int danio) {
 		this.vida -= danio;
@@ -67,7 +72,7 @@ public class Soldado implements Entidad, ArmaParaCuerpoACuerpo {
 	}
 
 	@Override
-	public void reponerVida(int curacion) throws CuranderoCuraHastaLaMaximaVidaExcepcion{
+	public void reponerVida(int curacion) {
 		if ((this.vida += curacion) > VIDAINICIAL){
 			this.vida = VIDAINICIAL;
 		}
@@ -90,9 +95,7 @@ public class Soldado implements Entidad, ArmaParaCuerpoACuerpo {
 
 	@Override
 	public void espada(List<Entidad> entidad, int danio) {
-		for(Entidad entidadAux : entidad) {
-			entidadAux.recibirDanio(danio);
-		}
+		entidad.stream().forEach(x -> x.recibirDanio(danio));
 	}
 
 	@Override

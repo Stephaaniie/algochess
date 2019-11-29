@@ -7,7 +7,11 @@ import org.junit.Before;
 import org.junit.Test;
 
 import fiuba.algo3.AlgoChess.direccion.Abajo;
+import fiuba.algo3.AlgoChess.direccion.AbajoDerecha;
+import fiuba.algo3.AlgoChess.direccion.AbajoIzquierda;
 import fiuba.algo3.AlgoChess.direccion.Arriba;
+import fiuba.algo3.AlgoChess.direccion.ArribaDerecha;
+import fiuba.algo3.AlgoChess.direccion.ArribaIzquierda;
 import fiuba.algo3.AlgoChess.direccion.Derecha;
 import fiuba.algo3.AlgoChess.direccion.Direccion;
 import fiuba.algo3.AlgoChess.direccion.Izquierda;
@@ -15,6 +19,7 @@ import fiuba.algo3.AlgoChess.entidades.Aliado;
 import fiuba.algo3.AlgoChess.entidades.Bando;
 import fiuba.algo3.AlgoChess.entidades.Catapulta;
 import fiuba.algo3.AlgoChess.entidades.Curandero;
+import fiuba.algo3.AlgoChess.entidades.Enemigo;
 import fiuba.algo3.AlgoChess.entidades.Jinete;
 import fiuba.algo3.AlgoChess.entidades.Soldado;
 import fiuba.algo3.AlgoChess.excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
@@ -181,6 +186,69 @@ public class CuranderoTest {
 		curandero.mover(direccion);
 		
 		assertTrue(posicionNueva.mismaPosicion(posicionNueva, curandero.getPosicion()));
+	}
+	@Test
+	public void soldadoSeMueveParaArribaALaDerecha() {
+		Bando bando = new Enemigo();
+		Soldado soldado = new Soldado(bando, 6, 7);
+		Posicion posicionNueva = new Posicion(5, 8);
+
+		Direccion direccion = new ArribaDerecha();
+
+		Tablero tablero = Tablero.getInstanciaTablero();
+		tablero.agregarEntidadEnCasillero(soldado,6,7 );
+
+		soldado.mover(direccion);
+		
+		assertTrue(posicionNueva.mismaPosicion(posicionNueva, soldado.getPosicion()));
+	}
+	
+	@Test
+	public void soldadoSeMueveParaAbajoALaIzquierda() {
+		Bando bando = new Enemigo();
+		Soldado soldado = new Soldado(bando, 6, 7);
+		Posicion posicionNueva = new Posicion(7, 6);
+
+		Direccion direccion = new AbajoIzquierda();
+
+		Tablero tablero = Tablero.getInstanciaTablero();
+		tablero.agregarEntidadEnCasillero(soldado,6,7 );
+
+		soldado.mover(direccion);
+		
+		assertTrue(posicionNueva.mismaPosicion(posicionNueva, soldado.getPosicion()));
+	}
+	
+	@Test
+	public void soldadoSeMueveParaAbajoALaDerecha() {
+		Bando bando = new Enemigo();
+		Soldado soldado = new Soldado(bando, 6, 7);
+		Posicion posicionNueva = new Posicion(7, 8);
+
+		Direccion direccion = new AbajoDerecha();
+
+		Tablero tablero = Tablero.getInstanciaTablero();
+		tablero.agregarEntidadEnCasillero(soldado,6,7 );
+
+		soldado.mover(direccion);
+		
+		assertTrue(posicionNueva.mismaPosicion(posicionNueva, soldado.getPosicion()));
+	}
+	
+	@Test
+	public void soldadoSeMueveParaArribaALaIzquierda() {
+		Bando bando = new Enemigo();
+		Soldado soldado = new Soldado(bando, 6, 7);
+		Posicion posicionNueva = new Posicion(5,6);
+
+		Direccion direccion = new ArribaIzquierda();
+
+		Tablero tablero = Tablero.getInstanciaTablero();
+		tablero.agregarEntidadEnCasillero(soldado,6,7 );
+
+		soldado.mover(direccion);
+		
+		assertTrue(posicionNueva.mismaPosicion(posicionNueva, soldado.getPosicion()));
 	}
 
 	@Test

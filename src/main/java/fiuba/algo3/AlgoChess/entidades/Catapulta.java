@@ -8,7 +8,7 @@ import fiuba.algo3.AlgoChess.direccion.Direccion;
 import fiuba.algo3.AlgoChess.distancia.BuscadorDeEntidades;
 import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
 import fiuba.algo3.AlgoChess.excepciones.CatapultaNoSeMueveExcepcion;
-import fiuba.algo3.AlgoChess.excepciones.CuranderoNoCuraAunaEntidadFija;
+import fiuba.algo3.AlgoChess.excepciones.CuranderoNoCuraAunaEntidadFijaExcepcion;
 import fiuba.algo3.AlgoChess.tablero.Posicion;
 import fiuba.algo3.AlgoChess.tablero.Tablero;
 
@@ -89,7 +89,7 @@ public class Catapulta implements Entidad, ArmaParaDistanciaLarga {
 
 	@Override
 	public void reponerVida(int curacion) {
-        new CuranderoNoCuraAunaEntidadFija("No se puede reponer vida");
+        new CuranderoNoCuraAunaEntidadFijaExcepcion("No se puede reponer vida");
 	}
 
 	@Override
