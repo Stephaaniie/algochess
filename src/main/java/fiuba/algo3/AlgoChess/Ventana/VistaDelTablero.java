@@ -119,4 +119,12 @@ public class VistaDelTablero extends Group {
         return panes[entidad.getPosicion().getFila()][entidad.getPosicion().getColumna()];
     }
 
+	public GridPane getTablero() {
+		return tablero;
+	}
+
+	public void setTablero(GridPane tablero) {
+		this.tablero = tablero;
+	}
+
 }

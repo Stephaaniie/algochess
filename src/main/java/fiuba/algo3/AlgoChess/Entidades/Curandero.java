@@ -92,4 +92,12 @@ public class Curandero implements Entidad {
 	public int getCosto() {
 		return this.costo;
 	}
+
+	public BuscadorDeEntidades getBuscador() {
+		return buscador;
+	}
+
+	public void setBuscador(BuscadorDeEntidades buscador) {
+		this.buscador = buscador;
+	}
 }
