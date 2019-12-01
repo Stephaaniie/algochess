@@ -17,14 +17,14 @@ public class Main extends Application
 
     public void start(Stage theStage)
     {
-        theStage.setTitle( "JavaFx Example!" );
+        theStage.setTitle( "¡AlgoChess!" );
 
         Group root = new Group();
         Scene theScene = new Scene( root );
         theStage.setScene( theScene );
 
-        final double WIDTH = 48; // image width
-        final double HEIGHT = 48; // image height
+        final double WIDTH = 48; 
+        final double HEIGHT = 48; 
 
         final double CANVAS_WIDTH = 300;
         final double CANVAS_HEIGHT = 300;
@@ -41,8 +41,6 @@ public class Main extends Application
             double frame_number = 0;
             double x = 0;
             double y = 0;
-            boolean reverse = false;
-
             public void handle(long currentNanoTime)
             {
                 if(frame_number == 4)
@@ -54,7 +52,6 @@ public class Main extends Application
 
                 y = frame_number * HEIGHT;
 
-                // Clear the canvas
                 gc.setFill( Color.BLACK );
                 gc.fillRect(0,0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
