@@ -1,3 +1,5 @@
+package fiuba.algo3.AlgoChess.Main;
+
 import java.util.concurrent.TimeUnit;
 
 import javafx.animation.AnimationTimer;
