@@ -6,7 +6,8 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import fiuba.algo3.AlgoChess.tablero.Posicion;
+import fiuba.algo3.AlgoChess.Tablero.Posicion;
+
 
 public class PosicionTest {
 	

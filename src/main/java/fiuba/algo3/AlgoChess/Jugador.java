@@ -3,13 +3,13 @@ package fiuba.algo3.AlgoChess;
 import java.util.ArrayList;
 import java.util.List;
 
-import fiuba.algo3.AlgoChess.entidades.Bando;
-import fiuba.algo3.AlgoChess.entidades.Entidad;
-import fiuba.algo3.AlgoChess.entidades.FabricaEntidades;
-import fiuba.algo3.AlgoChess.excepciones.CantidadDePuntosInsuficientesExcepcion;
-import fiuba.algo3.AlgoChess.excepciones.CasilleroOcupadoExcepcion;
-import fiuba.algo3.AlgoChess.excepciones.ColocarUnidadEnSectorEnemigoExcepcion;
-import fiuba.algo3.AlgoChess.tablero.Tablero;
+import fiuba.algo3.AlgoChess.Bandos.Bando;
+import fiuba.algo3.AlgoChess.Entidades.Entidad;
+import fiuba.algo3.AlgoChess.Entidades.FabricaEntidades;
+import fiuba.algo3.AlgoChess.Excepciones.CantidadDePuntosInsuficientesExcepcion;
+import fiuba.algo3.AlgoChess.Excepciones.CasilleroOcupadoExcepcion;
+import fiuba.algo3.AlgoChess.Excepciones.ColocarUnidadEnSectorEnemigoExcepcion;
+import fiuba.algo3.AlgoChess.Tablero.Tablero;
 
 public class Jugador {
 

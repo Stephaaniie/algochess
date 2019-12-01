@@ -3,13 +3,14 @@ package fiuba.algo3.AlgoChess;
 import org.junit.Assert;
 import org.junit.Test;
 
-import fiuba.algo3.AlgoChess.entidades.Aliado;
-import fiuba.algo3.AlgoChess.entidades.Bando;
-import fiuba.algo3.AlgoChess.entidades.Catapulta;
-import fiuba.algo3.AlgoChess.entidades.Curandero;
-import fiuba.algo3.AlgoChess.entidades.Entidad;
-import fiuba.algo3.AlgoChess.entidades.Jinete;
-import fiuba.algo3.AlgoChess.entidades.Soldado;
+import fiuba.algo3.AlgoChess.Jugador;
+import fiuba.algo3.AlgoChess.Bandos.Aliado;
+import fiuba.algo3.AlgoChess.Bandos.Bando;
+import fiuba.algo3.AlgoChess.Entidades.Catapulta;
+import fiuba.algo3.AlgoChess.Entidades.Curandero;
+import fiuba.algo3.AlgoChess.Entidades.Entidad;
+import fiuba.algo3.AlgoChess.Entidades.Jinete;
+import fiuba.algo3.AlgoChess.Entidades.Soldado;
 
 public class JugadorTest {
 		

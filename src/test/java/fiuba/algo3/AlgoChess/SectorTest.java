@@ -4,7 +4,8 @@ import static org.junit.Assert.assertNotEquals;
 
 import org.junit.Test;
 
-import fiuba.algo3.AlgoChess.tablero.Sector;
+import fiuba.algo3.AlgoChess.Tablero.Sector;
+
 
 public class SectorTest {
 	

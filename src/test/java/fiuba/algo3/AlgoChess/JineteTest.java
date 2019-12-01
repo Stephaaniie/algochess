@@ -6,22 +6,22 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
-import fiuba.algo3.AlgoChess.direccion.Abajo;
-import fiuba.algo3.AlgoChess.direccion.AbajoDerecha;
-import fiuba.algo3.AlgoChess.direccion.AbajoIzquierda;
-import fiuba.algo3.AlgoChess.direccion.Arriba;
-import fiuba.algo3.AlgoChess.direccion.ArribaDerecha;
-import fiuba.algo3.AlgoChess.direccion.ArribaIzquierda;
-import fiuba.algo3.AlgoChess.direccion.Derecha;
-import fiuba.algo3.AlgoChess.direccion.Direccion;
-import fiuba.algo3.AlgoChess.direccion.Izquierda;
-import fiuba.algo3.AlgoChess.entidades.Aliado;
-import fiuba.algo3.AlgoChess.entidades.Bando;
-import fiuba.algo3.AlgoChess.entidades.Enemigo;
-import fiuba.algo3.AlgoChess.entidades.Jinete;
-import fiuba.algo3.AlgoChess.entidades.Soldado;
-import fiuba.algo3.AlgoChess.tablero.Posicion;
-import fiuba.algo3.AlgoChess.tablero.Tablero;
+import fiuba.algo3.AlgoChess.Bandos.Aliado;
+import fiuba.algo3.AlgoChess.Bandos.Bando;
+import fiuba.algo3.AlgoChess.Bandos.Enemigo;
+import fiuba.algo3.AlgoChess.Direccion.Abajo;
+import fiuba.algo3.AlgoChess.Direccion.AbajoDerecha;
+import fiuba.algo3.AlgoChess.Direccion.AbajoIzquierda;
+import fiuba.algo3.AlgoChess.Direccion.Arriba;
+import fiuba.algo3.AlgoChess.Direccion.ArribaDerecha;
+import fiuba.algo3.AlgoChess.Direccion.ArribaIzquierda;
+import fiuba.algo3.AlgoChess.Direccion.Derecha;
+import fiuba.algo3.AlgoChess.Direccion.Direccion;
+import fiuba.algo3.AlgoChess.Direccion.Izquierda;
+import fiuba.algo3.AlgoChess.Entidades.Jinete;
+import fiuba.algo3.AlgoChess.Entidades.Soldado;
+import fiuba.algo3.AlgoChess.Tablero.Posicion;
+import fiuba.algo3.AlgoChess.Tablero.Tablero;
 
 public class JineteTest {
 	@Before

@@ -4,12 +4,13 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import fiuba.algo3.AlgoChess.entidades.Aliado;
-import fiuba.algo3.AlgoChess.entidades.Bando;
-import fiuba.algo3.AlgoChess.entidades.Entidad;
-import fiuba.algo3.AlgoChess.entidades.Jinete;
-import fiuba.algo3.AlgoChess.tablero.Casillero;
-import fiuba.algo3.AlgoChess.tablero.Posicion;
+import fiuba.algo3.AlgoChess.Bandos.Aliado;
+import fiuba.algo3.AlgoChess.Bandos.Bando;
+import fiuba.algo3.AlgoChess.Entidades.Entidad;
+import fiuba.algo3.AlgoChess.Entidades.Jinete;
+import fiuba.algo3.AlgoChess.Tablero.Casillero;
+import fiuba.algo3.AlgoChess.Tablero.Posicion;
+
 
 public class CasilleroTest {
 	

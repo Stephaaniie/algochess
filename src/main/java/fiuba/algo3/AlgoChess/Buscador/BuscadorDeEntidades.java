@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import fiuba.algo3.AlgoChess.entidades.Bando;
-import fiuba.algo3.AlgoChess.entidades.Entidad;
-import fiuba.algo3.AlgoChess.tablero.Casillero;
-import fiuba.algo3.AlgoChess.tablero.Posicion;
+import fiuba.algo3.AlgoChess.Bandos.Bando;
+import fiuba.algo3.AlgoChess.Entidades.Entidad;
+import fiuba.algo3.AlgoChess.Tablero.Casillero;
+import fiuba.algo3.AlgoChess.Tablero.Posicion;
 
 public class BuscadorDeEntidades {
 
