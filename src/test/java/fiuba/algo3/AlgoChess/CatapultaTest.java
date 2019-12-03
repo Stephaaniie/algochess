@@ -4,30 +4,23 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import fiuba.algo3.AlgoChess.Bandos.Aliado;
-import fiuba.algo3.AlgoChess.Bandos.Bando;
-import fiuba.algo3.AlgoChess.Bandos.Enemigo;
 import fiuba.algo3.AlgoChess.Entidades.Catapulta;
 import fiuba.algo3.AlgoChess.Entidades.Jinete;
 import fiuba.algo3.AlgoChess.Entidades.Soldado;
-import fiuba.algo3.AlgoChess.Excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 
 public class CatapultaTest {
 	@Before
 	@Test
 	public void catapultaAtacadaPierdeVida() {
-		Bando bando = new Aliado();
-		Catapulta catapulta = new Catapulta(bando, 1,2);
+		Catapulta catapulta = new Catapulta();
 		catapulta.recibirDanio(10);
 		Assert.assertEquals(40, catapulta.getVida());
 	}
 
 	@Test
-    public void catapultaAtacaAJineteYLeRestaVida() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
-		Bando bando1 = new Aliado();
-		Bando bando2 = new Enemigo();
-	    Catapulta catapulta = new Catapulta(bando1,2,2);
-	    Jinete jinete = new Jinete(bando2, 10, 11);
+    public void catapultaAtacaAJineteYLeRestaVida() {
+	    Catapulta catapulta = new Catapulta();
+	    Jinete jinete = new Jinete();
 
 	    catapulta.atacarEnemigo();
 
@@ -35,11 +28,9 @@ public class CatapultaTest {
     }
 
     @Test
-    public void catapultaAtacaASoldadoYLeRestaVida() throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
-		Bando bando1 = new Aliado();
-		Bando bando2 = new Enemigo();
-	    Catapulta catapulta = new Catapulta(bando1, 2, 2);
-	    Soldado soldado = new Soldado(bando2, 10,10);
+    public void catapultaAtacaASoldadoYLeRestaVida() {
+	    Catapulta catapulta = new Catapulta();
+	    Soldado soldado = new Soldado();
 
 	    catapulta.atacarEnemigo();
 

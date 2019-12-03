@@ -37,11 +37,6 @@ public class Jinete implements Entidad, ArmaParaCuerpoACuerpo, ArmaParaDistancia
 	
 	private BuscadorDeEntidades buscador = new BuscadorDeEntidades(tablero.getMap());
 	
-	public Jinete(Bando bando, int fila, int columna) {
-		this.bando = bando;
-		this.posicion = new Posicion(fila, columna);
-	}
-	
 	public boolean estaEnRangoSinAliado(Entidad entidad) {
 		RadarDeEntidades distancia = new RadarDeEntidades(DIS_MIN_SIN_ALIADO,DIS_MAX_SIN_ALIADO);
 		return (distancia.estaEnElRadar(this.getPosicion().calcularDistanciaCon(entidad.getPosicion().getFila(),entidad.getPosicion().getColumna())));
@@ -139,5 +134,11 @@ public class Jinete implements Entidad, ArmaParaCuerpoACuerpo, ArmaParaDistancia
 	@Override
 	public int getCosto() {
 		return this.COSTO;
+	}
+
+	@Override
+	public void recibirPosicionYBando(int fila, int columna, Bando bandoJugador) {
+		this.bando = bandoJugador;
+		this.posicion = new Posicion(fila,columna);
 	}
 }

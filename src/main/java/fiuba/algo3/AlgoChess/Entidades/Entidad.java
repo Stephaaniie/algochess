@@ -24,4 +24,6 @@ public interface Entidad extends Ataque {
 	public int getCosto();
 
 	public int getVida();
+
+	public void recibirPosicionYBando(int fila, int columna, Bando bandoJugador);
 }

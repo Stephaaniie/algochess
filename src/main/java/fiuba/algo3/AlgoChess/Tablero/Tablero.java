@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import fiuba.algo3.AlgoChess.Jugador;
 import fiuba.algo3.AlgoChess.Buscador.RadarDeEntidades;
 import fiuba.algo3.AlgoChess.Entidades.Entidad;
 import fiuba.algo3.AlgoChess.Entidades.ObjetoNull;
@@ -108,5 +109,10 @@ public class Tablero {
 		Entidad entidadEncontrada = new ObjetoNull();
 		this.entidadesEnTablero.stream().filter(x -> x.getPosicion() == posicionNueva).forEach(x -> entidadEncontrada.agregar(x));
 		return entidadEncontrada;
+	}
+
+	public Jugador agergarJugador() {
+		
+		return null;
 	}
 }

@@ -3,7 +3,6 @@ package fiuba.algo3.AlgoChess;
 import org.junit.Assert;
 import org.junit.Test;
 
-import fiuba.algo3.AlgoChess.Jugador;
 import fiuba.algo3.AlgoChess.Bandos.Aliado;
 import fiuba.algo3.AlgoChess.Bandos.Bando;
 import fiuba.algo3.AlgoChess.Entidades.Catapulta;
@@ -25,7 +24,7 @@ public class JugadorTest {
 		@Test
 		public void descontarUnPuntoPorAdquirirSoldado() {
             Bando bando = new Aliado();
-            Entidad soldado = new Soldado(bando, 3,2);
+            Entidad soldado = new Soldado();
 
             Jugador nuevoJugador = new Jugador("pedro", bando);
 
@@ -37,7 +36,7 @@ public class JugadorTest {
 		@Test
 		public void descontarTresPuntoPorAdquirirJinete() {
             Bando bando = new Aliado();
-            Entidad jinete = new Jinete(bando, 3,2);
+            Entidad jinete = new Jinete();
 
             Jugador nuevoJugador = new Jugador("pedro", bando);
 
@@ -49,7 +48,7 @@ public class JugadorTest {
 		@Test
 		public void descontarDosPuntosPorAdquirirCurandero() {
             Bando bando = new Aliado();
-            Entidad curandero = new Curandero(bando, 3,2);
+            Entidad curandero = new Curandero();
 
             Jugador nuevoJugador = new Jugador("pedro", bando);
 
@@ -61,7 +60,7 @@ public class JugadorTest {
 		@Test 
 		public void descontarCincoPuntosPorAdquirirCatapulta() {
 			Bando bando = new Aliado();
-			Entidad catapulta = new Catapulta(bando, 3,2);
+			Entidad catapulta = new Catapulta();
 								
 			Jugador nuevoJugador = new Jugador("pedro", bando);
 				

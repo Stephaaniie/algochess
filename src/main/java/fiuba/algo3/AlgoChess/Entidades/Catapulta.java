@@ -33,10 +33,6 @@ public class Catapulta implements Entidad, ArmaParaDistanciaLarga {
 	Tablero tablero = Tablero.getInstanciaTablero();
 	
 	private BuscadorDeEntidades buscador = new BuscadorDeEntidades(tablero.getMap());
-	public Catapulta(Bando bando, int fila, int columna) {
-		this.bando = bando;
-		this.posicion = new Posicion(fila, columna);
-	}
 	
 	public boolean estaEnRango(Entidad entidad) {
 		RadarDeEntidades distancia = new RadarDeEntidades(DISTANCIA_MIN_ATAQUE,DISTANCIA_MAX_ATAQUE);
@@ -106,4 +102,10 @@ public class Catapulta implements Entidad, ArmaParaDistanciaLarga {
 		}
 	}
 
+	@Override
+	public void recibirPosicionYBando(int fila, int columna, Bando bandoJugador) {
+		this.bando = bandoJugador;
+		this.posicion = new Posicion(fila,columna);
+	}
+	
 }

@@ -53,4 +53,9 @@ public class ObjetoNull implements Entidad {
 	public int getVida() {
 		return 0;
 	}
+
+	@Override
+	public void recibirPosicionYBando(int fila, int columna, Bando bandoJugador) {
+		
+	}
 }

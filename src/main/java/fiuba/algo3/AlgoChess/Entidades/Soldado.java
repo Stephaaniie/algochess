@@ -19,9 +19,7 @@ public class Soldado implements Entidad, ArmaParaCuerpoACuerpo {
 	private final int DISTANCIA_MIN_ATAQUE = 1;
 	
 	private final int DANIO_CUERPO   = 10;
-	
-	private final int MAX_CANT_BATALLON = 3;
-	
+		
 	private final int VIDAINICIAL = 100;
 	
 	private Bando bando;
@@ -37,12 +35,11 @@ public class Soldado implements Entidad, ArmaParaCuerpoACuerpo {
 	private BuscadorDeEntidades buscador = new BuscadorDeEntidades(tablero.getMap());
 
 	private List<Soldado> soldadosParaBatallon = new ArrayList<Soldado>();
-			
-	public Soldado(Bando bando, int fila, int columna) {
-		this.bando = bando;
-		this.posicion = new Posicion(fila, columna);
+	
+	public  List<Soldado> getListaBatallon(){
+		return this.soldadosParaBatallon;
 	}
-
+	
 	public int getVida() {
 		return this.vida;
 	}
@@ -51,6 +48,10 @@ public class Soldado implements Entidad, ArmaParaCuerpoACuerpo {
 		RadarDeEntidades distancia = new RadarDeEntidades(DISTANCIA_MIN_ATAQUE,DISTANCIA_MAX_ATAQUE);
 		return (distancia.estaEnElRadar(this.getPosicion().calcularDistanciaCon(entidad.getPosicion().getFila(),entidad.getPosicion().getColumna())));
 		
+	}
+	
+	public void formarListaDeSoldados(Soldado soldado) {
+		this.soldadosParaBatallon.add(soldado);
 	}
 	
 	public List<Entidad> filtrarAtacables(List<Entidad> enemigos){
@@ -111,4 +112,9 @@ public class Soldado implements Entidad, ArmaParaCuerpoACuerpo {
 		espada(filtrarAtacables(enemigos),DANIO_CUERPO);
 	}
 
+	@Override
+	public void recibirPosicionYBando(int fila, int columna, Bando bandoJugador) {
+		this.bando = bandoJugador;
+		this.posicion = new Posicion(fila,columna);
+	}
 }

@@ -1,7 +1,7 @@
 package fiuba.algo3.AlgoChess.MoverControlador;
 
 import java.util.List;
-
+import fiuba.algo3.AlgoChess.MoverControlador.MovimientoNull;
 import fiuba.algo3.AlgoChess.Entidades.Entidad;
 import fiuba.algo3.AlgoChess.Entidades.ObjetoNull;
 import javafx.scene.layout.Pane;

@@ -8,13 +8,13 @@ public class FabricaEntidades {
 
     public Entidad crearEntidad(String tipoEntidad, int fila, int columna, Bando bando) throws EntidadInvalidaExcepcion, ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
         if(tipoEntidad.equalsIgnoreCase("Soldado")){
-            return new Soldado(bando, fila, columna);
+            return new Soldado();
         }else if(tipoEntidad.equalsIgnoreCase("Jinete")){
-            return new Jinete(bando, fila, columna);
+            return new Jinete();
         }else if(tipoEntidad.equalsIgnoreCase("Catapulta")){
-            return new Catapulta(bando, fila, columna);
+            return new Catapulta();
         }else if(tipoEntidad.equalsIgnoreCase("Curandero")){
-            return new Curandero(bando, fila, columna);
+            return new Curandero();
         }else{
             throw new EntidadInvalidaExcepcion();
         }

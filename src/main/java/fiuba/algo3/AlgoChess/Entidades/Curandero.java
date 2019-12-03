@@ -1,6 +1,5 @@
 package fiuba.algo3.AlgoChess.Entidades;
 import fiuba.algo3.AlgoChess.Bandos.Bando;
-import fiuba.algo3.AlgoChess.Buscador.BuscadorDeEntidades;
 import fiuba.algo3.AlgoChess.Direccion.Direccion;
 import fiuba.algo3.AlgoChess.Excepciones.CasilleroOcupadoExcepcion;
 import fiuba.algo3.AlgoChess.Excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
@@ -26,15 +25,6 @@ public class Curandero implements Entidad {
 	
 	Tablero tablero = Tablero.getInstanciaTablero();
 	
-	private BuscadorDeEntidades buscador = new BuscadorDeEntidades(tablero.getMap());
-
-
-	public Curandero(Bando bando, int fila, int columna) {
-		this.bando = bando;
-		this.posicion = new Posicion(fila, columna);
-
-	}
-
 	public int getVida() {
 		
 		return this.vida;
@@ -93,11 +83,9 @@ public class Curandero implements Entidad {
 		return this.costo;
 	}
 
-	public BuscadorDeEntidades getBuscador() {
-		return buscador;
-	}
-
-	public void setBuscador(BuscadorDeEntidades buscador) {
-		this.buscador = buscador;
+	@Override
+	public void recibirPosicionYBando(int fila, int columna, Bando bandoJugador) {
+		this.bando = bandoJugador;
+		this.posicion = new Posicion(fila,columna);
 	}
 }
