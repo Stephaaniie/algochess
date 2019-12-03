@@ -22,7 +22,7 @@ public List<Entidad> entidades;
 
 	@Override
 	public TurnoEstado turnoSiguiente() {
-		throw new NoPuedeRealizarAccionesTerminoElJuegoExcepcion("Temino el juego");
+		throw new NoPuedeRealizarAccionesTerminoElJuegoExcepcion();
 	}
 	
 }

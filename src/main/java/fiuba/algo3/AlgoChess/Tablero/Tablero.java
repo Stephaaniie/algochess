@@ -51,9 +51,9 @@ public class Tablero {
 		try{
 			agregarEntidadEnCasillero(entidad, posicionNueva.getFila(), posicionNueva.getColumna());
 		}catch(CasilleroOcupadoExcepcion e){
-			throw new CasilleroOcupadoExcepcion("El casillero esta ocupado");
+			throw new CasilleroOcupadoExcepcion();
 		} catch (ColocarUnidadEnSectorEnemigoExcepcion n) {
-			throw new ColocarUnidadEnSectorEnemigoExcepcion("El sector es el del enemigo");
+			throw new ColocarUnidadEnSectorEnemigoExcepcion();
 		}
 		quitarEntidadDeCasillero(posicionAnterior,entidad);
 	}
@@ -66,6 +66,8 @@ public class Tablero {
 		if(this.esSectorAliado.estaEnElRadar(fila,columna)) {
 			this.tablero.put(crearPosicion(fila,columna), agregarEntidadEnCasillero(entidad,fila,columna));
 			sectorAliado.add(agregarEntidadEnCasillero(entidad,fila,columna));
+		}else {
+			throw new ColocarUnidadEnSectorEnemigoExcepcion();
 		}
 	}
 	
@@ -73,6 +75,8 @@ public class Tablero {
 		if(this.esSectorEnemigo.estaEnElRadar(fila, columna)) {
 			this.tablero.put(crearPosicion(fila,columna),agregarEntidadEnCasillero(entidad,fila,columna));
 			sectorEnemigo.add(agregarEntidadEnCasillero(entidad,fila,columna));
+		}else {
+			throw new ColocarUnidadEnSectorEnemigoExcepcion();
 		}
 	}
 	
@@ -112,7 +116,14 @@ public class Tablero {
 	}
 
 	public Jugador agergarJugador() {
-		
 		return null;
+	}
+	
+	public int tamanioTablero() {
+		return Tablero.TAMANIO_TABLERO;
+	}
+	
+	public int cantidadCasilleros() {
+		return this.sectorAliado.size() + this.sectorEnemigo.size();
 	}
 }

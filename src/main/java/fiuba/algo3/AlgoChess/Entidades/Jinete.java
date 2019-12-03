@@ -105,7 +105,7 @@ public class Jinete implements Entidad, ArmaParaCuerpoACuerpo, ArmaParaDistancia
 
     @Override
     public Entidad agregar(Entidad otraEntidad) {
-        throw new CasilleroOcupadoExcepcion("No se puede realizar dicha acción");
+        throw new CasilleroOcupadoExcepcion();
     }
 
 	@Override

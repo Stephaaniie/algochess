@@ -1,6 +1,7 @@
 package fiuba.algo3.AlgoChess;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import fiuba.algo3.AlgoChess.Bandos.Aliado;
@@ -12,7 +13,7 @@ import fiuba.algo3.AlgoChess.Entidades.Jinete;
 import fiuba.algo3.AlgoChess.Entidades.Soldado;
 
 public class JugadorTest {
-		
+		@Before
 		@Test
 		public void puntosIncialesCorrectosTest() {
 		    Bando bando = new Aliado();

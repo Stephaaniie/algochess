@@ -48,7 +48,7 @@ public class Curandero implements Entidad {
 		if ((this.vida += CURACION) > VIDAINICIAL){
 			this.vida = VIDAINICIAL;
 		}else {
-			throw new CuranderoCuraHastaLaMaximaVidaExcepcion("Maxima Vida");
+			throw new CuranderoCuraHastaLaMaximaVidaExcepcion();
 		}
 	}
 
@@ -60,7 +60,7 @@ public class Curandero implements Entidad {
 
 	@Override
 	public Entidad agregar(Entidad otraEntidad) {
-		throw new CasilleroOcupadoExcepcion("No se puede realizar dicha acción");
+		throw new CasilleroOcupadoExcepcion();
 	}
 
 	@Override
@@ -70,7 +70,7 @@ public class Curandero implements Entidad {
 
 	@Override
 	public void atacarEnemigo() {
-		new CuranderoNoPuedeAtacarExepcion("Curandero no puede atacar solo realiza curaciones");
+		new CuranderoNoPuedeAtacarExepcion();
 	}
 
 	@Override

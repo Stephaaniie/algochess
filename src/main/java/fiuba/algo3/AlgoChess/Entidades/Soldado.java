@@ -89,7 +89,7 @@ public class Soldado implements Entidad, ArmaParaCuerpoACuerpo {
 
     @Override
     public Entidad agregar(Entidad otraEntidad) {
-        throw new CasilleroOcupadoExcepcion("NO se pude realizar dicha acción");
+        throw new CasilleroOcupadoExcepcion();
     }
 
     public Posicion getPosicion() {

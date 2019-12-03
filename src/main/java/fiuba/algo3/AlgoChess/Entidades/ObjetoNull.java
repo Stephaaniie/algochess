@@ -9,29 +9,29 @@ public class ObjetoNull implements Entidad {
 
 	@Override
 	public Posicion getPosicion() {
-		throw new ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion("La entidad");
+		throw new ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion();
 	}
 
 	@Override
 	public void recibirDanio(int danio) {
 		
-		throw new ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion("La entidad no existe y no puede recibir dicho daño");
+		throw new ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion();
 		
 	}
 
 	@Override
 	public void atacarEnemigo(){
-		throw new ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion("La entidad no existe y no puede recibir dicho daño");
+		throw new ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion();
 	}
 
 	@Override
 	public void reponerVida(int curacion){
-		throw new ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion("La entidad no existe y no puede recibir dicho daño");
+		throw new ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion();
 	}
 
 	@Override
-	public void mover(Direccion direccion) throws ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion {
-		throw new ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion("La entidad no existe");
+	public void mover(Direccion direccion) {
+		throw new ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion();
 	}
 
     @Override
@@ -41,7 +41,7 @@ public class ObjetoNull implements Entidad {
 
 	@Override
 	public int getCosto() {
-		throw new ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion("La entidad no existe");
+		throw new ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion();
 	}
 
 	@Override

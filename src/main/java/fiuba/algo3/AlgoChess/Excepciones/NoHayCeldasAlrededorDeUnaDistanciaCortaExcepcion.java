@@ -4,8 +4,4 @@ public class NoHayCeldasAlrededorDeUnaDistanciaCortaExcepcion extends RuntimeExc
 
 	private static final long serialVersionUID = 1L;
 
-	public NoHayCeldasAlrededorDeUnaDistanciaCortaExcepcion(String mensaje) {
-		
-		super();
-	}
 }

@@ -26,8 +26,4 @@ public class BuscadorTest {
 
 			assertEquals(0, listaAux.size());
 		}
-		
-		@Test
-		public void seAgreganEntidadesEnTableroYEltamanioDeLaListaCoinsideConLaDeLasEntidadesAgregadas() {
-		}
 }

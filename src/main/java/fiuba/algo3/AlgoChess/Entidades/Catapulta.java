@@ -26,11 +26,12 @@ public class Catapulta implements Entidad, ArmaParaDistanciaLarga {
 	private Bando bando;
 	
 	private int vida = VIDA_INICIAL;
+	
 	private int costo = COSTO;
 		
 	private Posicion posicion;
 	
-	Tablero tablero = Tablero.getInstanciaTablero();
+	public Tablero tablero = Tablero.getInstanciaTablero();
 	
 	private BuscadorDeEntidades buscador = new BuscadorDeEntidades(tablero.getMap());
 	
@@ -58,12 +59,12 @@ public class Catapulta implements Entidad, ArmaParaDistanciaLarga {
 
     @Override
     public void mover(Direccion direccion) {
-        throw new CatapultaNoSeMueveExcepcion("No se puede realizar dicha accion");
+        throw new CatapultaNoSeMueveExcepcion();
     }
 
     @Override
     public Entidad agregar(Entidad otraEntidad) {
-        throw new CasilleroOcupadoExcepcion("No se puede realizar dicha accion");
+        throw new CasilleroOcupadoExcepcion();
     }
 
     @Override
@@ -87,7 +88,7 @@ public class Catapulta implements Entidad, ArmaParaDistanciaLarga {
 
 	@Override
 	public void reponerVida(int curacion) {
-        new CuranderoNoCuraAunaEntidadFijaExcepcion("No se puede reponer vida");
+        new CuranderoNoCuraAunaEntidadFijaExcepcion();
 	}
 
 	@Override

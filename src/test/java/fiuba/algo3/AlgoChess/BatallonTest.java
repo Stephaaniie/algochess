@@ -3,6 +3,7 @@ package fiuba.algo3.AlgoChess;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import fiuba.algo3.AlgoChess.Bandos.Aliado;
@@ -20,6 +21,7 @@ import fiuba.algo3.AlgoChess.Entidades.Soldado;
 import fiuba.algo3.AlgoChess.Tablero.Posicion;
 
 public class BatallonTest {
+	@Before
 	@Test
 	public void batallonSeCreaCorrectamente() {
 		

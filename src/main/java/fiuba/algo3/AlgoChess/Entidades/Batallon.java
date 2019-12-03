@@ -45,7 +45,7 @@ public class Batallon implements Entidad{
 
     @Override
     public Entidad agregar(Entidad otraEntidad) {
-        throw new CasilleroOcupadoExcepcion("No se puede realizar dicha accion");
+        throw new CasilleroOcupadoExcepcion();
     }
 
     @Override

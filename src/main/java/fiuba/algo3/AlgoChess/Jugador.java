@@ -49,9 +49,9 @@ public class Jugador {
 			this.entidades.add(entidad);
 			entidad.recibirPosicionYBando(fila,columna,this.bandoJugador);
 		} catch (CasilleroOcupadoExcepcion e) {
-			throw new CasilleroOcupadoExcepcion("El casillero esta ocupado");
+			throw new CasilleroOcupadoExcepcion();
 		} catch (ColocarUnidadEnSectorEnemigoExcepcion e) {
-			throw new ColocarUnidadEnSectorEnemigoExcepcion("El sector es el del enemigo");
+			throw new ColocarUnidadEnSectorEnemigoExcepcion();
 		}catch(CantidadDePuntosInsuficientesExcepcion e){
 			throw new CantidadDePuntosInsuficientesExcepcion();
 		}

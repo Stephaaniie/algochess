@@ -4,8 +4,4 @@ public class NoPuedeRealizarAccionesTerminoElJuegoExcepcion extends RuntimeExcep
 
 	private static final long serialVersionUID = 1L;
 
-	public NoPuedeRealizarAccionesTerminoElJuegoExcepcion(String mensaje) {
-		
-		super();
-	}
 }
