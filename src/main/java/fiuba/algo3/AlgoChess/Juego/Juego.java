@@ -1,9 +1,6 @@
 package fiuba.algo3.AlgoChess.Juego;
 
 import fiuba.algo3.AlgoChess.Jugador;
-import fiuba.algo3.AlgoChess.Bandos.Aliado;
-import fiuba.algo3.AlgoChess.Bandos.Bando;
-import fiuba.algo3.AlgoChess.Bandos.Enemigo;
 import fiuba.algo3.AlgoChess.Tablero.Tablero;
 
 public class Juego {
@@ -13,17 +10,11 @@ public class Juego {
 	private Jugador jugadorAliado;
 	
 	private Jugador jugadorEnemigo;
-	
-	private Bando bando1;
-	
-	private Bando bando2;
-	
+
 	public Juego() {
 		this.setTablero(Tablero.getInstanciaTablero());
 		this.setJugadorAliado(null);
 		this.setJugadorEnemigo(null);
-		bando1 = new Aliado();
-		bando2 = new Enemigo();
 	}
 	
 

@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
 import fiuba.algo3.AlgoChess.Bandos.Aliado;
@@ -19,7 +18,50 @@ import fiuba.algo3.AlgoChess.Excepciones.EntidadInvalidaExcepcion;
 import fiuba.algo3.AlgoChess.Tablero.Posicion;
 
 public class JugadorTest {
-		@Before
+	
+		@Test
+		public void seCreaUnJugadorConNombre() {
+			Bando bando = new Aliado();
+			Bando bando2 = new Enemigo();
+
+			Jugador nuevoJugador = new Jugador("pedro", bando, "Izac", bando2);
+			
+			assertEquals(nuevoJugador.getNombre(),"pedro");
+		}
+		
+		@Test
+		public void seCreaUnJugadorConNombreYDevuelveLosDosNombresDeJugador1YJugador2() {
+			Bando bando = new Aliado();
+			Bando bando2 = new Enemigo();
+
+			Jugador nuevoJugador = new Jugador("Stephanie", bando, "Izac", bando2);
+			
+			assertEquals(nuevoJugador.getNombre(),"Stephanie");
+			assertEquals(nuevoJugador.getNombreOtroJugador(),"Izac");
+		}
+		
+		@Test
+		public void seCreanLosDosJugadoresConLOsPuntosInicialesCorrectamente() {
+			Bando bando = new Aliado();
+			Bando bando2 = new Enemigo();
+
+			Jugador nuevoJugador = new Jugador("Stephanie", bando, "Izac", bando2);
+			
+			assertEquals(nuevoJugador.getPuntos(),20);
+			assertEquals(nuevoJugador.obtenerSiguienteJugador().getPuntos(),20);
+		}
+		
+		@Test
+		public void seCreaCorrectamenteELJugadorDos() {
+			
+			Bando bando = new Aliado();
+			Bando bando2 = new Enemigo();
+
+			Jugador nuevoJugador = new Jugador("pedro", bando, "Izac", bando2);
+			
+			assertEquals(nuevoJugador.obtenerSiguienteJugador().getNombre(),"Izac");
+		}
+		
 		@Test
 		public void puntosIncialesCorrectosTest() {
 		    Bando bando = new Aliado();
@@ -27,7 +69,7 @@ public class JugadorTest {
 
 			Jugador nuevoJugador = new Jugador("pedro", bando, "Izac", bandoop);
 			
-			Assert.assertEquals(20,nuevoJugador.cantidadPuntos());
+			assertEquals(20,nuevoJugador.cantidadPuntos());
 		}
 			
 		@Test
@@ -111,7 +153,7 @@ public class JugadorTest {
 
 			assertEquals(nuevoJugador.getCantidadDeEntidades(), 4);
 		}
-		
+		@Test
 		public void jugadorAdquiereUnaEntidadQueNoExisteCapturaLaExcepcion() {
 			
 			boolean excepcionAtrapada = false;

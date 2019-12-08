@@ -47,7 +47,7 @@ public class Jugador {
 	}
 
 	public Jugador obtenerSiguienteJugador() {
-		return otroJugador;
+		return this.otroJugador;
 	}
 	
 	public void agregarEntidad(String tipoEntidad, Posicion posicion) {
@@ -77,6 +77,10 @@ public class Jugador {
 		return this.nombre;
 	}
 	
+	public String getNombreOtroJugador() {
+		return this.otroJugador.getNombre();
+	}
+	
 	public Entidad getEntidad(Posicion posicion) {
 		Entidad entidadBuscada = new ObjetoNull();
 		for(Entidad entidad : this.entidades) {
@@ -97,9 +101,6 @@ public class Jugador {
 	
 	public void eliminarEntidad(Entidad entidad) {
 		this.entidades.remove(entidad);
-	}
-
-	public void comprarEntidad(Entidad catapulta) {		
 	}
 
 }

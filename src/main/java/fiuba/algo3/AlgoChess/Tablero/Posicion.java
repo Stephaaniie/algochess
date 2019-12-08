@@ -46,10 +46,6 @@ public class Posicion{
 	}
 	
 	public boolean esPosicionAdyacente(Posicion posicion, Posicion posicion1) {
-		Posicion posicionS = new Posicion(posicion.getFila()+1,posicion.getColumna());
-		Posicion posicionN = new Posicion(posicion.getFila()-1,posicion.getColumna());
-		Posicion posicionO = new Posicion(posicion.getFila(),posicion.getColumna()-1);
-		Posicion posicionE = new Posicion(posicion.getFila(),posicion.getColumna()+1);
-		return posicionS.mismaPosicion(posicionS, posicion1) & posicionN.mismaPosicion(posicionN, posicion1) & posicionO.mismaPosicion(posicionO, posicion1) & posicionE.mismaPosicion(posicionE, posicion1);
+		return posicion.mismaPosicion(new Posicion(posicion.getFila()+1,posicion.getColumna()), posicion1) & posicion.mismaPosicion(new Posicion(posicion.getFila()-1,posicion.getColumna()), posicion1) & posicion.mismaPosicion(new Posicion(posicion.getFila(),posicion.getColumna()-1), posicion1) & posicion.mismaPosicion(new Posicion(posicion.getFila(),posicion.getColumna()+1), posicion1);
 	}
 }
