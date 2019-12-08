@@ -22,7 +22,7 @@ public class ComprarHandlerCurandero implements EventHandler<ActionEvent>{
 	public void handle(ActionEvent event) {
 		try {
 			Curandero curandero = new Curandero();
-			tablero.agergarJugador().comprarEntidad(curandero);
+			//tablero.agergarJugador().comprarEntidad(curandero);
 			vista.setOnMousePressed(new PosicionarEntidadesEnTablero(curandero,tablero,vista));
 		}catch(RuntimeException e) {
 			System.out.println("Lo sentimos, pero ya no contas con puntos suficientes para adquierir un soldado");

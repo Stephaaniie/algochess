@@ -1,7 +1,6 @@
 package fiuba.algo3.AlgoChess;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
 import fiuba.algo3.AlgoChess.Entidades.Catapulta;
@@ -9,7 +8,6 @@ import fiuba.algo3.AlgoChess.Entidades.Jinete;
 import fiuba.algo3.AlgoChess.Entidades.Soldado;
 
 public class CatapultaTest {
-	@Before
 	@Test
 	public void catapultaAtacadaPierdeVida() {
 		Catapulta catapulta = new Catapulta();

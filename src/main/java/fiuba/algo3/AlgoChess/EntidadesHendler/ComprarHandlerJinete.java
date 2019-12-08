@@ -22,7 +22,7 @@ public class ComprarHandlerJinete implements EventHandler<ActionEvent>{
 	public void handle(ActionEvent event) {
 		try {
 			Jinete jinete = new Jinete();
-			tablero.agergarJugador().comprarEntidad(jinete);
+			//tablero.agergarJugador().comprarEntidad(jinete);
 			vista.setOnMousePressed(new PosicionarEntidadesEnTablero(jinete,tablero,vista));
 		}catch(RuntimeException e) {
 			System.out.println("Lo sentimos, pero ya no contas con puntos suficientes para adquierir un Jinete");

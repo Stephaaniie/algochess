@@ -70,7 +70,7 @@ public class Curandero implements Entidad {
 
 	@Override
 	public void atacarEnemigo() {
-		new CuranderoNoPuedeAtacarExepcion();
+		throw new CuranderoNoPuedeAtacarExepcion();
 	}
 
 	@Override
@@ -84,8 +84,8 @@ public class Curandero implements Entidad {
 	}
 
 	@Override
-	public void recibirPosicionYBando(int fila, int columna, Bando bandoJugador) {
+	public void recibirPosicionYBando(Posicion posicion, Bando bandoJugador) {
 		this.bando = bandoJugador;
-		this.posicion = new Posicion(fila,columna);
+		this.posicion = posicion;
 	}
 }

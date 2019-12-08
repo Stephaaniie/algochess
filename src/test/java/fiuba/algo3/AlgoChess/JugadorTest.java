@@ -1,23 +1,31 @@
 package fiuba.algo3.AlgoChess;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import fiuba.algo3.AlgoChess.Bandos.Aliado;
 import fiuba.algo3.AlgoChess.Bandos.Bando;
+import fiuba.algo3.AlgoChess.Bandos.Enemigo;
 import fiuba.algo3.AlgoChess.Entidades.Catapulta;
 import fiuba.algo3.AlgoChess.Entidades.Curandero;
 import fiuba.algo3.AlgoChess.Entidades.Entidad;
 import fiuba.algo3.AlgoChess.Entidades.Jinete;
 import fiuba.algo3.AlgoChess.Entidades.Soldado;
+import fiuba.algo3.AlgoChess.Excepciones.EntidadInvalidaExcepcion;
+import fiuba.algo3.AlgoChess.Tablero.Posicion;
 
 public class JugadorTest {
 		@Before
 		@Test
 		public void puntosIncialesCorrectosTest() {
 		    Bando bando = new Aliado();
-			Jugador nuevoJugador = new Jugador("pedro", bando);
+			Bando bandoop = new Enemigo();
+
+			Jugador nuevoJugador = new Jugador("pedro", bando, "Izac", bandoop);
 			
 			Assert.assertEquals(20,nuevoJugador.cantidadPuntos());
 		}
@@ -25,9 +33,11 @@ public class JugadorTest {
 		@Test
 		public void descontarUnPuntoPorAdquirirSoldado() {
             Bando bando = new Aliado();
+			Bando bandoop = new Enemigo();
+
             Entidad soldado = new Soldado();
 
-            Jugador nuevoJugador = new Jugador("pedro", bando);
+			Jugador nuevoJugador = new Jugador("pedro", bando, "Izac", bandoop);
 
             nuevoJugador.descontarPuntos(soldado.getCosto());
 
@@ -37,9 +47,11 @@ public class JugadorTest {
 		@Test
 		public void descontarTresPuntoPorAdquirirJinete() {
             Bando bando = new Aliado();
+			Bando bandoop = new Enemigo();
+
             Entidad jinete = new Jinete();
 
-            Jugador nuevoJugador = new Jugador("pedro", bando);
+			Jugador nuevoJugador = new Jugador("pedro", bando, "Izac", bandoop);
 
             nuevoJugador.descontarPuntos(jinete.getCosto());
 
@@ -49,9 +61,11 @@ public class JugadorTest {
 		@Test
 		public void descontarDosPuntosPorAdquirirCurandero() {
             Bando bando = new Aliado();
+			Bando bandoop = new Enemigo();
+
             Entidad curandero = new Curandero();
 
-            Jugador nuevoJugador = new Jugador("pedro", bando);
+			Jugador nuevoJugador = new Jugador("pedro", bando, "Izac", bandoop);
 
             nuevoJugador.descontarPuntos(curandero.getCosto());
 
@@ -61,12 +75,60 @@ public class JugadorTest {
 		@Test 
 		public void descontarCincoPuntosPorAdquirirCatapulta() {
 			Bando bando = new Aliado();
+			Bando bandoop = new Enemigo();
 			Entidad catapulta = new Catapulta();
 								
-			Jugador nuevoJugador = new Jugador("pedro", bando);
+			Jugador nuevoJugador = new Jugador("pedro", bando, "Izac", bandoop);
 				
 			nuevoJugador.descontarPuntos(catapulta.getCosto());
 				
 			Assert.assertEquals(15,nuevoJugador.cantidadPuntos());
+		}
+		
+		@Test 
+		public void jugadorNoPuedeAdquierirMasENtidadesPorQueSeQuedaSinPuntos() {
+			
+			Bando bando = new Aliado();
+			Bando bandoop = new Enemigo();
+											
+			Posicion posicion = new Posicion(12,5);
+			Posicion posicion1 = new Posicion(13,5);
+			Posicion posicion2 = new Posicion(14,5);
+			Posicion posicion3 = new Posicion(15,5);
+			Posicion posicion4 = new Posicion(16,5);
+			Posicion posicion5 = new Posicion(17,5);
+			Posicion posicion6 = new Posicion(18,5);
+
+			Jugador nuevoJugador = new Jugador("pedro", bando, "Izac", bandoop);
+								
+			nuevoJugador.agregarEntidad("Catapulta", posicion);
+			nuevoJugador.agregarEntidad("Catapulta", posicion1);
+			nuevoJugador.agregarEntidad("Catapulta", posicion2);
+			nuevoJugador.agregarEntidad("Catapulta", posicion3);
+			nuevoJugador.agregarEntidad("Catapulta", posicion4);
+			nuevoJugador.agregarEntidad("Catapulta", posicion5);
+			nuevoJugador.agregarEntidad("Catapulta", posicion6);
+
+			assertEquals(nuevoJugador.getCantidadDeEntidades(), 4);
+		}
+		
+		public void jugadorAdquiereUnaEntidadQueNoExisteCapturaLaExcepcion() {
+			
+			boolean excepcionAtrapada = false;
+			
+			Bando bando = new Aliado();
+			Bando bandoop = new Enemigo();
+			
+			Posicion posicion = new Posicion(12,5);
+
+			Jugador nuevoJugador = new Jugador("pedro", bando, "Izac", bandoop);
+			try {
+				nuevoJugador.agregarEntidad("Catapulte", posicion);
+
+			}catch(EntidadInvalidaExcepcion e) {
+				excepcionAtrapada = true;
+			}
+			
+			assertTrue(excepcionAtrapada);
 		}
 }

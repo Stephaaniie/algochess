@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import fiuba.algo3.AlgoChess.Jugador;
+import fiuba.algo3.AlgoChess.Bandos.Bando;
 import fiuba.algo3.AlgoChess.Buscador.RadarDeEntidades;
 import fiuba.algo3.AlgoChess.Entidades.Entidad;
 import fiuba.algo3.AlgoChess.Entidades.ObjetoNull;
@@ -18,25 +19,26 @@ public class Tablero {
 	
 	private static Tablero instanciaTablero = null;
 	
-	private RadarDeEntidades esSectorAliado;
+	private RadarDeEntidades radarDeAliados;
 	
-	private RadarDeEntidades esSectorEnemigo;
+	private RadarDeEntidades radarDeEnemigos;
 			
-	private List <Entidad> entidadesEnTablero;
+	private List <Entidad> entidadesDeCasilleros;
 
-	private List <Casillero> sectorAliado;
+	private List <Casillero> casillerosAliado;
 	
-	private List <Casillero> sectorEnemigo;
+	private List <Casillero> casillerosEnemigo;
 		
-	private Map<Posicion,Casillero> tablero;
+	private Map<Posicion,Casillero> casilleros;
 	
-	private Tablero(int tamanio) {
-		this.esSectorAliado  = new RadarDeEntidades(0,(tamanio -1)/2);
-		this.esSectorEnemigo = new RadarDeEntidades(tamanio/2, tamanio-1);
-		this.tablero  = new HashMap<Posicion,Casillero>();
-		this.entidadesEnTablero = new ArrayList<Entidad>();
-		this.sectorAliado = new ArrayList<Casillero>();
-		this.sectorEnemigo = new ArrayList<Casillero>();
+	public Tablero(int tamanio) {
+		
+		this.radarDeAliados        = new RadarDeEntidades(0,(tamanio -1)/2);
+		this.radarDeEnemigos       = new RadarDeEntidades(tamanio/2, tamanio-1);
+		this.casilleros            = new HashMap<Posicion,Casillero>();
+		this.entidadesDeCasilleros = new ArrayList<Entidad>();
+		this.casillerosAliado      = new ArrayList<Casillero>();
+		this.casillerosEnemigo     = new ArrayList<Casillero>();
 	}
 
 	public static Tablero getInstanciaTablero(){
@@ -46,77 +48,51 @@ public class Tablero {
 		return instanciaTablero;
 	}
 
-	public void mover(Entidad entidad, Posicion posicionAnterior, Posicion posicionNueva){
-		
+	public void mover(Entidad entidad, Posicion posicionAnterior, Posicion posicionNueva){	
 		try{
-			agregarEntidadEnCasillero(entidad, posicionNueva.getFila(), posicionNueva.getColumna());
-		}catch(CasilleroOcupadoExcepcion e){
-			throw new CasilleroOcupadoExcepcion();
-		} catch (ColocarUnidadEnSectorEnemigoExcepcion n) {
-			throw new ColocarUnidadEnSectorEnemigoExcepcion();
-		}
+			Casillero casillero = new Casillero(posicionNueva);
+			agregarEntidad(entidad, posicionNueva,casillero);
+		}catch(CasilleroOcupadoExcepcion e){} catch (ColocarUnidadEnSectorEnemigoExcepcion n) {}
 		quitarEntidadDeCasillero(posicionAnterior,entidad);
 	}
-
-	public Posicion crearPosicion(int fila, int columna) {
-		return new Posicion(fila,columna);
+	
+	private void agregarEntidad(Entidad entidad, Posicion posicion,Casillero casillero) {
+		this.radarDeAliados.posicionarEntidad(posicion, casillero, entidad, this, entidad.getBando());
+		this.radarDeEnemigos.posicionarEntidad(posicion, casillero, entidad, this, entidad.getBando());
 	}
 	
-	public void agregarEntidadSectorAliado(int fila, int columna, Entidad entidad){
-		if(this.esSectorAliado.estaEnElRadar(fila,columna)) {
-			this.tablero.put(crearPosicion(fila,columna), agregarEntidadEnCasillero(entidad,fila,columna));
-			sectorAliado.add(agregarEntidadEnCasillero(entidad,fila,columna));
-		}else {
-			throw new ColocarUnidadEnSectorEnemigoExcepcion();
+	public void agregarEntidadSectorEnemigo(Posicion posicion, Entidad entidad){
+		if(this.radarDeEnemigos.estaEnElRadar(posicion)) {
+			this.casilleros.put(posicion, agregarEntidadEnCasillero(entidad, posicion));
+			casillerosEnemigo.add(agregarEntidadEnCasillero(entidad, posicion));
 		}
 	}
 	
-	public void agregarEntidadSectorEnemigo(int fila, int columna, Entidad entidad){
-		if(this.esSectorEnemigo.estaEnElRadar(fila, columna)) {
-			this.tablero.put(crearPosicion(fila,columna),agregarEntidadEnCasillero(entidad,fila,columna));
-			sectorEnemigo.add(agregarEntidadEnCasillero(entidad,fila,columna));
-		}else {
-			throw new ColocarUnidadEnSectorEnemigoExcepcion();
-		}
-	}
-	
-	
-	public Casillero agregarEntidadEnCasillero(Entidad entidad, int fila, int columna) {
-		entidadesEnTablero.add(entidad);
-		Casillero casillero = new Casillero(crearPosicion(fila,columna));
-		casillero.agregarEntidad(entidad);
+	public Casillero agregarEntidadEnCasillero(Entidad entidad,Posicion posicion) {
+		entidadesDeCasilleros.add(entidad);
+		Casillero casillero = new Casillero(posicion);
+		agregarEntidad(entidad, posicion, casillero);
 		return casillero;
+	}
+
+	public void agregarCasillero(Casillero casillero, Posicion posicionNueva) {
+		this.casilleros.put(posicionNueva, casillero);
 	}
 	
 	public void quitarEntidadDeCasillero(Posicion posicionAnterior,Entidad entidad) {
 		getEntidadesEnTablero().remove(entidad);
-		this.tablero.entrySet().stream().filter(x -> x.getKey() == posicionAnterior).forEach(x -> this.tablero.remove(x.getKey()));
+		this.casilleros.entrySet().stream().filter(x -> x.getKey() == posicionAnterior).forEach(x -> this.casilleros.remove(x.getKey()));
 	}
 	
-	public Map<Posicion,Casillero> getMap(){
-		return this.tablero;
-	}
-	
-	public List <Casillero> getSectorEnemigo(){
-		return this.sectorEnemigo;
-	}
-
-	public List <Casillero> getSectorAliado(){
-		return this.sectorAliado;
-	}
-	
-	public List<Entidad> getEntidadesEnTablero(){
-		return this.entidadesEnTablero;
-	}
 
 	public Entidad getEntidadEnPosicion(Posicion posicionNueva) {
 		Entidad entidadEncontrada = new ObjetoNull();
-		this.entidadesEnTablero.stream().filter(x -> x.getPosicion() == posicionNueva).forEach(x -> entidadEncontrada.agregar(x));
+		this.entidadesDeCasilleros.stream().filter(x -> x.getPosicion() == posicionNueva).forEach(x -> entidadEncontrada.agregar(x));
 		return entidadEncontrada;
 	}
 
-	public Jugador agergarJugador() {
-		return null;
+	public Jugador agergarJugador(String nombre, Bando bando, String nombre1, Bando bando1) {
+		return new Jugador(nombre, bando, nombre1, bando1);
 	}
 	
 	public int tamanioTablero() {
@@ -124,6 +100,22 @@ public class Tablero {
 	}
 	
 	public int cantidadCasilleros() {
-		return this.sectorAliado.size() + this.sectorEnemigo.size();
+		return this.casillerosAliado.size() + this.casillerosEnemigo.size();
+	}
+	
+	public Map<Posicion,Casillero> getMap(){
+		return this.casilleros;
+	}
+	
+	public List <Casillero> getSectorEnemigo(){
+		return this.casillerosEnemigo;
+	}
+
+	public List <Casillero> getSectorAliado(){
+		return this.casillerosAliado;
+	}
+	
+	public List<Entidad> getEntidadesEnTablero(){
+		return this.entidadesDeCasilleros;
 	}
 }

@@ -3,7 +3,6 @@ package fiuba.algo3.AlgoChess;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import fiuba.algo3.AlgoChess.Bandos.Aliado;
@@ -21,22 +20,20 @@ import fiuba.algo3.AlgoChess.Entidades.Soldado;
 import fiuba.algo3.AlgoChess.Tablero.Posicion;
 
 public class BatallonTest {
-	@Before
 	@Test
 	public void batallonSeCreaCorrectamente() {
 		
 		Aliado aliado = new Aliado();
 		
-		Jugador jugador = new Jugador("Tomas",aliado);
+		Jugador jugador = new Jugador("Tomas",aliado, "Berni", aliado);
 		
-		Posicion posicion1 = new Posicion(4, 7);
-		Posicion posicion2 = new Posicion(5, 7);		
-		Posicion posicion3 = new Posicion(6, 7);
+		Posicion posicion1 = new Posicion(14, 7);
+		Posicion posicion2 = new Posicion(15, 7);		
+		Posicion posicion3 = new Posicion(16, 7);
 		
-		
-		jugador.agregarEntidad("soldado", posicion1.getFila(), posicion1.getColumna());
-		jugador.agregarEntidad("soldado", posicion2.getFila(), posicion2.getColumna());
-		jugador.agregarEntidad("soldado", posicion3.getFila(), posicion3.getColumna());
+		jugador.agregarEntidad("soldado", posicion1);
+		jugador.agregarEntidad("soldado", posicion2);
+		jugador.agregarEntidad("soldado", posicion3);
 				
 		Entidad entidad1 = jugador.getEntidad(posicion1);
 		Entidad entidad2 = jugador.getEntidad(posicion1);
@@ -58,16 +55,15 @@ public class BatallonTest {
 		
 		Aliado aliado = new Aliado();
 		
-		Jugador jugador = new Jugador("Tomas",aliado);
+		Jugador jugador = new Jugador("Tomas",aliado, "Berni", aliado);
 		
-		Posicion posicion1 = new Posicion(4, 7);
-		Posicion posicion2 = new Posicion(5, 7);		
-		Posicion posicion3 = new Posicion(6, 7);
+		Posicion posicion1 = new Posicion(14, 7);
+		Posicion posicion2 = new Posicion(15, 7);		
+		Posicion posicion3 = new Posicion(16, 7);
 		
-		
-		jugador.agregarEntidad("soldado", posicion1.getFila(), posicion1.getColumna());
-		jugador.agregarEntidad("soldado", posicion2.getFila(), posicion2.getColumna());
-		jugador.agregarEntidad("soldado", posicion3.getFila(), posicion3.getColumna());
+		jugador.agregarEntidad("soldado", posicion1);
+		jugador.agregarEntidad("soldado", posicion2);
+		jugador.agregarEntidad("soldado", posicion3);
 				
 		Entidad entidad1 = jugador.getEntidad(posicion1);
 		Entidad entidad2 = jugador.getEntidad(posicion1);
@@ -88,16 +84,15 @@ public class BatallonTest {
 		
 		Aliado aliado = new Aliado();
 		
-		Jugador jugador = new Jugador("Tomas",aliado);
+		Jugador jugador = new Jugador("Tomas",aliado, "Berni", aliado);
 		
-		Posicion posicion1 = new Posicion(4, 7);
-		Posicion posicion2 = new Posicion(5, 7);		
-		Posicion posicion3 = new Posicion(6, 7);
+		Posicion posicion1 = new Posicion(14, 7);
+		Posicion posicion2 = new Posicion(15, 7);		
+		Posicion posicion3 = new Posicion(16, 7);
 		
-		
-		jugador.agregarEntidad("soldado", posicion1.getFila(), posicion1.getColumna());
-		jugador.agregarEntidad("soldado", posicion2.getFila(), posicion2.getColumna());
-		jugador.agregarEntidad("soldado", posicion3.getFila(), posicion3.getColumna());
+		jugador.agregarEntidad("soldado", posicion1);
+		jugador.agregarEntidad("soldado", posicion2);
+		jugador.agregarEntidad("soldado", posicion3);
 				
 		Entidad entidad1 = jugador.getEntidad(posicion1);
 		Entidad entidad2 = jugador.getEntidad(posicion1);
@@ -119,16 +114,15 @@ public class BatallonTest {
 		
 		Aliado aliado = new Aliado();
 		
-		Jugador jugador = new Jugador("Tomas",aliado);
+		Jugador jugador = new Jugador("Tomas",aliado, "Berni", aliado);
 		
-		Posicion posicion1 = new Posicion(4, 7);
-		Posicion posicion2 = new Posicion(5, 7);		
-		Posicion posicion3 = new Posicion(6, 7);
+		Posicion posicion1 = new Posicion(14, 7);
+		Posicion posicion2 = new Posicion(15, 7);		
+		Posicion posicion3 = new Posicion(16, 7);
 		
-		
-		jugador.agregarEntidad("soldado", posicion1.getFila(), posicion1.getColumna());
-		jugador.agregarEntidad("soldado", posicion2.getFila(), posicion2.getColumna());
-		jugador.agregarEntidad("soldado", posicion3.getFila(), posicion3.getColumna());
+		jugador.agregarEntidad("soldado", posicion1);
+		jugador.agregarEntidad("soldado", posicion2);
+		jugador.agregarEntidad("soldado", posicion3);
 				
 		Entidad entidad1 = jugador.getEntidad(posicion1);
 		Entidad entidad2 = jugador.getEntidad(posicion2);
@@ -152,18 +146,18 @@ public class BatallonTest {
 		
 		Aliado aliado = new Aliado();
 		
-		Jugador jugador = new Jugador("Tomas",aliado);
+		Jugador jugador = new Jugador("Tomas",aliado, "Berni", aliado);
 		
-		Posicion posicion1 = new Posicion(3, 7);
-		Posicion posicion2 = new Posicion(8, 7);		
+		Posicion posicion1 = new Posicion(13, 7);
+		Posicion posicion2 = new Posicion(18, 7);		
 		Posicion posicion3 = new Posicion(15, 7);
-		Posicion posicionNueva1 = new Posicion(2, 7);
-		Posicion posicionNueva2 = new Posicion(7, 7);		
+		Posicion posicionNueva1 = new Posicion(12, 7);
+		Posicion posicionNueva2 = new Posicion(17, 7);		
 		Posicion posicionNueva3 = new Posicion(14, 7);
 		
-		jugador.agregarEntidad("soldado", posicion1.getFila(), posicion1.getColumna());
-		jugador.agregarEntidad("soldado", posicion2.getFila(), posicion2.getColumna());
-		jugador.agregarEntidad("soldado", posicion3.getFila(), posicion3.getColumna());
+		jugador.agregarEntidad("soldado", posicion1);
+		jugador.agregarEntidad("soldado", posicion2);
+		jugador.agregarEntidad("soldado", posicion3);
 				
 		Entidad entidad1 = jugador.getEntidad(posicion1);
 		Entidad entidad2 = jugador.getEntidad(posicion2);
@@ -192,18 +186,18 @@ public class BatallonTest {
 		
 		Aliado aliado = new Aliado();
 		
-		Jugador jugador = new Jugador("Tomas",aliado);
+		Jugador jugador = new Jugador("Tomas",aliado, "Berni", aliado);
 		
-		Posicion posicion1 = new Posicion(3, 7);
-		Posicion posicion2 = new Posicion(8, 7);		
+		Posicion posicion1 = new Posicion(13, 7);
+		Posicion posicion2 = new Posicion(18, 7);		
 		Posicion posicion3 = new Posicion(15, 7);
-		Posicion posicionNueva1 = new Posicion(2, 8);
-		Posicion posicionNueva2 = new Posicion(7, 8);		
+		Posicion posicionNueva1 = new Posicion(12, 8);
+		Posicion posicionNueva2 = new Posicion(17, 8);		
 		Posicion posicionNueva3 = new Posicion(14, 8);
 		
-		jugador.agregarEntidad("soldado", posicion1.getFila(), posicion1.getColumna());
-		jugador.agregarEntidad("soldado", posicion2.getFila(), posicion2.getColumna());
-		jugador.agregarEntidad("soldado", posicion3.getFila(), posicion3.getColumna());
+		jugador.agregarEntidad("soldado", posicion1);
+		jugador.agregarEntidad("soldado", posicion2);
+		jugador.agregarEntidad("soldado", posicion3);
 				
 		Entidad entidad1 = jugador.getEntidad(posicion1);
 		Entidad entidad2 = jugador.getEntidad(posicion2);
@@ -231,18 +225,18 @@ public class BatallonTest {
 		
 		Aliado aliado = new Aliado();
 		
-		Jugador jugador = new Jugador("Tomas",aliado);
+		Jugador jugador = new Jugador("Tomas",aliado, "Berni", aliado);
 		
-		Posicion posicion1 = new Posicion(3, 7);
-		Posicion posicion2 = new Posicion(8, 7);		
+		Posicion posicion1 = new Posicion(13, 7);
+		Posicion posicion2 = new Posicion(18, 7);		
 		Posicion posicion3 = new Posicion(15, 7);
-		Posicion posicionNueva1 = new Posicion(2, 6);
-		Posicion posicionNueva2 = new Posicion(7, 6);		
+		Posicion posicionNueva1 = new Posicion(12, 6);
+		Posicion posicionNueva2 = new Posicion(17, 6);		
 		Posicion posicionNueva3 = new Posicion(14, 6);
 		
-		jugador.agregarEntidad("soldado", posicion1.getFila(), posicion1.getColumna());
-		jugador.agregarEntidad("soldado", posicion2.getFila(), posicion2.getColumna());
-		jugador.agregarEntidad("soldado", posicion3.getFila(), posicion3.getColumna());
+		jugador.agregarEntidad("soldado", posicion1);
+		jugador.agregarEntidad("soldado", posicion2);
+		jugador.agregarEntidad("soldado", posicion3);
 				
 		Entidad entidad1 = jugador.getEntidad(posicion1);
 		Entidad entidad2 = jugador.getEntidad(posicion2);
@@ -270,18 +264,18 @@ public class BatallonTest {
 		
 		Aliado aliado = new Aliado();
 		
-		Jugador jugador = new Jugador("Tomas",aliado);
+		Jugador jugador = new Jugador("Tomas",aliado, "Berni", aliado);
 		
-		Posicion posicion1 = new Posicion(3, 7);
-		Posicion posicion2 = new Posicion(8, 7);		
+		Posicion posicion1 = new Posicion(13, 7);
+		Posicion posicion2 = new Posicion(18, 7);		
 		Posicion posicion3 = new Posicion(15, 7);
-		Posicion posicionNueva1 = new Posicion(4, 7);
-		Posicion posicionNueva2 = new Posicion(9, 7);		
+		Posicion posicionNueva1 = new Posicion(14, 7);
+		Posicion posicionNueva2 = new Posicion(19, 7);		
 		Posicion posicionNueva3 = new Posicion(16, 7);
 		
-		jugador.agregarEntidad("soldado", posicion1.getFila(), posicion1.getColumna());
-		jugador.agregarEntidad("soldado", posicion2.getFila(), posicion2.getColumna());
-		jugador.agregarEntidad("soldado", posicion3.getFila(), posicion3.getColumna());
+		jugador.agregarEntidad("soldado", posicion1);
+		jugador.agregarEntidad("soldado", posicion2);
+		jugador.agregarEntidad("soldado", posicion3);
 				
 		Entidad entidad1 = jugador.getEntidad(posicion1);
 		Entidad entidad2 = jugador.getEntidad(posicion2);
@@ -310,18 +304,18 @@ public class BatallonTest {
 		
 		Aliado aliado = new Aliado();
 		
-		Jugador jugador = new Jugador("Tomas",aliado);
+		Jugador jugador = new Jugador("Tomas",aliado, "Berni", aliado);
 		
-		Posicion posicion1 = new Posicion(6, 9);
+		Posicion posicion1 = new Posicion(16, 9);
 		Posicion posicion2 = new Posicion(15, 5);		
-		Posicion posicion3 = new Posicion(19, 10);
-		Posicion posicionNueva1 = new Posicion(7, 10);
+		Posicion posicion3 = new Posicion(19, 9);
+		Posicion posicionNueva1 = new Posicion(17, 10);
 		Posicion posicionNueva2 = new Posicion(16, 6);		
-		Posicion posicionNueva3 = new Posicion(20, 11);
+		Posicion posicionNueva3 = new Posicion(20, 10);
 		
-		jugador.agregarEntidad("soldado", posicion1.getFila(), posicion1.getColumna());
-		jugador.agregarEntidad("soldado", posicion2.getFila(), posicion2.getColumna());
-		jugador.agregarEntidad("soldado", posicion3.getFila(), posicion3.getColumna());
+		jugador.agregarEntidad("soldado", posicion1);
+		jugador.agregarEntidad("soldado", posicion2);
+		jugador.agregarEntidad("soldado", posicion3);
 				
 		Entidad entidad1 = jugador.getEntidad(posicion1);
 		Entidad entidad2 = jugador.getEntidad(posicion2);
@@ -349,18 +343,18 @@ public class BatallonTest {
 		
 		Aliado aliado = new Aliado();
 		
-		Jugador jugador = new Jugador("Tomas",aliado);
+		Jugador jugador = new Jugador("Tomas",aliado, "Berni", aliado);
 		
-		Posicion posicion1 = new Posicion(15, 17);
+		Posicion posicion1 = new Posicion(15, 1);
 		Posicion posicion2 = new Posicion(18, 6);		
-		Posicion posicion3 = new Posicion(0, 1);
-		Posicion posicionNueva1 = new Posicion(16, 16);
+		Posicion posicion3 = new Posicion(17, 5);
+		Posicion posicionNueva1 = new Posicion(16, 0);
 		Posicion posicionNueva2 = new Posicion(19, 5);		
-		Posicion posicionNueva3 = new Posicion(1, 0);
+		Posicion posicionNueva3 = new Posicion(18, 4);
 		
-		jugador.agregarEntidad("soldado", posicion1.getFila(), posicion1.getColumna());
-		jugador.agregarEntidad("soldado", posicion2.getFila(), posicion2.getColumna());
-		jugador.agregarEntidad("soldado", posicion3.getFila(), posicion3.getColumna());
+		jugador.agregarEntidad("soldado", posicion1);
+		jugador.agregarEntidad("soldado", posicion2);
+		jugador.agregarEntidad("soldado", posicion3);
 				
 		Entidad entidad1 = jugador.getEntidad(posicion1);
 		Entidad entidad2 = jugador.getEntidad(posicion2);
@@ -388,18 +382,18 @@ public class BatallonTest {
 		
 		Aliado aliado = new Aliado();
 		
-		Jugador jugador = new Jugador("Tomas",aliado);
+		Jugador jugador = new Jugador("Tomas",aliado, "Berni", aliado);
 		
-		Posicion posicion1 = new Posicion(3, 7);
-		Posicion posicion2 = new Posicion(8, 7);		
+		Posicion posicion1 = new Posicion(13, 7);
+		Posicion posicion2 = new Posicion(18, 7);		
 		Posicion posicion3 = new Posicion(15, 7);
-		Posicion posicionNueva1 = new Posicion(3, 8);
-		Posicion posicionNueva2 = new Posicion(8, 8);		
+		Posicion posicionNueva1 = new Posicion(13, 8);
+		Posicion posicionNueva2 = new Posicion(18, 8);		
 		Posicion posicionNueva3 = new Posicion(15, 8);
 		
-		jugador.agregarEntidad("soldado", posicion1.getFila(), posicion1.getColumna());
-		jugador.agregarEntidad("soldado", posicion2.getFila(), posicion2.getColumna());
-		jugador.agregarEntidad("soldado", posicion3.getFila(), posicion3.getColumna());
+		jugador.agregarEntidad("soldado", posicion1);
+		jugador.agregarEntidad("soldado", posicion2);
+		jugador.agregarEntidad("soldado", posicion3);
 				
 		Entidad entidad1 = jugador.getEntidad(posicion1);
 		Entidad entidad2 = jugador.getEntidad(posicion2);
@@ -428,19 +422,19 @@ public class BatallonTest {
 		
 		Aliado aliado = new Aliado();
 		
-		Jugador jugador = new Jugador("Tomas",aliado);
+		Jugador jugador = new Jugador("Tomas",aliado, "Berni", aliado);
 		
-		Posicion posicion1 = new Posicion(3, 7);
-		Posicion posicion2 = new Posicion(8, 7);		
+		Posicion posicion1 = new Posicion(13, 7);
+		Posicion posicion2 = new Posicion(18, 7);		
 		Posicion posicion3 = new Posicion(15, 7);
-		Posicion posicionNueva1 = new Posicion(3, 6);
-		Posicion posicionNueva2 = new Posicion(8, 6);		
+		Posicion posicionNueva1 = new Posicion(13, 6);
+		Posicion posicionNueva2 = new Posicion(18, 6);		
 		Posicion posicionNueva3 = new Posicion(15, 6);
 		
-		jugador.agregarEntidad("soldado", posicion1.getFila(), posicion1.getColumna());
-		jugador.agregarEntidad("soldado", posicion2.getFila(), posicion2.getColumna());
-		jugador.agregarEntidad("soldado", posicion3.getFila(), posicion3.getColumna());
-				
+		jugador.agregarEntidad("soldado", posicion1);
+		jugador.agregarEntidad("soldado", posicion2);
+		jugador.agregarEntidad("soldado", posicion3);
+		
 		Entidad entidad1 = jugador.getEntidad(posicion1);
 		Entidad entidad2 = jugador.getEntidad(posicion2);
 		Entidad entidad3 = jugador.getEntidad(posicion3);
@@ -468,15 +462,15 @@ public class BatallonTest {
 		
 		Aliado aliado = new Aliado();
 		
-		Jugador jugador = new Jugador("Candela",aliado);
+		Jugador jugador = new Jugador("Candela",aliado,"Agus", aliado);
 		
-		Posicion posicion1 = new Posicion(3, 7);
-		Posicion posicion2 = new Posicion(8, 7);		
+		Posicion posicion1 = new Posicion(13, 7);
+		Posicion posicion2 = new Posicion(18, 7);		
 		Posicion posicion3 = new Posicion(15, 7);
 		
-		jugador.agregarEntidad("soldado", posicion1.getFila(), posicion1.getColumna());
-		jugador.agregarEntidad("soldado", posicion2.getFila(), posicion2.getColumna());
-		jugador.agregarEntidad("soldado", posicion3.getFila(), posicion3.getColumna());
+		jugador.agregarEntidad("soldado", posicion1);
+		jugador.agregarEntidad("soldado", posicion2);
+		jugador.agregarEntidad("soldado", posicion3);
 				
 		Entidad entidad1 = jugador.getEntidad(posicion1);
 		Entidad entidad2 = jugador.getEntidad(posicion2);
@@ -498,15 +492,15 @@ public class BatallonTest {
 		
 		Aliado aliado = new Aliado();
 		
-		Jugador jugador = new Jugador("Candela",aliado);
+		Jugador jugador = new Jugador("Candela",aliado, "Zeynep", aliado);
 		
-		Posicion posicion1 = new Posicion(3, 7);
-		Posicion posicion2 = new Posicion(8, 7);		
+		Posicion posicion1 = new Posicion(10, 7);
+		Posicion posicion2 = new Posicion(18, 7);		
 		Posicion posicion3 = new Posicion(15, 7);
 		
-		jugador.agregarEntidad("soldado", posicion1.getFila(), posicion1.getColumna());
-		jugador.agregarEntidad("soldado", posicion2.getFila(), posicion2.getColumna());
-		jugador.agregarEntidad("soldado", posicion3.getFila(), posicion3.getColumna());
+		jugador.agregarEntidad("soldado", posicion1);
+		jugador.agregarEntidad("soldado", posicion2);
+		jugador.agregarEntidad("soldado", posicion3);
 				
 		Entidad entidad1 = jugador.getEntidad(posicion1);
 		Entidad entidad2 = jugador.getEntidad(posicion2);

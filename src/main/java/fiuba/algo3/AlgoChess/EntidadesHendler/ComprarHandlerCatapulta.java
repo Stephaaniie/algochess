@@ -21,7 +21,7 @@ public class ComprarHandlerCatapulta implements EventHandler<ActionEvent>{
 	public void handle(ActionEvent event) {
 		try {
 			Catapulta catapulta = new Catapulta();
-			tablero.agergarJugador().comprarEntidad(catapulta);
+			//tablero.agergarJugador().comprarEntidad(catapulta);
 			vista.setOnMousePressed(new PosicionarEntidadesEnTablero(catapulta,tablero,vista));
 		}catch(RuntimeException e) {
 			System.out.println("Lo sentimos, pero ya no contas con puntos suficientes para adquierir una catapulta");

@@ -25,5 +25,5 @@ public interface Entidad extends Ataque {
 
 	public int getVida();
 
-	public void recibirPosicionYBando(int fila, int columna, Bando bandoJugador);
+	public void recibirPosicionYBando(Posicion posicion, Bando bandoJugador);
 }

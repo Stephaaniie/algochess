@@ -2,7 +2,6 @@ package fiuba.algo3.AlgoChess;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import fiuba.algo3.AlgoChess.Bandos.Aliado;
@@ -22,7 +21,6 @@ import fiuba.algo3.AlgoChess.Tablero.Posicion;
 import fiuba.algo3.AlgoChess.Tablero.Tablero;
 
 public class SoldadoTest {
-	@Before
 	@Test
 	public void soldadoRecuperadoSeLeSumaVidaTest() {
 		Soldado soldado = new Soldado();
@@ -59,18 +57,18 @@ public class SoldadoTest {
 		
 		Aliado aliado = new Aliado();
 		
-		Jugador jugador = new Jugador("Tomas",aliado);
+		Jugador jugador = new Jugador("Laura",aliado, "Berni", aliado);
 		
-		Posicion posicionVieja = new Posicion(6, 7);
-		Posicion posicionNueva = new Posicion(5, 7);
+		Posicion posicionVieja = new Posicion(16, 7);
+		Posicion posicionNueva = new Posicion(15, 7);
 		
-		jugador.agregarEntidad("soldado", posicionVieja.getFila(), posicionVieja.getColumna());
+		jugador.agregarEntidad("soldado", posicionVieja);
 		
-		Tablero tablero = Tablero.getInstanciaTablero();
+		Tablero tablero = new Tablero(20);
 		
 		Entidad entidad = jugador.getEntidad(posicionVieja);
 		
-		tablero.agregarEntidadEnCasillero(entidad,6, 7);
+		tablero.agregarEntidadEnCasillero(entidad, posicionVieja);
 		
 		Direccion direccion = new Arriba();
 		
@@ -84,18 +82,18 @@ public class SoldadoTest {
 		
 		Aliado aliado = new Aliado();
 		
-		Jugador jugador = new Jugador("Laura",aliado);
+		Jugador jugador = new Jugador("Laura",aliado, "Berni", aliado);
 		
-		Posicion posicionVieja = new Posicion(6, 7);
-		Posicion posicionNueva = new Posicion(7, 7);
+		Posicion posicionVieja = new Posicion(16, 7);
+		Posicion posicionNueva = new Posicion(17, 7);
 		
-		jugador.agregarEntidad("soldado", posicionVieja.getFila(), posicionVieja.getColumna());
+		jugador.agregarEntidad("soldado", posicionVieja);
 		
-		Tablero tablero = Tablero.getInstanciaTablero();
+		Tablero tablero = new Tablero(20);
 		
 		Entidad entidad = jugador.getEntidad(posicionVieja);
 		
-		tablero.agregarEntidadEnCasillero(entidad,6, 7);
+		tablero.agregarEntidadEnCasillero(entidad, posicionVieja);
 		
 		Direccion direccion = new Abajo();
 		
@@ -109,18 +107,18 @@ public class SoldadoTest {
 		
 		Aliado aliado = new Aliado();
 		
-		Jugador jugador = new Jugador("Laura",aliado);
+		Jugador jugador = new Jugador("Laura",aliado, "Berni", aliado);
 		
-		Posicion posicionVieja = new Posicion(6, 7);
-		Posicion posicionNueva = new Posicion(6, 6);
+		Posicion posicionVieja = new Posicion(16, 7);
+		Posicion posicionNueva = new Posicion(16, 6);
 		
-		jugador.agregarEntidad("soldado", posicionVieja.getFila(), posicionVieja.getColumna());
+		jugador.agregarEntidad("soldado", posicionVieja);
 		
-		Tablero tablero = Tablero.getInstanciaTablero();
+		Tablero tablero = new Tablero(20);
 		
 		Entidad entidad = jugador.getEntidad(posicionVieja);
 		
-		tablero.agregarEntidadEnCasillero(entidad,6, 7);
+		tablero.agregarEntidadEnCasillero(entidad, posicionVieja);
 		
 		Direccion direccion = new Izquierda();
 		
@@ -134,18 +132,18 @@ public class SoldadoTest {
 		
 		Aliado aliado = new Aliado();
 		
-		Jugador jugador = new Jugador("Laura",aliado);
+		Jugador jugador = new Jugador("Laura",aliado, "Berni", aliado);
 		
-		Posicion posicionVieja = new Posicion(6, 7);
-		Posicion posicionNueva = new Posicion(6, 8);
+		Posicion posicionVieja = new Posicion(16, 7);
+		Posicion posicionNueva = new Posicion(16, 8);
 		
-		jugador.agregarEntidad("soldado", posicionVieja.getFila(), posicionVieja.getColumna());
+		jugador.agregarEntidad("soldado", posicionVieja);
 		
-		Tablero tablero = Tablero.getInstanciaTablero();
+		Tablero tablero = new Tablero(20);
 		
 		Entidad entidad = jugador.getEntidad(posicionVieja);
 		
-		tablero.agregarEntidadEnCasillero(entidad,6, 7);
+		tablero.agregarEntidadEnCasillero(entidad, posicionVieja);
 		
 		Direccion direccion = new Derecha();
 		
@@ -159,18 +157,18 @@ public class SoldadoTest {
 		
 		Aliado aliado = new Aliado();
 		
-		Jugador jugador = new Jugador("Laura",aliado);
+		Jugador jugador = new Jugador("Laura",aliado, "Berni", aliado);
 		
-		Posicion posicionVieja = new Posicion(6, 7);
-		Posicion posicionNueva = new Posicion(5, 8);
+		Posicion posicionVieja = new Posicion(16, 7);
+		Posicion posicionNueva = new Posicion(15, 8);
 		
-		jugador.agregarEntidad("soldado", posicionVieja.getFila(), posicionVieja.getColumna());
+		jugador.agregarEntidad("soldado", posicionVieja);
 		
-		Tablero tablero = Tablero.getInstanciaTablero();
+		Tablero tablero = new Tablero(20);
 		
 		Entidad entidad = jugador.getEntidad(posicionVieja);
 		
-		tablero.agregarEntidadEnCasillero(entidad,6, 7);
+		tablero.agregarEntidadEnCasillero(entidad,posicionVieja);
 		
 		Direccion direccion = new ArribaDerecha();
 		
@@ -184,18 +182,18 @@ public class SoldadoTest {
 		
 		Aliado aliado = new Aliado();
 		
-		Jugador jugador = new Jugador("Tomas",aliado);
+		Jugador jugador = new Jugador("Laura",aliado, "Berni", aliado);
 		
-		Posicion posicionVieja = new Posicion(6, 7);
-		Posicion posicionNueva = new Posicion(7, 6);
+		Posicion posicionVieja = new Posicion(16, 7);
+		Posicion posicionNueva = new Posicion(17, 6);
 		
-		jugador.agregarEntidad("curandero", posicionVieja.getFila(), posicionVieja.getColumna());
+		jugador.agregarEntidad("curandero", posicionVieja);
 		
-		Tablero tablero = Tablero.getInstanciaTablero();
+		Tablero tablero = new Tablero(20);
 		
 		Entidad entidad = jugador.getEntidad(posicionVieja);
 		
-		tablero.agregarEntidadEnCasillero(entidad,6, 7);
+		tablero.agregarEntidadEnCasillero(entidad, posicionVieja);
 		
 		Direccion direccion = new AbajoIzquierda();
 		
@@ -209,18 +207,18 @@ public class SoldadoTest {
 	
 		Aliado aliado = new Aliado();
 		
-		Jugador jugador = new Jugador("Laura",aliado);
+		Jugador jugador = new Jugador("Laura",aliado, "Berni", aliado);
 		
-		Posicion posicionVieja = new Posicion(6, 7);
-		Posicion posicionNueva = new Posicion(7, 8);
+		Posicion posicionVieja = new Posicion(16, 7);
+		Posicion posicionNueva = new Posicion(17, 8);
 		
-		jugador.agregarEntidad("curandero", posicionVieja.getFila(), posicionVieja.getColumna());
+		jugador.agregarEntidad("curandero", posicionVieja);
 		
-		Tablero tablero = Tablero.getInstanciaTablero();
+		Tablero tablero = new Tablero(20);
 		
 		Entidad entidad = jugador.getEntidad(posicionVieja);
 		
-		tablero.agregarEntidadEnCasillero(entidad,6, 7);
+		tablero.agregarEntidadEnCasillero(entidad, posicionVieja);
 		
 		Direccion direccion = new AbajoDerecha();
 		
@@ -234,18 +232,18 @@ public class SoldadoTest {
 		
 		Aliado aliado = new Aliado();
 		
-		Jugador jugador = new Jugador("Laura",aliado);
+		Jugador jugador = new Jugador("Laura",aliado, "Berni", aliado);
 		
-		Posicion posicionVieja = new Posicion(6, 7);
-		Posicion posicionNueva = new Posicion(5, 6);
+		Posicion posicionVieja = new Posicion(16, 7);
+		Posicion posicionNueva = new Posicion(15, 6);
 		
-		jugador.agregarEntidad("curandero", posicionVieja.getFila(), posicionVieja.getColumna());
+		jugador.agregarEntidad("curandero", posicionVieja);
 		
-		Tablero tablero = Tablero.getInstanciaTablero();
+		Tablero tablero = new Tablero(20);
 		
 		Entidad entidad = jugador.getEntidad(posicionVieja);
 		
-		tablero.agregarEntidadEnCasillero(entidad,6, 7);
+		tablero.agregarEntidadEnCasillero(entidad, posicionVieja);
 		
 		Direccion direccion = new ArribaIzquierda();
 		
@@ -260,22 +258,22 @@ public class SoldadoTest {
 
 		Aliado aliado = new Aliado();
 		
-		Jugador jugador = new Jugador("Laura",aliado);
+		Jugador jugador = new Jugador("Laura",aliado, "Berni", aliado);
 		
-		Posicion posicionVieja1 = new Posicion(7, 8);
-		Posicion posicionVieja  = new Posicion(6, 7);
-		Posicion posicionNueva  = new Posicion(7, 8);
+		Posicion posicionVieja1 = new Posicion(17, 8);
+		Posicion posicionVieja  = new Posicion(16, 7);
+		Posicion posicionNueva  = new Posicion(17, 8);
 		
-		jugador.agregarEntidad("soldado", posicionVieja1.getFila(), posicionVieja1.getColumna());
-		jugador.agregarEntidad("soldado", posicionVieja.getFila(), posicionVieja.getColumna());
+		jugador.agregarEntidad("soldado", posicionVieja1);
+		jugador.agregarEntidad("soldado", posicionVieja);
 		
-		Tablero tablero = Tablero.getInstanciaTablero();
+		Tablero tablero = new Tablero(20);
 		
 		Entidad entidad  = jugador.getEntidad(posicionVieja);
 		Entidad entidad1 = jugador.getEntidad(posicionVieja1);
 		
-		tablero.agregarEntidadEnCasillero(entidad,6, 7);
-		tablero.agregarEntidadEnCasillero(entidad1,7, 8);
+		tablero.agregarEntidadEnCasillero(entidad,posicionVieja);
+		tablero.agregarEntidadEnCasillero(entidad1,posicionVieja1);
 
 		Direccion direccion = new AbajoDerecha();
 		

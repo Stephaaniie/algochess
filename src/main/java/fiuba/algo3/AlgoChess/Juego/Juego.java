@@ -6,7 +6,7 @@ import fiuba.algo3.AlgoChess.Bandos.Bando;
 import fiuba.algo3.AlgoChess.Bandos.Enemigo;
 import fiuba.algo3.AlgoChess.Tablero.Tablero;
 
-public class InicializarJuego {
+public class Juego {
 	
 	private Tablero tablero;
 	
@@ -18,7 +18,7 @@ public class InicializarJuego {
 	
 	private Bando bando2;
 	
-	public InicializarJuego() {
+	public Juego() {
 		this.setTablero(Tablero.getInstanciaTablero());
 		this.setJugadorAliado(null);
 		this.setJugadorEnemigo(null);
@@ -26,13 +26,6 @@ public class InicializarJuego {
 		bando2 = new Enemigo();
 	}
 	
-	public void inicializarJugadorAliado(String nombre) {
-		this.setJugadorAliado(new Jugador(nombre,bando1));
-	}
-	
-	public void inicializarJugadorEnemigo(String nombre) {
-		this.setJugadorEnemigo(new Jugador(nombre,bando2));
-	}
 
 	public Jugador getJugadorEnemigo() {
 		return jugadorEnemigo;

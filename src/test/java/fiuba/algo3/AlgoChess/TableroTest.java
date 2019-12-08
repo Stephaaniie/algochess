@@ -3,7 +3,6 @@ package fiuba.algo3.AlgoChess;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import fiuba.algo3.AlgoChess.Bandos.Aliado;
@@ -15,17 +14,16 @@ import fiuba.algo3.AlgoChess.Tablero.Posicion;
 import fiuba.algo3.AlgoChess.Tablero.Tablero;
 
 public class TableroTest {
-	@Before
 	@Test
 	public void seCreaTableroSinProblema() {
-		Tablero tablero = Tablero.getInstanciaTablero();
+		Tablero tablero = new Tablero(20);
 		
 		assertNotNull(tablero);
 	}
 	
 	@Test 
 	public void tableroCargaTodosSusCamposCorrectamente() {
-		Tablero tablero = Tablero.getInstanciaTablero();
+		Tablero tablero = new Tablero(20);
 		
 		int tamanio  = tablero.tamanioTablero();
 		int casilleros = tablero.cantidadCasilleros();
@@ -42,21 +40,19 @@ public class TableroTest {
 		Enemigo enemigo = new Enemigo();
 		
 		boolean excepcion = false;
-		
-		Jugador jugador1 = new Jugador("Manuel",aliado);
-		Jugador jugador2 = new Jugador("Carly",enemigo);
+		Jugador jugadores = new Jugador("Carly",enemigo,"Manuel",aliado);
 		
 		try {
-			jugador1.agregarEntidad("jinete", 20, 9);
-			jugador2.agregarEntidad("soldado", 9, 10);
+			jugadores.agregarEntidad("jinete", new Posicion(20, 9));
+			jugadores.agregarEntidad("soldado", new Posicion(9, 10));
 			
-			Tablero tablero = Tablero.getInstanciaTablero();
+			Tablero tablero = new Tablero(20);
 			
-			Entidad entidad = jugador1.getEntidad(new Posicion(7,9));
-			Entidad entidad2 = jugador2.getEntidad(new Posicion(11,10));
+			Entidad entidad  =  jugadores.getEntidad(new Posicion(7,9));
+			Entidad entidad2 = jugadores.getEntidad(new Posicion(11,10));
 			
-			tablero.agregarEntidadEnCasillero(entidad, 20, 9);
-			tablero.agregarEntidadEnCasillero(entidad2, 9, 10);
+			tablero.agregarEntidadEnCasillero(entidad, new Posicion( 20, 9));
+			tablero.agregarEntidadEnCasillero(entidad2, new Posicion( 9, 10));
 		}catch( ColocarUnidadEnSectorEnemigoExcepcion e){
 			excepcion = true;
 		}
@@ -72,20 +68,19 @@ public class TableroTest {
 		
 		boolean excepcion = false;
 		
-		Jugador jugador1 = new Jugador("Manuel",aliado);
-		Jugador jugador2 = new Jugador("Carly",enemigo);
+		Jugador jugadores = new Jugador("Manuel", aliado, "Carly",enemigo);
 		
 		try {
-			jugador1.agregarEntidad("jinete", 0, 9);
-			jugador2.agregarEntidad("soldado", 11, 10);
+			jugadores.agregarEntidad("jinete", new Posicion(0, 9));
+			jugadores.agregarEntidad("soldado", new Posicion(11, 10));
 			
-			Tablero tablero = Tablero.getInstanciaTablero();
+			Tablero tablero = new Tablero(20);
 			
-			Entidad entidad = jugador1.getEntidad(new Posicion(7,9));
-			Entidad entidad2 = jugador2.getEntidad(new Posicion(11,10));
+			Entidad entidad = jugadores.getEntidad(new Posicion(7,9));
+			Entidad entidad2 = jugadores.getEntidad(new Posicion(11,10));
 			
-			tablero.agregarEntidadEnCasillero(entidad, 20, 9);
-			tablero.agregarEntidadEnCasillero(entidad2, 9, 10);
+			tablero.agregarEntidadEnCasillero(entidad,new Posicion( 20, 9));
+			tablero.agregarEntidadEnCasillero(entidad2,new Posicion( 9, 10));
 		}catch( ColocarUnidadEnSectorEnemigoExcepcion e){
 			excepcion = true;
 		}
@@ -99,15 +94,15 @@ public class TableroTest {
 		
 		boolean excepcion = false;
 		
-		Jugador jugador1 = new Jugador("Manuel",aliado);		
+		Jugador jugadores = new Jugador("Manuel",aliado, "Chary", aliado);		
 		try {
-			jugador1.agregarEntidad("jinete", 0, 9);
+			jugadores.agregarEntidad("jinete",new Posicion( 0, 9));
 			
-			Tablero tablero = Tablero.getInstanciaTablero();
+			Tablero tablero = new Tablero(20);
 			
-			Entidad entidad = jugador1.getEntidad(new Posicion(7,9));
+			Entidad entidad = jugadores.getEntidad(new Posicion(7,9));
 			
-			tablero.agregarEntidadEnCasillero(entidad, 0, 9);
+			tablero.agregarEntidadEnCasillero(entidad, new Posicion(0, 9));
 		}catch( ColocarUnidadEnSectorEnemigoExcepcion e){
 			excepcion = true;
 		}
@@ -121,16 +116,16 @@ public class TableroTest {
 				
 		boolean respuesta = false;
 				
-		Jugador jugador1 = new Jugador("Manuel",aliado);		
+		Jugador jugador1 = new Jugador("Manuel",aliado, "Clotilde", aliado);		
 		
-		jugador1.agregarEntidad("jinete", 20, 9);
-			
-		Tablero tablero = Tablero.getInstanciaTablero();
-			
-		Entidad entidad = jugador1.getEntidad(new Posicion(7,9));
-			
-		tablero.agregarEntidadEnCasillero(entidad, 0, 9);
+		jugador1.agregarEntidad("jinete", new Posicion(20, 9));
 		try {
+			Tablero tablero = new Tablero(20);
+			
+			Entidad entidad = jugador1.getEntidad(new Posicion(7,9));
+			
+			tablero.agregarEntidadEnCasillero(entidad, new Posicion( 15, 9));
+		
 			jugador1.eliminarEntidad(entidad);
 			tablero.getEntidadEnPosicion(entidad.getPosicion());
 		}catch( ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion e) {

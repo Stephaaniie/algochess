@@ -3,7 +3,6 @@ package fiuba.algo3.AlgoChess;
 import java.util.ArrayList;
 import java.util.List;
 
-import fiuba.algo3.AlgoChess.Bandos.Aliado;
 import fiuba.algo3.AlgoChess.Bandos.Bando;
 import fiuba.algo3.AlgoChess.Entidades.Entidad;
 import fiuba.algo3.AlgoChess.Entidades.FabricaEntidades;
@@ -15,8 +14,10 @@ import fiuba.algo3.AlgoChess.Tablero.Posicion;
 import fiuba.algo3.AlgoChess.Tablero.Tablero;
 
 public class Jugador {
-
-	private int puntosActuales = 20;
+	
+	private final int  PUNTOS_INICIALES = 20;
+	
+	private int puntosActuales = PUNTOS_INICIALES;
 	
 	private String nombre;
 	
@@ -24,43 +25,43 @@ public class Jugador {
 	
 	private List<Entidad> entidades;
 	
-	private Bando bandoJugador;
+	private Bando bando;
 	
-	private Aliado aliado = new Aliado();
+	private Jugador otroJugador;
 	
-	public Jugador(String nombre, Bando bando) {
+	private Tablero tablero = new Tablero(20);
+	
+	public Jugador(String nombre, Bando bando, Jugador otroJugador) {
+		asignarAtributosDelJugador(nombre, bando);
+		this.otroJugador = otroJugador;
+	}
+	
+	public Jugador(String nombre, Bando bando, String nombre1, Bando bando1) {
+		asignarAtributosDelJugador(nombre, bando);
+		this.otroJugador = new Jugador(nombre1, bando1, this);
+	}
+	private void asignarAtributosDelJugador(String nombre, Bando bando) {
 		this.nombre = nombre;
-		this.bandoJugador = bando;
+		this.bando = bando;
 		this.entidades  = new ArrayList<Entidad>();
 	}
 
-	public void agregarEntidad(String tipoEntidad, int fila, int columna) {
-		Entidad entidad = fabrica.crearEntidad(tipoEntidad, fila, columna, this.bandoJugador);
-		
+	public Jugador obtenerSiguienteJugador() {
+		return otroJugador;
+	}
+	
+	public void agregarEntidad(String tipoEntidad, Posicion posicion) {
+		Entidad entidad = fabrica.crearEntidad(tipoEntidad);
 		try {
 			descontarPuntos(entidad.getCosto());
-			Tablero tablero = Tablero.getInstanciaTablero();
-			tablero.agregarEntidadEnCasillero(entidad, fila, columna);
-			if(this.bandoJugador == aliado) {
-				tablero.agregarEntidadSectorAliado(fila, columna, entidad);
-			}else {
-				tablero.agregarEntidadSectorEnemigo(fila, columna, entidad);
-			}
+			tablero.agregarEntidadEnCasillero(entidad, posicion);
 			this.entidades.add(entidad);
-			entidad.recibirPosicionYBando(fila,columna,this.bandoJugador);
-		} catch (CasilleroOcupadoExcepcion e) {
-			throw new CasilleroOcupadoExcepcion();
-		} catch (ColocarUnidadEnSectorEnemigoExcepcion e) {
-			throw new ColocarUnidadEnSectorEnemigoExcepcion();
-		}catch(CantidadDePuntosInsuficientesExcepcion e){
-			throw new CantidadDePuntosInsuficientesExcepcion();
-		}
+			entidad.recibirPosicionYBando(posicion, this.bando);
+		} catch (CasilleroOcupadoExcepcion e) {} catch (ColocarUnidadEnSectorEnemigoExcepcion e) {}catch(CantidadDePuntosInsuficientesExcepcion e){}
 	}
 
 	public void descontarPuntos(int numero) {
-		if (puntosActuales <= 0) {
-			throw new CantidadDePuntosInsuficientesExcepcion();
-		}
+		if (puntosActuales <= 0) { throw new CantidadDePuntosInsuficientesExcepcion(); }
 		puntosActuales -= numero;
 	}
 
@@ -77,13 +78,13 @@ public class Jugador {
 	}
 	
 	public Entidad getEntidad(Posicion posicion) {
-		Entidad entidadAux = new ObjetoNull();
+		Entidad entidadBuscada = new ObjetoNull();
 		for(Entidad entidad : this.entidades) {
 			if(entidad.getPosicion().mismaPosicion(posicion, entidad.getPosicion())) {
-				entidadAux =  entidad;
+				entidadBuscada = entidad;
 			}
 		}
-		return entidadAux;
+		return entidadBuscada;
 	}
 	
 	public List<Entidad> getListDeEntidades(){
