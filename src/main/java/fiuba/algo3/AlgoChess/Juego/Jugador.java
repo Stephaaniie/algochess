@@ -1,4 +1,4 @@
-package fiuba.algo3.AlgoChess;
+package fiuba.algo3.AlgoChess.Juego;
 
 import java.util.ArrayList;
 import java.util.List;

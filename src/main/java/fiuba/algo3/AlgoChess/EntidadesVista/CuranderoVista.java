@@ -1,4 +1,4 @@
-package fiuba.algo3.Algochess.EntidadesVista;
+package fiuba.algo3.AlgoChess.EntidadesVista;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
