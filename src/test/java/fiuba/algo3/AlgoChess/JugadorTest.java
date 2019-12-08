@@ -15,6 +15,7 @@ import fiuba.algo3.AlgoChess.Entidades.Entidad;
 import fiuba.algo3.AlgoChess.Entidades.Jinete;
 import fiuba.algo3.AlgoChess.Entidades.Soldado;
 import fiuba.algo3.AlgoChess.Excepciones.EntidadInvalidaExcepcion;
+import fiuba.algo3.AlgoChess.Jugador.Jugador;
 import fiuba.algo3.AlgoChess.Tablero.Posicion;
 
 public class JugadorTest {

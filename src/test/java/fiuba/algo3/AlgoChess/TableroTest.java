@@ -10,6 +10,7 @@ import fiuba.algo3.AlgoChess.Bandos.Enemigo;
 import fiuba.algo3.AlgoChess.Entidades.Entidad;
 import fiuba.algo3.AlgoChess.Excepciones.ColocarUnidadEnSectorEnemigoExcepcion;
 import fiuba.algo3.AlgoChess.Excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
+import fiuba.algo3.AlgoChess.Jugador.Jugador;
 import fiuba.algo3.AlgoChess.Tablero.Posicion;
 import fiuba.algo3.AlgoChess.Tablero.Tablero;
 

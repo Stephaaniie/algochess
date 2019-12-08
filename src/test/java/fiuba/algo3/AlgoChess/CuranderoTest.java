@@ -24,6 +24,7 @@ import fiuba.algo3.AlgoChess.Entidades.Soldado;
 import fiuba.algo3.AlgoChess.Excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
 import fiuba.algo3.AlgoChess.Excepciones.CuranderoNoPuedeAtacarExepcion;
 import fiuba.algo3.AlgoChess.Excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
+import fiuba.algo3.AlgoChess.Jugador.Jugador;
 import fiuba.algo3.AlgoChess.Tablero.Posicion;
 import fiuba.algo3.AlgoChess.Tablero.Tablero;
 

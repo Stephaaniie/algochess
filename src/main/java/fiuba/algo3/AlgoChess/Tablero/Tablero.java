@@ -9,7 +9,9 @@ import fiuba.algo3.AlgoChess.Bandos.Bando;
 import fiuba.algo3.AlgoChess.Buscador.RadarDeEntidades;
 import fiuba.algo3.AlgoChess.Entidades.Entidad;
 import fiuba.algo3.AlgoChess.Entidades.ObjetoNull;
-import fiuba.algo3.AlgoChess.Juego.Jugador;
+import fiuba.algo3.AlgoChess.Excepciones.CasilleroOcupadoExcepcion;
+import fiuba.algo3.AlgoChess.Excepciones.ColocarUnidadEnSectorEnemigoExcepcion;
+import fiuba.algo3.AlgoChess.Jugador.Jugador;
 
 public class Tablero {
 	
