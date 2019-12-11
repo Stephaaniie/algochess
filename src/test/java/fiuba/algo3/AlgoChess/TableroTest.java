@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import fiuba.algo3.AlgoChess.Bandos.Aliado;
 import fiuba.algo3.AlgoChess.Bandos.Enemigo;
+import fiuba.algo3.AlgoChess.Buscador.RadarDeEntidades;
 import fiuba.algo3.AlgoChess.Entidades.Entidad;
 import fiuba.algo3.AlgoChess.Excepciones.ColocarEntidadEnSectorEnemigoExcepcion;
 import fiuba.algo3.AlgoChess.Excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
@@ -95,15 +96,17 @@ public class TableroTest {
 		
 		boolean excepcion = false;
 		
+		Posicion posicion = new Posicion( 0, 9);
+		
 		Jugador jugadores = new Jugador("Manuel",aliado, "Chary", aliado);		
 		try {
-			jugadores.agregarEntidad("jinete",new Posicion( 0, 9));
+			jugadores.agregarEntidad("jinete", posicion);
 			
 			Tablero tablero = new Tablero(20);
 			
-			Entidad entidad = jugadores.getEntidad(new Posicion(7,9));
+			Entidad entidad = jugadores.getEntidad(posicion);
 			
-			tablero.agregarEntidadEnCasillero(entidad, new Posicion(0, 9));
+			tablero.agregarEntidadEnCasillero(entidad,posicion);
 		}catch( ColocarEntidadEnSectorEnemigoExcepcion e){
 			excepcion = true;
 		}
@@ -136,5 +139,35 @@ public class TableroTest {
 		assertEquals(respuesta,true);
 	}
 	
+	@Test 
+    public void utilizacionDelRadarDeEntidadesLaDistanciaMax() {
+		
+		RadarDeEntidades radar = new RadarDeEntidades(2,6);
+		
+		assertEquals(radar.getdistanciaMax(),6);
+	}
 	
+	@Test 
+    public void utilizacionDelRadarDeEntidadesLaDistanciaMin() {
+		
+		RadarDeEntidades radar = new RadarDeEntidades(2,6);
+		
+		assertEquals(radar.getdistanciaMin(),2);
+	}
+	
+	@Test 
+    public void utilizacionDelRadarDeEntidadesConUnaDistancia() {
+		
+		RadarDeEntidades radar = new RadarDeEntidades(2,6);
+		
+		assertEquals(radar.estaEnElRadar(2),true);
+	}
+	
+	@Test 
+    public void utilizacionDelRadarDeEntidadesConUnaDistanciaNoValida() {
+		
+		RadarDeEntidades radar = new RadarDeEntidades(2,6);
+		
+		assertEquals(radar.estaEnElRadar(9),false);
+	}
 }

@@ -51,11 +51,12 @@ public class ObjetoNull implements Entidad {
 
 	@Override
 	public int getVida() {
-		return 0;
+		throw new ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion();
 	}
 
 	@Override
 	public void recibirPosicionYBando(Posicion posicion, Bando bandoJugador) {
-		
+		throw new ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion();
+
 	}
 }

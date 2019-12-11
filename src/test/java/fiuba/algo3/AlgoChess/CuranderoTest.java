@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import fiuba.algo3.AlgoChess.Bandos.Aliado;
+import fiuba.algo3.AlgoChess.Bandos.Enemigo;
 import fiuba.algo3.AlgoChess.Direccion.Abajo;
 import fiuba.algo3.AlgoChess.Direccion.AbajoDerecha;
 import fiuba.algo3.AlgoChess.Direccion.AbajoIzquierda;
@@ -21,7 +22,9 @@ import fiuba.algo3.AlgoChess.Entidades.Curandero;
 import fiuba.algo3.AlgoChess.Entidades.Entidad;
 import fiuba.algo3.AlgoChess.Entidades.Jinete;
 import fiuba.algo3.AlgoChess.Entidades.Soldado;
+import fiuba.algo3.AlgoChess.Excepciones.CasilleroOcupadoExcepcion;
 import fiuba.algo3.AlgoChess.Excepciones.CuranderoNoPuedeAtacarExepcion;
+import fiuba.algo3.AlgoChess.Excepciones.CuranderoNoPuedeRealizarCuracionExcepcion;
 import fiuba.algo3.AlgoChess.Excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 import fiuba.algo3.AlgoChess.Jugador.Jugador;
 import fiuba.algo3.AlgoChess.Tablero.Posicion;
@@ -36,15 +39,15 @@ public class CuranderoTest {
 		Curandero curandero = new Curandero();
 
 		assertEquals(2, curandero.getCosto());
-
 	}
 	
 	@Test
 	public void curanderoRecibeElBandoDelJugadorQueLoAdquiere() {
 		
+		Enemigo enemigo = new Enemigo();
 		Aliado aliado = new Aliado();
 		
-		Jugador jugador = new Jugador("Sofia",aliado, "Brenda", aliado);
+		Jugador jugador = new Jugador("Sofia",aliado, "Brenda", enemigo);
 		
 		Posicion posicion = new Posicion(16, 7);
 		
@@ -97,7 +100,7 @@ public class CuranderoTest {
 		catapulta.recibirDanio(20);
 		try {
 			curandero.curarEntidad(catapulta);
-		} catch (ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion e) {
+		} catch (CuranderoNoPuedeRealizarCuracionExcepcion e) {
 			assertEquals(30, catapulta.getVida());
 		}
 	}
@@ -367,5 +370,29 @@ public class CuranderoTest {
 			atrapaError = true;
 		}
 		assertEquals(atrapaError,true);
+	}
+	
+	@Test
+	public void agregarEntidad() {
+		
+		boolean respuesta = false;
+		
+		Enemigo enemigo = new Enemigo();
+		Aliado aliado = new Aliado();
+		
+		Jugador jugador = new Jugador("Sofia",aliado, "Brenda", enemigo);
+		
+		Posicion posicion = new Posicion(16, 7);
+		
+		jugador.agregarEntidad("curandero", posicion);
+		
+		Entidad entidad  = jugador.getEntidad(posicion);
+		
+		try {
+			entidad.agregar(entidad);
+		}catch(CasilleroOcupadoExcepcion e) {
+			respuesta = true;
+		}
+		assertEquals( respuesta, true);
 	}
 }

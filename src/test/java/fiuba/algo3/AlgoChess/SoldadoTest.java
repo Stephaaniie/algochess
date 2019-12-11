@@ -5,6 +5,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import fiuba.algo3.AlgoChess.Bandos.Aliado;
+import fiuba.algo3.AlgoChess.Bandos.Enemigo;
 import fiuba.algo3.AlgoChess.Direccion.Abajo;
 import fiuba.algo3.AlgoChess.Direccion.AbajoDerecha;
 import fiuba.algo3.AlgoChess.Direccion.AbajoIzquierda;
@@ -14,9 +15,9 @@ import fiuba.algo3.AlgoChess.Direccion.ArribaIzquierda;
 import fiuba.algo3.AlgoChess.Direccion.Derecha;
 import fiuba.algo3.AlgoChess.Direccion.Direccion;
 import fiuba.algo3.AlgoChess.Direccion.Izquierda;
-import fiuba.algo3.AlgoChess.Entidades.Curandero;
 import fiuba.algo3.AlgoChess.Entidades.Entidad;
 import fiuba.algo3.AlgoChess.Entidades.Soldado;
+import fiuba.algo3.AlgoChess.Excepciones.CasilleroOcupadoExcepcion;
 import fiuba.algo3.AlgoChess.Jugador.Jugador;
 import fiuba.algo3.AlgoChess.Tablero.Posicion;
 import fiuba.algo3.AlgoChess.Tablero.Tablero;
@@ -41,17 +42,6 @@ public class SoldadoTest {
 		assertEquals(50, soldado.getVida());
 	}
 
-	@Test
-	public void soldadoAtacaACuranderoYLeRestaVida() {
-
-		Soldado soldado = new Soldado();
-		
-		Curandero curandero = new Curandero();
-		
-		soldado.atacarEnemigo();
-		
-		assertEquals(75, curandero.getVida());
-	}
 
 	@Test
 	public void soldadoSeMueveParaArriba() {
@@ -281,5 +271,29 @@ public class SoldadoTest {
 		entidad.mover(direccion);
 		
 		assertTrue(entidad1.getPosicion().mismaPosicion(posicionNueva, entidad.getPosicion()));
+	}
+	
+	@Test
+	public void agregarEntidad() {
+		
+		boolean respuesta = false;
+		
+		Enemigo enemigo = new Enemigo();
+		Aliado aliado = new Aliado();
+		
+		Jugador jugador = new Jugador("Sofia",aliado, "Brenda", enemigo);
+		
+		Posicion posicion = new Posicion(16, 7);
+		
+		jugador.agregarEntidad("soldado", posicion);
+		
+		Entidad entidad  = jugador.getEntidad(posicion);
+		
+		try {
+			entidad.agregar(entidad);
+		}catch(CasilleroOcupadoExcepcion e) {
+			respuesta = true;
+		}
+		assertEquals( respuesta, true);
 	}
 }

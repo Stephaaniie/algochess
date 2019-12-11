@@ -11,20 +11,15 @@ import fiuba.algo3.AlgoChess.Tablero.Posicion;
 
 public class BuscadorDeEntidades {
 
-	private  Map<Posicion,Casillero> tablero;
+	private  Map<Posicion,Casillero> casilleros;
 	
-	public BuscadorDeEntidades(Map<Posicion,Casillero> tablero) {
-		this.tablero = tablero;
-	}
-	public List<Posicion> buscadorDePosiciones(){
-	 	List<Posicion> posiciones = new ArrayList<Posicion>();
-		tablero.entrySet().stream().forEach(x -> posiciones.add(x.getKey()));
-		return posiciones;
+	public BuscadorDeEntidades(Map<Posicion,Casillero> casilleros) {
+		this.casilleros = casilleros;
 	}
 	
 	public List <Entidad> buscadorDeEntidades(){
 		List<Entidad> entidades = new ArrayList<Entidad>();
-		tablero.entrySet().stream().forEach(x -> entidades.add(x.getValue().getEntidad()));
+		casilleros.entrySet().stream().forEach(x -> entidades.add(x.getValue().getEntidad()));
 		return entidades;
 	}
 	

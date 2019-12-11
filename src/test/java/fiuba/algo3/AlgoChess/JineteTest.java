@@ -17,7 +17,7 @@ import fiuba.algo3.AlgoChess.Direccion.Direccion;
 import fiuba.algo3.AlgoChess.Direccion.Izquierda;
 import fiuba.algo3.AlgoChess.Entidades.Entidad;
 import fiuba.algo3.AlgoChess.Entidades.Jinete;
-import fiuba.algo3.AlgoChess.Entidades.Soldado;
+import fiuba.algo3.AlgoChess.Excepciones.CasilleroOcupadoExcepcion;
 import fiuba.algo3.AlgoChess.Jugador.Jugador;
 import fiuba.algo3.AlgoChess.Tablero.Posicion;
 import fiuba.algo3.AlgoChess.Tablero.Tablero;
@@ -71,27 +71,6 @@ public class JineteTest {
 		assertTrue(entroEnExcepcion);
 	}
 	
-	@Test
-	public void jineteAtacaAEntidadEnDistanciaCorta() {
-
-		Jinete jinete = new Jinete();
-		Soldado soldado = new Soldado();
-
-		jinete.atacarEnemigo();
-
-		assertEquals(100, soldado.getVida());
-	}
-
-	@Test
-	public void jineteAtacaAEntidadEnDistanciaMedia() {
-		
-		Jinete jinete = new Jinete();
-		Soldado soldado = new Soldado();
-
-		jinete.atacarEnemigo();
-
-		assertEquals(100, soldado.getVida());
-	}
 	
 	@Test
 	public void jineteSeMueveParaAbajo() {
@@ -333,4 +312,27 @@ public class JineteTest {
 		assertTrue(entidad1.getPosicion().mismaPosicion(posicionNueva, entidad.getPosicion()));
 	}
 	
+	@Test
+	public void agregarEntidad() {
+		
+		boolean respuesta = false;
+		
+		Enemigo enemigo = new Enemigo();
+		Aliado aliado = new Aliado();
+		
+		Jugador jugador = new Jugador("Sofia",aliado, "Brenda", enemigo);
+		
+		Posicion posicion = new Posicion(16, 7);
+		
+		jugador.agregarEntidad("curandero", posicion);
+		
+		Entidad entidad  = jugador.getEntidad(posicion);
+		
+		try {
+			entidad.agregar(entidad);
+		}catch(CasilleroOcupadoExcepcion e) {
+			respuesta = true;
+		}
+		assertEquals( respuesta, true);
+	}
 }
