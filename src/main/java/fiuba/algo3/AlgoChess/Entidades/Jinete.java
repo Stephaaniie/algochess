@@ -1,19 +1,14 @@
 package fiuba.algo3.AlgoChess.Entidades;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import fiuba.algo3.AlgoChess.Armas.ArmaParaCuerpoACuerpo;
-import fiuba.algo3.AlgoChess.Armas.ArmaParaDistanciaMedia;
+import fiuba.algo3.AlgoChess.Armas.Armas;
 import fiuba.algo3.AlgoChess.Bandos.Bando;
 import fiuba.algo3.AlgoChess.Buscador.BuscadorDeEntidades;
-import fiuba.algo3.AlgoChess.Buscador.RadarDeEntidades;
 import fiuba.algo3.AlgoChess.Direccion.Direccion;
 import fiuba.algo3.AlgoChess.Excepciones.CasilleroOcupadoExcepcion;
 import fiuba.algo3.AlgoChess.Tablero.Posicion;
 import fiuba.algo3.AlgoChess.Tablero.Tablero;
 
-public class Jinete implements Entidad, ArmaParaCuerpoACuerpo, ArmaParaDistanciaMedia {
+public class Jinete implements Entidad {
 	
 	private final int VIDAINICIAL = 100;
 	private final int COSTO = 3;
@@ -33,45 +28,13 @@ public class Jinete implements Entidad, ArmaParaCuerpoACuerpo, ArmaParaDistancia
 	
 	private Posicion posicion;
 	
-	Tablero tablero = Tablero.getInstanciaTablero();
-	
-	private BuscadorDeEntidades buscador = new BuscadorDeEntidades(tablero.getMap());
-	
-	public boolean estaEnRangoSinAliado(Entidad entidad) {
-		RadarDeEntidades distancia = new RadarDeEntidades(DIS_MIN_SIN_ALIADO,DIS_MAX_SIN_ALIADO);
-		return (distancia.estaEnElRadar(this.getPosicion().calcularDistanciaCon(entidad.getPosicion().getFila(),entidad.getPosicion().getColumna())));
+	private Armas arcoYFlecha;
 		
-	}
+	private BuscadorDeEntidades buscador = new BuscadorDeEntidades();
 	
-	public boolean estaEnRangoConAliado(Entidad entidad) {
-		RadarDeEntidades distancia = new RadarDeEntidades(DIS_MIN_CON_ALIADO,DIS_MAX_CON_ALIADO);
-		return (distancia.estaEnElRadar(this.getPosicion().calcularDistanciaCon(entidad.getPosicion().getFila(),entidad.getPosicion().getColumna())));
-		
-	}
 	
-	public boolean tengoAliados() {
-		List<Entidad> aliados = buscador.buscarAliados(this.bando);
-		return aliados.size() != 0;
-	}
-	
-	public List<Entidad> filtrarAtacables(List<Entidad> enemigos){
-		List<Entidad> filtrados = new ArrayList<Entidad>();
-		for(Entidad entidad : enemigos) {
-			if(tengoAliados() & estaEnRangoConAliado(entidad)) {
-				filtrados.add(entidad);
-			}else if(!tengoAliados() & estaEnRangoSinAliado(entidad)){
-				filtrados.add(entidad);
-			}
-		}
-		return filtrados;
-	}
-    
-	public void modoDeAtaque(List<Entidad> enemigos){
-		if(!tengoAliados()) {
-			espada(enemigos,DANIO_CUERPO);
-		}else {
-			arcoYFlecha(enemigos,DANIO_DISTANCIA);
-		}
+	public BuscadorDeEntidades getBuscador() {
+		return this.buscador;
 	}
 	
 	public Posicion getPosicion() {
@@ -80,8 +43,8 @@ public class Jinete implements Entidad, ArmaParaCuerpoACuerpo, ArmaParaDistancia
 	
 	@Override
 	public void atacarEnemigo() {
-		List<Entidad> enemigos = buscador.buscarEnemigos(this.bando);
-		modoDeAtaque(filtrarAtacables(enemigos));
+		arcoYFlecha = new Armas(DIS_MIN_SIN_ALIADO,DIS_MAX_SIN_ALIADO,DIS_MIN_CON_ALIADO,DIS_MAX_CON_ALIADO,this.getBando());
+		arcoYFlecha.jineteAtaca(this,DANIO_DISTANCIA ,DANIO_CUERPO);
 	}
 	
 	@Override
@@ -108,19 +71,6 @@ public class Jinete implements Entidad, ArmaParaCuerpoACuerpo, ArmaParaDistancia
         throw new CasilleroOcupadoExcepcion();
     }
 
-	@Override
-	public void arcoYFlecha(List<Entidad> entidad,int DANIO_DISTANCIA) {
-		for(Entidad entidadAux : entidad) {
-			entidadAux.recibirDanio(DANIO_DISTANCIA);
-		}
-	}
-
-	@Override
-	public void espada(List<Entidad> entidad, int DANIO_CUERPO) {
-		for(Entidad entidadAux : entidad) {
-			entidadAux.recibirDanio(DANIO_CUERPO);
-		}
-	}
 
 	@Override
 	public Bando getBando() {

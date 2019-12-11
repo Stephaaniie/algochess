@@ -1,12 +1,7 @@
 package fiuba.algo3.AlgoChess.Entidades;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import fiuba.algo3.AlgoChess.Armas.ArmaParaDistanciaLarga;
+import fiuba.algo3.AlgoChess.Armas.Armas;
 import fiuba.algo3.AlgoChess.Bandos.Bando;
-import fiuba.algo3.AlgoChess.Buscador.BuscadorDeEntidades;
-import fiuba.algo3.AlgoChess.Buscador.RadarDeEntidades;
 import fiuba.algo3.AlgoChess.Direccion.Direccion;
 import fiuba.algo3.AlgoChess.Excepciones.CasilleroOcupadoExcepcion;
 import fiuba.algo3.AlgoChess.Excepciones.CatapultaNoSeMueveExcepcion;
@@ -14,7 +9,7 @@ import fiuba.algo3.AlgoChess.Excepciones.CuranderoNoCuraAunaEntidadFijaExcepcion
 import fiuba.algo3.AlgoChess.Tablero.Posicion;
 import fiuba.algo3.AlgoChess.Tablero.Tablero;
 
-public class Catapulta implements Entidad, ArmaParaDistanciaLarga {
+public class Catapulta implements Entidad{
 	private final int VIDA_INICIAL = 50;
 	private final int COSTO = 5;
 	
@@ -31,30 +26,15 @@ public class Catapulta implements Entidad, ArmaParaDistanciaLarga {
 		
 	private Posicion posicion;
 	
-	public Tablero tablero = Tablero.getInstanciaTablero();
+	private Armas objetosALanzar;
 	
-	private BuscadorDeEntidades buscador = new BuscadorDeEntidades(tablero.getMap());
+	public Tablero tablero = Tablero.getInstanciaTablero();	
 	
-	public boolean estaEnRango(Entidad entidad) {
-		RadarDeEntidades distancia = new RadarDeEntidades(DISTANCIA_MIN_ATAQUE,DISTANCIA_MAX_ATAQUE);
-		return (distancia.estaEnElRadar(this.getPosicion().calcularDistanciaCon(entidad.getPosicion().getFila(),entidad.getPosicion().getColumna())));
-		
-	}
-	
-	public List<Entidad> filtrarAtacables(List<Entidad> enemigos){
-		List<Entidad> filtrados = new ArrayList<Entidad>();
-		for(Entidad entidad : enemigos) {
-			if(estaEnRango(entidad)) {
-				filtrados.add(entidad);
-			}
-		}
-		return filtrados;
-	}
 	
 	@Override
 	public void atacarEnemigo() {
-		List<Entidad> enemigos = buscador.buscarEnemigos(this.bando);
-		objetosASerLanzados(filtrarAtacables(enemigos),DANIO_DISTANCIA);
+		objetosALanzar = new Armas(DISTANCIA_MIN_ATAQUE,DISTANCIA_MAX_ATAQUE,this.getBando());
+		objetosALanzar.objetosASerLanzados(DANIO_DISTANCIA);
 	}
 
     @Override
@@ -94,13 +74,6 @@ public class Catapulta implements Entidad, ArmaParaDistanciaLarga {
 	@Override
 	public Bando getBando() {
 		return this.bando;
-	}
-
-	@Override
-	public void objetosASerLanzados(List<Entidad> entidad, int danio) {
-		for(Entidad entidadAux : entidad) {
-			entidadAux.recibirDanio(danio);
-		}
 	}
 
 	@Override

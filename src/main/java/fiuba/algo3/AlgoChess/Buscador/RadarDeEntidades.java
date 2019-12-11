@@ -1,5 +1,8 @@
 package fiuba.algo3.AlgoChess.Buscador;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import fiuba.algo3.AlgoChess.Bandos.Bando;
 import fiuba.algo3.AlgoChess.Entidades.Entidad;
 import fiuba.algo3.AlgoChess.Excepciones.ColocarEntidadEnSectorEnemigoExcepcion;
@@ -12,7 +15,7 @@ public class RadarDeEntidades {
 	private int distanciaMin;
 	
 	private int distanciaMax;
-	
+		
 	public RadarDeEntidades(int distanciaMin, int distanciaMax) {
 		this.distanciaMin = distanciaMin;
 		this.distanciaMax = distanciaMax;
@@ -25,6 +28,12 @@ public class RadarDeEntidades {
 		}else {
 			throw new ColocarEntidadEnSectorEnemigoExcepcion();
 		}
+	}
+	
+	public List<Entidad> filtrarAtacables( List<Entidad> enemigos) {
+		List<Entidad> filtrados = new ArrayList<Entidad>();
+		enemigos.stream().filter(x -> this.estaEnElRadar(x.getPosicion())).forEach(x -> filtrados.add(x));
+		return filtrados;
 	}
 	
 	public boolean estaEnElRadar(int distancia) {

@@ -9,16 +9,13 @@ import org.junit.Test;
 
 import fiuba.algo3.AlgoChess.Buscador.BuscadorDeEntidades;
 import fiuba.algo3.AlgoChess.Entidades.Entidad;
-import fiuba.algo3.AlgoChess.Tablero.Tablero;
 
 
 public class BuscadorTest {
 		@Test
 		public void probarSiLaListaDeEntidadesEsIgualACeroPorQueNoHayEntidadesEnTablero() {						
-				
-			Tablero tablero = new Tablero(20);
 			
-			BuscadorDeEntidades buscador = new BuscadorDeEntidades(tablero.getMap());
+			BuscadorDeEntidades buscador = new BuscadorDeEntidades();
 																															
 			List<Entidad> listaAux = buscador.buscadorDeEntidades();
 

@@ -6,6 +6,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import fiuba.algo3.AlgoChess.Bandos.Aliado;
+import fiuba.algo3.AlgoChess.Bandos.Enemigo;
 import fiuba.algo3.AlgoChess.Direccion.Abajo;
 import fiuba.algo3.AlgoChess.Direccion.AbajoDerecha;
 import fiuba.algo3.AlgoChess.Direccion.AbajoIzquierda;
@@ -17,6 +18,8 @@ import fiuba.algo3.AlgoChess.Direccion.Izquierda;
 import fiuba.algo3.AlgoChess.Entidades.Batallon;
 import fiuba.algo3.AlgoChess.Entidades.Entidad;
 import fiuba.algo3.AlgoChess.Entidades.Soldado;
+import fiuba.algo3.AlgoChess.Excepciones.BatallonYaPoseeBandoYPosicionesExcepcion;
+import fiuba.algo3.AlgoChess.Excepciones.CasilleroOcupadoExcepcion;
 import fiuba.algo3.AlgoChess.Jugador.Jugador;
 import fiuba.algo3.AlgoChess.Tablero.Posicion;
 
@@ -491,9 +494,10 @@ public class BatallonTest {
 	@Test
 	public void verificarQueLaVidaQueDevuelveEsSinAtaque() {
 		
+		Enemigo enemigo = new Enemigo();
 		Aliado aliado = new Aliado();
 		
-		Jugador jugador = new Jugador("Candela",aliado, "Zeynep", aliado);
+		Jugador jugador = new Jugador("Candela",aliado, "Zeynep", enemigo);
 		
 		Posicion posicion1 = new Posicion(10, 7);
 		Posicion posicion2 = new Posicion(18, 7);		
@@ -518,5 +522,145 @@ public class BatallonTest {
 		assertTrue(batallon.getVida() == 100);
 	}
 	
+	@Test
+	public void seReponevidaAlBatallon() {
+		
+		Enemigo enemigo = new Enemigo();
+		Aliado aliado = new Aliado();
+		
+		Jugador jugador = new Jugador("Candela",aliado, "Zeynep", enemigo);
+		
+		Posicion posicion1 = new Posicion(10, 7);
+		Posicion posicion2 = new Posicion(18, 7);		
+		Posicion posicion3 = new Posicion(15, 7);
+		
+		jugador.agregarEntidad("soldado", posicion1);
+		jugador.agregarEntidad("soldado", posicion2);
+		jugador.agregarEntidad("soldado", posicion3);
+				
+		Entidad entidad1 = jugador.getEntidad(posicion1);
+		Entidad entidad2 = jugador.getEntidad(posicion2);
+		Entidad entidad3 = jugador.getEntidad(posicion3);
+
+		Soldado soldadoAux = new Soldado();
+		
+		soldadoAux.formarListaDeSoldados((Soldado) entidad1);
+		soldadoAux.formarListaDeSoldados((Soldado) entidad2);
+		soldadoAux.formarListaDeSoldados((Soldado) entidad3);
+		
+		Batallon batallon = new Batallon(soldadoAux.getListaBatallon());
+		batallon.recibirDanio(35);
+		batallon.reponerVida(20);
+		assertEquals(batallon.getVida(),85);
+	}
+	
+	@Test
+	public void batallonPuedeRecibirVida() {
+		
+		Enemigo enemigo = new Enemigo();
+		Aliado aliado = new Aliado();
+		
+		boolean respuesta = false;
+		
+		Jugador jugador = new Jugador("Candela",aliado, "Zeynep", enemigo);
+		
+		Posicion posicion1 = new Posicion(10, 7);
+		Posicion posicion2 = new Posicion(18, 7);		
+		Posicion posicion3 = new Posicion(15, 7);
+		
+		jugador.agregarEntidad("soldado", posicion1);
+		jugador.agregarEntidad("soldado", posicion2);
+		jugador.agregarEntidad("soldado", posicion3);
+				
+		Entidad entidad1 = jugador.getEntidad(posicion1);
+		Entidad entidad2 = jugador.getEntidad(posicion2);
+		Entidad entidad3 = jugador.getEntidad(posicion3);
+
+		Soldado soldadoAux = new Soldado();
+		
+		soldadoAux.formarListaDeSoldados((Soldado) entidad1);
+		soldadoAux.formarListaDeSoldados((Soldado) entidad2);
+		soldadoAux.formarListaDeSoldados((Soldado) entidad3);
+		
+		Batallon batallon = new Batallon(soldadoAux.getListaBatallon());
+		
+		try {
+			batallon.recibirPosicionYBando(posicion1, aliado);
+		}catch(BatallonYaPoseeBandoYPosicionesExcepcion e) {
+			respuesta = true;
+		}
+		assertEquals(respuesta,true);
+	}
+	
+	@Test
+	public void batallonNoPuedeAgregarMasEntidades() {
+		
+		Enemigo enemigo = new Enemigo();
+		Aliado aliado = new Aliado();
+		
+		boolean respuesta = false;
+		
+		Jugador jugador = new Jugador("Cande",aliado, "Zey", enemigo);
+		
+		Posicion posicion1 = new Posicion(10, 7);
+		Posicion posicion2 = new Posicion(18, 7);		
+		Posicion posicion3 = new Posicion(15, 7);
+		
+		jugador.agregarEntidad("soldado", posicion1);
+		jugador.agregarEntidad("soldado", posicion2);
+		jugador.agregarEntidad("soldado", posicion3);
+				
+		Entidad entidad1 = jugador.getEntidad(posicion1);
+		Entidad entidad2 = jugador.getEntidad(posicion2);
+		Entidad entidad3 = jugador.getEntidad(posicion3);
+
+		Soldado soldadoAux = new Soldado();
+		
+		soldadoAux.formarListaDeSoldados((Soldado) entidad1);
+		soldadoAux.formarListaDeSoldados((Soldado) entidad2);
+		soldadoAux.formarListaDeSoldados((Soldado) entidad3);
+		
+		Batallon batallon = new Batallon(soldadoAux.getListaBatallon());
+		
+		try {
+			batallon.agregar(entidad1);
+		}catch(CasilleroOcupadoExcepcion e) {
+			respuesta = true;
+		}
+		assertEquals(respuesta,true);
+	}
+	
+	@Test
+	public void batallonDevuelvePosicion() {
+		
+		Enemigo enemigo = new Enemigo();
+		Aliado aliado = new Aliado();
+		
+		boolean respuesta = false;
+		
+		Jugador jugador = new Jugador("Cande",aliado, "Zey", enemigo);
+		
+		Posicion posicion1 = new Posicion(10, 7);
+		Posicion posicion2 = new Posicion(18, 7);		
+		Posicion posicion3 = new Posicion(15, 7);
+		
+		jugador.agregarEntidad("soldado", posicion1);
+		jugador.agregarEntidad("soldado", posicion2);
+		jugador.agregarEntidad("soldado", posicion3);
+				
+		Entidad entidad1 = jugador.getEntidad(posicion1);
+		Entidad entidad2 = jugador.getEntidad(posicion2);
+		Entidad entidad3 = jugador.getEntidad(posicion3);
+
+		Soldado soldadoAux = new Soldado();
+		
+		soldadoAux.formarListaDeSoldados((Soldado) entidad1);
+		soldadoAux.formarListaDeSoldados((Soldado) entidad2);
+		soldadoAux.formarListaDeSoldados((Soldado) entidad3);
+		
+		Batallon batallon = new Batallon(soldadoAux.getListaBatallon());
+		
+		assertEquals(batallon.getPosicion(),posicion3);
+	}
 }
 

@@ -4,6 +4,7 @@ import java.util.List;
 
 import fiuba.algo3.AlgoChess.Bandos.Bando;
 import fiuba.algo3.AlgoChess.Direccion.Direccion;
+import fiuba.algo3.AlgoChess.Excepciones.BatallonYaPoseeBandoYPosicionesExcepcion;
 import fiuba.algo3.AlgoChess.Excepciones.CasilleroOcupadoExcepcion;
 import fiuba.algo3.AlgoChess.Tablero.Posicion;
 
@@ -12,9 +13,7 @@ public class Batallon implements Entidad{
     private List<Soldado> soldadosDelBatallon;
     
     private Bando bando;
-    
-    private Posicion posicion;
-    
+        
     public Batallon(List<Soldado> batallon) {
     	this.soldadosDelBatallon = batallon;
     	soldadosDelBatallon.stream().forEach(x -> this.bando = x.getBando());
@@ -25,7 +24,8 @@ public class Batallon implements Entidad{
     }
     @Override
     public Posicion getPosicion() {
-        return posicion;
+    	return soldadosDelBatallon.get(2).getPosicion();
+       
     }
 
     @Override
@@ -73,7 +73,6 @@ public class Batallon implements Entidad{
 	}
 	@Override
 	public void recibirPosicionYBando(Posicion posicion, Bando bandoJugador) {
-		this.bando = bandoJugador;
-		this.posicion = posicion;
+		throw new BatallonYaPoseeBandoYPosicionesExcepcion();
 	}
 }

@@ -97,4 +97,26 @@ public class CatapultaTest {
 		}
 		assertEquals( respuesta, true);
 	}
+    @Test
+    public void implementarAtaqueMasivoDeCatapulta() {
+    	Enemigo enemigo = new Enemigo();
+		Aliado aliado = new Aliado();
+		
+		Jugador jugador = new Jugador("Mirtha",aliado, "Susana", enemigo);
+		
+		Posicion posicion = new Posicion(10, 8);
+		
+		Posicion posicion1 = new Posicion(0, 7);
+		Posicion posicion2 = new Posicion(6, 7);
+		Posicion posicion3 = new Posicion(16, 7);
+		Posicion posicion4 = new Posicion(16, 7);
+		Posicion posicion5 = new Posicion(16, 7);
+		Posicion posicion6 = new Posicion(16, 7);
+		Posicion posicion7 = new Posicion(16, 7);
+		Posicion posicion8 = new Posicion(16, 7);
+		
+		jugador.agregarEntidad("catapulta", posicion);
+		
+		Entidad entidad  = jugador.getEntidad(posicion);
+    }
 }

@@ -3,16 +3,14 @@ package fiuba.algo3.AlgoChess.Entidades;
 import java.util.ArrayList;
 import java.util.List;
 
-import fiuba.algo3.AlgoChess.Armas.ArmaParaCuerpoACuerpo;
+import fiuba.algo3.AlgoChess.Armas.Armas;
 import fiuba.algo3.AlgoChess.Bandos.Bando;
-import fiuba.algo3.AlgoChess.Buscador.BuscadorDeEntidades;
-import fiuba.algo3.AlgoChess.Buscador.RadarDeEntidades;
 import fiuba.algo3.AlgoChess.Direccion.Direccion;
 import fiuba.algo3.AlgoChess.Excepciones.CasilleroOcupadoExcepcion;
 import fiuba.algo3.AlgoChess.Tablero.Posicion;
 import fiuba.algo3.AlgoChess.Tablero.Tablero;
 
-public class Soldado implements Entidad, ArmaParaCuerpoACuerpo {
+public class Soldado implements Entidad {
 
 	private final int DISTANCIA_MAX_ATAQUE  = 2;
 	
@@ -22,18 +20,18 @@ public class Soldado implements Entidad, ArmaParaCuerpoACuerpo {
 		
 	private final int VIDAINICIAL = 100;
 	
+	private final int COSTO = 1;
+	
 	private Bando bando;
 	
 	private int vida = VIDAINICIAL;
 	
-	private int costo = 1;
-	
 	private Posicion posicion;
+	
+	private Armas espada;
 	
 	public Tablero tablero = Tablero.getInstanciaTablero();
 	
-	private BuscadorDeEntidades buscador = new BuscadorDeEntidades(tablero.getMap());
-
 	private List<Soldado> soldadosParaBatallon = new ArrayList<Soldado>();
 	
 	public  List<Soldado> getListaBatallon(){
@@ -43,23 +41,12 @@ public class Soldado implements Entidad, ArmaParaCuerpoACuerpo {
 	public int getVida() {
 		return this.vida;
 	}
-	
-	public boolean estaEnRango(Entidad entidad) {
-		RadarDeEntidades distancia = new RadarDeEntidades(DISTANCIA_MIN_ATAQUE,DISTANCIA_MAX_ATAQUE);
-		return (distancia.estaEnElRadar(this.getPosicion().calcularDistanciaCon(entidad.getPosicion().getFila(),entidad.getPosicion().getColumna())));
-		
-	}
-	
+
 	public void formarListaDeSoldados(Soldado soldado) {
 		this.soldadosParaBatallon.add(soldado);
 	}
 	
-	public List<Entidad> filtrarAtacables(List<Entidad> enemigos){
-		List<Entidad> filtrados = new ArrayList<Entidad>();
-		enemigos.stream().filter(x -> estaEnRango(x) == true).forEach(x -> filtrados.add(x));
-		return filtrados;
-	}
-	
+
 	public void enlistarSoldadoParaBatallon(List<Soldado> soldados) {
 		soldados.stream().filter(x -> x.getPosicion().esPosicionAdyacente(getPosicion(), this.getPosicion())== true).forEach(x -> soldadosParaBatallon.add(x));			
 	}
@@ -71,7 +58,7 @@ public class Soldado implements Entidad, ArmaParaCuerpoACuerpo {
 
 	@Override
 	public int getCosto() {
-		return this.costo;
+		return this.COSTO;
 	}
 
 	@Override
@@ -97,19 +84,14 @@ public class Soldado implements Entidad, ArmaParaCuerpoACuerpo {
 	}
 
 	@Override
-	public void espada(List<Entidad> entidad, int danio) {
-		entidad.stream().forEach(x -> x.recibirDanio(danio));
-	}
-
-	@Override
 	public Bando getBando() {
 		return this.bando;
 	}
 
 	@Override
 	public void atacarEnemigo() {
-		List<Entidad> enemigos = buscador.buscarEnemigos(this.bando);
-		espada(filtrarAtacables(enemigos),DANIO_CUERPO);
+		espada = new Armas(DISTANCIA_MIN_ATAQUE,DISTANCIA_MAX_ATAQUE,this.getBando());
+		espada.soldadoUtilizaEspada(DANIO_CUERPO);
 	}
 
 	@Override

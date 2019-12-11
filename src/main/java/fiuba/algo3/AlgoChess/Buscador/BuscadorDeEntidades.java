@@ -8,13 +8,17 @@ import fiuba.algo3.AlgoChess.Bandos.Bando;
 import fiuba.algo3.AlgoChess.Entidades.Entidad;
 import fiuba.algo3.AlgoChess.Tablero.Casillero;
 import fiuba.algo3.AlgoChess.Tablero.Posicion;
+import fiuba.algo3.AlgoChess.Tablero.Tablero;
 
 public class BuscadorDeEntidades {
 
 	private  Map<Posicion,Casillero> casilleros;
 	
-	public BuscadorDeEntidades(Map<Posicion,Casillero> casilleros) {
-		this.casilleros = casilleros;
+	public Tablero tablero = new Tablero(20);
+	
+	public BuscadorDeEntidades() {
+		
+		this.casilleros = tablero.getMap();
 	}
 	
 	public List <Entidad> buscadorDeEntidades(){
@@ -30,11 +34,16 @@ public class BuscadorDeEntidades {
 		return enemigos;
 	}
 	
-	public List <Entidad> buscarAliados(Bando bansoAliado){
+	public boolean tengoAliados(Bando bando,Entidad entidad) {
+		boolean respuesta = false;
 		List<Entidad> entidades = buscadorDeEntidades();
 		List<Entidad> aliados = new ArrayList<Entidad>();
-		entidades.stream().filter(x -> x.getBando() == bansoAliado).forEach(x -> aliados.add(x.agregar(x)));
-		return aliados;	
+		entidades.stream().filter(x -> x.getBando() == bando).forEach(x -> aliados.add(x.agregar(x)));
+		for(Entidad entidad1 : aliados) {
+			if (entidad.getPosicion().esPosicionAdyacente(entidad1.getPosicion(), entidad.getPosicion())) {
+				respuesta = true;
+			}
+		}
+		return respuesta;
 	}
-	
 }
