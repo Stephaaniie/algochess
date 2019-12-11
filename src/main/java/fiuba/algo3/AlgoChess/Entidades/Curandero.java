@@ -2,7 +2,6 @@ package fiuba.algo3.AlgoChess.Entidades;
 import fiuba.algo3.AlgoChess.Bandos.Bando;
 import fiuba.algo3.AlgoChess.Direccion.Direccion;
 import fiuba.algo3.AlgoChess.Excepciones.CasilleroOcupadoExcepcion;
-import fiuba.algo3.AlgoChess.Excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
 import fiuba.algo3.AlgoChess.Excepciones.CuranderoNoPuedeAtacarExepcion;
 import fiuba.algo3.AlgoChess.Tablero.Posicion;
 import fiuba.algo3.AlgoChess.Tablero.Tablero;
@@ -47,8 +46,6 @@ public class Curandero implements Entidad {
 	public void reponerVida(int curacion) {
 		if ((this.vida += CURACION) > VIDAINICIAL){
 			this.vida = VIDAINICIAL;
-		}else {
-			throw new CuranderoCuraHastaLaMaximaVidaExcepcion();
 		}
 	}
 

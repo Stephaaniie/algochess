@@ -1,3 +1,9 @@
 ignore:
-  - "src/main/java/fiuba/algo3/Algochess/Controlador"
-  - "src/main/java/fiuba/algo3/Algochess/Vistas"
+  - "src/main/java/fiuba/algo3/Algochess/BotonComenzar"
+  - "src/main/java/fiuba/algo3/Algochess/EntidadesBotonParaComprar"
+  - "src/main/java/fiuba/algo3/Algochess/EntidadesControlador"
+  - "src/main/java/fiuba/algo3/Algochess/EntidadesHendler"
+  - "src/main/java/fiuba/algo3/Algochess/EntidadesVista"
+  - "src/main/java/fiuba/algo3/algochess/MoverControlador"
+  - "src/main/java/fiuba/algo3/Algochess/Teclado"
+  - "src/main/java/fiuba/algo3/Algochess/Ventana"

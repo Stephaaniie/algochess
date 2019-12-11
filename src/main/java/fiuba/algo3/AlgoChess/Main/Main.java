@@ -7,11 +7,11 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage){
-        //primaryStage.show();
-        //primaryStage.setResizable(false);
+        primaryStage.show();
+        primaryStage.setResizable(false);
     }
 
     public static void main(String[] args) {
-       // launch(args);
+        launch(args);
     }
 }
