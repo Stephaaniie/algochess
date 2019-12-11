@@ -1,7 +1,8 @@
 package fiuba.algo3.AlgoChess.Entidades;
 
-import fiuba.algo3.AlgoChess.Armas.Armas;
+import fiuba.algo3.AlgoChess.Armas.Arma;
 import fiuba.algo3.AlgoChess.Bandos.Bando;
+import fiuba.algo3.AlgoChess.Buscador.BuscadorDeEntidades;
 import fiuba.algo3.AlgoChess.Direccion.Direccion;
 import fiuba.algo3.AlgoChess.Excepciones.CasilleroOcupadoExcepcion;
 import fiuba.algo3.AlgoChess.Excepciones.CatapultaNoSeMueveExcepcion;
@@ -26,15 +27,21 @@ public class Catapulta implements Entidad{
 		
 	private Posicion posicion;
 	
-	private Armas objetosALanzar;
+	private Arma objetosALanzar;
 	
 	public Tablero tablero = Tablero.getInstanciaTablero();	
 	
+	private BuscadorDeEntidades buscador = new BuscadorDeEntidades();
+	
+	
+	public BuscadorDeEntidades getBuscador() {
+		return this.buscador;
+	}
 	
 	@Override
 	public void atacarEnemigo() {
-		objetosALanzar = new Armas(DISTANCIA_MIN_ATAQUE,DISTANCIA_MAX_ATAQUE,this.getBando());
-		objetosALanzar.objetosASerLanzados(DANIO_DISTANCIA);
+		objetosALanzar = new Arma(DISTANCIA_MIN_ATAQUE,DISTANCIA_MAX_ATAQUE);
+		objetosALanzar.objetosASerLanzados(this.getBuscador().buscadorDeEntidades(),DANIO_DISTANCIA);
 	}
 
     @Override

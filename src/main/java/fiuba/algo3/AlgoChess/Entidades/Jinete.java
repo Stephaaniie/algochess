@@ -1,6 +1,6 @@
 package fiuba.algo3.AlgoChess.Entidades;
 
-import fiuba.algo3.AlgoChess.Armas.Armas;
+import fiuba.algo3.AlgoChess.Armas.Arma;
 import fiuba.algo3.AlgoChess.Bandos.Bando;
 import fiuba.algo3.AlgoChess.Buscador.BuscadorDeEntidades;
 import fiuba.algo3.AlgoChess.Direccion.Direccion;
@@ -28,7 +28,7 @@ public class Jinete implements Entidad {
 	
 	private Posicion posicion;
 	
-	private Armas arcoYFlecha;
+	private Arma arcoYFlecha;
 		
 	private BuscadorDeEntidades buscador = new BuscadorDeEntidades();
 	
@@ -43,8 +43,8 @@ public class Jinete implements Entidad {
 	
 	@Override
 	public void atacarEnemigo() {
-		arcoYFlecha = new Armas(DIS_MIN_SIN_ALIADO,DIS_MAX_SIN_ALIADO,DIS_MIN_CON_ALIADO,DIS_MAX_CON_ALIADO,this.getBando());
-		arcoYFlecha.jineteAtaca(this,DANIO_DISTANCIA ,DANIO_CUERPO);
+		arcoYFlecha = new Arma(DIS_MIN_SIN_ALIADO,DIS_MAX_SIN_ALIADO,DIS_MIN_CON_ALIADO,DIS_MAX_CON_ALIADO);
+		arcoYFlecha.jineteAtaca(this.getBuscador().buscadorDeEntidades() ,this , DANIO_DISTANCIA ,DANIO_CUERPO);
 	}
 	
 	@Override

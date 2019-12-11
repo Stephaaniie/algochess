@@ -31,10 +31,10 @@ public class Tablero {
 		
 	private Map<Posicion,Casillero> casilleros;
 	
-	public Tablero(int tamanio) {
+	public Tablero() {
 		
-		this.radarDeAliados        = new RadarDeEntidades(0,(tamanio -1)/2);
-		this.radarDeEnemigos       = new RadarDeEntidades(tamanio/2, tamanio-1);
+		this.radarDeAliados        = new RadarDeEntidades(0,(TAMANIO_TABLERO -1)/2);
+		this.radarDeEnemigos       = new RadarDeEntidades(TAMANIO_TABLERO/2, TAMANIO_TABLERO-1);
 		this.casilleros            = new HashMap<Posicion,Casillero>();
 		this.entidadesDeCasilleros = new ArrayList<Entidad>();
 		this.casillerosAliado      = new ArrayList<Casillero>();
@@ -43,7 +43,7 @@ public class Tablero {
 
 	public static Tablero getInstanciaTablero(){
 		if(instanciaTablero == null) {
-			instanciaTablero = new Tablero(TAMANIO_TABLERO);
+			instanciaTablero = new Tablero();
 		}
 		return instanciaTablero;
 	}

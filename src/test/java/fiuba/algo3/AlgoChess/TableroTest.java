@@ -18,14 +18,14 @@ import fiuba.algo3.AlgoChess.Tablero.Tablero;
 public class TableroTest {
 	@Test
 	public void seCreaTableroSinProblema() {
-		Tablero tablero = new Tablero(20);
+		Tablero tablero = new Tablero();
 		
 		assertNotNull(tablero);
 	}
 	
 	@Test 
 	public void tableroCargaTodosSusCamposCorrectamente() {
-		Tablero tablero = new Tablero(20);
+		Tablero tablero = new Tablero();
 		
 		int tamanio  = tablero.tamanioTablero();
 		int casilleros = tablero.cantidadCasilleros();
@@ -48,7 +48,7 @@ public class TableroTest {
 			jugadores.agregarEntidad("jinete", new Posicion(20, 9));
 			jugadores.agregarEntidad("soldado", new Posicion(9, 10));
 			
-			Tablero tablero = new Tablero(20);
+			Tablero tablero = new Tablero();
 			
 			Entidad entidad  =  jugadores.getEntidad(new Posicion(7,9));
 			Entidad entidad2 = jugadores.getEntidad(new Posicion(11,10));
@@ -76,7 +76,7 @@ public class TableroTest {
 			jugadores.agregarEntidad("jinete", new Posicion(0, 9));
 			jugadores.agregarEntidad("soldado", new Posicion(11, 10));
 			
-			Tablero tablero = new Tablero(20);
+			Tablero tablero = new Tablero();
 			
 			Entidad entidad = jugadores.getEntidad(new Posicion(7,9));
 			Entidad entidad2 = jugadores.getEntidad(new Posicion(11,10));
@@ -102,7 +102,7 @@ public class TableroTest {
 		try {
 			jugadores.agregarEntidad("jinete", posicion);
 			
-			Tablero tablero = new Tablero(20);
+			Tablero tablero = new Tablero();
 			
 			Entidad entidad = jugadores.getEntidad(posicion);
 			
@@ -124,7 +124,7 @@ public class TableroTest {
 		
 		jugador1.agregarEntidad("jinete", new Posicion(20, 9));
 		try {
-			Tablero tablero = new Tablero(20);
+			Tablero tablero = new Tablero();
 			
 			Entidad entidad = jugador1.getEntidad(new Posicion(7,9));
 			

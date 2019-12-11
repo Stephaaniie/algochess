@@ -635,9 +635,7 @@ public class BatallonTest {
 		
 		Enemigo enemigo = new Enemigo();
 		Aliado aliado = new Aliado();
-		
-		boolean respuesta = false;
-		
+				
 		Jugador jugador = new Jugador("Cande",aliado, "Zey", enemigo);
 		
 		Posicion posicion1 = new Posicion(10, 7);

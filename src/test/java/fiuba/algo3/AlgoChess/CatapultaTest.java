@@ -60,7 +60,7 @@ public class CatapultaTest {
 		try {
 			jugador.agregarEntidad("catapulta", posicionVieja);
 			
-			Tablero tablero = new Tablero(20);
+			Tablero tablero = new Tablero();
 			
 			Entidad entidad = jugador.getEntidad(posicionVieja);
 			
@@ -106,17 +106,27 @@ public class CatapultaTest {
 		
 		Posicion posicion = new Posicion(10, 8);
 		
-		Posicion posicion1 = new Posicion(0, 7);
-		Posicion posicion2 = new Posicion(6, 7);
-		Posicion posicion3 = new Posicion(16, 7);
-		Posicion posicion4 = new Posicion(16, 7);
-		Posicion posicion5 = new Posicion(16, 7);
+		Posicion posicion3 = new Posicion(10, 2);
+		Posicion posicion5 = new Posicion(16, 8);
 		Posicion posicion6 = new Posicion(16, 7);
-		Posicion posicion7 = new Posicion(16, 7);
-		Posicion posicion8 = new Posicion(16, 7);
 		
 		jugador.agregarEntidad("catapulta", posicion);
+		jugador.agregarEntidad("soldado", posicion3);
+		jugador.agregarEntidad("curandero", posicion5);
+		jugador.agregarEntidad("jinete", posicion6);
+    
+		Tablero tablero = new Tablero();
+
+		tablero.agregarEntidadEnCasillero(jugador.getEntidad(posicion),posicion);
+		tablero.agregarEntidadEnCasillero(jugador.getEntidad(posicion3),posicion3);
+		tablero.agregarEntidadEnCasillero(jugador.getEntidad(posicion5),posicion5);
+		tablero.agregarEntidadEnCasillero(jugador.getEntidad(posicion6),posicion6);
 		
-		Entidad entidad  = jugador.getEntidad(posicion);
+		jugador.getEntidad(posicion).atacarEnemigo();
+
+		assertEquals(jugador.getEntidad(posicion3).getVida(),100);
+		assertEquals(jugador.getEntidad(posicion5).getVida(),75);
+		assertEquals(jugador.getEntidad(posicion6).getVida(),100);
     }
+    
 }

@@ -12,13 +12,14 @@ import fiuba.algo3.AlgoChess.Entidades.Entidad;
 
 
 public class BuscadorTest {
-		@Test
-		public void probarSiLaListaDeEntidadesEsIgualACeroPorQueNoHayEntidadesEnTablero() {						
+	
+	@Test
+	public void probarSiLaListaDeEntidadesEsIgualACeroPorQueNoHayEntidadesEnTablero() {						
 			
-			BuscadorDeEntidades buscador = new BuscadorDeEntidades();
+		BuscadorDeEntidades buscador = new BuscadorDeEntidades();
 																															
-			List<Entidad> listaAux = buscador.buscadorDeEntidades();
-
-			assertEquals(0, listaAux.size());
-		}
+		List<Entidad> listaAux = buscador.buscadorDeEntidades();
+		
+		assertEquals(0, listaAux.size());
+	}
 }

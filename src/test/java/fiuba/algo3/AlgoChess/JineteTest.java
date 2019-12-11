@@ -85,7 +85,7 @@ public class JineteTest {
 		
 		jugador.agregarEntidad("jinete", posicionVieja);
 		
-		Tablero tablero = new Tablero(20);
+		Tablero tablero = new Tablero();
 		
 		Entidad entidad = jugador.getEntidad(posicionVieja);
 		
@@ -113,7 +113,7 @@ public class JineteTest {
 		
 		jugador.agregarEntidad("jinete", posicionVieja);
 		
-		Tablero tablero = new Tablero(20);
+		Tablero tablero = new Tablero();
 		
 		Entidad entidad = jugador.getEntidad(posicionVieja);
 		
@@ -140,7 +140,7 @@ public class JineteTest {
 		
 		jugador.agregarEntidad("curandero", posicionVieja);
 		
-		Tablero tablero = new Tablero(20);
+		Tablero tablero = new Tablero();
 		
 		Entidad entidad = jugador.getEntidad(posicionVieja);
 		
@@ -166,7 +166,7 @@ public class JineteTest {
 		
 		jugador.agregarEntidad("curandero", posicionVieja);
 		
-		Tablero tablero = new Tablero(20);
+		Tablero tablero = new Tablero();
 		
 		Entidad entidad = jugador.getEntidad(posicionVieja);
 		
@@ -191,7 +191,7 @@ public class JineteTest {
 		
 		jugador.agregarEntidad("jinete", posicionVieja);
 		
-		Tablero tablero = new Tablero(20);
+		Tablero tablero = new Tablero();
 		
 		Entidad entidad = jugador.getEntidad(posicionVieja);
 		
@@ -217,7 +217,7 @@ public class JineteTest {
 		
 		jugador.agregarEntidad("curandero", posicionVieja);
 		
-		Tablero tablero = new Tablero(20);
+		Tablero tablero = new Tablero();
 		
 		Entidad entidad = jugador.getEntidad(posicionVieja);
 		
@@ -243,7 +243,7 @@ public class JineteTest {
 		
 		jugador.agregarEntidad("curandero", posicionVieja);
 		
-		Tablero tablero = new Tablero(20);
+		Tablero tablero = new Tablero();
 		
 		Entidad entidad = jugador.getEntidad(posicionVieja);
 		
@@ -269,7 +269,7 @@ public class JineteTest {
 		
 		jugador.agregarEntidad("curandero", posicionVieja);
 		
-		Tablero tablero = new Tablero(20);
+		Tablero tablero = new Tablero();
 		
 		Entidad entidad = jugador.getEntidad(posicionVieja);
 		
@@ -297,7 +297,7 @@ public class JineteTest {
 		jugador.agregarEntidad("jinete", posicionVieja1);
 		jugador.agregarEntidad("jinete", posicionVieja);
 		
-		Tablero tablero = new Tablero(20);
+		Tablero tablero = new Tablero();
 		
 		Entidad entidad  = jugador.getEntidad(posicionVieja);
 		Entidad entidad1 = jugador.getEntidad(posicionVieja1);

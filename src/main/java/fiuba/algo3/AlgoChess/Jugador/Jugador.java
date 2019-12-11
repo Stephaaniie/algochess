@@ -29,7 +29,7 @@ public class Jugador {
 	
 	private Jugador otroJugador;
 	
-	private Tablero tablero = new Tablero(20);
+	private Tablero tablero = new Tablero();
 	
 	public Jugador(String nombre, Bando bando, Jugador otroJugador) {
 		asignarAtributosDelJugador(nombre, bando);

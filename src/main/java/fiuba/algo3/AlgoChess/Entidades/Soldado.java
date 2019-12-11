@@ -3,8 +3,9 @@ package fiuba.algo3.AlgoChess.Entidades;
 import java.util.ArrayList;
 import java.util.List;
 
-import fiuba.algo3.AlgoChess.Armas.Armas;
+import fiuba.algo3.AlgoChess.Armas.Arma;
 import fiuba.algo3.AlgoChess.Bandos.Bando;
+import fiuba.algo3.AlgoChess.Buscador.BuscadorDeEntidades;
 import fiuba.algo3.AlgoChess.Direccion.Direccion;
 import fiuba.algo3.AlgoChess.Excepciones.CasilleroOcupadoExcepcion;
 import fiuba.algo3.AlgoChess.Tablero.Posicion;
@@ -28,11 +29,18 @@ public class Soldado implements Entidad {
 	
 	private Posicion posicion;
 	
-	private Armas espada;
+	private Arma espada;
 	
 	public Tablero tablero = Tablero.getInstanciaTablero();
 	
 	private List<Soldado> soldadosParaBatallon = new ArrayList<Soldado>();
+	
+	private BuscadorDeEntidades buscador = new BuscadorDeEntidades();
+	
+	
+	public BuscadorDeEntidades getBuscador() {
+		return this.buscador;
+	}
 	
 	public  List<Soldado> getListaBatallon(){
 		return this.soldadosParaBatallon;
@@ -90,8 +98,8 @@ public class Soldado implements Entidad {
 
 	@Override
 	public void atacarEnemigo() {
-		espada = new Armas(DISTANCIA_MIN_ATAQUE,DISTANCIA_MAX_ATAQUE,this.getBando());
-		espada.soldadoUtilizaEspada(DANIO_CUERPO);
+		espada = new Arma(DISTANCIA_MIN_ATAQUE,DISTANCIA_MAX_ATAQUE);
+		espada.soldadoUtilizaEspada(this.getBuscador().buscadorDeEntidades(), DANIO_CUERPO);
 	}
 
 	@Override

@@ -14,7 +14,7 @@ public class BuscadorDeEntidades {
 
 	private  Map<Posicion,Casillero> casilleros;
 	
-	public Tablero tablero = new Tablero(20);
+	public Tablero tablero =  new Tablero();
 	
 	public BuscadorDeEntidades() {
 		
