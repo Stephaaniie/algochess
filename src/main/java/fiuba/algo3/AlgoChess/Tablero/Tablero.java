@@ -10,7 +10,7 @@ import fiuba.algo3.AlgoChess.Buscador.RadarDeEntidades;
 import fiuba.algo3.AlgoChess.Entidades.Entidad;
 import fiuba.algo3.AlgoChess.Entidades.ObjetoNull;
 import fiuba.algo3.AlgoChess.Excepciones.CasilleroOcupadoExcepcion;
-import fiuba.algo3.AlgoChess.Excepciones.ColocarUnidadEnSectorEnemigoExcepcion;
+import fiuba.algo3.AlgoChess.Excepciones.ColocarEntidadEnSectorEnemigoExcepcion;
 import fiuba.algo3.AlgoChess.Jugador.Jugador;
 
 public class Tablero {
@@ -52,7 +52,11 @@ public class Tablero {
 		try{
 			Casillero casillero = new Casillero(posicionNueva);
 			agregarEntidad(entidad, posicionNueva,casillero);
-		}catch(CasilleroOcupadoExcepcion e){} catch (ColocarUnidadEnSectorEnemigoExcepcion n) {}
+		}catch(CasilleroOcupadoExcepcion e){
+			e.printStackTrace();
+		} catch (ColocarEntidadEnSectorEnemigoExcepcion n) {
+			n.printStackTrace();
+		}
 		quitarEntidadDeCasillero(posicionAnterior,entidad);
 	}
 	

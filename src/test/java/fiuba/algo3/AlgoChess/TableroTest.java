@@ -8,7 +8,7 @@ import org.junit.Test;
 import fiuba.algo3.AlgoChess.Bandos.Aliado;
 import fiuba.algo3.AlgoChess.Bandos.Enemigo;
 import fiuba.algo3.AlgoChess.Entidades.Entidad;
-import fiuba.algo3.AlgoChess.Excepciones.ColocarUnidadEnSectorEnemigoExcepcion;
+import fiuba.algo3.AlgoChess.Excepciones.ColocarEntidadEnSectorEnemigoExcepcion;
 import fiuba.algo3.AlgoChess.Excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 import fiuba.algo3.AlgoChess.Jugador.Jugador;
 import fiuba.algo3.AlgoChess.Tablero.Posicion;
@@ -54,7 +54,7 @@ public class TableroTest {
 			
 			tablero.agregarEntidadEnCasillero(entidad, new Posicion( 20, 9));
 			tablero.agregarEntidadEnCasillero(entidad2, new Posicion( 9, 10));
-		}catch( ColocarUnidadEnSectorEnemigoExcepcion e){
+		}catch( ColocarEntidadEnSectorEnemigoExcepcion e){
 			excepcion = true;
 		}
 		assertEquals(excepcion,true);
@@ -82,7 +82,7 @@ public class TableroTest {
 			
 			tablero.agregarEntidadEnCasillero(entidad,new Posicion( 20, 9));
 			tablero.agregarEntidadEnCasillero(entidad2,new Posicion( 9, 10));
-		}catch( ColocarUnidadEnSectorEnemigoExcepcion e){
+		}catch( ColocarEntidadEnSectorEnemigoExcepcion e){
 			excepcion = true;
 		}
 		assertEquals(excepcion,true);
@@ -104,7 +104,7 @@ public class TableroTest {
 			Entidad entidad = jugadores.getEntidad(new Posicion(7,9));
 			
 			tablero.agregarEntidadEnCasillero(entidad, new Posicion(0, 9));
-		}catch( ColocarUnidadEnSectorEnemigoExcepcion e){
+		}catch( ColocarEntidadEnSectorEnemigoExcepcion e){
 			excepcion = true;
 		}
 		assertEquals(excepcion,true);

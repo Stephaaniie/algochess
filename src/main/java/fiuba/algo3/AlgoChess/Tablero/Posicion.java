@@ -1,7 +1,9 @@
 package fiuba.algo3.AlgoChess.Tablero;
 
 public class Posicion{
+	
 	private int fila;
+	
 	private int columna;
 	
 	public Posicion(int fila, int columna) {

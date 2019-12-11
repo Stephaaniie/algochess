@@ -9,7 +9,7 @@ import fiuba.algo3.AlgoChess.Entidades.FabricaEntidades;
 import fiuba.algo3.AlgoChess.Entidades.ObjetoNull;
 import fiuba.algo3.AlgoChess.Excepciones.CantidadDePuntosInsuficientesExcepcion;
 import fiuba.algo3.AlgoChess.Excepciones.CasilleroOcupadoExcepcion;
-import fiuba.algo3.AlgoChess.Excepciones.ColocarUnidadEnSectorEnemigoExcepcion;
+import fiuba.algo3.AlgoChess.Excepciones.ColocarEntidadEnSectorEnemigoExcepcion;
 import fiuba.algo3.AlgoChess.Tablero.Posicion;
 import fiuba.algo3.AlgoChess.Tablero.Tablero;
 
@@ -57,7 +57,7 @@ public class Jugador {
 			tablero.agregarEntidadEnCasillero(entidad, posicion);
 			this.entidades.add(entidad);
 			entidad.recibirPosicionYBando(posicion, this.bando);
-		} catch (CasilleroOcupadoExcepcion e) {} catch (ColocarUnidadEnSectorEnemigoExcepcion e) {}catch(CantidadDePuntosInsuficientesExcepcion e){}
+		} catch (CasilleroOcupadoExcepcion e) {} catch (ColocarEntidadEnSectorEnemigoExcepcion e) {}catch(CantidadDePuntosInsuficientesExcepcion e){}
 	}
 
 	public void descontarPuntos(int numero) {

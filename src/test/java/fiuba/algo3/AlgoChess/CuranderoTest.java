@@ -21,7 +21,6 @@ import fiuba.algo3.AlgoChess.Entidades.Curandero;
 import fiuba.algo3.AlgoChess.Entidades.Entidad;
 import fiuba.algo3.AlgoChess.Entidades.Jinete;
 import fiuba.algo3.AlgoChess.Entidades.Soldado;
-import fiuba.algo3.AlgoChess.Excepciones.CuranderoCuraHastaLaMaximaVidaExcepcion;
 import fiuba.algo3.AlgoChess.Excepciones.CuranderoNoPuedeAtacarExepcion;
 import fiuba.algo3.AlgoChess.Excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 import fiuba.algo3.AlgoChess.Jugador.Jugador;
@@ -98,7 +97,7 @@ public class CuranderoTest {
 		catapulta.recibirDanio(20);
 		try {
 			curandero.curarEntidad(catapulta);
-		} catch (CuranderoCuraHastaLaMaximaVidaExcepcion | ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion e) {
+		} catch (ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion e) {
 			assertEquals(30, catapulta.getVida());
 		}
 	}
@@ -110,8 +109,6 @@ public class CuranderoTest {
 
 		try {
 			curandero.curarEntidad(curandero);
-		} catch (CuranderoCuraHastaLaMaximaVidaExcepcion e) {
-			e.printStackTrace();
 		} catch (ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion e) {
 			e.printStackTrace();
 		}

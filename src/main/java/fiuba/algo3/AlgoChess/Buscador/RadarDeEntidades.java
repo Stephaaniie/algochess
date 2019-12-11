@@ -2,7 +2,7 @@ package fiuba.algo3.AlgoChess.Buscador;
 
 import fiuba.algo3.AlgoChess.Bandos.Bando;
 import fiuba.algo3.AlgoChess.Entidades.Entidad;
-import fiuba.algo3.AlgoChess.Excepciones.ColocarUnidadEnSectorEnemigoExcepcion;
+import fiuba.algo3.AlgoChess.Excepciones.ColocarEntidadEnSectorEnemigoExcepcion;
 import fiuba.algo3.AlgoChess.Tablero.Casillero;
 import fiuba.algo3.AlgoChess.Tablero.Posicion;
 import fiuba.algo3.AlgoChess.Tablero.Tablero;
@@ -22,9 +22,8 @@ public class RadarDeEntidades {
 		if(estaEnElRadar(posicion)) {
 			casillero.agregarEntidad(entidad);
 			tablero.agregarCasillero(casillero,posicion);
-		}
-		else {
-			throw new ColocarUnidadEnSectorEnemigoExcepcion();
+		}else {
+			throw new ColocarEntidadEnSectorEnemigoExcepcion();
 		}
 	}
 	

@@ -4,7 +4,9 @@ import fiuba.algo3.AlgoChess.Entidades.Entidad;
 import fiuba.algo3.AlgoChess.Entidades.ObjetoNull;
 
 public class Casillero {
+	
 	private Posicion posicion;
+	
 	private Entidad entidad = new ObjetoNull();
 
 	public Casillero(Posicion posicion){
