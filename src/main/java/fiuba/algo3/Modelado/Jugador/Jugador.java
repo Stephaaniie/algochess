@@ -99,8 +99,13 @@ public class Jugador {
 		return this.getListDeEntidades().size();
 	}
 	
-	public void eliminarEntidad(Entidad entidad) {
-		this.entidades.remove(entidad);
+	public void estadoDeEntidad(Entidad entidad) {
+		if(entidad.getVida() <= 0) {
+			eliminarEntidad(entidad);
+		}
+	}
+	private void eliminarEntidad(Entidad entidad) {
+		entidades.remove(entidad);
 	}
 
 }

@@ -1,5 +1,6 @@
 package fiuba.algo3.AlgoChess;
 
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -22,6 +23,8 @@ import fiuba.algo3.AlgoChess.Excepciones.BatallonYaPoseeBandoYPosicionesExcepcio
 import fiuba.algo3.AlgoChess.Excepciones.CasilleroOcupadoExcepcion;
 import fiuba.algo3.AlgoChess.Jugador.Jugador;
 import fiuba.algo3.AlgoChess.Tablero.Posicion;
+
+
 
 public class BatallonTest {
 	@Test

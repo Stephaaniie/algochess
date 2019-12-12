@@ -11,6 +11,7 @@ import fiuba.algo3.AlgoChess.Buscador.BuscadorDeEntidades;
 import fiuba.algo3.AlgoChess.Entidades.Entidad;
 
 
+
 public class BuscadorTest {
 	
 	@Test

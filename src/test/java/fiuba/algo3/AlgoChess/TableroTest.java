@@ -130,7 +130,7 @@ public class TableroTest {
 			
 			tablero.agregarEntidadEnCasillero(entidad, new Posicion( 15, 9));
 		
-			jugador1.eliminarEntidad(entidad);
+			jugador1.estadoDeEntidad(entidad);
 			tablero.getEntidadEnPosicion(entidad.getPosicion());
 		}catch( ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion e) {
 			respuesta = true;

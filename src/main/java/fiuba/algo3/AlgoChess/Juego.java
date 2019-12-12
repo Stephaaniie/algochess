@@ -1,5 +1,8 @@
 package fiuba.algo3.AlgoChess;
 
+import fiuba.algo3.AlgoChess.Bandos.Aliado;
+import fiuba.algo3.AlgoChess.Bandos.Bando;
+import fiuba.algo3.AlgoChess.Bandos.Enemigo;
 import fiuba.algo3.AlgoChess.Jugador.Jugador;
 import fiuba.algo3.AlgoChess.Tablero.Tablero;
 
@@ -11,34 +14,39 @@ public class Juego {
 	
 	private Jugador jugadorEnemigo;
 
-	public Juego() {
-		this.setTablero(Tablero.getInstanciaTablero());
-		this.setJugadorAliado(null);
-		this.setJugadorEnemigo(null);
+	private Bando aliado = new Aliado();
+	
+	private Bando enemigo = new Enemigo();
+	
+	private static Juego instanciaDeJuego = null;
+	
+	public Juego(String nomJugador1, String nomJugador2) {
+		
+		this.tablero = Tablero.getInstanciaTablero();
+		
+		this.jugadorEnemigo = new Jugador(nomJugador1, aliado, nomJugador2, enemigo);
+		
+		this.jugadorAliado = jugadorEnemigo.obtenerSiguienteJugador();
 	}
 	
-
-	public Jugador getJugadorEnemigo() {
-		return jugadorEnemigo;
+	public static Juego getInstanciaJuego(String nomJugador1, String nomJugador2) {
+		if(instanciaDeJuego == null) {
+			instanciaDeJuego = new Juego(nomJugador1,nomJugador2);
+		}
+		return instanciaDeJuego;
 	}
-
-	public void setJugadorEnemigo(Jugador jugadorEnemigo) {
-		this.jugadorEnemigo = jugadorEnemigo;
+	
+	
+	public Jugador getJugadorEnemigo() {
+		return this.jugadorEnemigo;
 	}
 
 	public Jugador getJugadorAliado() {
-		return jugadorAliado;
-	}
-
-	public void setJugadorAliado(Jugador jugadorAliado) {
-		this.jugadorAliado = jugadorAliado;
+		return this.jugadorAliado;
 	}
 
 	public Tablero getTablero() {
-		return tablero;
+		return this.tablero;
 	}
 
-	public void setTablero(Tablero tablero) {
-		this.tablero = tablero;
-	}
 }
