@@ -1,5 +1,4 @@
-package fiuba.algo3.AlgoChess.Excepciones;
-
+package fiuba.algo3.Modelado.Excepciones;
 
 public class CantidadDePuntosInsuficientesExcepcion extends RuntimeException{
 

@@ -1,14 +1,15 @@
-package fiuba.algo3.AlgoChess.Buscador;
+package fiuba.algo3.Modelado.Buscador;
+
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import fiuba.algo3.AlgoChess.Bandos.Bando;
-import fiuba.algo3.AlgoChess.Entidades.Entidad;
-import fiuba.algo3.AlgoChess.Tablero.Casillero;
-import fiuba.algo3.AlgoChess.Tablero.Posicion;
-import fiuba.algo3.AlgoChess.Tablero.Tablero;
+import fiuba.algo3.Modelado.Bandos.Bando;
+import fiuba.algo3.Modelado.Entidades.Entidad;
+import fiuba.algo3.Modelado.Tablero.Casillero;
+import fiuba.algo3.Modelado.Tablero.Posicion;
+import fiuba.algo3.Modelado.Tablero.Tablero;
 
 public class BuscadorDeEntidades {
 

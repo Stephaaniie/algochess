@@ -1,9 +1,9 @@
-package fiuba.algo3.AlgoChess.EntidadesHendler;
+package fiuba.algo3.Controlador.EntidadesHendler;
 
-import fiuba.algo3.AlgoChess.Entidades.Soldado;
-import fiuba.algo3.AlgoChess.Tablero.Tablero;
-import fiuba.algo3.AlgoChess.Ventana.PosicionarEntidadesEnTablero;
-import fiuba.algo3.AlgoChess.Ventana.VistaDelTablero;
+import fiuba.algo3.Modelado.Entidades.Soldado;
+import fiuba.algo3.Modelado.Tablero.Tablero;
+import fiuba.algo3.Vista.Ventana.PosicionarEntidadesEnTablero;
+import fiuba.algo3.Vista.Ventana.VistaDelTablero;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 

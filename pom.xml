@@ -136,7 +136,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.3</version>
                 <configuration>
-                    <mainClass>fiuba.algo3.AlgoChess.Main.Main</mainClass>
+                    <mainClass>fiuba.algo3.Vista.Main</mainClass>
                 </configuration>
             </plugin>
             <plugin>

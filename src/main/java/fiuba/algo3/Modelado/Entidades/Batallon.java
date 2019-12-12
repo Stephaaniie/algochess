@@ -1,12 +1,13 @@
-package fiuba.algo3.AlgoChess.Entidades;
+package fiuba.algo3.Modelado.Entidades;
 
 import java.util.List;
 
-import fiuba.algo3.AlgoChess.Bandos.Bando;
-import fiuba.algo3.AlgoChess.Direccion.Direccion;
-import fiuba.algo3.AlgoChess.Excepciones.BatallonYaPoseeBandoYPosicionesExcepcion;
-import fiuba.algo3.AlgoChess.Excepciones.CasilleroOcupadoExcepcion;
-import fiuba.algo3.AlgoChess.Tablero.Posicion;
+import fiuba.algo3.Modelado.Bandos.Bando;
+import fiuba.algo3.Modelado.Direccion.Direccion;
+import fiuba.algo3.Modelado.Excepciones.BatallonYaPoseeBandoYPosicionesExcepcion;
+import fiuba.algo3.Modelado.Excepciones.CasilleroOcupadoExcepcion;
+import fiuba.algo3.Modelado.Tablero.Posicion;
+
 
 public class Batallon implements Entidad{
 	

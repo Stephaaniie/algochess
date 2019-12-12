@@ -1,10 +1,10 @@
-package fiuba.algo3.AlgoChess.EntidadesControlador;
+package fiuba.algo3.Controlador.EntidadesControlador;
 
 import java.util.List;
 
-import fiuba.algo3.AlgoChess.Entidades.Entidad;
-import fiuba.algo3.AlgoChess.MoverControlador.Manejador;
-import fiuba.algo3.AlgoChess.Ventana.VistaDelTablero;
+import fiuba.algo3.Controlador.MoverControlador.Manejador;
+import fiuba.algo3.Modelado.Entidades.Entidad;
+import fiuba.algo3.Vista.Ventana.VistaDelTablero;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;

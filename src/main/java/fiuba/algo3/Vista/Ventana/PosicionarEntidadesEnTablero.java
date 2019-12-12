@@ -1,15 +1,15 @@
-package fiuba.algo3.AlgoChess.Ventana;
+package fiuba.algo3.Vista.Ventana;
 
-import fiuba.algo3.AlgoChess.Entidades.Catapulta;
-import fiuba.algo3.AlgoChess.Entidades.Entidad;
-import fiuba.algo3.AlgoChess.Entidades.Jinete;
-import fiuba.algo3.AlgoChess.Entidades.Soldado;
-import fiuba.algo3.AlgoChess.EntidadesVista.CatapultaVista;
-import fiuba.algo3.AlgoChess.EntidadesVista.CuranderoVista;
-import fiuba.algo3.AlgoChess.EntidadesVista.JineteVista;
-import fiuba.algo3.AlgoChess.EntidadesVista.SoldadoVista;
-import fiuba.algo3.AlgoChess.Tablero.Posicion;
-import fiuba.algo3.AlgoChess.Tablero.Tablero;
+import fiuba.algo3.Modelado.Entidades.Catapulta;
+import fiuba.algo3.Modelado.Entidades.Entidad;
+import fiuba.algo3.Modelado.Entidades.Jinete;
+import fiuba.algo3.Modelado.Entidades.Soldado;
+import fiuba.algo3.Modelado.Tablero.Posicion;
+import fiuba.algo3.Modelado.Tablero.Tablero;
+import fiuba.algo3.Vista.EntidadesVista.CatapultaVista;
+import fiuba.algo3.Vista.EntidadesVista.CuranderoVista;
+import fiuba.algo3.Vista.EntidadesVista.JineteVista;
+import fiuba.algo3.Vista.EntidadesVista.SoldadoVista;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;

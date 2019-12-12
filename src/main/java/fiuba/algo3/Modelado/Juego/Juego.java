@@ -1,10 +1,10 @@
-package fiuba.algo3.AlgoChess;
+package fiuba.algo3.Modelado.Juego;
 
-import fiuba.algo3.AlgoChess.Bandos.Aliado;
-import fiuba.algo3.AlgoChess.Bandos.Bando;
-import fiuba.algo3.AlgoChess.Bandos.Enemigo;
-import fiuba.algo3.AlgoChess.Jugador.Jugador;
-import fiuba.algo3.AlgoChess.Tablero.Tablero;
+import fiuba.algo3.Modelado.Bandos.Aliado;
+import fiuba.algo3.Modelado.Bandos.Bando;
+import fiuba.algo3.Modelado.Bandos.Enemigo;
+import fiuba.algo3.Modelado.Jugador.Jugador;
+import fiuba.algo3.Modelado.Tablero.Tablero;
 
 public class Juego {
 	

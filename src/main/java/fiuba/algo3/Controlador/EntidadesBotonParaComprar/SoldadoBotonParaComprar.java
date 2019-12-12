@@ -1,4 +1,4 @@
-package fiuba.algo3.AlgoChess.EntidadesBotonParaComprar;
+package fiuba.algo3.Controlador.EntidadesBotonParaComprar;
 
 public class SoldadoBotonParaComprar {
 

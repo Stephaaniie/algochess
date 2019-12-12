@@ -1,7 +1,7 @@
-package fiuba.algo3.AlgoChess.MoverControlador;
+package fiuba.algo3.Controlador.MoverControlador;
 
-import fiuba.algo3.AlgoChess.Direccion.ArribaDerecha;
-import fiuba.algo3.AlgoChess.Entidades.Entidad;
+import fiuba.algo3.Modelado.Direccion.ArribaDerecha;
+import fiuba.algo3.Modelado.Entidades.Entidad;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 

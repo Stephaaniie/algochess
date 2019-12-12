@@ -1,4 +1,4 @@
-package fiuba.algo3.AlgoChess;
+package fiuba.algo3.Modelado;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
@@ -7,8 +7,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
-import fiuba.algo3.AlgoChess.Tablero.Posicion;
-
+import fiuba.algo3.Modelado.Tablero.Posicion;
 
 public class PosicionTest {
 	@Before

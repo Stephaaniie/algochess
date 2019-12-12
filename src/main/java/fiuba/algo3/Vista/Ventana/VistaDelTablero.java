@@ -1,17 +1,17 @@
-package fiuba.algo3.AlgoChess.Ventana;
+package fiuba.algo3.Vista.Ventana;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import fiuba.algo3.AlgoChess.Entidades.Entidad;
-import fiuba.algo3.AlgoChess.MoverControlador.MoverAbajoControlador;
-import fiuba.algo3.AlgoChess.MoverControlador.MoverAbajoDerechaControlador;
-import fiuba.algo3.AlgoChess.MoverControlador.MoverAbajoIzquierdaControlador;
-import fiuba.algo3.AlgoChess.MoverControlador.MoverArribaControlador;
-import fiuba.algo3.AlgoChess.MoverControlador.MoverArribaDerechaControlador;
-import fiuba.algo3.AlgoChess.MoverControlador.MoverArribaIzquierdaControlador;
-import fiuba.algo3.AlgoChess.MoverControlador.MoverDerechaControlador;
-import fiuba.algo3.AlgoChess.MoverControlador.MoverIzquierdaControlador;
+import fiuba.algo3.Controlador.MoverControlador.MoverAbajoControlador;
+import fiuba.algo3.Controlador.MoverControlador.MoverAbajoDerechaControlador;
+import fiuba.algo3.Controlador.MoverControlador.MoverAbajoIzquierdaControlador;
+import fiuba.algo3.Controlador.MoverControlador.MoverArribaControlador;
+import fiuba.algo3.Controlador.MoverControlador.MoverArribaDerechaControlador;
+import fiuba.algo3.Controlador.MoverControlador.MoverArribaIzquierdaControlador;
+import fiuba.algo3.Controlador.MoverControlador.MoverDerechaControlador;
+import fiuba.algo3.Controlador.MoverControlador.MoverIzquierdaControlador;
+import fiuba.algo3.Modelado.Entidades.Entidad;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.layout.GridPane;

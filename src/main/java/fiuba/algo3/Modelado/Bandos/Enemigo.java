@@ -1,4 +1,4 @@
-package fiuba.algo3.AlgoChess.Bandos;
+package fiuba.algo3.Modelado.Bandos;
 
 public class Enemigo implements Bando {
     @Override

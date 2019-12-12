@@ -1,12 +1,10 @@
-package fiuba.algo3.AlgoChess.Direccion;
+package fiuba.algo3.Modelado.Direccion;
 
-import fiuba.algo3.AlgoChess.Tablero.Posicion;
+import fiuba.algo3.Modelado.Tablero.Posicion;
 
 public class Derecha implements Direccion {
     @Override
     public Posicion avanzar(Posicion posicion) {
-        int columnaDerecha = posicion.getColumna() + 1;
-
-        return new Posicion(posicion.getFila(), columnaDerecha);
+        return new Posicion(posicion.getFila(), posicion.getColumna() + 1);
     }
 }

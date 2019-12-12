@@ -1,4 +1,4 @@
-package fiuba.algo3.AlgoChess.BotonComenzar;
+package fiuba.algo3.Controlador.BotonComenzar;
 
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;

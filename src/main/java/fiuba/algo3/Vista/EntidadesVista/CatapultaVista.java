@@ -1,4 +1,4 @@
-package fiuba.algo3.AlgoChess.EntidadesVista;
+package fiuba.algo3.Vista.EntidadesVista;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -6,9 +6,9 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import fiuba.algo3.AlgoChess.Entidades.Entidad;
-import fiuba.algo3.AlgoChess.EntidadesControlador.JineteControlador;
-import fiuba.algo3.AlgoChess.Ventana.VistaDelTablero;
+import fiuba.algo3.Controlador.EntidadesControlador.JineteControlador;
+import fiuba.algo3.Modelado.Entidades.Entidad;
+import fiuba.algo3.Vista.Ventana.VistaDelTablero;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;

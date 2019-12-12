@@ -1,9 +1,9 @@
-package fiuba.algo3.AlgoChess.Entidades;
+package fiuba.algo3.Modelado.Entidades;
 
-import fiuba.algo3.AlgoChess.Armas.Ataque;
-import fiuba.algo3.AlgoChess.Bandos.Bando;
-import fiuba.algo3.AlgoChess.Direccion.Direccion;
-import fiuba.algo3.AlgoChess.Tablero.Posicion;
+import fiuba.algo3.Modelado.Armas.Ataque;
+import fiuba.algo3.Modelado.Bandos.Bando;
+import fiuba.algo3.Modelado.Direccion.Direccion;
+import fiuba.algo3.Modelado.Tablero.Posicion;
 
 public interface Entidad extends Ataque {
 

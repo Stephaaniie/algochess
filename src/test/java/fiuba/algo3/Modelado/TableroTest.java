@@ -1,19 +1,19 @@
-package fiuba.algo3.AlgoChess;
+package fiuba.algo3.Modelado;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import fiuba.algo3.AlgoChess.Bandos.Aliado;
-import fiuba.algo3.AlgoChess.Bandos.Enemigo;
-import fiuba.algo3.AlgoChess.Buscador.RadarDeEntidades;
-import fiuba.algo3.AlgoChess.Entidades.Entidad;
-import fiuba.algo3.AlgoChess.Excepciones.ColocarEntidadEnSectorEnemigoExcepcion;
-import fiuba.algo3.AlgoChess.Excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
-import fiuba.algo3.AlgoChess.Jugador.Jugador;
-import fiuba.algo3.AlgoChess.Tablero.Posicion;
-import fiuba.algo3.AlgoChess.Tablero.Tablero;
+import fiuba.algo3.Modelado.Bandos.Aliado;
+import fiuba.algo3.Modelado.Bandos.Enemigo;
+import fiuba.algo3.Modelado.Buscador.RadarDeEntidades;
+import fiuba.algo3.Modelado.Entidades.Entidad;
+import fiuba.algo3.Modelado.Excepciones.ColocarEntidadEnSectorEnemigoExcepcion;
+import fiuba.algo3.Modelado.Excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
+import fiuba.algo3.Modelado.Jugador.Jugador;
+import fiuba.algo3.Modelado.Tablero.Posicion;
+import fiuba.algo3.Modelado.Tablero.Tablero;
 
 public class TableroTest {
 	@Test

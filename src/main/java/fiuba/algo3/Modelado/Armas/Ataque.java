@@ -1,4 +1,4 @@
-package fiuba.algo3.AlgoChess.Armas;
+package fiuba.algo3.Modelado.Armas;
 
 public interface Ataque {
 

@@ -1,12 +1,12 @@
-package fiuba.algo3.AlgoChess.Entidades;
+package fiuba.algo3.Modelado.Entidades;
 
-import fiuba.algo3.AlgoChess.Armas.Arma;
-import fiuba.algo3.AlgoChess.Bandos.Bando;
-import fiuba.algo3.AlgoChess.Buscador.BuscadorDeEntidades;
-import fiuba.algo3.AlgoChess.Direccion.Direccion;
-import fiuba.algo3.AlgoChess.Excepciones.CasilleroOcupadoExcepcion;
-import fiuba.algo3.AlgoChess.Tablero.Posicion;
-import fiuba.algo3.AlgoChess.Tablero.Tablero;
+import fiuba.algo3.Modelado.Armas.Arma;
+import fiuba.algo3.Modelado.Bandos.Bando;
+import fiuba.algo3.Modelado.Buscador.BuscadorDeEntidades;
+import fiuba.algo3.Modelado.Direccion.Direccion;
+import fiuba.algo3.Modelado.Excepciones.CasilleroOcupadoExcepcion;
+import fiuba.algo3.Modelado.Tablero.Posicion;
+import fiuba.algo3.Modelado.Tablero.Tablero;
 
 public class Jinete implements Entidad {
 	

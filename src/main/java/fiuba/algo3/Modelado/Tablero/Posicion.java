@@ -1,4 +1,4 @@
-package fiuba.algo3.AlgoChess.Tablero;
+package fiuba.algo3.Modelado.Tablero;
 
 public class Posicion{
 	

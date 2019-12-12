@@ -1,15 +1,15 @@
-package fiuba.algo3.AlgoChess;
+package fiuba.algo3.Modelado;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import fiuba.algo3.AlgoChess.Bandos.Aliado;
-import fiuba.algo3.AlgoChess.Direccion.Arriba;
-import fiuba.algo3.AlgoChess.Entidades.ObjetoNull;
-import fiuba.algo3.AlgoChess.Excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
-import fiuba.algo3.AlgoChess.Tablero.Posicion;
+import fiuba.algo3.Modelado.Bandos.Aliado;
+import fiuba.algo3.Modelado.Direccion.Arriba;
+import fiuba.algo3.Modelado.Entidades.ObjetoNull;
+import fiuba.algo3.Modelado.Excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
+import fiuba.algo3.Modelado.Tablero.Posicion;
 
 public class ObjetoNullTest {
 	

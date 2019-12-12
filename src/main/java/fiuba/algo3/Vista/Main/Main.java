@@ -1,4 +1,4 @@
-package fiuba.algo3.AlgoChess.Main;
+package fiuba.algo3.Vista.Main;
 
 import javafx.application.Application;
 import javafx.stage.Stage;

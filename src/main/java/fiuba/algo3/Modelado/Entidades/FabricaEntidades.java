@@ -1,6 +1,6 @@
-package fiuba.algo3.AlgoChess.Entidades;
+package fiuba.algo3.Modelado.Entidades;
 
-import fiuba.algo3.AlgoChess.Excepciones.EntidadInvalidaExcepcion;
+import fiuba.algo3.Modelado.Excepciones.EntidadInvalidaExcepcion;
 
 public class FabricaEntidades {
 

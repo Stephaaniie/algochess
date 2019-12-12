@@ -1,11 +1,11 @@
-package fiuba.algo3.AlgoChess.Armas;
+package fiuba.algo3.Modelado.Armas;
 
 import java.util.List;
 
-import fiuba.algo3.AlgoChess.Buscador.BuscadorDeEntidades;
-import fiuba.algo3.AlgoChess.Buscador.RadarDeEntidades;
-import fiuba.algo3.AlgoChess.Entidades.Entidad;
-import fiuba.algo3.AlgoChess.Entidades.Jinete;
+import fiuba.algo3.Modelado.Buscador.BuscadorDeEntidades;
+import fiuba.algo3.Modelado.Buscador.RadarDeEntidades;
+import fiuba.algo3.Modelado.Entidades.Entidad;
+import fiuba.algo3.Modelado.Entidades.Jinete;
 
 public class Arma {
 	

@@ -1,22 +1,22 @@
-package fiuba.algo3.AlgoChess;
+package fiuba.algo3.Modelado;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import fiuba.algo3.AlgoChess.Bandos.Aliado;
-import fiuba.algo3.AlgoChess.Bandos.Enemigo;
-import fiuba.algo3.AlgoChess.Direccion.Abajo;
-import fiuba.algo3.AlgoChess.Direccion.Direccion;
-import fiuba.algo3.AlgoChess.Entidades.Catapulta;
-import fiuba.algo3.AlgoChess.Entidades.Entidad;
-import fiuba.algo3.AlgoChess.Entidades.Jinete;
-import fiuba.algo3.AlgoChess.Entidades.Soldado;
-import fiuba.algo3.AlgoChess.Excepciones.CasilleroOcupadoExcepcion;
-import fiuba.algo3.AlgoChess.Excepciones.CatapultaNoSeMueveExcepcion;
-import fiuba.algo3.AlgoChess.Jugador.Jugador;
-import fiuba.algo3.AlgoChess.Tablero.Posicion;
-import fiuba.algo3.AlgoChess.Tablero.Tablero;
+import fiuba.algo3.Modelado.Bandos.Aliado;
+import fiuba.algo3.Modelado.Bandos.Enemigo;
+import fiuba.algo3.Modelado.Direccion.Abajo;
+import fiuba.algo3.Modelado.Direccion.Direccion;
+import fiuba.algo3.Modelado.Entidades.Catapulta;
+import fiuba.algo3.Modelado.Entidades.Entidad;
+import fiuba.algo3.Modelado.Entidades.Jinete;
+import fiuba.algo3.Modelado.Entidades.Soldado;
+import fiuba.algo3.Modelado.Excepciones.CasilleroOcupadoExcepcion;
+import fiuba.algo3.Modelado.Excepciones.CatapultaNoSeMueveExcepcion;
+import fiuba.algo3.Modelado.Jugador.Jugador;
+import fiuba.algo3.Modelado.Tablero.Posicion;
+import fiuba.algo3.Modelado.Tablero.Tablero;
 
 public class CatapultaTest {
 	@Test

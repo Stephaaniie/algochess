@@ -1,7 +1,7 @@
-package fiuba.algo3.AlgoChess.Tablero;
+package fiuba.algo3.Modelado.Tablero;
 
-import fiuba.algo3.AlgoChess.Entidades.Entidad;
-import fiuba.algo3.AlgoChess.Entidades.ObjetoNull;
+import fiuba.algo3.Modelado.Entidades.Entidad;
+import fiuba.algo3.Modelado.Entidades.ObjetoNull;
 
 public class Casillero {
 	

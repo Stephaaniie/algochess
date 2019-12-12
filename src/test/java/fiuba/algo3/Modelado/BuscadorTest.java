@@ -1,5 +1,4 @@
-package fiuba.algo3.AlgoChess;
-
+package fiuba.algo3.Modelado;
 
 import static org.junit.Assert.assertEquals;
 
@@ -7,10 +6,8 @@ import java.util.List;
 
 import org.junit.Test;
 
-import fiuba.algo3.AlgoChess.Buscador.BuscadorDeEntidades;
-import fiuba.algo3.AlgoChess.Entidades.Entidad;
-
-
+import fiuba.algo3.Modelado.Buscador.BuscadorDeEntidades;
+import fiuba.algo3.Modelado.Entidades.Entidad;
 
 public class BuscadorTest {
 	

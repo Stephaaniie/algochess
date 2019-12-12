@@ -1,8 +1,8 @@
-package fiuba.algo3.AlgoChess.EntidadesBotonParaComprar;
+package fiuba.algo3.Controlador.EntidadesBotonParaComprar;
 
-import fiuba.algo3.AlgoChess.EntidadesHendler.ComprarHandlerCatapulta;
-import fiuba.algo3.AlgoChess.Tablero.Tablero;
-import fiuba.algo3.AlgoChess.Ventana.VistaDelTablero;
+import fiuba.algo3.Controlador.EntidadesHendler.ComprarHandlerCatapulta;
+import fiuba.algo3.Modelado.Tablero.Tablero;
+import fiuba.algo3.Vista.Ventana.VistaDelTablero;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.text.TextAlignment;

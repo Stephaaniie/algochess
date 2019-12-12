@@ -1,4 +1,4 @@
-package fiuba.algo3.AlgoChess.Teclado;
+package fiuba.algo3.Controlador.Teclado;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;

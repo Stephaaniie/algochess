@@ -1,10 +1,11 @@
-package fiuba.algo3.AlgoChess.Entidades;
-import fiuba.algo3.AlgoChess.Bandos.Bando;
-import fiuba.algo3.AlgoChess.Direccion.Direccion;
-import fiuba.algo3.AlgoChess.Excepciones.CasilleroOcupadoExcepcion;
-import fiuba.algo3.AlgoChess.Excepciones.CuranderoNoPuedeAtacarExepcion;
-import fiuba.algo3.AlgoChess.Tablero.Posicion;
-import fiuba.algo3.AlgoChess.Tablero.Tablero;
+package fiuba.algo3.Modelado.Entidades;
+
+import fiuba.algo3.Modelado.Bandos.Bando;
+import fiuba.algo3.Modelado.Direccion.Direccion;
+import fiuba.algo3.Modelado.Excepciones.CasilleroOcupadoExcepcion;
+import fiuba.algo3.Modelado.Excepciones.CuranderoNoPuedeAtacarExepcion;
+import fiuba.algo3.Modelado.Tablero.Posicion;
+import fiuba.algo3.Modelado.Tablero.Tablero;
 
 public class Curandero implements Entidad {
 
