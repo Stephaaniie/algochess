@@ -61,13 +61,13 @@ public class Tablero {
 	}
 	
 	private void agregarEntidad(Entidad entidad, Posicion posicion,Casillero casillero) {
-		this.radarDeAliados.posicionarEntidad(posicion, casillero, entidad, this, entidad.getBando());
+		this.radarDeAliados.posicionarEntidad(posicion, casillero, entidad, this, entidad.getBando(),this.casillerosAliado);
 	}
 	
-	public void agregarEntidadSectorEnemigo(Posicion posicion, Entidad entidad){
+	public void agregarEntidadSectorEnemigo(Posicion posicion, Entidad entidad,Casillero casillero){
 		if(this.radarDeEnemigos.estaEnElRadar(posicion)) {
-			this.casilleros.put(posicion, agregarEntidadEnCasillero(entidad, posicion));
-			casillerosEnemigo.add(agregarEntidadEnCasillero(entidad, posicion));
+			this.casilleros.put(posicion,casillero);
+			casillerosEnemigo.add(casillero);
 		}
 	}
 	

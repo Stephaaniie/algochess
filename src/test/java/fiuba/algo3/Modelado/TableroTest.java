@@ -9,6 +9,7 @@ import fiuba.algo3.Modelado.Bandos.Aliado;
 import fiuba.algo3.Modelado.Bandos.Enemigo;
 import fiuba.algo3.Modelado.Buscador.RadarDeEntidades;
 import fiuba.algo3.Modelado.Entidades.Entidad;
+import fiuba.algo3.Modelado.Entidades.Soldado;
 import fiuba.algo3.Modelado.Excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 import fiuba.algo3.Modelado.Jugador.Jugador;
 import fiuba.algo3.Modelado.Tablero.Posicion;
@@ -172,5 +173,38 @@ public class TableroTest {
 				
 		
 		assertEquals(entidad, tablero.getEntidadEnPosicion(posicion));
+	}
+	
+	@Test
+	public void agregoEntidadesYVerificoQueLaCantidaDeCasillerosCreadosEsCorrecto() {
+		Aliado aliado = new Aliado();
+		Enemigo enemigo = new Enemigo();
+		
+		Tablero tablero = new Tablero();
+		
+		Posicion posicion = new Posicion(2,2);
+		
+		Posicion posAliado1 = new Posicion(1,7);
+		Posicion posAliado2 = new Posicion(4,13);
+		Posicion posAliado3 = new Posicion(8,3);
+		
+		Jugador jugador = new Jugador("Pedro",aliado, "Sebastian", enemigo);
+		
+		jugador.agregarEntidad("soldado", posicion);
+		jugador.agregarEntidad("curandero", posAliado1);
+		jugador.agregarEntidad("jinete", posAliado2);
+		jugador.agregarEntidad("catapulta", posAliado3);
+
+		Soldado soldadoAliado = (Soldado) jugador.getEntidad(posicion);
+		Entidad curanderoEnemigo = jugador.getEntidad(posAliado1);
+		Entidad jineteEnemigo    = jugador.getEntidad(posAliado2);
+		Entidad catapultaEnemigo = jugador.getEntidad(posAliado3);
+		
+		tablero.agregarEntidadEnCasillero(soldadoAliado, posicion);
+		tablero.agregarEntidadEnCasillero(curanderoEnemigo, posAliado1);
+		tablero.agregarEntidadEnCasillero(jineteEnemigo, posAliado2);
+		tablero.agregarEntidadEnCasillero(catapultaEnemigo, posAliado3);
+																																	
+		assertEquals(tablero.getCantidadCasilleros(),4);
 	}
 }

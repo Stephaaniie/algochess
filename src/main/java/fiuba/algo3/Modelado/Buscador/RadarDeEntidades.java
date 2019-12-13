@@ -20,12 +20,13 @@ public class RadarDeEntidades {
 		this.distanciaMax = distanciaMax;
 	}
 	
-	public void posicionarEntidad(Posicion posicion, Casillero casillero, Entidad entidad, Tablero tablero, Bando bando) {
+	public void posicionarEntidad(Posicion posicion, Casillero casillero, Entidad entidad, Tablero tablero, Bando bando,List<Casillero> listaDeCasilleros) {
 		if(estaEnElRadar(posicion)) {
 			casillero.agregarEntidad(entidad);
 			tablero.agregarCasillero(casillero,posicion);
+			listaDeCasilleros.add(casillero);
 		}else {
-			tablero.agregarEntidadSectorEnemigo(posicion, entidad);
+			tablero.agregarEntidadSectorEnemigo(posicion, entidad,casillero);
 		}
 	}
 	
