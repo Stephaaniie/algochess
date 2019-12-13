@@ -197,7 +197,7 @@ public class CuranderoTest {
 		Posicion posicionVieja = new Posicion(16, 7);
 		Posicion posicionNueva = new Posicion(16, 6);
 		
-		jugador.agregarEntidad("soldado", posicionVieja);
+		jugador.agregarEntidad("curandero", posicionVieja);
 		
 		Tablero tablero = new Tablero();
 		
@@ -212,7 +212,7 @@ public class CuranderoTest {
 		assertTrue(posicionNueva.mismaPosicion(posicionNueva, entidad.getPosicion()));
 	}
 	@Test
-	public void soldadoSeMueveParaArribaALaDerecha() {
+	public void curanderoSeMueveParaArribaALaDerecha() {
 		
 		Aliado aliado = new Aliado();
 		
@@ -221,7 +221,7 @@ public class CuranderoTest {
 		Posicion posicionVieja = new Posicion(16, 7);
 		Posicion posicionNueva = new Posicion(15, 8);
 		
-		jugador.agregarEntidad("soldado", posicionVieja);
+		jugador.agregarEntidad("curandero", posicionVieja);
 		
 		Tablero tablero = new Tablero();
 		
@@ -237,7 +237,7 @@ public class CuranderoTest {
 	}
 	
 	@Test
-	public void soldadoSeMueveParaAbajoALaIzquierda() {
+	public void curanderooSeMueveParaAbajoALaIzquierda() {
 		Aliado aliado = new Aliado();
 		
 		Jugador jugador = new Jugador("Laura",aliado, "Sofia", aliado);
@@ -261,7 +261,7 @@ public class CuranderoTest {
 	}
 	
 	@Test
-	public void soldadoSeMueveParaAbajoALaDerecha() {
+	public void curanderoSeMueveParaAbajoALaDerecha() {
 		Aliado aliado = new Aliado();
 		
 		Jugador jugador = new Jugador("Sofia",aliado, "Brenda", aliado);
@@ -285,7 +285,7 @@ public class CuranderoTest {
 	}
 	
 	@Test
-	public void soldadoSeMueveParaArribaALaIzquierda() {
+	public void curanderoSeMueveParaArribaALaIzquierda() {
 		Aliado aliado = new Aliado();
 		
 		Jugador jugador = new Jugador("Camila",aliado, "SantiLocateli", aliado);
@@ -392,5 +392,23 @@ public class CuranderoTest {
 			respuesta = true;
 		}
 		assertEquals( respuesta, true);
+	}
+	
+	@Test
+	public void curanderoNoPuedeVolverACurarsePorqueTieneMaximaVida() {
+		Curandero curandero = new Curandero();
+		
+		curandero.curarEntidad(curandero);
+		
+		assertEquals(curandero.getVida(),75);
+	}
+	
+	@Test
+	public void curanderoSoloCuraALosDeSuBando() {
+		Curandero curandero = new Curandero();
+		
+		Soldado soldado = new Soldado();
+		
+		assertTrue(curandero.puedoCurar(soldado));
 	}
 }

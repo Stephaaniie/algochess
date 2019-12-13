@@ -15,9 +15,11 @@ import fiuba.algo3.Modelado.Jugador.Jugador;
 
 public class Tablero {
 	
-	private final static int TAMANIO_TABLERO = 20;
+	private final int TAMANIO_TABLERO = 20;
 	
 	private static Tablero instanciaTablero = null;
+	
+	private Jugador jugador;
 	
 	private RadarDeEntidades radarDeAliados;
 	
@@ -33,7 +35,7 @@ public class Tablero {
 	
 	public Tablero() {
 		
-		this.radarDeAliados        = new RadarDeEntidades(0,(TAMANIO_TABLERO -1)/2);
+		this.radarDeAliados        = new RadarDeEntidades(0,(TAMANIO_TABLERO -1));
 		this.radarDeEnemigos       = new RadarDeEntidades(TAMANIO_TABLERO/2, TAMANIO_TABLERO-1);
 		this.casilleros            = new HashMap<Posicion,Casillero>();
 		this.entidadesDeCasilleros = new ArrayList<Entidad>();
@@ -53,16 +55,13 @@ public class Tablero {
 			Casillero casillero = new Casillero(posicionNueva);
 			agregarEntidad(entidad, posicionNueva,casillero);
 		}catch(CasilleroOcupadoExcepcion e){
-			e.printStackTrace();
 		} catch (ColocarEntidadEnSectorEnemigoExcepcion n) {
-			n.printStackTrace();
 		}
 		quitarEntidadDeCasillero(posicionAnterior,entidad);
 	}
 	
 	private void agregarEntidad(Entidad entidad, Posicion posicion,Casillero casillero) {
 		this.radarDeAliados.posicionarEntidad(posicion, casillero, entidad, this, entidad.getBando());
-		this.radarDeEnemigos.posicionarEntidad(posicion, casillero, entidad, this, entidad.getBando());
 	}
 	
 	public void agregarEntidadSectorEnemigo(Posicion posicion, Entidad entidad){
@@ -89,21 +88,29 @@ public class Tablero {
 	}
 	
 
-	public Entidad getEntidadEnPosicion(Posicion posicionNueva) {
+	public Entidad getEntidadEnPosicion(Posicion posicion) {
 		Entidad entidadEncontrada = new ObjetoNull();
-		this.entidadesDeCasilleros.stream().filter(x -> x.getPosicion() == posicionNueva).forEach(x -> entidadEncontrada.agregar(x));
+		for(Entidad entidad : entidadesDeCasilleros) {
+			if(entidad.getPosicion().mismaPosicion(posicion, entidad.getPosicion())) {
+				entidadEncontrada = entidad;
+			}
+		}
 		return entidadEncontrada;
 	}
 
-	public Jugador agergarJugador(String nombre, Bando bando, String nombre1, Bando bando1) {
-		return new Jugador(nombre, bando, nombre1, bando1);
+	public Jugador agergarJugadores(String nombre, Bando bando, String nombre1, Bando bando1) {
+		return this.jugador = new Jugador(nombre, bando, nombre1, bando1);
 	}
 	
-	public int tamanioTablero() {
-		return Tablero.TAMANIO_TABLERO;
+	public Jugador getJugador() {
+		return this.jugador;
 	}
 	
-	public int cantidadCasilleros() {
+	public int getTamanioTablero() {
+		return this.TAMANIO_TABLERO;
+	}
+	
+	public int getCantidadCasilleros() {
 		return this.casillerosAliado.size() + this.casillerosEnemigo.size();
 	}
 	

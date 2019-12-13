@@ -17,9 +17,7 @@ public class Curandero implements Entidad {
 	
 	private int vida = VIDAINICIAL;
 
-	private int costo = 2;
-
-	public int curacion = 15;
+	private final int COSTO = 2;
 	
 	private Posicion posicion;
 	
@@ -38,18 +36,21 @@ public class Curandero implements Entidad {
 		this.vida -= danio;
 	}
 	public void curarEntidad(Curandero curandero) {
-		reponerVida(CURACION);
+		curandero.reponerVida(curandero.getCuracion());
 	}
+	private int getCuracion() {
+		return this.CURACION;
+	}
+
 	public void curarEntidad(Entidad entidadACurar) {
-		entidadACurar.reponerVida(CURACION);		
+		entidadACurar.reponerVida(getCuracion());		
 	}
 
 	public void reponerVida(int curacion) {
-		if ((this.vida += CURACION) > VIDAINICIAL){
+		if ((this.vida += curacion) > VIDAINICIAL){
 			this.vida = VIDAINICIAL;
 		}
 	}
-
 
 	public void mover(Direccion direccion) {
 		tablero.mover(this, this.posicion, direccion.avanzar(this.posicion));
@@ -78,7 +79,7 @@ public class Curandero implements Entidad {
 	
 	@Override
 	public int getCosto() {
-		return this.costo;
+		return this.COSTO;
 	}
 
 	@Override

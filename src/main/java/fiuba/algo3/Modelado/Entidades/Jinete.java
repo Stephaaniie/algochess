@@ -30,7 +30,9 @@ public class Jinete implements Entidad {
 	
 	private Arma arcoYFlecha;
 		
-	private BuscadorDeEntidades buscador = new BuscadorDeEntidades();
+	Tablero tablero = Tablero.getInstanciaTablero();
+
+	private BuscadorDeEntidades buscador = new BuscadorDeEntidades(tablero.getMap());
 	
 	
 	public BuscadorDeEntidades getBuscador() {
@@ -41,10 +43,13 @@ public class Jinete implements Entidad {
 		return this.posicion;
 	}
 	
+	public Arma getArma() {
+		return arcoYFlecha = new Arma(DIS_MIN_SIN_ALIADO,DIS_MAX_SIN_ALIADO,DIS_MIN_CON_ALIADO,DIS_MAX_CON_ALIADO);
+	}
+	
 	@Override
 	public void atacarEnemigo() {
-		arcoYFlecha = new Arma(DIS_MIN_SIN_ALIADO,DIS_MAX_SIN_ALIADO,DIS_MIN_CON_ALIADO,DIS_MAX_CON_ALIADO);
-		arcoYFlecha.jineteAtaca(this.getBuscador().buscadorDeEntidades() ,this , DANIO_DISTANCIA ,DANIO_CUERPO);
+		this.getArma().utilizarArma(this.getBuscador().buscadorDeEntidades() ,this , DANIO_DISTANCIA ,DANIO_CUERPO);
 	}
 	
 	@Override
@@ -61,16 +66,14 @@ public class Jinete implements Entidad {
 
 	@Override
 	public void mover(Direccion direccion) {
-		Tablero tablero = Tablero.getInstanciaTablero();
 		tablero.mover(this, this.posicion, direccion.avanzar(this.posicion));
-		this.posicion = direccion.avanzar(this.posicion);
+		this.posicion = direccion.avanzar(posicion);
 	}
 
     @Override
     public Entidad agregar(Entidad otraEntidad) {
         throw new CasilleroOcupadoExcepcion();
     }
-
 
 	@Override
 	public Bando getBando() {

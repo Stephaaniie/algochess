@@ -19,14 +19,6 @@ public class Posicion{
 		return this.columna;
 	}
 	
-	public void setFila(int fila) {
-		this.fila = fila; 
-	}
-	
-	public void setColumna(int columna) {
-		this.columna = columna;
-	}
-	
 	public int distanciaEntrePosiciones(Posicion posicion) {
 		return posicion.calcularDistanciaCon(this.fila,this.columna);
 		
@@ -48,6 +40,6 @@ public class Posicion{
 	}
 	
 	public boolean esPosicionAdyacente(Posicion posicion, Posicion posicion1) {
-		return posicion.mismaPosicion(new Posicion(posicion.getFila()+1,posicion.getColumna()), posicion1) & posicion.mismaPosicion(new Posicion(posicion.getFila()-1,posicion.getColumna()), posicion1) & posicion.mismaPosicion(new Posicion(posicion.getFila(),posicion.getColumna()-1), posicion1) & posicion.mismaPosicion(new Posicion(posicion.getFila(),posicion.getColumna()+1), posicion1);
+		return ((posicion.mismaPosicion(new Posicion(posicion.getFila()+1,posicion.getColumna()), posicion1)) | (posicion.mismaPosicion(new Posicion(posicion.getFila()-1,posicion.getColumna()), posicion1)) | (posicion.mismaPosicion(new Posicion(posicion.getFila(),posicion.getColumna()-1), posicion1)) | (posicion.mismaPosicion(new Posicion(posicion.getFila(),posicion.getColumna()+1), posicion1)));
 	}
 }

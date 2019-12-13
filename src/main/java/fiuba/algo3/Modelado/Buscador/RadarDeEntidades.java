@@ -5,7 +5,6 @@ import java.util.List;
 
 import fiuba.algo3.Modelado.Bandos.Bando;
 import fiuba.algo3.Modelado.Entidades.Entidad;
-import fiuba.algo3.Modelado.Excepciones.ColocarEntidadEnSectorEnemigoExcepcion;
 import fiuba.algo3.Modelado.Tablero.Casillero;
 import fiuba.algo3.Modelado.Tablero.Posicion;
 import fiuba.algo3.Modelado.Tablero.Tablero;
@@ -26,7 +25,7 @@ public class RadarDeEntidades {
 			casillero.agregarEntidad(entidad);
 			tablero.agregarCasillero(casillero,posicion);
 		}else {
-			throw new ColocarEntidadEnSectorEnemigoExcepcion();
+			tablero.agregarEntidadSectorEnemigo(posicion, entidad);
 		}
 	}
 	

@@ -35,7 +35,7 @@ public class Soldado implements Entidad {
 	
 	private List<Soldado> soldadosParaBatallon = new ArrayList<Soldado>();
 	
-	private BuscadorDeEntidades buscador = new BuscadorDeEntidades();
+	private BuscadorDeEntidades buscador = new BuscadorDeEntidades(tablero.getMap());
 	
 	
 	public BuscadorDeEntidades getBuscador() {
@@ -46,9 +46,6 @@ public class Soldado implements Entidad {
 		return this.soldadosParaBatallon;
 	}
 	
-	public int getVida() {
-		return this.vida;
-	}
 
 	public void formarListaDeSoldados(Soldado soldado) {
 		this.soldadosParaBatallon.add(soldado);
@@ -106,5 +103,10 @@ public class Soldado implements Entidad {
 	public void recibirPosicionYBando(Posicion posicion, Bando bandoJugador) {
 		this.bando = bandoJugador;
 		this.posicion = posicion;
+	}
+
+	@Override
+	public int getVida() {
+		return this.vida;
 	}
 }

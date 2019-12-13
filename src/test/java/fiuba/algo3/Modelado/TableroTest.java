@@ -9,7 +9,6 @@ import fiuba.algo3.Modelado.Bandos.Aliado;
 import fiuba.algo3.Modelado.Bandos.Enemigo;
 import fiuba.algo3.Modelado.Buscador.RadarDeEntidades;
 import fiuba.algo3.Modelado.Entidades.Entidad;
-import fiuba.algo3.Modelado.Excepciones.ColocarEntidadEnSectorEnemigoExcepcion;
 import fiuba.algo3.Modelado.Excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
 import fiuba.algo3.Modelado.Jugador.Jugador;
 import fiuba.algo3.Modelado.Tablero.Posicion;
@@ -27,90 +26,33 @@ public class TableroTest {
 	public void tableroCargaTodosSusCamposCorrectamente() {
 		Tablero tablero = new Tablero();
 		
-		int tamanio  = tablero.tamanioTablero();
-		int casilleros = tablero.cantidadCasilleros();
+		int tamanio  = tablero.getTamanioTablero();
+		int casilleros = tablero.getCantidadCasilleros();
 		int entidades  = tablero.getEntidadesEnTablero().size();
 		
 		assertEquals(tamanio,20);
 		assertEquals(casilleros,0);
 		assertEquals(entidades, 0);
 	}
-	@Test 
-	public void noSePuedePonerEntidadEnemigaEnSectorAliado() {
-		
-		Aliado aliado = new Aliado();
-		Enemigo enemigo = new Enemigo();
-		
-		boolean excepcion = false;
-		Jugador jugadores = new Jugador("Carly",enemigo,"Manuel",aliado);
-		
-		try {
-			jugadores.agregarEntidad("jinete", new Posicion(20, 9));
-			jugadores.agregarEntidad("soldado", new Posicion(9, 10));
-			
-			Tablero tablero = new Tablero();
-			
-			Entidad entidad  =  jugadores.getEntidad(new Posicion(7,9));
-			Entidad entidad2 = jugadores.getEntidad(new Posicion(11,10));
-			
-			tablero.agregarEntidadEnCasillero(entidad, new Posicion( 20, 9));
-			tablero.agregarEntidadEnCasillero(entidad2, new Posicion( 9, 10));
-		}catch( ColocarEntidadEnSectorEnemigoExcepcion e){
-			excepcion = true;
-		}
-		assertEquals(excepcion,true);
-
-	}
-	
-	@Test 
-	public void noSePuedePonerEntidadAliadaEnSectorEnemigo() {
-		
-		Aliado aliado = new Aliado();
-		Enemigo enemigo = new Enemigo();
-		
-		boolean excepcion = false;
-		
-		Jugador jugadores = new Jugador("Manuel", aliado, "Carly",enemigo);
-		
-		try {
-			jugadores.agregarEntidad("jinete", new Posicion(0, 9));
-			jugadores.agregarEntidad("soldado", new Posicion(11, 10));
-			
-			Tablero tablero = new Tablero();
-			
-			Entidad entidad = jugadores.getEntidad(new Posicion(7,9));
-			Entidad entidad2 = jugadores.getEntidad(new Posicion(11,10));
-			
-			tablero.agregarEntidadEnCasillero(entidad,new Posicion( 20, 9));
-			tablero.agregarEntidadEnCasillero(entidad2,new Posicion( 9, 10));
-		}catch( ColocarEntidadEnSectorEnemigoExcepcion e){
-			excepcion = true;
-		}
-		assertEquals(excepcion,true);
-	}
 	
 	@Test 
 	public void posicionarEntidadesAliadasEnSuSector() {
 		
 		Aliado aliado = new Aliado();
-		
-		boolean excepcion = false;
-		
+				
 		Posicion posicion = new Posicion( 0, 9);
 		
 		Jugador jugadores = new Jugador("Manuel",aliado, "Chary", aliado);		
-		try {
-			jugadores.agregarEntidad("jinete", posicion);
+		
+		jugadores.agregarEntidad("jinete", posicion);
 			
-			Tablero tablero = new Tablero();
+		Tablero tablero = new Tablero();
 			
-			Entidad entidad = jugadores.getEntidad(posicion);
+		Entidad entidad = jugadores.getEntidad(posicion);
 			
-			tablero.agregarEntidadEnCasillero(entidad,posicion);
-		}catch( ColocarEntidadEnSectorEnemigoExcepcion e){
-			excepcion = true;
-		}
-		assertEquals(excepcion,true);
+		tablero.agregarEntidadEnCasillero(entidad,posicion);
+		
+		assertNotNull(entidad.getPosicion());
 	}
 	
 	@Test
@@ -169,5 +111,66 @@ public class TableroTest {
 		RadarDeEntidades radar = new RadarDeEntidades(2,6);
 		
 		assertEquals(radar.estaEnElRadar(9),false);
+	}
+	
+	@Test
+	public void verificarPosicionesAdyacente() {
+				
+		Posicion posicion = new Posicion(2,2);
+		Posicion posicionAdyacente = new Posicion(2,3);
+				
+		assertEquals(posicion.esPosicionAdyacente(posicion, posicionAdyacente),true);
+	}
+	
+	@Test
+	public void verificarQueLaListaDeCasillerosAliadosSeCreanCorrectament() {
+		
+		Tablero tablero = new Tablero();
+		
+		assertNotNull(tablero.getSectorAliado());
+	}
+	
+	@Test
+	public void verificarQueLaListaDeCasillerosEnemigosSeCreanCorrectament() {
+		
+		Tablero tablero = new Tablero();
+		
+		assertNotNull(tablero.getSectorEnemigo());
+	}
+	
+	@Test
+	public void seCreaEnTableroCorrectamenteLosJugadores() {
+		
+		Aliado aliado   = new Aliado();
+		Enemigo enemigo = new Enemigo();
+		
+		Tablero tablero = new Tablero();
+		
+		tablero.agergarJugadores("Juan", aliado, "Juanito", enemigo);
+		
+		assertEquals(tablero.getJugador().getNombre(),"Juan");
+		assertEquals(tablero.getJugador().obtenerSiguienteJugador().getNombre(),"Juanito");
+	}
+	
+	@Test
+	public void agregarEntidadYDevolverEntidad() {
+		
+		Aliado aliado   = new Aliado();
+		Enemigo enemigo = new Enemigo();
+		
+		Posicion posicion = new Posicion(2,2);
+		
+		Tablero tablero = new Tablero();
+		
+		tablero.agergarJugadores("Juan", aliado, "Juanito", enemigo);
+		
+		tablero.getJugador().agregarEntidad("soldado", posicion);
+		
+		Entidad entidad = tablero.getJugador().getEntidad(posicion);
+		
+		tablero.agregarEntidadEnCasillero(entidad, posicion);
+				
+		
+		assertEquals(entidad, tablero.getEntidadEnPosicion(posicion));
 	}
 }

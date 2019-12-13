@@ -296,4 +296,32 @@ public class SoldadoTest {
 		}
 		assertEquals( respuesta, true);
 	}
+	
+	/*
+	@Test
+	public void verificarQueSeAtacaCorrectamenteConLaEspada() {
+		
+		Aliado aliado = new Aliado();
+		Enemigo enemigo = new Enemigo();
+
+		Jugador jugador = new Jugador("Agus",aliado,"Agus",enemigo);
+		
+		Posicion posicion  = new Posicion(9,6);
+		Posicion posicion1 = new Posicion(10,5);
+		
+		jugador.agregarEntidad("soldado", posicion);
+		Entidad soldado = jugador.getEntidad(posicion);
+									
+		jugador.obtenerSiguienteJugador().agregarEntidad("soldado", posicion1);
+		Entidad soldado1  = jugador.obtenerSiguienteJugador().getEntidad(posicion1);
+
+		Tablero tablero = new Tablero();			
+			
+		tablero.agregarEntidadEnCasillero(soldado ,posicion);
+		tablero.agregarEntidadEnCasillero(soldado1,posicion1);
+		
+		soldado.atacarEnemigo();
+		
+		assertEquals(soldado1.getVida(),100);
+	}*/
 }

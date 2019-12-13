@@ -40,14 +40,7 @@ public class ObjetoNullTest {
 		
 		ObjetoNull objetoNulo = new ObjetoNull();
 		
-		boolean respuesta = false;
-		
-		try {
-			objetoNulo.getVida();
-		}catch(ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion e) {
-			respuesta = true;
-		}
-		assertTrue(respuesta);
+		assertEquals(objetoNulo.getVida(),0);
 	}
 	
 	@Test

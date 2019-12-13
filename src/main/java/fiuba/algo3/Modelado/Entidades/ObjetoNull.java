@@ -51,7 +51,7 @@ public class ObjetoNull implements Entidad {
 
 	@Override
 	public int getVida() {
-		throw new ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion();
+		return 0;
 	}
 
 	@Override

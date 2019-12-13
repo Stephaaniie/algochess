@@ -27,11 +27,11 @@ public class Catapulta implements Entidad{
 		
 	private Posicion posicion;
 	
-	private Arma objetosALanzar;
+	private Arma arma;
 	
 	public Tablero tablero = Tablero.getInstanciaTablero();	
 	
-	private BuscadorDeEntidades buscador = new BuscadorDeEntidades();
+	private BuscadorDeEntidades buscador = new BuscadorDeEntidades(tablero.getMap());
 	
 	
 	public BuscadorDeEntidades getBuscador() {
@@ -40,8 +40,8 @@ public class Catapulta implements Entidad{
 	
 	@Override
 	public void atacarEnemigo() {
-		objetosALanzar = new Arma(DISTANCIA_MIN_ATAQUE,DISTANCIA_MAX_ATAQUE);
-		objetosALanzar.objetosASerLanzados(this.getBuscador().buscadorDeEntidades(),DANIO_DISTANCIA);
+		arma = new Arma(DISTANCIA_MIN_ATAQUE,DISTANCIA_MAX_ATAQUE);
+		arma.utilizarArmaCatapulta(this.getBuscador().buscadorDeEntidades(),DANIO_DISTANCIA);
 	}
 
     @Override

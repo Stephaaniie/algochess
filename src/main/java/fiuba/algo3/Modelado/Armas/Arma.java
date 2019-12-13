@@ -2,15 +2,12 @@ package fiuba.algo3.Modelado.Armas;
 
 import java.util.List;
 
-import fiuba.algo3.Modelado.Buscador.BuscadorDeEntidades;
 import fiuba.algo3.Modelado.Buscador.RadarDeEntidades;
 import fiuba.algo3.Modelado.Entidades.Entidad;
 import fiuba.algo3.Modelado.Entidades.Jinete;
 
 public class Arma {
-	
-	BuscadorDeEntidades buscador = new BuscadorDeEntidades();
-	
+		
 	RadarDeEntidades radar;
 	
 	RadarDeEntidades radarOtraArma;
@@ -28,7 +25,7 @@ public class Arma {
 		radar.filtrarAtacables(enemigos).stream().forEach(x -> x.recibirDanio(danio));
 	}
 	
-	public void jineteAtaca(List<Entidad> enemigos, Jinete jinete,int danio, int danio1) {
+	public void utilizarArma(List<Entidad> enemigos, Jinete jinete,int danio, int danio1) {
 		if(jinete.getBuscador().tengoAliados(jinete.getBando(), jinete)) {
 			utilizarArcoYFlecha(enemigos,danio);
 		}else {
@@ -36,15 +33,15 @@ public class Arma {
 		}
 	}
 	
-	public void jineteUtilizaEspada(List<Entidad> enemigos, int danio) {
+	private void jineteUtilizaEspada(List<Entidad> enemigos, int danio) {
 		radar.filtrarAtacables(enemigos).stream().forEach(x -> x.recibirDanio(danio));
 	}
 	
-	public void utilizarArcoYFlecha(List<Entidad> enemigos, int danio) {
+	private void utilizarArcoYFlecha(List<Entidad> enemigos, int danio) {
 		radarOtraArma.filtrarAtacables(enemigos).stream().forEach(x -> x.recibirDanio(danio));
 	}
 	
-	public void objetosASerLanzados(List<Entidad> enemigos,int danio) {
+	public void utilizarArmaCatapulta(List<Entidad> enemigos,int danio) {
 		enemigos.stream().forEach(x -> x.recibirDanio(danio));
 	}
 }

@@ -1,5 +1,6 @@
 package fiuba.algo3.Modelado;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -55,6 +56,7 @@ public class JineteTest {
 		
 		assertEquals(80, jinete.getVida());
 	}
+	
 	
 	@Test
 	public void noSePuedeAgregarEntidadYLanzaExcepcion() {
@@ -138,7 +140,7 @@ public class JineteTest {
 		Posicion posicionVieja = new Posicion(15, 6);
 		Posicion posicionNueva = new Posicion(15, 7);
 		
-		jugador.agregarEntidad("curandero", posicionVieja);
+		jugador.agregarEntidad("jinete", posicionVieja);
 		
 		Tablero tablero = new Tablero();
 		
@@ -164,7 +166,7 @@ public class JineteTest {
 		Posicion posicionVieja = new Posicion(15, 6);
 		Posicion posicionNueva = new Posicion(15, 5);
 		
-		jugador.agregarEntidad("curandero", posicionVieja);
+		jugador.agregarEntidad("jinete", posicionVieja);
 		
 		Tablero tablero = new Tablero();
 		
@@ -179,7 +181,7 @@ public class JineteTest {
 		assertTrue(posicionNueva.mismaPosicion(posicionNueva, entidad.getPosicion()));
 	}
 	@Test
-	public void soldadoSeMueveParaArribaALaDerecha() {
+	public void jineteSeMueveParaArribaALaDerecha() {
 
 		Aliado aliado = new Aliado();
 		Enemigo enemigo = new Enemigo();
@@ -205,7 +207,7 @@ public class JineteTest {
 	}
 	
 	@Test
-	public void soldadoSeMueveParaAbajoALaIzquierda() {
+	public void jineteSeMueveParaAbajoALaIzquierda() {
 
 		Aliado aliado = new Aliado();
 		Enemigo enemigo = new Enemigo();
@@ -215,7 +217,7 @@ public class JineteTest {
 		Posicion posicionVieja = new Posicion(15, 6);
 		Posicion posicionNueva = new Posicion(16, 5);
 		
-		jugador.agregarEntidad("curandero", posicionVieja);
+		jugador.agregarEntidad("jinete", posicionVieja);
 		
 		Tablero tablero = new Tablero();
 		
@@ -231,7 +233,7 @@ public class JineteTest {
 	}
 	
 	@Test
-	public void soldadoSeMueveParaAbajoALaDerecha() {
+	public void jineteSeMueveParaAbajoALaDerecha() {
 
 		Aliado aliado = new Aliado();
 		Enemigo enemigo = new Enemigo();
@@ -241,7 +243,7 @@ public class JineteTest {
 		Posicion posicionVieja = new Posicion(15, 6);
 		Posicion posicionNueva = new Posicion(16, 7);
 		
-		jugador.agregarEntidad("curandero", posicionVieja);
+		jugador.agregarEntidad("jinete", posicionVieja);
 		
 		Tablero tablero = new Tablero();
 		
@@ -257,7 +259,7 @@ public class JineteTest {
 	}
 	
 	@Test
-	public void soldadoSeMueveParaArribaALaIzquierda() {
+	public void jineteSeMueveParaArribaALaIzquierda() {
 
 		Aliado aliado = new Aliado();
 		Enemigo enemigo = new Enemigo();
@@ -267,7 +269,7 @@ public class JineteTest {
 		Posicion posicionVieja = new Posicion(15, 6);
 		Posicion posicionNueva = new Posicion(14, 5);
 		
-		jugador.agregarEntidad("curandero", posicionVieja);
+		jugador.agregarEntidad("jinete", posicionVieja);
 		
 		Tablero tablero = new Tablero();
 		
@@ -324,7 +326,7 @@ public class JineteTest {
 		
 		Posicion posicion = new Posicion(16, 7);
 		
-		jugador.agregarEntidad("curandero", posicion);
+		jugador.agregarEntidad("jinete", posicion);
 		
 		Entidad entidad  = jugador.getEntidad(posicion);
 		
@@ -335,4 +337,79 @@ public class JineteTest {
 		}
 		assertEquals( respuesta, true);
 	}
+	
+	@Test
+	public void jineteCreaASuBuscadorCorrectamente() {
+		
+		Jinete jinete = new Jinete();
+		
+		assertNotNull(jinete.getBuscador());
+	}
+	
+	@Test
+	public void jineteCreaSuArmaCorrectamente() {
+		Jinete jinete = new Jinete();
+				
+		assertNotNull(jinete.getArma());
+	}
+	/*
+	@Test 
+	public void posicionarUnEnemigoYVerificarQueLoAtacaConEspada() {
+		
+		Aliado aliado = new Aliado();
+		Enemigo enemigo = new Enemigo();
+
+		Jugador jugador = new Jugador("Cami",aliado, "Agus",enemigo);
+		
+		Posicion posicion  = new Posicion(9,5);
+		Posicion posicion1 = new Posicion(11,5);
+		
+		jugador.agregarEntidad("jinete", posicion);
+		Entidad jinete = jugador.getEntidad(posicion);			
+			
+		jugador.obtenerSiguienteJugador().agregarEntidad("soldado", posicion1);
+		Entidad soldado  = jugador.obtenerSiguienteJugador().getEntidad(posicion1);
+
+		Tablero tablero = new Tablero();			
+			
+		tablero.agregarEntidadEnCasillero(jinete ,posicion);
+		tablero.agregarEntidadEnCasillero(soldado,posicion1);
+		
+		jinete.atacarEnemigo();
+		
+		assertEquals(soldado.getVida(),80);
+	}
+	
+	@Test 
+	public void posicionarUnEnemigoYVerificarQueLoAtacaConArcoYfrecha() {
+		
+		Aliado aliado = new Aliado();
+		Enemigo enemigo = new Enemigo();
+
+		Jugador jugador = new Jugador("Cami",aliado, "Agus",enemigo);
+		
+		Posicion posicion  = new Posicion(9,5);
+		Posicion posicion1 = new Posicion(8,4);
+		Posicion posicion2 = new Posicion(11,5);
+		
+		jugador.agregarEntidad("jinete", posicion);
+		jugador.agregarEntidad("soldado", posicion1);
+
+		Entidad jinete  = jugador.getEntidad(posicion);
+		Entidad soldadoAliado = jugador.getEntidad(posicion1);
+			
+		jugador.obtenerSiguienteJugador().agregarEntidad("soldado", posicion2);
+		Entidad soldado  = jugador.obtenerSiguienteJugador().getEntidad(posicion2);
+
+		Tablero tablero = new Tablero();			
+			
+		tablero.agregarEntidadEnCasillero(jinete ,posicion);
+		tablero.agregarEntidadEnCasillero(soldadoAliado, posicion1);
+		tablero.agregarEntidadEnCasillero(soldado,posicion1);
+		
+		jinete.atacarEnemigo();
+		
+		assertEquals(soldado.getVida(),80);
+	}
+	*/
 }

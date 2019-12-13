@@ -10,8 +10,6 @@ import fiuba.algo3.Modelado.Direccion.Abajo;
 import fiuba.algo3.Modelado.Direccion.Direccion;
 import fiuba.algo3.Modelado.Entidades.Catapulta;
 import fiuba.algo3.Modelado.Entidades.Entidad;
-import fiuba.algo3.Modelado.Entidades.Jinete;
-import fiuba.algo3.Modelado.Entidades.Soldado;
 import fiuba.algo3.Modelado.Excepciones.CasilleroOcupadoExcepcion;
 import fiuba.algo3.Modelado.Excepciones.CatapultaNoSeMueveExcepcion;
 import fiuba.algo3.Modelado.Jugador.Jugador;
@@ -25,26 +23,6 @@ public class CatapultaTest {
 		catapulta.recibirDanio(10);
 		assertEquals(40, catapulta.getVida());
 	}
-
-	@Test
-    public void catapultaAtacaAJineteYLeRestaVida() {
-	    Catapulta catapulta = new Catapulta();
-	    Jinete jinete = new Jinete();
-
-	    catapulta.atacarEnemigo();
-
-	    assertEquals(100, jinete.getVida());
-    }
-
-    @Test
-    public void catapultaAtacaASoldadoYLeRestaVida() {
-	    Catapulta catapulta = new Catapulta();
-	    Soldado soldado = new Soldado();
-
-	    catapulta.atacarEnemigo();
-
-	    assertEquals(100, soldado.getVida());
-    }
     
     @Test 
     public void catapultaIntentaMoverse() {
@@ -97,6 +75,7 @@ public class CatapultaTest {
 		}
 		assertEquals( respuesta, true);
 	}
+    /*
     @Test
     public void implementarAtaqueMasivoDeCatapulta() {
     	Enemigo enemigo = new Enemigo();
@@ -128,5 +107,31 @@ public class CatapultaTest {
 		assertEquals(jugador.getEntidad(posicion5).getVida(),75);
 		assertEquals(jugador.getEntidad(posicion6).getVida(),100);
     }
-    
+    @Test
+	public void verificarQueSeAtacaCorrectamenteConSuArma() {
+		
+		Aliado aliado = new Aliado();
+		Enemigo enemigo = new Enemigo();
+
+		Jugador jugador = new Jugador("Agus",aliado,"Agus",enemigo);
+		
+		Posicion posicion  = new Posicion(5,6);
+		Posicion posicion1 = new Posicion(15,5);
+		
+		jugador.agregarEntidad("catapulta", posicion);
+		Entidad catapulta = jugador.getEntidad(posicion);
+									
+		jugador.obtenerSiguienteJugador().agregarEntidad("soldado", posicion1);
+		Entidad soldado1  = jugador.obtenerSiguienteJugador().getEntidad(posicion1);
+
+		Tablero tablero = new Tablero();			
+			
+		tablero.agregarEntidadEnCasillero(catapulta ,posicion);
+		tablero.agregarEntidadEnCasillero(soldado1,posicion1);
+		
+		catapulta.atacarEnemigo();
+		
+		assertEquals(soldado1.getVida(),100);
+	}
+	*/
 }
