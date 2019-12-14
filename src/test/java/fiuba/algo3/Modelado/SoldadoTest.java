@@ -297,7 +297,7 @@ public class SoldadoTest {
 		assertEquals( respuesta, true);
 	}
 	
-	/*
+	/* no puede realizar el ataque porque la entidad le llega como objeto nulo
 	@Test
 	public void verificarQueSeAtacaCorrectamenteConLaEspada() {
 		

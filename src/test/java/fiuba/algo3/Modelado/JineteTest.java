@@ -352,7 +352,7 @@ public class JineteTest {
 				
 		assertNotNull(jinete.getArma());
 	}
-	/*
+	/* no puede realizar el ataque porque la entidad le llega como objeto nulo
 	@Test 
 	public void posicionarUnEnemigoYVerificarQueLoAtacaConEspada() {
 		

@@ -27,14 +27,15 @@ public class Juego {
 		this.tablero = Tablero.getInstanciaTablero();
 		
 		jugadorEnemigo = new Jugador(nomJugador1, aliado, nomJugador2, enemigo);
-		
+
+		estadoDeJuego = new EstadoDeJuego(getJugadorEnemigo(),getJugadorAliado());
+
 		jugadorAliado = jugadorEnemigo.obtenerSiguienteJugador();
 	}
 	
 	public static Juego getInstanciaJuego(String nomJugador1, String nomJugador2) {
 		if(instanciaDeJuego == null) {
 			instanciaDeJuego = new Juego(nomJugador1,nomJugador2);
-			estadoDeJuego = new EstadoDeJuego(getJugadorEnemigo(),getJugadorAliado());
 		}
 		return instanciaDeJuego;
 	}
@@ -52,7 +53,7 @@ public class Juego {
 		return this.tablero;
 	}
 	
-	public void ActualizarEstado() {
+	public void actualizarEstado() {
 		estadoDeJuego.verificarEstadoDelJuego();
 	}
 }

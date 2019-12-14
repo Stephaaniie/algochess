@@ -134,11 +134,9 @@ public class BuscadorTest {
 		BuscadorDeEntidades buscador = new BuscadorDeEntidades(tablero.getMap());
 
 		List<Entidad> listaAux = buscador.buscarEnemigos(aliado);
-		for(Entidad x : listaAux) {
-			 System.out.println(x.getBando());
-		}
 		
-		//assertEquals(listaAux.size(),0);
+		assertEquals(listaAux.size(),4);
+		//Como llegan como objetos nulos me devuelve los ingresados porque le bando que le queda registrado es null y es idstinto al que contiene
 	}
 	
 }
