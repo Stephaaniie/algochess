@@ -9,18 +9,16 @@ import fiuba.algo3.Modelado.Juego.Juego;
 public class JuegoTest {
 
 	@Test
-	public void probarQueSeCreaCorrectamenteElJugadorYDevuelveUnJugadorEnemigo() {
-		
-		Juego juego = new Juego("Dori", "Nemo");
-		
+	public void probarQueSeCreaCorrectamenteElJugadorYDevuelveUnJugadorEnemigo() {		
+		Juego juego = new Juego("Tomas", "Diego");
+
 		assertNotNull(Juego.getJugadorAliado());
 	}
 	
 	@Test
-	public void probarQueSeCreaCorrectamenteElJugadorYDevuelveUnJugadorAliado() {
-		
-		Juego juego = new Juego("Messi", "Maradona");
-		
+	public void probarQueSeCreaCorrectamenteElJugadorYDevuelveUnJugadorAliado() {		
+		Juego juego = new Juego("Tomas", "Diego");
+
 		assertNotNull(Juego.getJugadorEnemigo());
 	}
 	
@@ -33,13 +31,10 @@ public class JuegoTest {
 	}
 	
 	@Test
-	public void seCreaJuegoYDevuelveUnaInstancia() {
-		
-		Juego juego = new Juego("Claudia", "Valeria");
-		
+	public void seCreaJuegoYDevuelveUnaInstancia() {		
+		Juego juego = new Juego("Tomas", "Diego");
+
 		assertNotNull(Juego.getInstanciaJuego("Claudia", "Valeria"));
 	}
 	
-	@Test 
-	public void 
 }

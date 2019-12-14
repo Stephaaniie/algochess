@@ -4,13 +4,12 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import fiuba.algo3.Modelado.Tablero.Posicion;
 
 public class PosicionTest {
-	@Before
+	
 	@Test 
 	public void seLeAsignaCorrectamenteLaFila() {
 		Posicion posicion = new Posicion(1,8);
