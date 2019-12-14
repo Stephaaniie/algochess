@@ -25,10 +25,10 @@ public class BuscadorDeEntidades {
 		return entidades;
 	}
 	
-	public List <Entidad> buscarEnemigos(Bando bandoOpuesto){
+	public List <Entidad> buscarEnemigos(Bando bando){
 		List<Entidad> entidades = buscadorDeEntidades();
 		List<Entidad> enemigos = new ArrayList<Entidad>();
-		entidades.stream().filter(x -> x.getBando() != bandoOpuesto).forEach(x -> enemigos.add(x));
+		entidades.stream().filter(x -> x.getBando() != bando).forEach(x -> enemigos.add(x));
 		return enemigos;
 	}
 	

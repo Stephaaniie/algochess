@@ -10,9 +10,9 @@ public class Juego {
 	
 	private Tablero tablero;
 	
-	private Jugador jugadorAliado;
+	private static Jugador jugadorAliado;
 	
-	private Jugador jugadorEnemigo;
+	private static Jugador jugadorEnemigo;
 
 	private Bando aliado = new Aliado();
 	
@@ -20,33 +20,39 @@ public class Juego {
 	
 	private static Juego instanciaDeJuego = null;
 	
+	private static EstadoDeJuego estadoDeJuego;
+	
 	public Juego(String nomJugador1, String nomJugador2) {
 		
 		this.tablero = Tablero.getInstanciaTablero();
 		
-		this.jugadorEnemigo = new Jugador(nomJugador1, aliado, nomJugador2, enemigo);
+		jugadorEnemigo = new Jugador(nomJugador1, aliado, nomJugador2, enemigo);
 		
-		this.jugadorAliado = jugadorEnemigo.obtenerSiguienteJugador();
+		jugadorAliado = jugadorEnemigo.obtenerSiguienteJugador();
 	}
 	
 	public static Juego getInstanciaJuego(String nomJugador1, String nomJugador2) {
 		if(instanciaDeJuego == null) {
 			instanciaDeJuego = new Juego(nomJugador1,nomJugador2);
+			estadoDeJuego = new EstadoDeJuego(getJugadorEnemigo(),getJugadorAliado());
 		}
 		return instanciaDeJuego;
 	}
 	
 	
-	public Jugador getJugadorEnemigo() {
-		return this.jugadorEnemigo;
+	public static Jugador getJugadorEnemigo() {
+		return jugadorEnemigo;
 	}
 
-	public Jugador getJugadorAliado() {
-		return this.jugadorAliado;
+	public static Jugador getJugadorAliado() {
+		return jugadorAliado;
 	}
 
 	public Tablero getTablero() {
 		return this.tablero;
 	}
-
+	
+	public void ActualizarEstado() {
+		estadoDeJuego.verificarEstadoDelJuego();
+	}
 }

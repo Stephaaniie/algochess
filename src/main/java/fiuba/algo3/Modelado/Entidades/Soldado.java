@@ -96,7 +96,7 @@ public class Soldado implements Entidad {
 	@Override
 	public void atacarEnemigo() {
 		espada = new Arma(DISTANCIA_MIN_ATAQUE,DISTANCIA_MAX_ATAQUE);
-		espada.soldadoUtilizaEspada(this.getBuscador().buscadorDeEntidades(), DANIO_CUERPO);
+		espada.utilizarEspada(this.getBuscador().buscadorDeEntidades(), DANIO_CUERPO);
 	}
 
 	@Override

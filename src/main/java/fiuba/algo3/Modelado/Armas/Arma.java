@@ -13,15 +13,18 @@ public class Arma {
 	RadarDeEntidades radarOtraArma;
 		
 	public Arma(int rangoMin, int rangoMax) {
-		this.radar = new RadarDeEntidades(rangoMin, rangoMax);
+		asignarRadar(this.radar,rangoMin, rangoMax);
 	}
 	
 	public Arma(int rangoMin, int rangoMax,int rangoMin1, int rangoMax1) {
-		this.radarOtraArma = new RadarDeEntidades(rangoMin1, rangoMax1);
-		this.radar = new RadarDeEntidades(rangoMin, rangoMax);
+		asignarRadar(this.radar,rangoMin, rangoMax);
+		asignarRadar(this.radarOtraArma,rangoMin1, rangoMax1);
 	}
 
-	public void soldadoUtilizaEspada(List<Entidad> enemigos, int danio) {
+	public void asignarRadar(RadarDeEntidades radar, int rangoMin, int rangoMax) {
+		radar = new RadarDeEntidades(rangoMin, rangoMax);
+	}
+	public void utilizarEspada(List<Entidad> enemigos, int danio) {
 		radar.filtrarAtacables(enemigos).stream().forEach(x -> x.recibirDanio(danio));
 	}
 	
@@ -29,12 +32,8 @@ public class Arma {
 		if(jinete.getBuscador().tengoAliados(jinete.getBando(), jinete)) {
 			utilizarArcoYFlecha(enemigos,danio);
 		}else {
-			jineteUtilizaEspada(enemigos,danio1);
+			utilizarEspada(enemigos,danio1);
 		}
-	}
-	
-	private void jineteUtilizaEspada(List<Entidad> enemigos, int danio) {
-		radar.filtrarAtacables(enemigos).stream().forEach(x -> x.recibirDanio(danio));
 	}
 	
 	private void utilizarArcoYFlecha(List<Entidad> enemigos, int danio) {
