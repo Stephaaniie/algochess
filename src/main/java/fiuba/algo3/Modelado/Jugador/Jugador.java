@@ -91,7 +91,7 @@ public class Jugador {
 		return entidadBuscada;
 	}
 	
-	public List<Entidad> getListDeEntidades(){
+	public List<Entidad> getListDeEntidades() {
 		return this.entidades;
 	}
 	
@@ -106,6 +106,22 @@ public class Jugador {
 	}
 	private void eliminarEntidad(Entidad entidad) {
 		entidades.remove(entidad);
+	}
+
+	public Bando getBando() {
+		return this.bando;
+	}
+	
+	public void setNombre(String text) {
+		this.nombre = text;
+	}
+
+	public void setOtroJUgador(Jugador jugadorAux) {
+		this.otroJugador = jugadorAux;
+	}
+
+	public void comprarEntidad(Entidad entidad) {
+		descontarPuntos(entidad.getCosto());
 	}
 
 }

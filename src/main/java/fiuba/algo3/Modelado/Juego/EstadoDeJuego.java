@@ -49,6 +49,7 @@ public class EstadoDeJuego {
 	public void publicarGanador() {
 		getGanador();
 	}
+	
 	public void verificarEstadoDelJuego() {
 		
 		verificarSiHayGanador();

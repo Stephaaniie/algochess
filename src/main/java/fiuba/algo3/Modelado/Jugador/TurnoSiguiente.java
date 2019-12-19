@@ -1,10 +1,19 @@
 package fiuba.algo3.Modelado.Jugador;
 
+import fiuba.algo3.Modelado.Bandos.Bando;
+
 public class TurnoSiguiente {
 	
 	private static TurnoSiguiente instanciaDeTurnoSiguiente = null;
 	
-	public TurnoSiguiente getInstancia() {
+	private Jugador jugador;
+		
+	private Bando bandoJugadorActual;
+	
+	private TurnoSiguiente() {
+		this.jugador = null;
+	}
+	public static TurnoSiguiente getInstancia() {
 		if(instanciaDeTurnoSiguiente == null) {
 			instanciaDeTurnoSiguiente = new TurnoSiguiente();
 		}
@@ -17,11 +26,31 @@ public class TurnoSiguiente {
 		}
 	}
 	
-	public void cambiadorDeTurno(Jugador jugadorA, Jugador jugadorE) {
-		Jugador jugador = jugadorA;
-		jugadorA = jugadorE;
-		jugadorE = jugador;
+	public void cambiarTurno() {
+		Jugador jugadorAux = jugador;
+		jugador = jugador.obtenerSiguienteJugador();
+		jugador.setOtroJUgador(jugadorAux);
+		this.setBandoJugadorActual(jugador.getBando());
 	}
 	
+	public void cambiadorDeTurno(Jugador jugador1, Jugador jugador2) { 
+		Jugador jugador = jugador1;
+		jugador1 = jugador2;
+		jugador2 = jugador;
+		this.setBandoJugadorActual(jugador1.getBando());
+	}
+
+	public Bando getBandoJugadorActual() {
+		return bandoJugadorActual;
+	}
+
+	public void setBandoJugadorActual(Bando bandoJugadorActual) {
+		this.bandoJugadorActual = bandoJugadorActual;
+	}
+
+	public Jugador getJugadorActual() {
+		return jugador;
+	}
+
 	
 }

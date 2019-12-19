@@ -8,9 +8,9 @@ import fiuba.algo3.Modelado.Entidades.Jinete;
 
 public class Arma {
 		
-	RadarDeEntidades radar;
+	private RadarDeEntidades radar;
 	
-	RadarDeEntidades radarOtraArma;
+	private RadarDeEntidades radarOtraArma;
 		
 	public Arma(int rangoMin, int rangoMax) {
 		asignarRadar(this.radar,rangoMin, rangoMax);
@@ -24,6 +24,7 @@ public class Arma {
 	public void asignarRadar(RadarDeEntidades radar, int rangoMin, int rangoMax) {
 		radar = new RadarDeEntidades(rangoMin, rangoMax);
 	}
+	
 	public void utilizarEspada(List<Entidad> enemigos, int danio) {
 		radar.filtrarAtacables(enemigos).stream().forEach(x -> x.recibirDanio(danio));
 	}

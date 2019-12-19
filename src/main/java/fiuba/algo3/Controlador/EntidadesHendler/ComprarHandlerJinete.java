@@ -1,5 +1,6 @@
 package fiuba.algo3.Controlador.EntidadesHendler;
 
+import fiuba.algo3.Controlador.EntidadesBotonParaComprar.EntidadCompra;
 import fiuba.algo3.Modelado.Entidades.Jinete;
 import fiuba.algo3.Modelado.Tablero.Tablero;
 import fiuba.algo3.Vista.Ventana.PosicionarEntidadesEnTablero;
@@ -9,21 +10,27 @@ import javafx.event.EventHandler;
 
 public class ComprarHandlerJinete implements EventHandler<ActionEvent>{
 
-	Tablero tablero;
+	private Tablero tablero;
 	
-	VistaDelTablero vista;
+	private VistaDelTablero vista;
 
-	public ComprarHandlerJinete(Tablero tablero, VistaDelTablero vista) {
+	private EntidadCompra entidadCompra;
+
+	public ComprarHandlerJinete(Tablero tablero, VistaDelTablero vista,EntidadCompra entidadCompra) {
+		
 		this.tablero = tablero;
+		
 		this.vista   = vista;
+	
+		this.entidadCompra = entidadCompra;
 	}
 
 	@Override
 	public void handle(ActionEvent event) {
 		try {
 			Jinete jinete = new Jinete();
-			//tablero.agergarJugador().comprarEntidad(jinete);
-			vista.setOnMousePressed(new PosicionarEntidadesEnTablero(jinete,tablero,vista));
+			tablero.getJugador().comprarEntidad(jinete);
+			vista.setOnMousePressed(new PosicionarEntidadesEnTablero(entidadCompra,jinete,tablero,vista));
 		}catch(RuntimeException e) {
 			System.out.println("Lo sentimos, pero ya no contas con puntos suficientes para adquierir un Jinete");
 		}	

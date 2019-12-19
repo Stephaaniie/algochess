@@ -1,5 +1,6 @@
 package fiuba.algo3.Controlador.EntidadesHendler;
 
+import fiuba.algo3.Controlador.EntidadesBotonParaComprar.EntidadCompra;
 import fiuba.algo3.Modelado.Entidades.Catapulta;
 import fiuba.algo3.Modelado.Tablero.Tablero;
 import fiuba.algo3.Vista.Ventana.PosicionarEntidadesEnTablero;
@@ -8,21 +9,28 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
 public class ComprarHandlerCatapulta implements EventHandler<ActionEvent>{
-	Tablero tablero;
 	
-	VistaDelTablero vista;
-
-	public ComprarHandlerCatapulta(Tablero tablero, VistaDelTablero vista) {
+	private Tablero tablero;
+	
+	private VistaDelTablero vista;
+	
+	private EntidadCompra entidadCompra;
+	
+	public ComprarHandlerCatapulta(Tablero tablero, VistaDelTablero vista,EntidadCompra entidadCompra) {
+		
 		this.tablero = tablero;
+		
 		this.vista   = vista;
+		
+		this.entidadCompra = entidadCompra;
 	}
 
 	@Override
 	public void handle(ActionEvent event) {
 		try {
 			Catapulta catapulta = new Catapulta();
-			//tablero.agergarJugador().comprarEntidad(catapulta);
-			vista.setOnMousePressed(new PosicionarEntidadesEnTablero(catapulta,tablero,vista));
+			tablero.getJugador().comprarEntidad(catapulta);
+			vista.setOnMousePressed(new PosicionarEntidadesEnTablero(entidadCompra, catapulta,tablero,vista));
 		}catch(RuntimeException e) {
 			System.out.println("Lo sentimos, pero ya no contas con puntos suficientes para adquierir una catapulta");
 		}	
