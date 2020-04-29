@@ -52,12 +52,6 @@ public class Jugador {
 	
 	public void agregarEntidad(String tipoEntidad, Posicion posicion) {
 		Entidad entidad = fabrica.crearEntidad(tipoEntidad);
-		try {
-			descontarPuntos(entidad.getCosto());
-			tablero.agregarEntidadEnCasillero(entidad, posicion);
-			this.entidades.add(entidad);
-			entidad.recibirPosicionYBando(posicion, this.bando);
-		} catch (CasilleroOcupadoExcepcion e) {} catch (ColocarEntidadEnSectorEnemigoExcepcion e) {}catch(CantidadDePuntosInsuficientesExcepcion e){}
 	}
 
 	public void descontarPuntos(int numero) {
