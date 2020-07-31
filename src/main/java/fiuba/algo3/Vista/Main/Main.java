@@ -6,18 +6,18 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
-    @Override
-    public void start(Stage primaryStage){
-       
-        primaryStage.setTitle("ALGO_CHESS");
-        
-        new VistaJuego(primaryStage);
-        
-        primaryStage.show();
-        
-    }
-
     public static void main(String[] args) {
         launch(args);
+    }
+
+    public void start(Stage theStage) {
+        theStage.setTitle("AlgoChess");
+        
+        ReproductorMusica reproductor = new ReproductorMusica();
+        reproductor.reproducirMusica();
+
+        new AlgoChessView(theStage);
+
+        theStage.show();
     }
 }
