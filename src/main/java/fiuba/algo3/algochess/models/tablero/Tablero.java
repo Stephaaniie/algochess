@@ -24,7 +24,14 @@ public class Tablero {
         inicializarCasilleros(FILAS / 2, FILAS);
     }
 
-	private void inicializarCasilleros(int i, int j) {
+	private void inicializarCasilleros(int x, int y) {
+
+        for (int i = 0; i < COLUMNAS; i++) {
+            for (int j = x; j < y; j++) {
+                Casillero casilla = new Casillero(this, new Posicion(i, j));
+                casilleros.add(casilla);
+            }
+        }
 	}
     
 }
