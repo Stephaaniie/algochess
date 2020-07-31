@@ -1,10 +1,13 @@
 package fiuba.algo3.algochess.models.entidades;
 
+import fiuba.algo3.algochess.models.Jugador;
+import fiuba.algo3.algochess.models.tablero.Casillero;
+
 public abstract class Entidad extends Observable {   
 
-    protected String casillero;
+    protected Casillero casillero;
 
-    protected String propietario;
+    protected Jugador propietario;
 
     private int vida;
 
@@ -12,7 +15,7 @@ public abstract class Entidad extends Observable {
 
     private int danio;
 
-    public Entidad(String propietario, int vida, int costo) {
+    public Entidad(Jugador propietario, int vida, int costo) {
         this.danio = 0;
         this.propietario = propietario;
         this.costo = costo;
@@ -25,19 +28,19 @@ public abstract class Entidad extends Observable {
         this.vida = vida;
     }
 
-	public String getCasillero() {
+	public Casillero getCasillero() {
 		return casillero;
 	}
 
-	public void setCasillero(String casillero) {
+	public void setCasillero(Casillero casillero) {
 		this.casillero = casillero;
 	}
 
-	public String getPropietario() {
+	public Jugador getPropietario() {
 		return propietario;
 	}
 
-	public void setPropietario(String propietario) {
+	public void setPropietario(Jugador propietario) {
 		this.propietario = propietario;
 	}
 
@@ -64,5 +67,4 @@ public abstract class Entidad extends Observable {
 	public void setDanio(int danio) {
 		this.danio = danio;
     }
-    
 }
