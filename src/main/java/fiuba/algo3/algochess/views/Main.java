@@ -1,6 +1,5 @@
-package fiuba.algo3.Vista.Main;
+package fiuba.algo3.algochess.views;
 
-import fiuba.algo3.Vista.Juego.VistaJuego;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -10,14 +9,9 @@ public class Main extends Application {
         launch(args);
     }
 
-    public void start(Stage theStage) {
-        theStage.setTitle("AlgoChess");
-        
-        ReproductorMusica reproductor = new ReproductorMusica();
-        reproductor.reproducirMusica();
-
-        new AlgoChessView(theStage);
-
-        theStage.show();
-    }
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		
+		
+	}
 }

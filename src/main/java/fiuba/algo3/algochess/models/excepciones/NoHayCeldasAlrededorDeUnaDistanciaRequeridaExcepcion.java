@@ -1,4 +1,4 @@
-package fiuba.algo3.Modelado.Excepciones;
+package fiuba.algo3.algochess.models.excepciones;
 
 public class NoHayCeldasAlrededorDeUnaDistanciaRequeridaExcepcion extends RuntimeException {
 
