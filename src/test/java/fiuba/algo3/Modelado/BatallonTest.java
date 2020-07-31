@@ -3,30 +3,10 @@ package fiuba.algo3.Modelado;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Test;
-
-import fiuba.algo3.Modelado.Bandos.Aliado;
-import fiuba.algo3.Modelado.Bandos.Enemigo;
-import fiuba.algo3.Modelado.Direccion.Abajo;
-import fiuba.algo3.Modelado.Direccion.AbajoDerecha;
-import fiuba.algo3.Modelado.Direccion.AbajoIzquierda;
-import fiuba.algo3.Modelado.Direccion.Arriba;
-import fiuba.algo3.Modelado.Direccion.ArribaDerecha;
-import fiuba.algo3.Modelado.Direccion.ArribaIzquierda;
-import fiuba.algo3.Modelado.Direccion.Derecha;
-import fiuba.algo3.Modelado.Direccion.Izquierda;
-import fiuba.algo3.Modelado.Entidades.Batallon;
-import fiuba.algo3.Modelado.Entidades.Entidad;
-import fiuba.algo3.Modelado.Entidades.Soldado;
-import fiuba.algo3.Modelado.Excepciones.BatallonYaPoseeBandoYPosicionesExcepcion;
-import fiuba.algo3.Modelado.Excepciones.CasilleroOcupadoExcepcion;
-import fiuba.algo3.Modelado.Jugador.Jugador;
-import fiuba.algo3.Modelado.Tablero.Posicion;
-
 
 
 public class BatallonTest {
-	@Test
+	/*@Test
 	public void batallonSeCreaCorrectamente() {
 		
 		Aliado aliado = new Aliado();
@@ -662,5 +642,6 @@ public class BatallonTest {
 		
 		assertEquals(batallon.getPosicion(),posicion3);
 	}
+*/
 }
 

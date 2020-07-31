@@ -5,14 +5,8 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import fiuba.algo3.Modelado.Bandos.Aliado;
-import fiuba.algo3.Modelado.Direccion.Arriba;
-import fiuba.algo3.Modelado.Entidades.ObjetoNull;
-import fiuba.algo3.Modelado.Excepciones.ObjetoNuloNoPuedeRealizarNingunaAccionExcepcion;
-import fiuba.algo3.Modelado.Tablero.Posicion;
-
 public class ObjetoNullTest {
-	
+	/*
 	@Test
 	public void objetoNuloNoPuedeReponerVida() {
 		
@@ -137,4 +131,5 @@ public class ObjetoNullTest {
 		}
 		assertTrue(respuesta);
 	}
+	*/
 }
